@@ -1,8 +1,13 @@
-import React from 'react';
+import React from "react";
+import Appbar from "../../component/appbar";
 
 class component extends React.Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <Appbar title="home" />
+      </div>
+    );
   }
 }
 

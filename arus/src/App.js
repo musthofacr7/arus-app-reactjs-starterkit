@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Switch, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Riwayat from './pages/riwayat';
+import Login from './pages/login';
+import PilihLocket from './pages/pilihLoket';
+import SplashScreen from './pages/splashScreen';
+class App extends React.Component {
+  render() {
+    return (
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/riwayat" exact component={Riwayat} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/pilih-locket" exact component={PilihLocket} />
+        <Route path="/splashscreen" exact component={SplashScreen} />
+      </Switch>
+    );
+  }
 }
 
 export default App;

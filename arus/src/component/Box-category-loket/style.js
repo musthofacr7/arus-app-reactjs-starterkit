@@ -1,0 +1,96 @@
+const Style = {
+  BoxMain: {
+    // position: 'absolute',
+    width: '328px',
+    height: '119px',
+    left: '16px',
+    top: '78px',
+    background: '#FFFFFF',
+    border: '1px solid #F1F1F1',
+    boxSizing: 'border-box',
+    borderRadius: '8px',
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  BoxLoket: {
+    background: '#E9F9F8',
+    border: ' 1px solid #26CAC0',
+    boxSizing: 'border-box',
+    borderRadius: '8px',
+    // position: 'absolute',
+    width: '86px',
+    height: '86px',
+    left: '37px',
+    // top: '13px',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  },
+  TypographyLoket: {
+    fontfamily: 'Google-Sans',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    fontSize: '14px',
+    lineHeight: '18px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textalign: 'center',
+    color: '#26CAC0',
+    justifyContent: 'center'
+  },
+  TypographyLoketCategory: {
+    fontfamily: 'Google-Sans',
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: '48px',
+    lineHeight: '61px',
+    display: 'flex',
+    flexDirection: 'column',
+    //   flex: 3,
+    alignItems: 'center',
+    textalign: 'center',
+    color: '#26CAC0',
+    justifyContent: 'center'
+  },
+  TypographyNomorAntrian: {
+    paddingTop: '12px',
+    fontfamily: 'Nunito-Sans',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: '11.4px',
+    lineheight: '16px',
+    display: 'flex',
+    alignItems: 'center',
+    color: '#9E9E9E',
+    width: '123px',
+    height: '16px'
+  },
+  TypographyNomorAntrianSaatIni: {
+    paddingTop: '0px',
+    fontfamily: 'Google-Sans',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    fontSize: '16px',
+    lineheight: '20px',
+    display: 'flex',
+    alignItems: 'center',
+    color: '#F7A647',
+    width: '123px',
+    height: '16px'
+  },
+  TypographyNomorAntrianTerakhir: {
+    paddingTop: '2px',
+    fontfamily: 'Google-Sans',
+    fontStyle: 'normal',
+    fontWeight: 500,
+    fontSize: '16px',
+    lineheight: '20px',
+    display: 'flex',
+    alignItems: 'center',
+    color: '#25282B',
+    width: '123px',
+    height: '16px'
+  }
+};
+export default Style;

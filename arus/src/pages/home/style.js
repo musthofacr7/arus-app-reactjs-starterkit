@@ -13,22 +13,23 @@ const Style = {
   },
   gridContainer: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'row'
   },
-  gridUpper: {
+  gridOne: {
     display: 'flex',
-
     background: '#26CAC0',
     maxWidth: '100%',
-    zIndex: 'auto'
+    padding: 10,
+    paddingBottom: 50
   },
-  gridBottom: {
+  gridTwo: {
     display: 'flex',
-    justifyContent: 'center',
-    maxWidth: '100%',
-    zIndex: 1,
-    flexDirection: 'column'
-    
+
+    // maxWidth: '100%',
+    // zIndex: 1,
+    flexDirection: 'column',
+    marginTop: '-15%',
+    width: '328px'
   },
 
   containerProfil: {
@@ -37,33 +38,41 @@ const Style = {
   image: {
     maxWidth: '100%'
   },
-  name: {
+  gridName: {
     maxWidth: '100%'
-    // paddingTop: 13
+  },
+  name: {
+    fontSize: '16px',
+    color: '#FFFFFF'
+  },
+  nik: {
+    color: '#FFFFFF',
+    fontSize: '12px'
   },
   antrian: {
     background: 'white',
-    zIndex: 1,
     borderRadius: 8,
-    padding: 20,
+    padding: 30,
     display: 'flex',
     flexDirection: 'column',
-    width: 328,
-    justifyContent: 'center'
-    // alignItems: 'center',
+    margin: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   gridText: {
-    maxWidth: '100%'
+    maxWidth: '100%',
+   
   },
   nomorAntrian: {
     color: '#25282B',
     fontSize: 16,
-    fontFamily: 'Google Sans',
+    // fontFamily: 'Google Sans',
     fontWeight: 'bold',
     lineHeight: '20px'
   },
   gridNumb: {
-    maxWidth: '100%'
+    maxWidth: '100%',
+    padding:20
   },
   nomor: {
     // paddingTop: 34,
@@ -73,20 +82,23 @@ const Style = {
     fontFamily: 'Nunito Sans'
   },
   locket: {
-    // paddingTop: 6,
+    
     color: '#9E9E9E',
     fontFamily: 'Nunito Sans',
     fontWeight: 600,
-    fontSize: '18px'
+    fontSize: '18px',
+    
   },
   gridLocket: {
-    maxWidth: '100%'
+    maxWidth: '100%',
+    padding: 0
+  
   },
 
   box: {
     background: '#E9F9F8',
     border: '0.5px solid #26CAC0',
-    borderRadius: '3px',
+    borderRadius: '8px',
     borderSizing: 'border-box',
     width: 284
   },
@@ -121,10 +133,11 @@ const Style = {
   link: {
     textDecoration: 'none'
   },
-  gridContent: {
+  contentTwo: {
     alignItems: 'center',
     flexDirection: 'column',
-    display: 'flex'
+    display: 'flex',
+    maxWidth: '100%'
 
     // padding: 20
   },

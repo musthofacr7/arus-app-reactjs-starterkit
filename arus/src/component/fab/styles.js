@@ -17,7 +17,9 @@ const styles = {
     backgroundColor: "#26CAC0"
   },
   icon: {
-    color: "#ffffff"
+    color: "#ffffff",
+    alignItems: "center",
+    display: "flex"
   }
 };
 

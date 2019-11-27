@@ -7,6 +7,7 @@ import {
   CssBaseline
 } from "@material-ui/core";
 import AppBar from "../../component/appbar";
+import BottomNavigation from "../../component/bottom-navigation";
 
 class component extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class component extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="xs" className={classes.container}>
-          <AppBar goBack title="Riwayat Kunjungan" />
+          <AppBar title="Riwayat Kunjungan" />
 
           <Grid container spacing={0} style={{ paddingTop: "15%" }}>
             <Grid item xs={12} className={classes.gridTop}>
@@ -93,6 +94,8 @@ class component extends React.Component {
               </Grid>
             </Grid>
           </Grid>
+
+          <BottomNavigation />
         </Container>
       </React.Fragment>
     );

@@ -23,7 +23,8 @@ const Style = {
   name: {
     color: "#25282B",
     fontSize: "16px",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    textDecoration: "none"
   },
   gridLeft: {
     display: "flex",

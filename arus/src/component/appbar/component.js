@@ -44,6 +44,10 @@ class Component extends React.Component {
         this.props.history.push("/list-anggota");
         break;
 
+      case "/detail-anggota-keluarga":
+        this.props.history.push("/list-anggota");
+        break;
+
       default:
         this.props.history.goBack();
         break;

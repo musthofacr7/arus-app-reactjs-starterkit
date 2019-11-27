@@ -19,7 +19,9 @@ class component extends React.Component {
             </Link>
           </Grid>
           <Grid item xs={12} className={classes.gridLeftBottom}>
-            <Typography className={classes.name}>Samantha William</Typography>
+            <Link to="/detail-anggota-keluarga" className={classes.name}>
+              Samantha William
+            </Link>
           </Grid>
         </Grid>
       </Grid>

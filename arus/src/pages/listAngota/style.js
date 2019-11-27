@@ -8,7 +8,7 @@ const Style = {
     display: "flex",
     flexDirection: "column",
     marginTop: "15%",
-    paddingBottom: "20%"
+    paddingBottom: "10%"
   },
   link: {
     textDecoration: "none"

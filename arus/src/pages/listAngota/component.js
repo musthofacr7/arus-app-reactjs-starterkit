@@ -29,7 +29,6 @@ class component extends React.Component {
           <Grid item>
             <ListData />
           </Grid>
-
           <Grid item>
             <ListData />
           </Grid>
@@ -40,7 +39,6 @@ class component extends React.Component {
             <ListData />
           </Grid>
         </Grid>
-
         <FAB />
       </Container>
     );

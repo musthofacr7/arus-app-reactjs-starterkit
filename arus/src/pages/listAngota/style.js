@@ -20,6 +20,14 @@ const Style = {
   },
   link: {
     textDecoration: 'none'
+  },
+  plus: {
+    // marginBottom: 120,
+    backgroundColor: '#26CAC0',
+    position: 'absolute',
+    display: 'flex',
+   
+    bottom: 80
   }
 };
 export default Style;

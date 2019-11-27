@@ -9,6 +9,7 @@ import Profile from "./pages/profil";
 import EditProfile from "./pages/editProfile";
 import ListAnggota from "./pages/listAngota";
 import DetailKeluarga from "./pages/detail-anggota-keluarga";
+import AddAnggotaKeluarga from "./pages/add-anggota-keluarga";
 class App extends React.Component {
   render() {
     return (
@@ -21,6 +22,7 @@ class App extends React.Component {
         <Route path="/profil" exact component={Profile} />
         <Route path="/edit-profil" exact component={EditProfile} />
         <Route path="/list-anggota" exact component={ListAnggota} />
+        <Route path="/add-keluarga" exact component={AddAnggotaKeluarga} />
         <Route
           path="/detail-anggota-keluarga"
           exact

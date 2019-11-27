@@ -57,11 +57,10 @@ const Style = {
     flexDirection: 'column',
     margin: 'auto',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   gridText: {
-    maxWidth: '100%',
-   
+    maxWidth: '100%'
   },
   nomorAntrian: {
     color: '#25282B',
@@ -72,7 +71,7 @@ const Style = {
   },
   gridNumb: {
     maxWidth: '100%',
-    padding:20
+    padding: 20
   },
   nomor: {
     // paddingTop: 34,
@@ -82,17 +81,14 @@ const Style = {
     fontFamily: 'Nunito Sans'
   },
   locket: {
-    
     color: '#9E9E9E',
     fontFamily: 'Nunito Sans',
     fontWeight: 600,
-    fontSize: '18px',
-    
+    fontSize: '18px'
   },
   gridLocket: {
     maxWidth: '100%',
     padding: 0
-  
   },
 
   box: {
@@ -121,10 +117,9 @@ const Style = {
     // marginTop: 20,
     // maxWidth: '100%',
     // margin: 'auto',
-    flexDirection: 'column',
+    // flexDirection: 'row',
     display: 'flex',
 
-    // width: 328,
     // margin: 20,
     display: 'flex',
     justifyContent: 'center',
@@ -133,19 +128,22 @@ const Style = {
   link: {
     textDecoration: 'none'
   },
-  contentTwo: {
-    alignItems: 'center',
-    flexDirection: 'column',
-    display: 'flex',
-    maxWidth: '100%'
 
-    // padding: 20
-  },
   ambilNomor: {
     color: '#000000',
     fontfamily: 'Nunito Sans',
     fontWeight: 500,
     fontSize: 14
+  },
+  contentTwo: {
+    background: 'white',
+    borderRadius: 8,
+    // padding: 30,
+    // display: 'flex',
+    width: '328px',
+padding: 0,
+    marginTop: 10,
+    margin: 'auto'
   }
 };
 export default Style;

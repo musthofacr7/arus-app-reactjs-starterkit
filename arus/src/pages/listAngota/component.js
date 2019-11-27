@@ -10,54 +10,38 @@ import {
   Button
 } from '@material-ui/core';
 import AppBar from '../../component/appbar';
-import BoxCategoryLocket from '../../component/Box-category-loket';
+import BoxLoket from '../../component/Box-category-loket';
 import BottomNavigation from '../../component/bottom-navigation';
 import { Link } from 'react-router-dom';
 import Modal from '../../component/modal';
 
 class component extends React.Component {
-  state = {
-    open: false
-  };
-
-  handleOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
   render() {
     const { classes } = this.props;
 
     return (
       <Container maxWidth="xs" className={classes.Container}>
-        <AppBar goBack title="Pilih Loket Antrian" />
+        <AppBar goBack title="Anggota Keluarga" />
 
         <Grid container spacing={4} className={classes.gridUpper}>
           <Link className={classes.link} onClick={this.handleOpen}>
             <Grid item>
-              <BoxCategoryLocket />
+              <BoxLoket />
             </Grid>
             {/* <Dialog></Dialog> */}
           </Link>
           <Link className={classes.link} onClick={this.handleOpen}>
             <Grid item>
-              <BoxCategoryLocket />
+              <BoxLoket />
             </Grid>
           </Link>
           <Link className={classes.link} onClick={this.handleOpen}>
             <Grid item>
-              <BoxCategoryLocket />
+              <BoxLoket />
             </Grid>
           </Link>
         </Grid>
-        <Modal
-          open={this.state.open}
-          handleOpen={this.handleOpen}
-          handleClose={this.handleClose}
-        />
+
         <BottomNavigation />
       </Container>
     );

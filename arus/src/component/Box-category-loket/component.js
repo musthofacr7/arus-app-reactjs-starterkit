@@ -5,46 +5,27 @@ class component extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Box className={classes.BoxMain}>
-        <Grid
-          container
-          spacing={2}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            paddingLeft: 30
-          }}
-        >
-          <Grid item>
-            <BoxLogoLoket />
-          </Grid>
-          <Grid item>
-            <Grid
-              container
-              style={{ display: 'flex', flexDirection: 'column' }}
-            >
-              <Grid item>
-                <Typography className={classes.TypographyNomorAntrian}>
-                  Nomor Antrian Saat ini
-                </Typography>
-              </Grid>
-
-              <Typography className={classes.TypographyNomorAntrianSaatIni}>
-                124 A
+      <Grid container spacing={0} className={classes.gridContainer}>
+        <Grid item xs={5} className={classes.gridLeft}>
+          <BoxLogoLoket />
+        </Grid>
+        <Grid item xs={7} className={classes.gridRight}>
+          <Grid container spacing={0} className={classes.itemRight}>
+            <Grid item xs className={classes.topGridRight}>
+              <Typography className={classes.nomorAntrian}>
+                Nomor Antrian Saat ini
               </Typography>
-              <Grid item>
-                <Typography className={classes.TypographyNomorAntrian}>
-                  Nomor Antrian Terakhir
-                </Typography>
-                <Typography className={classes.TypographyNomorAntrianTerakhir}>
-                  124 A
-                </Typography>
-              </Grid>
+              <Typography className={classes.nomorSekarang}> 12 A </Typography>
+            </Grid>
+            <Grid item xs className={classes.bottomGridRight}>
+              <Typography className={classes.nomorAntrian}>
+                Nomor Antrian Terakhir
+              </Typography>
+              <Typography className={classes.nomorTerakhir}> 102 A</Typography>
             </Grid>
           </Grid>
         </Grid>
-      </Box>
+      </Grid>
     );
   }
 }

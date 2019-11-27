@@ -1,5 +1,4 @@
 import React from "react";
-// import Appbar from "../../component/appbar";
 import BottomNavigation from "../../component/bottom-navigation";
 import { Container, Grid, Box, Typography } from "@material-ui/core";
 import BoxPilihLoket from "../../component/Box-category-loket";
@@ -10,197 +9,62 @@ class component extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container maxWidth="xs" className={classes.Container}>
-        <Grid
-          align="center"
-          container
-          spacing={0}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            flex: 3
-          }}
-        >
-          <Grid
-            xs={2}
-            style={{
-              background: "#26CAC0",
-              maxWidth: "100%"
-            }}
-            align="center"
-          >
+      <Container maxWidth="xs" className={classes.container}>
+        <Grid container spacing={0} className={classes.container}>
+          <Grid item xs={3} className={classes.gridUpper}>
             <Grid
               container
               spacing={0}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "row",
-                paddingTop: "10%"
-              }}
+              align="center"
+              className={classes.containerProfil}
             >
-              <Grid
-                xs={6}
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  alignItems: "center"
-                }}
-              >
-                <img src={Profile} style={{ paddingLeft: "20%" }} />
+              <Grid item xs={3} className={classes.image} align="center">
+                <img src={Profile} />
               </Grid>
-              <Grid
-                xs={6}
-                style={{
-                  display: "flex",
-                  justifyContent: "center"
-                }}
-              >
+              <Grid item xs={4} className={classes.name} align="center">
                 Kina Gatie Putri
               </Grid>
             </Grid>
           </Grid>
-          <Grid
-            xs={2}
-            style={{
-              background: "white",
-              maxWidth: "100%",
-              marginTop: "-10%",
-              width: 328,
-              display: "flex",
-              justifyContent: "center",
-              borderRadius: 8,
-              paddingBottom: 21
-            }}
-          >
-            {/* <Box> */}
-            <Grid
-              align="center"
-              Container
-              spacing={0}
-              style={{ paddingTop: 23 }}
-            >
-              <Grid item xs={4} style={{ maxWidth: "100%" }}>
-                <Typography
-                  style={{
-                    color: "#25282B",
-                    fontSize: 16,
-                    fontFamily: "Google Sans",
-                    fontWeight: "bold",
-                    lineHeight: "20px"
-                  }}
-                >
+          <Grid align="center" item xs={6} className={classes.gridBottom}>
+            <Grid spacing={0} className={classes.antrian}>
+              <Grid item xs={6} className={classes.gridText}>
+                <Typography className={classes.nomorAntrian}>
                   Nomor Antrian Anda
                 </Typography>
               </Grid>
-              <Grid item xs={4} style={{ maxWidth: "100%" }}>
-                <Typography
-                  style={{
-                    paddingTop: 34,
-                    color: "#26CAC0",
-                    fontSize: 40,
-                    fontWeight: "bold",
-                    fontFamily: "Nunito Sans"
-                  }}
-                >
-                  12 A
-                </Typography>
+              <Grid item xs={4} className={classes.gridNumb}>
+                <Typography className={classes.nomor}>12 A</Typography>
               </Grid>
-              <Grid item xs={4} style={{ maxWidth: "100%" }}>
-                <Typography
-                  style={{
-                    paddingTop: 6,
-                    color: "#9E9E9E",
-                    fontFamily: "Nunito Sans",
-                    fontWeight: 600,
-                    fontSize: "18px"
-                  }}
-                >
-                  Locket A
-                </Typography>
-              </Grid>
-              <Grid item xs={4} style={{ maxWidth: "100%", marginTop: 29 }}>
-                <Box
-                  align="center"
-                  style={{
-                    background: "#E9F9F8",
-                    border: "0.5px solid #26CAC0",
-                    borderRadius: "3px",
-                    borderSizing: "border-box",
-                    width: 284
-                  }}
-                >
-                  <Typography
-                    style={{
-                      fontFamily: "Nunito Sans",
-                      fontStyle: "normal",
-                      fontSize: "12px",
-                      lineHeight: "16px",
-                      color: "#9E9E9E"
-                    }}
-                  >
+              <Grid item xs={4} className={classes.gridLocket}>
+                <Typography className={classes.locket}>Locket A</Typography>
+                <Box align="center" className={classes.box}>
+                  <Typography className={classes.estimasi}>
                     Estimasi di panggil pukul
-                    <strong style={{ color: "black" }}> 14:00 </strong>WIB
+                    <strong className={classes.waktu}> 14:00 </strong>WIB
                   </Typography>
                 </Box>
               </Grid>
+              <Grid item xs={0}></Grid>
             </Grid>
-            {/* </Box> */}
-          </Grid>
 
-          <Grid
-            xs={2}
-            style={{
-              background: "white",
-              maxWidth: "100%",
-              marginTop: 20,
-              maxWidth: "100%",
-              // margin: 'auto',
-
-              width: 328,
-              // margin: 20,
-              display: "flex",
-              justifyContent: "center",
-              borderRadius: 8
-            }}
-          >
-            <Link to="/pilih-locket">
-              <Grid container spacing={0}>
-                <Grid item xs={3}>
-                  <img
-                    // align="center"
-                    src={AmbilAntrianIcon}
-                    style={{
-                      background: "#FFFFFF",
-                      border: "1px solid #F1F1F1",
-                      boxSizing: " border-box",
-                      borderRadius: "20px",
-                      height: 108,
-                      left: 16,
-                      margin: "auto",
-                      marginLeft: 38,
-                      paddingTop: 20
-                    }}
-                  />
+            <Grid item xs={6} className={classes.gridLink}>
+              <Link to="/pilih-locket" className={classes.link}>
+                <Grid container spacing={0} className={classes.gridContent}>
+                  <Grid item xs={2}>
+                    <img src={AmbilAntrianIcon} />
+                  </Grid>
+                  <Grid item xs={10}>
+                    <Typography className={classes.ambilNomor}>
+                      Ambil Nomor Antrian
+                    </Typography>
+                  </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                  <Typography
-                    style={{
-                      color: "#000000",
-                      fontFamily: "Nunito Sans",
-                      fontWeight: 500,
-                      fontSize: 14,
-                      marginTop: "24%",
-                      marginLeft: "64%"
-                    }}
-                  >
-                    Ambil Nomor Antrian
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Link>
+              </Link>
+            </Grid>
           </Grid>
         </Grid>
+
         <BottomNavigation />
       </Container>
     );

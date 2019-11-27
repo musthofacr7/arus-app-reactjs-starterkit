@@ -52,23 +52,26 @@ class component extends React.Component {
               </Grid>
               <Grid item xs={0}></Grid>
             </Grid>
-
-            <Grid item xs={6} className={classes.gridLink}>
-              <Link to="/pilih-loket" className={classes.link}>
-                <Grid container spacing={0} className={classes.gridContent}>
-                  <Grid item xs={2}>
-                    <img src={AmbilAntrianIcon} />
-                  </Grid>
-                  <Grid item xs={10}>
-                    <Typography className={classes.ambilNomor}>
-                      Ambil Nomor Antrian
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Link>
-            </Grid>
+          <Grid item xs={7} className={classes.contentTwo} align="center">
+            {/* <Grid item xs={6} className={classes.gridLocket}> */}
+            <Link to="/pilih-locket" className={classes.link}>
+              {/* <Grid container spacing={0} className={classes.contentTwo}> */}
+              <Grid item xs={6}>
+                <img src={AmbilAntrianIcon} />
+              </Grid>
+              <Grid item xs={6}>
+                <Typography className={classes.ambilNomor}>
+                  Ambil Nomor Antrian
+                </Typography>
+              </Grid>
+              {/* </Grid> */}
+            </Link>
+            {/* </Grid> */}
+            <Grid item xs={0}></Grid>
           </Grid>
         </Grid>
+        </Grid>
+
 
         <BottomNavigation />
       </Container>

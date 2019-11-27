@@ -1,19 +1,10 @@
-import React from 'react';
-import {
-  Container,
-  Typography,
-  Grid,
-  Box,
-  List,
-  ListItem,
-  Dialog,
-  Button
-} from '@material-ui/core';
-import AppBar from '../../component/appbar';
-import BoxCategoryLocket from '../../component/Box-category-loket';
-import BottomNavigation from '../../component/bottom-navigation';
-import { Link } from 'react-router-dom';
-import Modal from '../../component/modal';
+import React from "react";
+import { Container, Grid } from "@material-ui/core";
+import AppBar from "../../component/appbar";
+import BoxCategoryLocket from "../../component/Box-category-loket";
+import BottomNavigation from "../../component/bottom-navigation";
+import { Link } from "react-router-dom";
+import Modal from "../../component/modal";
 
 class component extends React.Component {
   state = {
@@ -40,7 +31,21 @@ class component extends React.Component {
             <Grid item>
               <BoxCategoryLocket />
             </Grid>
-            {/* <Dialog></Dialog> */}
+          </Link>
+          <Link className={classes.link} onClick={this.handleOpen}>
+            <Grid item>
+              <BoxCategoryLocket />
+            </Grid>
+          </Link>
+          <Link className={classes.link} onClick={this.handleOpen}>
+            <Grid item>
+              <BoxCategoryLocket />
+            </Grid>
+          </Link>
+          <Link className={classes.link} onClick={this.handleOpen}>
+            <Grid item>
+              <BoxCategoryLocket />
+            </Grid>
           </Link>
           <Link className={classes.link} onClick={this.handleOpen}>
             <Grid item>

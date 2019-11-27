@@ -20,7 +20,7 @@ class component extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="xs" className={classes.Container}>
-          <AppBar goBack title="Profile" />
+          <AppBar title="Profile" />
 
           <Grid container spacing={0} className={classes.gridContainer}>
             <Grid item xs={12} className={classes.gridUpper}>

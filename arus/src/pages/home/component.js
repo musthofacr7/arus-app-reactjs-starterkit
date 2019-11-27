@@ -49,7 +49,7 @@ class component extends React.Component {
             </Grid>
 
             <Grid item xs={6} className={classes.gridLink}>
-              <Link to="/pilih-locket" className={classes.link}>
+              <Link to="/pilih-loket" className={classes.link}>
                 <Grid container spacing={0} className={classes.gridContent}>
                   <Grid item xs={2}>
                     <img src={AmbilAntrianIcon} />

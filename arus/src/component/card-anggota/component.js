@@ -14,7 +14,7 @@ class component extends React.Component {
             </Typography>
           </Grid>
           <Grid item xs={6} className={classes.gridRight}>
-            <Link to="/edit-data-keluarga" className={classes.links}>
+            <Link to="/edit-profil-keluarga" className={classes.links}>
               Edit
             </Link>
           </Grid>

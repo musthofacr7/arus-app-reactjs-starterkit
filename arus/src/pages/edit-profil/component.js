@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Container,
   Grid,
@@ -6,13 +6,10 @@ import {
   TextField,
   Button,
   CssBaseline
-} from '@material-ui/core';
-import Profile from '../../assets/Ellipse 8.png';
-import BottomNavigation from '../../component/bottom-navigation';
-import AppBar from '../../component/appbar';
-import { Link } from 'react-router-dom';
-import User from '../../assets/users.png';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+} from "@material-ui/core";
+import Profile from "../../assets/Ellipse 8.png";
+import AppBar from "../../component/appbar";
+import { Link } from "react-router-dom";
 class component extends React.Component {
   render() {
     const { classes } = this.props;
@@ -52,9 +49,9 @@ class component extends React.Component {
                 <Button
                   variant="contained"
                   disableRipple={true}
-                  style={{ backgroundColor: '#F7A647' }}
+                  style={{ backgroundColor: "#F7A647" }}
                   className={classes.button}
-                  onClick={() => alert('Anda yakin melakukan perubahan ')}
+                  onClick={() => alert("Anda yakin melakukan perubahan ")}
                 >
                   <Typography className={classes.save}>
                     Simpan Perubahan
@@ -63,8 +60,6 @@ class component extends React.Component {
               </Grid>
             </Grid>
           </Grid>
-
-          <BottomNavigation />
         </Container>
       </React.Fragment>
     );

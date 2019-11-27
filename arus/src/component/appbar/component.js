@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { withStyles } from '@material-ui/core/styles';
-import styles from './styles';
-import { withRouter } from 'react-router-dom';
-import queryString from 'query-string';
-import SearchIcon from '@material-ui/icons/Search';
-import Box from '@material-ui/core/Box';
+import React from "react";
+import PropTypes from "prop-types";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import InputBase from "@material-ui/core/InputBase";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./styles";
+import { withRouter } from "react-router-dom";
+import queryString from "query-string";
+import SearchIcon from "@material-ui/icons/Search";
+import Box from "@material-ui/core/Box";
 
 class Component extends React.Component {
   goBack = () => {
@@ -24,20 +24,24 @@ class Component extends React.Component {
     }
 
     switch (this.props.match.path) {
-      case '/detail-bantuan':
-        this.props.history.push('/bantuan');
+      case "/riwayat":
+        this.props.history.push("/");
         break;
 
-      case '/detail-berita':
-        this.props.history.push('/semua-berita');
+      case "/pilih-loket":
+        this.props.history.push("/");
         break;
 
-      case '/semua-berita':
-        this.props.history.push('/');
+      case "/edit-profil":
+        this.props.history.push("/profil");
         break;
 
-      case '/search':
-        this.props.history.push('/');
+      case "/list-anggota":
+        this.props.history.push("/profil");
+        break;
+
+      case "/edit-profil-keluarga":
+        this.props.history.push("/list-anggota");
         break;
 
       default:
@@ -58,7 +62,8 @@ class Component extends React.Component {
                 edge="start"
                 className={classes.menuButton}
                 aria-label="Menu"
-                onClick={this.goBack}>
+                onClick={this.goBack}
+              >
                 <ArrowBackIcon />
               </IconButton>
             )}
@@ -67,8 +72,9 @@ class Component extends React.Component {
               <div
                 className={classes.search}
                 onClick={() => {
-                  this.props.history.push('/product-search');
-                }}>
+                  this.props.history.push("/product-search");
+                }}
+              >
                 <div className={classes.searchIcon}>
                   <SearchIcon />
                 </div>
@@ -78,7 +84,7 @@ class Component extends React.Component {
                     root: classes.inputRoot,
                     input: classes.inputInput
                   }}
-                  inputProps={{ 'aria-label': 'Search' }}
+                  inputProps={{ "aria-label": "Search" }}
                 />
               </div>
             ) : (
@@ -102,7 +108,7 @@ Component.propTypes = {
 };
 
 Component.defaultProps = {
-  title: ''
+  title: ""
 };
 
 export default withRouter(withStyles(styles)(Component));

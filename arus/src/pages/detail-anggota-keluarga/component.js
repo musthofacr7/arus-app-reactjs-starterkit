@@ -60,15 +60,7 @@ class component extends React.Component {
               </Grid>
             </Grid>
 
-            <Grid
-              item
-              xs={12}
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                paddingTop: "50%"
-              }}
-            >
+            <Grid item xs={12} className={classes.gridButton}>
               <Box className={classes.buttonBox}>
                 <Button
                   disableRipple={true}

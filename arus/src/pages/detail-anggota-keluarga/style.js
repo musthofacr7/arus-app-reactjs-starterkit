@@ -39,6 +39,11 @@ const Style = {
     flexDirection: "column",
     display: "flex",
     alignItems: "center"
+  },
+  gridButton: {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "50%"
   }
 };
 export default Style;

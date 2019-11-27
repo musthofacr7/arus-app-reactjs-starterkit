@@ -43,7 +43,7 @@ export default function SimpleModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
-  const { open, handleOpen, handleClose } = props;
+  const { open, handleClose } = props;
   return (
     <Modal
       aria-labelledby="simple-modal-title"
@@ -54,7 +54,7 @@ export default function SimpleModal(props) {
       <div style={modalStyle} className={classes.paper}>
         <Grid container align="center" className={classes.container}>
           <Grid item>
-            <img src={IconPopUp} align="center" />
+            <img src={IconPopUp} align="center" alt="icon"/>
           </Grid>
           <Grid item>
             <Typography className={classes.question}>

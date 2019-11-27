@@ -1,9 +1,9 @@
-import React from "react";
-import { Container, Typography, Grid, Fab } from "@material-ui/core";
-import AppBar from "../../component/appbar";
-import BottomNavigation from "../../component/bottom-navigation";
-import ListData from "../../component/card-anggota";
-import FAB from "../../component/fab";
+import React from 'react';
+import { Container, Grid } from '@material-ui/core';
+import AppBar from '../../component/appbar';
+
+import ListData from '../../component/card-anggota';
+import FAB from '../../component/fab';
 
 class component extends React.Component {
   render() {

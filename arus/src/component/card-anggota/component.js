@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Grid, Box } from "@material-ui/core";
+import { Typography, Grid,} from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 class component extends React.Component {

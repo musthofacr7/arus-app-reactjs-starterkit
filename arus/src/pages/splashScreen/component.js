@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Box, Typography } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import Ecclipse from '../../assets/Ellipse.png';
 import Logo from '../../assets/Group 27.png';
 class component extends React.Component {
@@ -8,6 +8,7 @@ class component extends React.Component {
     return (
       <Container maxWidth="xs" className={classes.Container}>
         <img
+          alt="ecclipse"
           src={Ecclipse}
           style={{
             marginTop: '50%',
@@ -18,6 +19,7 @@ class component extends React.Component {
           }}
         />
         <img
+          alt="logo"
           src={Logo}
           style={{
             marginLeft: '50%',

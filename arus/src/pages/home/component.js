@@ -17,7 +17,7 @@ class component extends React.Component {
               className={classes.containerProfil}
             >
               <Grid item xs={2} className={classes.image} align="center">
-                <img src={Profile} />
+                <img src={Profile} alt="avatar"/>
               </Grid>
               <Grid item xs={0} className={classes.gridName} align="center">
                 <Typography className={classes.name}>

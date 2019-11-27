@@ -36,7 +36,7 @@ const Style = {
     backgroundColor: "#F7A647",
     borderRadius: "4px",
     color: "#ffffff",
-    fontFamily: "Google Sans, sans-serif",
+    
     fontSize: "14px"
   },
   buttonBox: {

@@ -25,7 +25,7 @@ class component extends React.Component {
             className={classes.gridContainer}
           >
             <Grid item xs={12} className={classes.gridAvatar}>
-              <img src={Profile} className={classes.image} />
+              <img src={Profile} className={classes.image} alt="avatar" />
             </Grid>
             <Grid item xs={12} className={classes.gridEdit}>
               <Link className={classes.link} onClick={()=> alert('ganti foto?')}>

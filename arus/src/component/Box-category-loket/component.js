@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, Box } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import BoxLogoLoket from '../logo-locket';
 class component extends React.Component {
   render() {

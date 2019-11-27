@@ -11,7 +11,7 @@ class component extends React.Component {
       <Container maxWidth="xs" className={classes.container}>
         <Grid className={classes.container}>
           <Grid item xs={12} className={classes.gridItemTop}>
-            <img src={LoginImage} className={classes.image} />
+            <img src={LoginImage} className={classes.image} alt="login" />
           </Grid>
 
           <Grid item xs={12} className={classes.gridItemBottom}>
@@ -29,7 +29,7 @@ class component extends React.Component {
                   >
                     <Grid container spacing={0}>
                       <Grid item xs={2} className={classes.gridButton}>
-                        <img src={GoogleLogo} className={classes.logoGoogle} />
+                        <img src={GoogleLogo} className={classes.logoGoogle} alt="google" />
                       </Grid>
 
                       <Grid item xs={10} className={classes.gridButton}>

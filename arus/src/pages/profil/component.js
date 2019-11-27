@@ -26,7 +26,7 @@ class component extends React.Component {
             <Grid item xs={12} className={classes.gridUpper}>
               <Grid container spacing={0} className={classes.containerProfil}>
                 <Grid item xs={2}>
-                  <img src={Profile} className={classes.image} />
+                  <img src={Profile} className={classes.image} alt="avatar"/>
                 </Grid>
                 <Grid item xs={5} className={classes.gridName} align="center">
                   <Typography className={classes.name}>
@@ -49,7 +49,7 @@ class component extends React.Component {
 
           <Grid container spacing={0} className={classes.gridTwo}>
             <Grid item xs={2} className={classes.icon}>
-              <img src={User} />
+              <img src={User} alt="user" />
             </Grid>
             <Grid item xs={5}>
               <Typography className={classes.text}>Anggota Keluarga</Typography>

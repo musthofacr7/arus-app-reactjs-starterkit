@@ -7,9 +7,7 @@ import { withRouter } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 
 const styles = {
-  root: {
-    width: "100%"
-  },
+  
   stickToBottom: {
     width: "100%",
     maxWidth: 446,
@@ -24,7 +22,9 @@ const styles = {
     "&$selected": {
       color: "#26CAC0",
       fill: "#26CAC0"
-    }
+    },
+    width: "100%"
+
   },
   selected: {}
 };

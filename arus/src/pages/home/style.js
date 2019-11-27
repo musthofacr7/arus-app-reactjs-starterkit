@@ -15,14 +15,14 @@ const Style = {
     display: 'flex',
     flexDirection: 'column'
   },
-  gridUpper: {
+  gridOne: {
     display: 'flex',
 
     background: '#26CAC0',
     maxWidth: '100%',
     
   },
-  gridBottom: {
+  gridTwo: {
     display: 'flex',
    
     maxWidth: '100%',

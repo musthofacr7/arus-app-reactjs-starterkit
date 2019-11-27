@@ -1,17 +1,18 @@
-import React from 'react';
+import React from "react";
 import {
   Container,
   Grid,
   Typography,
   CssBaseline,
-  Button
-} from '@material-ui/core';
-import Profile from '../../assets/Ellipse 8.png';
-import BottomNavigation from '../../component/bottom-navigation';
-import AppBar from '../../component/appbar';
-import { Link } from 'react-router-dom';
-import User from '../../assets/users.png';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+  Button,
+  Box
+} from "@material-ui/core";
+import Profile from "../../assets/Ellipse 8.png";
+import BottomNavigation from "../../component/bottom-navigation";
+import AppBar from "../../component/appbar";
+import { Link } from "react-router-dom";
+import User from "../../assets/users.png";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 class component extends React.Component {
   render() {
     const { classes } = this.props;
@@ -59,17 +60,17 @@ class component extends React.Component {
               </Link>
             </Grid>
             <Grid item xs={0} className={classes.arrow}></Grid>
-            <Grid item className={classes.outButton}>
+          </Grid>
+          <Grid item xs={12} className={classes.gridButton}>
+            <Box className={classes.buttonBox}>
               <Button
-                variant="contained"
                 disableRipple={true}
-                style={{ backgroundColor: '#FFFFFF' }}
+                id="submit-button"
                 className={classes.button}
-                onClick={() => alert('Anda yakin ingin keluar?')}
               >
-                <Typography className={classes.out}>Keluar</Typography>
+                Keluar
               </Button>
-            </Grid>
+            </Box>
           </Grid>
 
           <BottomNavigation />

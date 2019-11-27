@@ -5,6 +5,9 @@ import Riwayat from './pages/riwayat';
 import Login from './pages/login';
 import PilihLocket from './pages/pilihLoket';
 import SplashScreen from './pages/splashScreen';
+import Profile from './pages/profil'
+import EditProfile from './pages/editProfile'
+import ListAnggota from './pages/listAngota'
 class App extends React.Component {
   render() {
     return (
@@ -14,6 +17,9 @@ class App extends React.Component {
         <Route path="/login" exact component={Login} />
         <Route path="/pilih-locket" exact component={PilihLocket} />
         <Route path="/splashscreen" exact component={SplashScreen} />
+        <Route path="/profil" exact component={Profile} />
+        <Route path="/edit-profil" exact component={EditProfile} />
+        <Route path="/list-anggota" exact component={ListAnggota} />
       </Switch>
     );
   }

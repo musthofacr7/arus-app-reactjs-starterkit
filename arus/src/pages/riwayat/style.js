@@ -1,23 +1,4 @@
 const Style = {
-  AppBar: {
-    maxWidth: 448,
-    alignItems: 'center',
-    display: 'flex',
-    position: 'absolute',
-    justifyContent: 'center',
-    width: '100%',
-    flex: 1,
-    height: '62px',
-    background: '#FFFFFF'
-  },
-  ArrowBackIcon: {
-    color: 'black'
-    // position: 'absolute',
-    // width: '24px'
-    // height: '24px',
-    // left: '16px',
-    // top: '19px'
-  },
   Container: {
     width: '100%',
     height: '100vh',
@@ -30,6 +11,13 @@ const Style = {
     backgroundColor: '#F1F1F1',
     // margin: 0
     padding: 0
+  },
+  gridContent: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: '24%',
+    padding: 0,
+    marginTop: '11%'
   },
   riwayat: {
     fontfamily: 'Google Sans',
@@ -81,11 +69,14 @@ const Style = {
     // left: 0,
     background: '#FFFFFF',
     /* outline */
-    paddingTop: '1%',
+
     marginTop: 10,
     border: '1px solid #F1F1F1',
     boxsizing: 'border-box',
-    borderRadius: '8px'
+    borderRadius: '8px',
+
+    paddingTop: '1%',
+    marginTop: 10
   },
   GridTop: {
     paddingTop: '2%'
@@ -93,7 +84,23 @@ const Style = {
   GridBox: {
     alignItems: 'center'
   },
-  BoxList: {
+  gridUpper: {
+    borderRight: '1px solid #F1F1F1',
+    // borderimage: 'linear-gradient(#F1F1F1,#F1F1F1)',
+
+    borderBottomRightRadius: 40,
+    borderTopRightRadius: 40
+  },
+  gridMiddle: {
+    borderRight: '1px solid #F1F1F1',
+    borderBottomRightRadius: 40,
+    borderTopRightRadius: 40
+  },
+  gridBellow: {
+    borderRight: '1px solid #F1F1F1',
+    borderWidth: 1
+  },
+  content: {
     fontfamily: 'Nunito-Sans',
     fontStyle: 'normal',
     fontWeight: 'normal',
@@ -103,7 +110,7 @@ const Style = {
     alignItems: 'center',
     color: '#9E9E9E'
   },
-  BoxListInput: {
+  input: {
     fontfamily: 'Google Sans',
     fontStyle: 'normal',
     fontWeight: 500,
@@ -128,6 +135,19 @@ const Style = {
     lineHeight: '18px',
     display: 'flex',
     alignItems: 'center'
+  },
+  boxBorder: {
+    borderRight: '1px solid #F1F1F1',
+    borderWidth: 1
+  },
+  containerContent: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  gridContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: 30
   }
 };
 export default Style;

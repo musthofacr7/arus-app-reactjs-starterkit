@@ -16,8 +16,8 @@ const Style = {
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'white',
-
-    marginTop: '10%'
+    marginTop: '10%',
+    padding: 20
   },
   gridUpper: {
     lineBorder: '1px solid black'
@@ -82,17 +82,37 @@ const Style = {
     display: 'flex',
     justifyContent: 'flex-end'
   },
-  icon:{
+  icon: {
     width: 15
   },
-  text:{
+  text: {
     fontFamily: 'Nunito Sans',
-    fontSize: 14,
+    fontSize: 13
   },
- linkArrow:{
-  textDecoration: 'none',
-  color: '#000000'
+  linkArrow: {
+    textDecoration: 'none',
+    color: '#000000'
+  },
+  outButton: {
+    // width: '100%',
+    // display: 'flex',
+    bottom: 67,
+    position:'fixed',
 
- }
+    // padding: 20,
+  },
+  button: {
+    border: '1px solid #F7A647',
+    animation: 'none',
+    textTransform: 'capitalize',
+    width: 300,
+    height: 50
+  },
+  out: {
+    color: '#F7A647',
+    fontWeight: 500,
+    fontSize: '14px',
+    
+  }
 };
 export default Style;

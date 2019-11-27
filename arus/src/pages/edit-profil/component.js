@@ -28,7 +28,7 @@ class component extends React.Component {
               <img src={Profile} className={classes.image} />
             </Grid>
             <Grid item xs={12} className={classes.gridEdit}>
-              <Link className={classes.link}>
+              <Link className={classes.link} onClick={()=> alert('ganti foto?')}>
                 <Typography className={classes.ganti}> Ganti Foto</Typography>
               </Link>
             </Grid>

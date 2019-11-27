@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Typography,
   Grid,
@@ -6,11 +6,11 @@ import {
   Box,
   CssBaseline,
   Button
-} from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import AppBar from "../../component/appbar";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Radio from "@material-ui/core/Radio";
+} from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import AppBar from '../../component/appbar';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Radio from '@material-ui/core/Radio';
 
 class component extends React.Component {
   render() {
@@ -86,7 +86,7 @@ class component extends React.Component {
                 <Grid
                   item
                   xs={12}
-                  style={{ paddingBottom: "5%" }}
+                  style={{ paddingBottom: '5%' }}
                   className={classes.gridInputNIK}
                 >
                   <TextField
@@ -103,10 +103,13 @@ class component extends React.Component {
             <Grid item xs={12} className={classes.gridButton}>
               <Box className={classes.buttonBox}>
                 <Button
+                  onClick={() =>
+                    alert('Apakah anda yakin ingin melakukan perubahan?')
+                  }
                   disableRipple={true}
                   id="submit-button"
                   className={classes.button}
-                  style={{ backgroundColor: "#F7A647" }}
+                  style={{ backgroundColor: '#F7A647' }}
                 >
                   Simpan Perubahan
                 </Button>

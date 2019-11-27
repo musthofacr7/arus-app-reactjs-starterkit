@@ -126,10 +126,9 @@ const Style = {
     borderRadius: 8
   },
   link: {
-    textDecoration: 'none',
-
+    textDecoration: 'none'
   },
- 
+
   ambilNomor: {
     color: '#000000',
     fontfamily: 'Nunito Sans',
@@ -140,12 +139,11 @@ const Style = {
     background: 'white',
     borderRadius: 8,
     // padding: 30,
-    display: 'flex',
+    // display: 'flex',
     width: '328px',
-   
-    alignItems: 'center',
-    justifyContent: 'center'
-
+padding: 0,
+    marginTop: 10,
+    margin: 'auto'
   }
 };
 export default Style;

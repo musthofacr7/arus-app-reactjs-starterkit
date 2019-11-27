@@ -1,5 +1,5 @@
 const Style = {
-  Container: {
+  container: {
     width: '100%',
     height: '100vh',
     backgroundSize: 'cover',
@@ -9,26 +9,33 @@ const Style = {
     overflowX: 'hidden',
     flex: '1',
     backgroundColor: '#F1F1F1',
-    // margin: 0
+
     padding: 0
   },
   gridContainer: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     backgroundColor: 'white',
     alignItems: 'center',
-    marginTop: '10.8%'
+    marginTop: '55px',
+    padding: 10
+    // padding: 20
+    // height: '60%'
   },
   gridAvatar: {
     alignItems: 'center',
     display: 'flex',
-    paddingTop: 20
+    paddingTop: 20,
+    justifyContent: 'center'
   },
   gridEdit: {
     paddingTop: 10
   },
-  image: { width: '82px' },
-  editFoto: {
+  image: {
+    width: '82px',
+    alignItems: 'center'
+  },
+  ganti: {
     color: '#26CAC0',
     fontFamily: 'Nunito Sans',
     fontSize: '14px'
@@ -36,8 +43,37 @@ const Style = {
   link: {
     textDecoration: 'none'
   },
-  gridField:{
-    backgroundColor:'green'
+  gridField: {
+    backgroundColor: 'green'
+  },
+  form: {
+    // backgroundColor: 'red',
+    display: 'flex',
+    flexDirection: 'column',
+    width: 300
+  },
+  gridForm: {
+    // display: 'flex',
+    // flexDirection: 'column',
+    // backgroundColor: 'white'
+  },
+  saveButton: {
+    width: '100%',
+    margin: 'auto',
+    paddingTop: 40,
+    paddingBottom: 50
+  },
+  button: {
+    border: '1px solid #F7A647',
+    animation: 'none',
+    textTransform: 'capitalize',
+    width: 300
+  },
+  save: {
+    color: '#FFFFFF',
+
+    fontStyle: 'normal',
+    fontSize: '14px'
   }
 };
 export default Style;

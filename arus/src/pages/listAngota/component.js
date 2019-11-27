@@ -28,7 +28,7 @@ class component extends React.Component {
             <Grid item>
               <BoxLoket />
             </Grid>
-            {/* <Dialog></Dialog> */}
+          
           </Link>
           <Link className={classes.link} onClick={this.handleOpen}>
             <Grid item>

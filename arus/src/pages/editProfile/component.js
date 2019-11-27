@@ -1,5 +1,12 @@
 import React from 'react';
-import { Container, Grid, Typography, TextField } from '@material-ui/core';
+import {
+  Container,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+  CssBaseline
+} from '@material-ui/core';
 import Profile from '../../assets/Ellipse 8.png';
 import BottomNavigation from '../../component/bottom-navigation';
 import AppBar from '../../component/appbar';
@@ -10,58 +17,56 @@ class component extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container maxWidth="xs" className={classes.Container}>
-        <AppBar goBack title="Edit Profile" />
-        <Grid
-          container
-          align="center"
-          spacing={0}
-          className={classes.gridContainer}
-        >
-          <Grid item xs={2} className={classes.gridAvatar}>
-            <img src={Profile} className={classes.image} />
+      <React.Fragment>
+        <CssBaseline />
+        <Container maxWidth="xs" className={classes.container}>
+          <AppBar goBack title="Edit Profile" />
+          <Grid
+            container
+            align="center"
+            spacing={0}
+            className={classes.gridContainer}
+          >
+            <Grid item xs={12} className={classes.gridAvatar}>
+              <img src={Profile} className={classes.image} />
+            </Grid>
+            <Grid item xs={12} className={classes.gridEdit}>
+              <Link className={classes.link}>
+                <Typography className={classes.ganti}> Ganti Foto</Typography>
+              </Link>
+            </Grid>
+            <Grid item xs={12} className={classes.gridForm}>
+              <form className={classes.form}>
+                <TextField
+                  margin="normal"
+                  label="NIK"
+                  defaultValue="09012329817328371"
+                />
+                <TextField
+                  margin="normal"
+                  label="Name"
+                  defaultValue="Kina Gatie Putri"
+                />
+              </form>
+              <Grid item xs={12} align="center" className={classes.saveButton}>
+                <Button
+                  variant="contained"
+                  disableRipple={true}
+                  style={{ backgroundColor: '#F7A647' }}
+                  className={classes.button}
+                  onClick={() => alert('Anda yakin melakukan perubahan ')}
+                >
+                  <Typography className={classes.save}>
+                    Simpan Perubahan
+                  </Typography>
+                </Button>
+              </Grid>
+            </Grid>
           </Grid>
-          <Grid item xs={2} className={classes.gridEdit}>
-            <Link className={classes.link}>
-              <Typography className={classes.editFoto}> Ganti Foto</Typography>
-            </Link>
-          </Grid>
-          <Grid item xs={4} className={classes.gridField}>
-            a
-            {/* <form>
-              <TextField label="NIK" defaultValue="Hello World"/>
-              <TextField label="NIK" />
-            </form> */}
-          </Grid>
-          <Grid item xs={4} className={classes.gridField}></Grid>
-        </Grid>
 
-        <Grid
-          container
-          align="center"
-          spacing={0}
-          className={classes.gridContainer}
-        >
-          <Grid item xs={2} className={classes.gridAvatar}>
-            <img src={Profile} className={classes.image} />
-          </Grid>
-          <Grid item xs={2} className={classes.gridEdit}>
-            <Link className={classes.link}>
-              <Typography className={classes.editFoto}> Ganti Foto</Typography>
-            </Link>
-          </Grid>
-          <Grid item xs={4} className={classes.gridField}>
-            a
-            {/* <form>
-              <TextField label="NIK" defaultValue="Hello World"/>
-              <TextField label="NIK" />
-            </form> */}
-          </Grid>
-          <Grid item xs={4} className={classes.gridField}></Grid>
-        </Grid>
-
-        <BottomNavigation />
-      </Container>
+          <BottomNavigation />
+        </Container>
+      </React.Fragment>
     );
   }
 }

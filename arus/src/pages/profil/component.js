@@ -10,7 +10,7 @@ class component extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Container maxWidth="xs" className={classes.Container}>
+      <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Profile" />
 
         <Grid container spacing={0} className={classes.gridContainer}>

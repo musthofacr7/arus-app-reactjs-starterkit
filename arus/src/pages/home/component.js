@@ -11,10 +11,8 @@ class component extends React.Component {
     const { classes } = this.props;
     return (
       <Container maxWidth="xs" className={classes.container}>
-        <Grid container spacing={0} className={classes.container}>
+        <Grid container spacing={0} className={classes.gridContainer}>
           <Grid item xs={3} className={classes.gridUpper}>
-            {/* ssssssssssssssssss
-             */}
             <Grid
               container
               spacing={0}
@@ -30,7 +28,6 @@ class component extends React.Component {
             </Grid>
           </Grid>
           <Grid align="center" item xs={6} className={classes.gridBottom}>
-            {/* zzzzzzzzzzzzzzzzzzzzzzzzz */}
             <Grid spacing={0} className={classes.antrian}>
               <Grid item xs={6} className={classes.gridText}>
                 <Typography className={classes.nomorAntrian}>
@@ -52,16 +49,11 @@ class component extends React.Component {
               <Grid item xs={0}></Grid>
             </Grid>
 
-            {/* ppppppppppppppppp */}
-
             <Grid item xs={6} className={classes.gridLink}>
               <Link to="/pilih-locket" className={classes.link}>
-                <Grid container spacing={0} className={classes.gridContent}>
+                <Grid container spacing={0} className={classes.contentTwo}>
                   <Grid item xs={2}>
-                    <img
-                      // align="center"
-                      src={AmbilAntrianIcon}
-                    />
+                    <img src={AmbilAntrianIcon} />
                   </Grid>
                   <Grid item xs={10}>
                     <Typography className={classes.ambilNomor}>

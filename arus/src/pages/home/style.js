@@ -20,15 +20,16 @@ const Style = {
 
     background: '#26CAC0',
     maxWidth: '100%',
-    zIndex: 'auto'
+    
   },
   gridBottom: {
     display: 'flex',
-    justifyContent: 'center',
+   
     maxWidth: '100%',
-    zIndex: 1,
-    flexDirection: 'column'
-    
+    // zIndex: 1,
+    flexDirection: 'column',
+    marginTop: '-6%',
+    width: '328px'
   },
 
   containerProfil: {
@@ -45,12 +46,10 @@ const Style = {
     background: 'white',
     zIndex: 1,
     borderRadius: 8,
-    padding: 20,
+    padding: 30,
     display: 'flex',
     flexDirection: 'column',
-    width: 328,
-    justifyContent: 'center'
-    // alignItems: 'center',
+    margin: 'auto'
   },
   gridText: {
     maxWidth: '100%'
@@ -121,10 +120,11 @@ const Style = {
   link: {
     textDecoration: 'none'
   },
-  gridContent: {
+  contentTwo: {
     alignItems: 'center',
     flexDirection: 'column',
-    display: 'flex'
+    display: 'flex',
+    maxWidth: '100%'
 
     // padding: 20
   },

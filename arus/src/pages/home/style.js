@@ -30,7 +30,8 @@ const Style = {
   },
 
   containerProfil: {
-    padding: 20
+    padding: 20,
+    marginRight: "80px"
   },
   image: {
     maxWidth: "100%"

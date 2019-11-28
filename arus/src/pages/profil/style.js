@@ -44,7 +44,7 @@ const Style = {
     flex: "2",
     backgroundColor: "#E5E5E5",
     justifyContent: "flex-end",
-    paddingBottom: "20%"
+    paddingBottom: "25%"
   },
   containerProfil: {
     display: "flex",

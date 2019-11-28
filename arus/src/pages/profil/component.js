@@ -21,9 +21,8 @@ class component extends React.Component {
         <CssBaseline />
         <Container maxWidth="xs" className={classes.container}>
           <AppBar title="Profile" />
-
-          <Grid container spacing={0} style={{ paddingTop: "15%" }}>
-            <Grid item xs={12} className={classes.gridTop}>
+          <Grid container spacing={0} className={classes.container}>
+            <Grid item xs={12} className={classes.gridItemTop}>
               <Grid container spacing={0} className={classes.containerProfil}>
                 <Grid item xs={2} className={classes.gridImage}>
                   <img src={Profile} className={classes.image} alt="avatar" />
@@ -44,7 +43,8 @@ class component extends React.Component {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12}>
+            <Grid className={classes.gridItem}></Grid>
+            <Grid item xs={12} className={classes.gridItemCenter}>
               <Grid container spacing={0} className={classes.gridTwo}>
                 <Grid item xs={2} className={classes.icon}>
                   <img src={User} alt="user" />
@@ -66,8 +66,7 @@ class component extends React.Component {
                 <Grid item xs={0} className={classes.arrow}></Grid>
               </Grid>
             </Grid>
-
-            <Grid item xs={12} className={classes.gridButton}>
+            <Grid item xs={12} className={classes.gridItemBottom}>
               <Box className={classes.buttonBox}>
                 <Button
                   disableRipple={true}

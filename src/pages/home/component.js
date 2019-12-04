@@ -1,6 +1,6 @@
 import React from "react";
 import BottomNavigation from "../../component/bottom-navigation";
-import Container from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -13,7 +13,7 @@ function HomePage(props) {
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Grid container spacing={0} className={classes.gridContainer}>
-        <Grid item xs={12} className={classes.gridOne}>
+        <Grid item xs className={classes.gridOne}>
           <Grid
             container
             spacing={0}

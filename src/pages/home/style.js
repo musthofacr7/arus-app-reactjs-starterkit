@@ -9,7 +9,9 @@ const Style = {
     overflowX: "hidden",
     flex: 1,
     backgroundColor: "#F1F1F1",
-    padding: 0
+    padding: 0,
+
+
   },
   gridContainer: {
     display: "flex",

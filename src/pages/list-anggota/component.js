@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Grid } from '@material-ui/core';
+import Container from "@material-ui/core/Container"
+import Grid from '@material-ui/core/Grid'
 import AppBar from '../../component/appbar';
-
 import ListData from '../../component/card-anggota';
 import FAB from '../../component/fab';
 import Axios from 'axios';

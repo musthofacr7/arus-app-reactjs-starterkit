@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Grid } from "@material-ui/core";
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
 import AppBar from "../../component/appbar";
 import BoxCategoryLocket from "../../component/Box-category-loket";
 import BottomNavigation from "../../component/bottom-navigation";

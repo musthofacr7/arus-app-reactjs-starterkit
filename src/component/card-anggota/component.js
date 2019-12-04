@@ -1,5 +1,6 @@
 import React from 'react';
-import { Typography, Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom';
 
 function CardAnggota(props) {

@@ -1,6 +1,9 @@
 import React from "react";
 import BottomNavigation from "../../component/bottom-navigation";
-import { Container, Grid, Box, Typography } from "@material-ui/core";
+import Container from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import Profile from "../../assets/avatar.png";
 import AmbilNomor from "../../component/ambil-nomor-antrian";
 import CekJadwalDokterHome from "../../component/cek-jadwal-dokter-home";

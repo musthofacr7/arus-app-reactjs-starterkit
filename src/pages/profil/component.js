@@ -1,12 +1,10 @@
 import React from 'react';
-import {
-  Typography,
-  Grid,
-  Container,
-  Box,
-  Button,
-  CssBaseline
-} from '@material-ui/core';
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '../../component/appbar';
 import Profile from '../../assets/avatar.png';
 import { Link } from 'react-router-dom';

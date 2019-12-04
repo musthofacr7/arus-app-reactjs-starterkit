@@ -1,5 +1,8 @@
 import React from 'react';
-import { Typography, Grid, Container, CssBaseline } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '../../component/appbar';
 import BottomNavigation from '../../component/bottom-navigation';
 

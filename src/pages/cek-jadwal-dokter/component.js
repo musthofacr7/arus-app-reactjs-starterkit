@@ -1,17 +1,15 @@
 import React from 'react';
-import {
-  Typography,
-  Grid,
-  Container,
-  Box,
-  CssBaseline,
-  TextField,
-  Tabs,
-  Tab
-} from '@material-ui/core';
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Button from '@material-ui/core/Button'
+import TextField from "@material-ui/core/TextField";
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
 import AppBar from '../../component/appbar';
 import PropTypes from 'prop-types';
-// import SearchIcon from '../../assets/search.png';
 import Avatar from '../../assets/avatar.png';
 
 function TabPanel(props) {

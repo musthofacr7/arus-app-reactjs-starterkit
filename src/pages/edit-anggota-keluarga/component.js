@@ -1,12 +1,10 @@
 import React from "react";
-import {
-  Typography,
-  Grid,
-  Container,
-  Box,
-  CssBaseline,
-  Button
-} from "@material-ui/core";
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Button from '@material-ui/core/Button'
 import TextField from "@material-ui/core/TextField";
 import AppBar from "../../component/appbar";
 import FormControlLabel from "@material-ui/core/FormControlLabel";

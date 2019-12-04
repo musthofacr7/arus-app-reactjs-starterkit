@@ -1,5 +1,4 @@
 const Style = {
-   
-  };
-  export default Style;
-  
+
+};
+export default Style;

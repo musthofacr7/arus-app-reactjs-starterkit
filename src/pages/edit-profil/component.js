@@ -7,12 +7,13 @@ import {
   Button,
   CssBaseline
 } from "@material-ui/core";
-import Profile from "../../assets/Ellipse 8.png";
+import Profile from "../../assets/avatar.png";
 import AppBar from "../../component/appbar";
 import { Link } from "react-router-dom";
-class component extends React.Component {
-  render() {
-    const { classes } = this.props;
+
+
+function EditProfile(props){
+    const { classes } = props;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -64,6 +65,6 @@ class component extends React.Component {
       </React.Fragment>
     );
   }
-}
 
-export default component;
+
+export default EditProfile;

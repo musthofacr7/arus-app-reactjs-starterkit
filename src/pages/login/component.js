@@ -4,9 +4,10 @@ import LoginImage from "../../assets/Background.png";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import GoogleLogo from "../../assets/googlelogo.png";
-class component extends React.Component {
-  render() {
-    const { classes } = this.props;
+
+
+function Login(props){
+    const { classes } = props;
     return (
       <Container maxWidth="xs" className={classes.container}>
         <Grid className={classes.container}>
@@ -81,6 +82,6 @@ class component extends React.Component {
       </Container>
     );
   }
-}
 
-export default component;
+
+export default Login;

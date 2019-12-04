@@ -20,13 +20,15 @@ const Style = {
     background: "#26CAC0",
     maxWidth: "100%",
     padding: 10,
-    paddingBottom: 50
+    paddingBottom: 50,
+    height: "170px"
   },
   gridTwo: {
     display: "flex",
     flexDirection: "column",
-    marginTop: "-15%",
-    width: "328px"
+    marginTop: "-5em",
+    width: "328px",
+    height: "256px"
   },
 
   containerProfil: {
@@ -34,14 +36,20 @@ const Style = {
     marginRight: "80px"
   },
   image: {
-    maxWidth: "100%"
+    maxWidth: "100%",
+    marginLeft: "1em"
   },
   gridName: {
-    maxWidth: "100%"
+    maxWidth: "100%",
+    marginLeft: "1em",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start"
   },
   name: {
     fontSize: "16px",
-    color: "#FFFFFF"
+    color: "#FFFFFF",
+    fontWeight: "bold"
   },
   nik: {
     color: "#FFFFFF",
@@ -68,11 +76,10 @@ const Style = {
     lineHeight: "20px"
   },
   gridNumb: {
-    maxWidth: "100%",
-    padding: 20
+    maxWidth: "100%"
   },
   nomor: {
-    // paddingTop: 34,
+    marginTop: "0.7em",
     color: "#26CAC0",
     fontSize: 40,
     fontWeight: "bold",
@@ -81,7 +88,7 @@ const Style = {
   locket: {
     color: "#9E9E9E",
     fontFamily: "Nunito Sans",
-    fontWeight: 600,
+    fontWeight: 400,
     fontSize: "18px"
   },
   gridLocket: {
@@ -94,7 +101,8 @@ const Style = {
     border: "0.5px solid #26CAC0",
     borderRadius: "8px",
     borderSizing: "border-box",
-    width: 284
+    width: 284,
+    marginTop: "1em"
   },
   estimasi: {
     fontFamily: "Nunito Sans",

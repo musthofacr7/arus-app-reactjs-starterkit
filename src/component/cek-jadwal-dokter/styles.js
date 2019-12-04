@@ -3,17 +3,17 @@ const styles = {
     height: "108px",
     backgroundColor: "#ffffff",
     borderRadius: "8px",
-    width: "343px"
+    width: "95%"
   },
   textRight: {
     color: "#000000",
     fontSize: "14px",
-    textDecoration: "none",
-    marginLeft: "3em"
+    textDecoration: 'none'
   },
   gridLeft: {
-    marginTop: "1.2em",
-    paddingLeft: "3em"
+    display: "flex",
+    paddingTop: "5%",
+    paddingLeft: "5%"
   },
   gridCard: {
     display: "flex",

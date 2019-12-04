@@ -3,9 +3,8 @@ import { Typography, Grid, Container, CssBaseline } from '@material-ui/core';
 import AppBar from '../../component/appbar';
 import BottomNavigation from '../../component/bottom-navigation';
 
-class component extends React.Component {
-  render() {
-    const { classes } = this.props;
+function Riwayat(props){
+    const { classes } = props;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -94,6 +93,6 @@ class component extends React.Component {
       </React.Fragment>
     );
   }
-}
 
-export default component;
+
+export default Riwayat;

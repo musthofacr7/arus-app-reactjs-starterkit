@@ -137,7 +137,7 @@ const Style = {
   },
   contentTwo: {
     display: "flex",
-    paddingTop: "5%",
+    paddingTop: "1em",
     justifyContent: "center"
   }
 };

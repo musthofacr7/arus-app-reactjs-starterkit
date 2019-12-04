@@ -1,16 +1,17 @@
-import React from 'react';
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Button from '@material-ui/core/Button'
-import TextField from "@material-ui/core/TextField";
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
+import React, { useEffect } from 'react';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import AppBar from '../../component/appbar';
 import PropTypes from 'prop-types';
 import Avatar from '../../assets/avatar.png';
+import { getListDockter } from '../../services/list-dockter';
 
 function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
@@ -68,6 +69,14 @@ function DetailAnggota(props) {
   ]);
   const { classes } = props;
   const [value, setValue] = React.useState(0);
+  const [jadwal, setJadwal] = React.useState([]);
+  useEffect(() => {
+    const getJadwal = async () => {
+      const jadwal = await getListDockter();
+      setJadwal(jadwal);
+    };
+    getJadwal();
+  }, []);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -146,17 +155,21 @@ function DetailAnggota(props) {
                 </Tabs>
               </Grid>
             </Grid>
-            <Grid item xs={12} className={classes.gridItem}>
+            {jadwal.map(data => {
+               return ( <Grid item xs={12} className={classes.gridItem}>
               <Grid container spacing={0} className={classes.gridContentList}>
                 <Grid item xs>
                   <Grid container spacing={0} className={classes.gridList}>
                     <Grid item xs={2}>
                       <img src={Avatar} />
                     </Grid>
-                    <Grid item xs={7}>
-                      <Typography>Dr. Jaya Efendi, SP</Typography>
-                      <Typography>Spesialis Kandungan</Typography>
-                    </Grid>
+                 
+                     
+                        <Grid item xs={7}>
+                          <Typography>{data.nama}</Typography>
+                          <Typography>{data.spesialis}</Typography>
+                        </Grid>
+                   
                     <Grid item xs={2}>
                       <svg
                         width="24"
@@ -192,6 +205,8 @@ function DetailAnggota(props) {
                 </Grid>
               </Grid>
             </Grid>
+               );
+              })}
           </Grid>
         </Grid>
       </Container>

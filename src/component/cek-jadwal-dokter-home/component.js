@@ -12,7 +12,7 @@ function CekJadwalDokterHome(props) {
           <img src={JadwalIcon} alt="cek jadwal dokter" />
         </Grid>
         <Grid item xs={8} className={classes.gridRight}>
-          <Link className={classes.textRight} to="/pilih-loket">
+          <Link className={classes.textRight} to="/cek-jadwal-dokter">
             Cek Jadwal Dokter
           </Link>
         </Grid>

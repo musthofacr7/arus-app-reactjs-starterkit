@@ -65,14 +65,12 @@ const Style = {
   gridTwo: {
     backgroundColor: '  #FFFFFF',
     height: '60px',
-    padding: '5%',
-  
+    padding: '5%'
   },
   icon: {
     width: 15,
-    color: '#E0E0E0',
+    color: '#E0E0E0'
     // backgroundColor: 'red',
-    
   },
   text: {
     fontFamily: 'Nunito Sans',
@@ -80,9 +78,8 @@ const Style = {
   },
   arrow: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end'
     // backgroundColor: 'blue',
-
   },
   linkArrow: {
     textDecoration: 'none',
@@ -90,15 +87,16 @@ const Style = {
   },
   button: {
     fontFamily: 'Montserrat, sans-serif',
-    width: '400%',
+    minWidth: '80%',
+    maxWidth: '50%',
     height: 48,
     boxShadow: '0px 0px 2px #c1b1b1',
     border: '1px solid #F7A647',
     backgroundColor: '#ffffff',
     borderRadius: '4px',
     color: '#F7A647',
-    fontSize: '14px',
-    marginLeft: '50%'
+    fontSize: '14px'
+    // marginLeft: '50%'
   },
   buttonBox: {
     flexDirection: 'column',
@@ -107,11 +105,9 @@ const Style = {
     position: 'fixed',
     // width:'35%',
     // left:15,
-    justifyContent: 'center',
+    justifyContent: 'center'
 
-    
     // backgroundColor: 'purple',
-
   }
 };
 export default Style;

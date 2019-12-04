@@ -1,20 +1,32 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Container from '@material-ui/core/Container'
-import Box from '@material-ui/core/Box'
-import Button from '@material-ui/core/Button'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import React, { useContext } from 'react';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '../../component/appbar';
 import Profile from '../../assets/avatar.png';
 import { Link } from 'react-router-dom';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import User from '../../assets/users.png';
-import BottomNavigation from "../../component/bottom-navigation";
+import BottomNavigation from '../../component/bottom-navigation';
+import { getProfile } from '../../services/profile';
+import { ProfileContext } from '../../context/profile';
 
 function DetailAnggota(props) {
   const { classes } = props;
+  const [data, setData] = useContext(ProfileContext);
+  React.useEffect(() => {
+    const getProfileData = async () => {
+      const profile = await getProfile();
+      setData(profile);
+      console.log(data);
+    };
 
+    getProfileData();
+    // console.log(data);
+  }, []);
   return (
     <React.Fragment>
       <CssBaseline />
@@ -61,20 +73,20 @@ function DetailAnggota(props) {
               <ArrowForwardIosIcon className={classes.icon} />
             </Link>
           </Grid>
-          <Grid item xs={1} className={classes.arrow}></Grid>
         </Grid>
-        <Grid item xs={12} className={classes.gridButton}>
-          <Box className={classes.buttonBox}>
-            <Button
-              disableRipple={true}
-              id="submit-button"
-              className={classes.button}
-            >
-              Keluar
-            </Button>
-          </Box>
-        </Grid>
-        <BottomNavigation/>
+        <div
+          align="center"
+          style={{ position: 'absolute', bottom: 60, width: '100%' }}
+        >
+          <Button
+            disableRipple={true}
+            id="submit-button"
+            className={classes.button}
+          >
+            Keluar
+          </Button>
+        </div>
+        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

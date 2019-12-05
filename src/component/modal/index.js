@@ -1,4 +1,4 @@
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles} from '@material-ui/core/styles';
 import Style from './style';
 import Component from './component';
 

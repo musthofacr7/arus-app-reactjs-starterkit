@@ -11,11 +11,13 @@ const Style = {
   },
   textTop: {
     color: "#26CAC0",
-    fontSize: "12px"
+    fontSize: "14px",
+    paddingLeft: "2em"
   },
   itemTop: {
-    paddingLeft: "5%",
-    paddingTop: "4%"
+    paddingTop: "4%",
+    display: "flex",
+    flexDirection: "row"
   },
   gridBox: {
     border: "1px solid #F1F1F1",
@@ -29,7 +31,8 @@ const Style = {
   },
   content: {
     color: "#9E9E9E",
-    fontSize: "12px"
+    fontSize: "12px",
+    marginBottom: "0.5em"
   },
   input: {
     color: "#25282B",
@@ -38,12 +41,30 @@ const Style = {
   itemContent: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     flexDirection: "column",
     borderRight: "1px solid #F1F1F1",
-    paddingTop: "4%"
+    marginTop: "0.7em"
+  },
+  itemLoket: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    marginTop: "0.7em"
   },
   textBottom: {
     color: "#25282B",
+    fontSize: "14px",
+    marginLeft: "2em"
+  },
+  gridRiwayat: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+  textNumber: {
+    color: "#26CAC0",
     fontSize: "14px"
   },
   itemBottomHistory: {

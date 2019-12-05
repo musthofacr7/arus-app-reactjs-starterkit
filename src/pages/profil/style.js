@@ -67,6 +67,18 @@ const Style = {
   linkArrow: {
     textDecoration: "none",
     color: "#000000"
+  },
+  button: {
+    fontFamily: "Montserrat, sans-serif",
+    minWidth: "80%",
+    maxWidth: "50%",
+    height: 48,
+    boxShadow: "0px 0px 2px #c1b1b1",
+    border: "1px solid #F7A647",
+    backgroundColor: "#ffffff",
+    borderRadius: "4px",
+    color: "#F7A647",
+    fontSize: "14px"
   }
 };
 export default Style;

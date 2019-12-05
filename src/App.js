@@ -13,6 +13,7 @@ import AddAnggotaKeluarga from "./pages/add-anggota-keluarga";
 import DetailKeluarga from "./pages/detail-anggota-keluarga";
 import CekJadwalDokter from "./pages/cek-jadwal-dokter";
 import EditAnggotaKeluarga from "./pages/edit-anggota-keluarga";
+import DetailDokter from "./pages/detail-dokter";
 function App() {
   return (
     <Switch>
@@ -28,7 +29,12 @@ function App() {
       <Route path="/add-keluarga" exact component={AddAnggotaKeluarga} />
       <Route path="/edit-profil-keluarga" exact component={EditKeluarga} />
       <Route path="/cek-jadwal-dokter" exact component={CekJadwalDokter} />
-      <Route path="/edit-anggota-keluarga" exact component={EditAnggotaKeluarga} />
+      <Route
+        path="/edit-anggota-keluarga"
+        exact
+        component={EditAnggotaKeluarga}
+      />
+      <Route path="/detail-dokter" exact component={DetailDokter} />
     </Switch>
   );
 }

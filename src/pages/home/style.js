@@ -28,7 +28,7 @@ const Style = {
   gridTwo: {
     display: "flex",
     flexDirection: "column",
-    marginTop: "-5em",
+    marginTop: "-4em",
     width: "328px",
     height: "256px"
   },
@@ -46,7 +46,8 @@ const Style = {
     marginLeft: "1em",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    marginTop:"0.6em"
   },
   name: {
     fontSize: "16px",

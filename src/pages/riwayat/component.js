@@ -1,7 +1,7 @@
-import React from 'react';
-import { Typography, Grid, Container, CssBaseline } from '@material-ui/core';
-import AppBar from '../../component/appbar';
-import BottomNavigation from '../../component/bottom-navigation';
+import React from "react";
+import { Typography, Grid, Container, CssBaseline } from "@material-ui/core";
+import AppBar from "../../component/appbar";
+import BottomNavigation from "../../component/bottom-navigation";
 
 class component extends React.Component {
   render() {
@@ -10,9 +10,9 @@ class component extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <Container maxWidth="xs" className={classes.container}>
-          <AppBar title="Riwayat Kunjungan" />
+          <AppBar goBack title="Riwayat Kunjungan" />
 
-          <Grid container spacing={0} style={{ paddingTop: '15%' }}>
+          <Grid container spacing={0} style={{ paddingTop: "15%" }}>
             <Grid item xs={12} className={classes.gridTop}>
               <Grid container spacing={0}>
                 <Grid item xs={12} className={classes.itemTop}>

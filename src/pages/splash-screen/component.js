@@ -2,9 +2,9 @@ import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import Ecclipse from '../../assets/Ellipse.png';
 import Logo from '../../assets/Group 27.png';
-class component extends React.Component {
-  render() {
-    const { classes } = this.props;
+
+function SplashScreen(props){
+   const {classes} = props
     return (
       <Container maxWidth="xs" className={classes.Container}>
         <img
@@ -59,6 +59,6 @@ class component extends React.Component {
       </Container>
     );
   }
-}
 
-export default component;
+
+export default SplashScreen;

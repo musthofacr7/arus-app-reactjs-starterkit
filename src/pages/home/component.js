@@ -58,6 +58,7 @@ function HomePage(props) {
           </Grid>
         </Grid>
       </Grid>
+
       <BottomNavigation />
     </Container>
   );

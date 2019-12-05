@@ -170,7 +170,7 @@ function DetailAnggota(props) {
                   >
                     <Grid item xs>
                       <Grid container spacing={0} className={classes.gridList}>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                           <img src={Avatar} />
                         </Grid>
 
@@ -178,7 +178,7 @@ function DetailAnggota(props) {
                           <Typography className={classes.nama}>{data.nama}</Typography>
                           <Typography className={classes.spesialis}>{data.spesialis}</Typography>
                         </Grid>
-                        <Grid item xs={2} className={classes.arrow}>
+                        <Grid item xs={1} className={classes.arrow}>
                           <Link to="/detail-dokter">
                             <svg
                               width="24"

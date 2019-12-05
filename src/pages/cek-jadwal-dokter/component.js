@@ -93,8 +93,8 @@ function DetailAnggota(props) {
             <Grid container spacing={0} className={classes.gridContent}>
               <Grid item xs={12} className={classes.gridItem}>
                 <Grid container spacing={0} className={classes.gridItemOne}>
-                {/* <Grid item xs={1} /> */}
-                  
+                  {/* <Grid item xs={1} /> */}
+
                   <Grid item xs={8} className={classes.gridField}>
                     <TextField
                       placeholder="Tulis Nama Dokter"
@@ -170,16 +170,15 @@ function DetailAnggota(props) {
                   >
                     <Grid item xs>
                       <Grid container spacing={0} className={classes.gridList}>
-                        <Grid item xs={3}>
+                        <Grid item xs={2}>
                           <img src={Avatar} />
                         </Grid>
 
-                        <Grid item xs={7}>
-                          <Typography>{data.nama}</Typography>
-                          <Typography>{data.spesialis}</Typography>
+                        <Grid item xs={8}>
+                          <Typography className={classes.nama}>{data.nama}</Typography>
+                          <Typography className={classes.spesialis}>{data.spesialis}</Typography>
                         </Grid>
-
-                        <Grid item xs={1} className={classes.arrow}>
+                        <Grid item xs={2} className={classes.arrow}>
                           <Link to="/detail-dokter">
                             <svg
                               width="24"
@@ -212,7 +211,6 @@ function DetailAnggota(props) {
                             </svg>
                           </Link>
                         </Grid>
-                        <Grid item xs={0}/>
                       </Grid>
                     </Grid>
                   </Grid>

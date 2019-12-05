@@ -96,6 +96,12 @@ const Style = {
   arrow: {
     display: 'flex',
     alignItems: 'center'
+  },
+  nama:{
+    fontWeight: 'bold',
+  },
+  spesialis:{
+    color: '#9E9E9E'
   }
 };
 export default Style;

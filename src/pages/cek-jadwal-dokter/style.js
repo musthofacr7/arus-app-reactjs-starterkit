@@ -53,11 +53,11 @@ const Style = {
     // paddingTop: '80%'
   },
   Tabs: {
-    textTransform: 'none',
+    // textTransform: 'none',
     indicatorColor: '#26CAC0'
   },
   gridItemOne: {
-    border: '0.5px solid #9E9E9E',
+    border: '0.9px solid #9E9E9E',
     width: '94%',
     borderRadius: '8px'
     // backgroundColor: 'green',

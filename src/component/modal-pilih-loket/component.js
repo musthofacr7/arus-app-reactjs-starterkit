@@ -139,7 +139,7 @@ function SimpleModal(props) {
           <Grid item xs className={classes.gridItemTwo}>
             <Grid container spacing={0} align="center">
               <Grid item xs>
-                <Button className={classes.buttonCancel}>Batal</Button>
+                <Button className={classes.buttonCancel} onClick={handleClose}>Batal</Button>
               </Grid>
               <Grid item xs>
                 <Button className={classes.buttonAgree}>Iya</Button>

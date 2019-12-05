@@ -14,7 +14,7 @@ function Riwayat(props) {
       <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Riwayat Kunjungan" />
 
-        <Grid container spacing={0} style={{ paddingTop: "15%" }}>
+        <Grid container spacing={0} style={{ paddingTop: "4em" }}>
           <Grid item xs={12} className={classes.gridTop}>
             <Grid container spacing={0}>
               <Grid item xs={12} className={classes.itemTop}>
@@ -39,7 +39,7 @@ function Riwayat(props) {
                       </Typography>
                       <Typography className={classes.input}> 12A</Typography>
                     </Grid>
-                    <Grid item xs={4} className={classes.itemContent}>
+                    <Grid item xs={4} className={classes.itemLoket}>
                       <Typography className={classes.content}>Loket</Typography>
                       <Typography className={classes.input}>
                         Locket A
@@ -53,9 +53,14 @@ function Riwayat(props) {
           <Grid item xs={12}>
             <Grid container spacing={0}>
               <Grid item xs={12} className={classes.itemTop}>
-                <Typography className={classes.textBottom}>
-                  Riwayat Kunjungan
-                </Typography>
+                <Grid item xs={5} className={classes.gridRiwayat}>
+                  <Typography className={classes.textBottom}>
+                    Riwayat Kunjungan
+                  </Typography>
+                </Grid>
+                <Grid item xs={7} className={classes.gridRiwayat}>
+                  <Typography className={classes.textNumber}>(2)</Typography>
+                </Grid>
               </Grid>
               <Grid item xs={12} className={classes.itemBottomHistory}>
                 <Grid className={classes.gridBoxBottom}>
@@ -74,7 +79,7 @@ function Riwayat(props) {
                       </Typography>
                       <Typography className={classes.input}> 12A</Typography>
                     </Grid>
-                    <Grid item xs={4} className={classes.itemContent}>
+                    <Grid item xs={4} className={classes.itemLoket}>
                       <Typography className={classes.content}>Loket</Typography>
                       <Typography className={classes.input}>
                         Locket A

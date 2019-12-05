@@ -12,7 +12,7 @@ const Style = {
     color: '#9E9E9E'
   },
   gridContent: {
-    paddingTop: '15%',
+    paddingTop: '19%',
     paddingLeft: '5%'
   },
   input: {
@@ -21,7 +21,9 @@ const Style = {
     fontWeight: 'bold'
   },
   gridItem: {
-    paddingTop: '3%'
+    paddingTop: '2%'
+    // bottom: 90,
+    // position: 'fixed'
   },
   button: {
     fontFamily: 'Montserrat, sans-serif',
@@ -42,8 +44,8 @@ const Style = {
   },
   gridButton: {
     display: 'flex',
-    justifyContent: 'center',
-    paddingTop: '50%'
+    justifyContent: 'center'
+    // paddingTop: '80%'
   },
   Tabs: {
     textTransform: 'none',
@@ -55,7 +57,7 @@ const Style = {
     borderRadius: '8px'
   },
   gridField: {
-    // backgroundColor: 'red',
+    backgroundColor: 'red',
     display: 'flex',
     justifyContent: 'flex-end',
     paddingTop: 14,
@@ -63,8 +65,7 @@ const Style = {
     fontSize: 14
   },
   TextField: {
-    textDecoration: 'none',
-    
+    textDecoration: 'none'
   },
   gridIcon: {
     // backgroundColor: 'blue',
@@ -73,18 +74,25 @@ const Style = {
     paddingTop: 14,
     paddingBottom: 14
   },
-  gridContentList:{
-    paddingTop: '5%',
+  gridContentList: {
+    paddingTop: '2%',
+    paddingBottom: '2%',
     paddingLeft: '3%',
     display: 'flex',
     flexDirection: 'column',
+    
   },
-  gridList:{
+  gridList: {
     border: '1px solid #FFFFFF',
     width: '96%',
     padding: 16,
     borderRadius: '8px',
-    backgroundColor:'#FFFFFF'
+    backgroundColor: '#FFFFFF'
+  },
+  arrow:{
+    display: 'flex',
+    alignItems: 'center'
+
   }
 };
 export default Style;

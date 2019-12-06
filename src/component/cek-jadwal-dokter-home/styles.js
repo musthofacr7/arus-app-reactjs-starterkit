@@ -9,11 +9,12 @@ const styles = {
     color: "#000000",
     fontSize: "14px",
     textDecoration: "none",
-    marginLeft: "3em"
+    display: 'flex',
+    justifyContent: 'center',
   },
   gridLeft: {
     marginTop: "1.2em",
-    paddingLeft: "3em"
+    paddingLeft: "2em"
   },
   gridCard: {
     display: "flex",

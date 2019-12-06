@@ -15,7 +15,7 @@ import CekJadwalDokter from './pages/cek-jadwal-dokter';
 import EditAnggotaKeluarga from './pages/edit-anggota-keluarga';
 import DetailDokter from './pages/detail-dokter';
 import Otp from './pages/otp';
-
+import Register from './pages/register';
 function App(props) {
   useEffect(() => {
     if (localStorage.getItem('login')) {
@@ -50,6 +50,7 @@ function App(props) {
         component={EditAnggotaKeluarga}
       />
       <Route path="/login-number" exact component={Otp} />
+      <Route path="/register" exact component={Register} />
     </Switch>
   );
 }

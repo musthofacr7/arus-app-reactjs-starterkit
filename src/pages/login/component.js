@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid'
 import LoginImage from "../../assets/Background.png";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
-import GoogleLogo from "../../assets/googlelogo.png";
+import GoogleLogo from "../../assets/image 2.png";
 
 
 function Login(props){
@@ -36,7 +36,7 @@ function Login(props){
                   >
                     <Grid container spacing={0}>
                       <Grid item xs={2} className={classes.gridButton}>
-                        <img src={GoogleLogo} className={classes.logoGoogle} alt="google" />
+                        <img src={GoogleLogo} className={classes.logoGoogle} alt="google" style={{width: 14, height: 20}}/>
                       </Grid>
 
                       <Grid item xs={10} className={classes.gridButton}>

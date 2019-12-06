@@ -26,8 +26,8 @@ function getModalStyle() {
 const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
-    width: '280px',
-    height: '311px',
+    width: '70%',
+    height: '70%',
     backgroundColor: theme.palette.background.paper,
     border: '0.1px solid #FFFFFF',
     borderRadius: '8px',

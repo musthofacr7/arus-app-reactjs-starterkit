@@ -48,17 +48,15 @@ function HomePage(props) {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={0}></Grid>
-          </Grid>
-          <div>
-            <AmbilNomor />
-          </div>
-          <Grid item xs align="center" className={classes.contentThree}>
-            <CekJadwalDokterHome />
           </Grid>
         </Grid>
       </Grid>
-
+      <div style={{ padding: "10px 20px" }}>
+        <AmbilNomor />
+      </div>
+      <div style={{ padding: "10px 20px", marginBottom: 50 }}>
+        <CekJadwalDokterHome />
+      </div>
       <BottomNavigation />
     </Container>
   );

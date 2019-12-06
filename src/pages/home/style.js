@@ -5,7 +5,7 @@ const Style = {
     backgroundSize: "cover",
     flexDirection: "column",
     display: "flex",
-    overflowY: "hidden",
+    // overflowY: "hidden",
     overflowX: "hidden",
     flex: 1,
     backgroundColor: "#F1F1F1",
@@ -20,11 +20,11 @@ const Style = {
     background: "#26CAC0",
     maxWidth: "100%",
     // padding: 10,
-    paddingBottom: 50,
-    height: "170px"
+    paddingBottom: 50
   },
   gridTwo: {
     display: "flex",
+    padding: 20,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
@@ -46,7 +46,7 @@ const Style = {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    paddingTop:'0.6em'
+    paddingTop: "0.6em"
   },
   name: {
     fontSize: "16px",
@@ -65,21 +65,20 @@ const Style = {
     paddingTop: "5%",
     display: "flex",
     flexDirection: "column",
-    width: "87%",
+    width: "100%",
     paddingBottom: 20,
     // margin: "auto",
     // alignItems: "center",
     justifyContent: "center"
   },
   gridText: {
-    maxWidth: "100%",
+    maxWidth: "100%"
   },
   nomorAntrian: {
     color: "#25282B",
     fontSize: 16,
     fontWeight: "bold",
-    lineHeight: "20px",
-    
+    lineHeight: "20px"
   },
   gridNumb: {
     maxWidth: "100%"
@@ -108,7 +107,7 @@ const Style = {
     borderRadius: "8px",
     borderSizing: "border-box",
     minWidth: "60%",
-    maxWidth:'80%',
+    maxWidth: "80%",
     marginTop: "1em"
   },
   estimasi: {
@@ -142,14 +141,12 @@ const Style = {
   },
   contentTwo: {
     display: "flex",
-    paddingTop: "1em",
-   
+    paddingTop: "1em"
   },
-  contentThree:{
+  contentThree: {
     display: "flex",
     paddingTop: "1em",
-    justifyContent:'center'
-    
+    justifyContent: "center"
   }
 };
 export default Style;

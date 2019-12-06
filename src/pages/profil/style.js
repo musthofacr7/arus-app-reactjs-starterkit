@@ -1,40 +1,38 @@
 const Style = {
   container: {
-    width: "100%",
-    height: "100vh",
+    width: "auto",
+    height: "auto",
     backgroundSize: "cover",
-    overlowX: "hidden",
-    overlowY: "hidden",
     padding: 0
   },
   gridTop: {
     backgroundColor: "#ffffff",
-    height: "170px",
+    height: "113px",
     width: "100%",
-    backgroundSize: "cover"
+    backgroundSize: "cover",
+    marginTop: "4em"
+  },
+  gridItemOne: {
+    marginTop: "1.5em"
   },
   image: {
-    marginTop: "6em",
-    marginLeft: "1.5em"
-  },
-  gridName: {
-    marginTop: "6.6em",
-    paddingLeft: "2.7em"
+    paddingLeft: "25%"
   },
   name: {
     fontSize: "16px",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    paddingLeft: "14%",
+    marginTop: "3%"
   },
   nik: {
     color: "#9E9E9E",
-    fontSize: "14px"
+    fontSize: "14px",
+    paddingLeft: "14%"
   },
   gridEdit: {
     display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    paddingTop: "4em"
-    // backgroundColor:'red'
+    justifyContent: "center",
+    paddingTop: "2%"
   },
   link: {
     textDecoration: "none",
@@ -49,14 +47,12 @@ const Style = {
     display: "flex",
     alignItems: "center",
     paddingLeft: "1.5em",
-    marginTop: "1.5em"
+    marginTop: "2em"
   },
   title: {
     fontSize: "14px"
-    // backgroundColor:'red'
   },
   icon: {
-    // backgroundColor:'red',
     paddingLeft: "1em"
   },
   arrow: {
@@ -70,8 +66,6 @@ const Style = {
   },
   button: {
     fontFamily: "Montserrat, sans-serif",
-    minWidth: "80%",
-    maxWidth: "50%",
     height: 48,
     boxShadow: "0px 0px 2px #c1b1b1",
     border: "1px solid #F7A647",
@@ -79,6 +73,14 @@ const Style = {
     borderRadius: "4px",
     color: "#F7A647",
     fontSize: "14px"
+  },
+  boxButton: {
+    position: "fixed",
+    bottom: "73px",
+    display: "flex",
+    justifyContent: "center",
+    width: "85%",
+    maxWidth: "448px"
   }
 };
 export default Style;

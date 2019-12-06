@@ -1,24 +1,28 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import AmbilNomorIcon from "../../assets/ambilnomor.png";
+import Paper from "@material-ui/core/Paper";
 
 function AmbilNomorAntrian(props) {
+  const handleClick = () => {
+    props.history.push("/pilih-loket");
+  };
   const { classes } = props;
   return (
-    <Grid className={classes.card}>
-      <Grid container spacing={0} className={classes.gridCard}>
-        <Grid item xs={4} className={classes.gridLeft}>
-          <img src={AmbilNomorIcon} alt="ambil antrian" />
-        </Grid>
-        <Grid item xs={8} className={classes.gridRight}>
-          <Link className={classes.textRight} to="/pilih-loket">
+    <Paper onClick={handleClick}>
+      <Grid className={classes.card}>
+        <Grid container spacing={0} className={classes.gridCard}>
+          <Grid item xs={4} align="left" className={classes.gridLeft}>
+            <img src={AmbilNomorIcon} alt="ambil antrian" />
+          </Grid>
+          <Grid item xs={8} className={classes.gridRight}>
             Ambil Nomor Antrian
-          </Link>
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Paper>
   );
 }
 
-export default AmbilNomorAntrian;
+export default withRouter(AmbilNomorAntrian);

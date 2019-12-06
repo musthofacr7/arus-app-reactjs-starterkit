@@ -12,9 +12,9 @@ function CardAnggota(props) {
 
         <Grid item xs={5} className={classes.gridLeft}>
           <Typography className={classes.nik}>NIK: {nik}</Typography>
-          <Link to="/list-anggota/:id" className={classes.name}>
-            <Typography> {name}</Typography>
-          </Link>
+         
+            <Typography onClick={props.click} className={classes.name}> {name}</Typography>
+         
         </Grid>
         <Grid item xs={4} className={classes.gridRight}>
           <Link to="/edit-profil-keluarga" className={classes.links}>

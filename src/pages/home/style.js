@@ -5,13 +5,10 @@ const Style = {
     backgroundSize: "cover",
     flexDirection: "column",
     display: "flex",
-    overflowY: "hidden",
     overflowX: "hidden",
     flex: 1,
     backgroundColor: "#F1F1F1",
-    padding: 0,
-
-
+    padding: 0
   },
   gridContainer: {
     display: "flex",
@@ -21,21 +18,19 @@ const Style = {
     display: "flex",
     background: "#26CAC0",
     maxWidth: "100%",
-    padding: 10,
-    paddingBottom: 50,
-    height: "170px"
+    paddingBottom: 50
   },
   gridTwo: {
     display: "flex",
+    padding: 20,
+    alignItems: "center",
+    justifyContent: "center",
     flexDirection: "column",
-    marginTop: "-5em",
-    width: "328px",
-    height: "256px"
+    marginTop: "-4em"
   },
 
   containerProfil: {
-    padding: 20,
-    marginRight: "80px"
+    padding: 20
   },
   image: {
     maxWidth: "100%",
@@ -46,7 +41,8 @@ const Style = {
     marginLeft: "1em",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    paddingTop: "0.6em"
   },
   name: {
     fontSize: "16px",
@@ -60,11 +56,11 @@ const Style = {
   antrian: {
     background: "white",
     borderRadius: 8,
-    padding: 30,
+    paddingTop: "5%",
     display: "flex",
     flexDirection: "column",
-    margin: "auto",
-    alignItems: "center",
+    width: "100%",
+    paddingBottom: 20,
     justifyContent: "center"
   },
   gridText: {
@@ -73,7 +69,6 @@ const Style = {
   nomorAntrian: {
     color: "#25282B",
     fontSize: 16,
-    // fontFamily: 'Google Sans',
     fontWeight: "bold",
     lineHeight: "20px"
   },
@@ -100,21 +95,27 @@ const Style = {
 
   box: {
     background: "#E9F9F8",
-    border: "0.5px solid #26CAC0",
+    border: "1px solid #26CAC0",
     borderRadius: "8px",
     borderSizing: "border-box",
-    width: 284,
-    marginTop: "1em"
+    minWidth: "60%",
+    maxWidth: "80%",
+    marginTop: "1em",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   estimasi: {
-    fontFamily: "Nunito Sans",
-    fontStyle: "normal",
     fontSize: "12px",
-    lineHeight: "40px",
-    color: "#9E9E9E"
+    height: "38px",
+    color: "#9E9E9E",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   waktu: {
-    color: "black"
+    color: "black",
+    padding: "2%",
   },
   gridBellow: {
     backgroundColor: "red"
@@ -131,11 +132,14 @@ const Style = {
 
   ambilNomor: {
     color: "#000000",
-    fontfamily: "Nunito Sans",
     fontWeight: 500,
     fontSize: 14
   },
   contentTwo: {
+    display: "flex",
+    paddingTop: "1em"
+  },
+  contentThree: {
     display: "flex",
     paddingTop: "1em",
     justifyContent: "center"

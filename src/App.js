@@ -1,20 +1,30 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Home from "./pages/home";
-import Riwayat from "./pages/riwayat";
-import Login from "./pages/login";
-import PilihLocket from "./pages/pilih-loket";
-import SplashScreen from "./pages/splash-screen";
-import Profile from "./pages/profil";
-import EditProfile from "./pages/edit-profil";
-import ListAnggota from "./pages/list-anggota";
-import EditKeluarga from "./pages/edit-anggota-keluarga";
-import AddAnggotaKeluarga from "./pages/add-anggota-keluarga";
-import DetailKeluarga from "./pages/detail-anggota-keluarga";
-import CekJadwalDokter from "./pages/cek-jadwal-dokter";
-import EditAnggotaKeluarga from "./pages/edit-anggota-keluarga";
-import DetailDokter from "./pages/detail-dokter";
-function App() {
+import React, { useEffect } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import Home from './pages/home';
+import Riwayat from './pages/riwayat';
+import Login from './pages/login';
+import PilihLocket from './pages/pilih-loket';
+import SplashScreen from './pages/splash-screen';
+import Profile from './pages/profil';
+import EditProfile from './pages/edit-profil';
+import ListAnggota from './pages/list-anggota';
+import EditKeluarga from './pages/edit-anggota-keluarga';
+import AddAnggotaKeluarga from './pages/add-anggota-keluarga';
+import DetailKeluarga from './pages/detail-anggota-keluarga';
+import CekJadwalDokter from './pages/cek-jadwal-dokter';
+import EditAnggotaKeluarga from './pages/edit-anggota-keluarga';
+import DetailDokter from './pages/detail-dokter';
+import Otp from './pages/otp';
+import Register from './pages/register';
+function App(props) {
+  useEffect(() => {
+    if (localStorage.getItem('login')) {
+      console.log('login');
+    } else {
+      console.log('belum login');
+      props.history.push('/login');
+    }
+  }, []);
   return (
     <Switch>
       <Route path="/" exact component={Home} />
@@ -34,9 +44,15 @@ function App() {
         exact
         component={EditAnggotaKeluarga}
       />
-      <Route path="/detail-dokter" exact component={DetailDokter} />
+      <Route
+        path="/edit-anggota-keluarga"
+        exact
+        component={EditAnggotaKeluarga}
+      />
+      <Route path="/login-number" exact component={Otp} />
+      <Route path="/register" exact component={Register} />
     </Switch>
   );
 }
 
-export default App;
+export default withRouter(App);

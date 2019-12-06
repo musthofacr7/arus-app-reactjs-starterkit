@@ -1,12 +1,12 @@
-import React from 'react';
-import BottomNavigation from '../../component/bottom-navigation';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Profile from '../../assets/avatar.png';
-import AmbilNomor from '../../component/ambil-nomor-antrian';
-import CekJadwalDokterHome from '../../component/cek-jadwal-dokter-home';
+import React from "react";
+import BottomNavigation from "../../component/bottom-navigation";
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Profile from "../../assets/avatar.png";
+import AmbilNomor from "../../component/ambil-nomor-antrian";
+import CekJadwalDokterHome from "../../component/cek-jadwal-dokter-home";
 
 function HomePage(props) {
   const { classes } = props;
@@ -38,7 +38,7 @@ function HomePage(props) {
             </Grid>
             <Grid item xs={2} className={classes.gridNumb}>
               <Typography className={classes.nomor}>12 A</Typography>
-              <Typography className={classes.locket}>Locket A</Typography>
+              <Typography className={classes.locket}>Loket A</Typography>
             </Grid>
             <Grid item xs={6} className={classes.gridLocket}>
               <Box align="center" className={classes.box}>
@@ -48,18 +48,15 @@ function HomePage(props) {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={0}></Grid>
-           
           </Grid>
-          <Grid item xs={12} align="center" className={classes.contentThree}>
-              <AmbilNomor />
-            </Grid>
-            <Grid item xs align="center" className={classes.contentThree}>
-              <CekJadwalDokterHome />
-            </Grid>
         </Grid>
       </Grid>
-
+      <div style={{ padding: "10px 20px" }}>
+        <AmbilNomor />
+      </div>
+      <div style={{ padding: "10px 20px", marginBottom: 50 }}>
+        <CekJadwalDokterHome />
+      </div>
       <BottomNavigation />
     </Container>
   );

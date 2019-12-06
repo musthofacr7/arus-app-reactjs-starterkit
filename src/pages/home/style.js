@@ -5,13 +5,11 @@ const Style = {
     backgroundSize: "cover",
     flexDirection: "column",
     display: "flex",
-    overflowY: "hidden",
+    // overflowY: "hidden",
     overflowX: "hidden",
     flex: 1,
     backgroundColor: "#F1F1F1",
-    padding: 0,
-
-
+    padding: 0
   },
   gridContainer: {
     display: "flex",
@@ -22,20 +20,21 @@ const Style = {
     background: "#26CAC0",
     maxWidth: "100%",
     // padding: 10,
-    paddingBottom: 50,
-    height: "170px"
+    paddingBottom: 50
   },
   gridTwo: {
     display: "flex",
+    padding: 20,
+    alignItems: "center",
+    justifyContent: "center",
     flexDirection: "column",
-    marginTop: "-4em",
-    width: "328px",
-    height: "256px"
+    marginTop: "-4em"
+    // width: "100%",
+    // height: "256px"
   },
 
   containerProfil: {
-    padding: 20,
-    marginRight: "80px"
+    padding: 20
   },
   image: {
     maxWidth: "100%",
@@ -47,7 +46,7 @@ const Style = {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    marginTop:"0.6em"
+    paddingTop: "0.6em"
   },
   name: {
     fontSize: "16px",
@@ -59,13 +58,17 @@ const Style = {
     fontSize: "12px"
   },
   antrian: {
+    // backgroundColor:"red",
+
     background: "white",
     borderRadius: 8,
-    padding: 30,
+    paddingTop: "5%",
     display: "flex",
     flexDirection: "column",
-    margin: "auto",
-    alignItems: "center",
+    width: "100%",
+    paddingBottom: 20,
+    // margin: "auto",
+    // alignItems: "center",
     justifyContent: "center"
   },
   gridText: {
@@ -74,7 +77,6 @@ const Style = {
   nomorAntrian: {
     color: "#25282B",
     fontSize: 16,
-    // fontFamily: 'Google Sans',
     fontWeight: "bold",
     lineHeight: "20px"
   },
@@ -104,7 +106,8 @@ const Style = {
     border: "0.5px solid #26CAC0",
     borderRadius: "8px",
     borderSizing: "border-box",
-    width: 284,
+    minWidth: "60%",
+    maxWidth: "80%",
     marginTop: "1em"
   },
   estimasi: {
@@ -138,14 +141,12 @@ const Style = {
   },
   contentTwo: {
     display: "flex",
-    paddingTop: "1em",
-   
+    paddingTop: "1em"
   },
-  contentThree:{
+  contentThree: {
     display: "flex",
     paddingTop: "1em",
-    justifyContent:'center'
-    
+    justifyContent: "center"
   }
 };
 export default Style;

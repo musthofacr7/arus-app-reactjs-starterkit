@@ -45,7 +45,8 @@ const Style = {
     marginLeft: "1em",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    paddingTop:'0.6em'
   },
   name: {
     fontSize: "16px",
@@ -57,6 +58,8 @@ const Style = {
     fontSize: "12px"
   },
   antrian: {
+    // backgroundColor:"red",
+
     background: "white",
     borderRadius: 8,
     paddingTop: "5%",
@@ -69,13 +72,14 @@ const Style = {
     justifyContent: "center"
   },
   gridText: {
-    maxWidth: "100%"
+    maxWidth: "100%",
   },
   nomorAntrian: {
     color: "#25282B",
     fontSize: 16,
     fontWeight: "bold",
-    lineHeight: "20px"
+    lineHeight: "20px",
+    
   },
   gridNumb: {
     maxWidth: "100%"

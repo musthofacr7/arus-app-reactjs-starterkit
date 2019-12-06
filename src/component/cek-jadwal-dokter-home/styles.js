@@ -9,8 +9,8 @@ const styles = {
     color: "#000000",
     fontSize: "14px",
     textDecoration: "none",
-    display: 'flex',
-    justifyContent: 'center',
+    display: "flex",
+    justifyContent: "center"
   },
   gridLeft: {
     marginTop: "1.2em",

@@ -49,14 +49,13 @@ function HomePage(props) {
               </Box>
             </Grid>
             <Grid item xs={0}></Grid>
-           
           </Grid>
-          <Grid item xs={12} align="center" className={classes.contentThree}>
-              <AmbilNomor />
-            </Grid>
-            <Grid item xs align="center" className={classes.contentThree}>
-              <CekJadwalDokterHome />
-            </Grid>
+          <div>
+            <AmbilNomor />
+          </div>
+          <Grid item xs align="center" className={classes.contentThree}>
+            <CekJadwalDokterHome />
+          </Grid>
         </Grid>
       </Grid>
 

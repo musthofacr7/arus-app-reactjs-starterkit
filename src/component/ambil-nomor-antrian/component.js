@@ -6,18 +6,18 @@ import AmbilNomorIcon from '../../assets/ambilnomor.png';
 function AmbilNomorAntrian(props) {
   const { classes } = props;
   return (
-    <Link className={classes.textRight} to="/pilih-loket">
+      <Paper onClick={handleClick}>
       <Grid className={classes.card}>
         <Grid container spacing={0} className={classes.gridCard}>
-          <Grid item xs={4} className={classes.gridLeft}>
+          <Grid item xsclassName={classes.gridLeft}>
             <img src={AmbilNomorIcon} alt="ambil antrian" />
           </Grid>
-          <Grid item xs={8} className={classes.gridRight}>
+          <Grid item xs className={classes.gridRight}>
             Ambil Nomor Antrian
           </Grid>
         </Grid>
       </Grid>
-    </Link>
+    </Paper>
   );
 }
 

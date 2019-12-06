@@ -5,7 +5,7 @@ import AppBar from "../../component/appbar";
 import BoxCategoryLocket from "../../component/Box-category-loket";
 import BottomNavigation from "../../component/bottom-navigation";
 import { Link } from "react-router-dom";
-import Modal from "../../component/modal";
+import Modal from "../../component/modal-pilih-loket";
 
 function PilihLocket(props) {
   const [open, setOpen] = React.useState(false);

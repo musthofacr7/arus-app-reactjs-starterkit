@@ -30,6 +30,8 @@ function EditProfile(props) {
     console.log(nik);
   };
   const handleClick = () => {
+
+    
     const data = {
       nama: nama,
       nik: nik

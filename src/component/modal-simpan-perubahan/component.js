@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import IconPopUp from '../../assets/alert-circle.png';
-import { Grid, Typography, Box, Button } from '@material-ui/core';
+import { Grid, Typography, Box } from '@material-ui/core';
 // import LogoLocket from "../locket-logo/component";
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -86,29 +86,13 @@ const useStyles = makeStyles(theme => ({
     textalign: 'center',
     color: '#26CAC0',
     justifyContent: 'center'
-  },
-  gridItemTwo: {
-    paddingTop: '2em'
-  },
-  gridItemTwo: {
-    paddingTop: '2em'
-  },
-  buttonAgree: {
-    border: '2px solid #F7A647',
-    background: '#F7A647',
-    minWidth: '118px',
-    minHeight: '48px'
-  },
-  buttonCancel: {
-    border: '2px solid #F7A647',
-    background: '#FFFFFF',
-    minWidth: '118px',
-    minHeight: '48px'
   }
 }));
 
 function SimpleModal(props) {
   const classes = useStyles();
+
+  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const { open, handleClose } = props;
   return (
@@ -120,7 +104,7 @@ function SimpleModal(props) {
     >
       <div style={modalStyle} className={classes.paper}>
         <Grid container align="center" className={classes.container}>
-          <Grid item xs>
+          <Grid item>
             <Box className={classes.boxLocket}>
               <Typography className={classes.typographyLoket}>
                 Locket
@@ -129,22 +113,13 @@ function SimpleModal(props) {
                 A
               </Typography>
             </Box>
+            {/* <LogoLocket title="Ass" /> */}
           </Grid>
-          <Grid item xs className={classes.gridItemTwo}>
+          <Grid item>
             <Typography className={classes.question}>
               Apakah anda yakin memilih
               <Typography className={classes.locket}>locket A</Typography>
             </Typography>
-          </Grid>
-          <Grid item xs className={classes.gridItemTwo}>
-            <Grid container spacing={0} align="center">
-              <Grid item xs>
-                <Button className={classes.buttonCancel}>Batal</Button>
-              </Grid>
-              <Grid item xs>
-                <Button className={classes.buttonAgree}>Iya</Button>
-              </Grid>
-            </Grid>
           </Grid>
 
           <SimpleModal />

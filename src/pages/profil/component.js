@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "../../component/appbar";
 import Profile from "../../assets/avatar.png";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Arrow from "../../assets/arrow.png";
 import User from "../../assets/users.png";
 import BottomNavigation from "../../component/bottom-navigation";
@@ -14,6 +14,13 @@ import { getProfile } from "../../services/profile";
 import { ProfileContext } from "../../context/profile";
 
 function DetailAnggota(props) {
+  const handleClickOne = () => {
+    props.history.push("/edit-profil");
+  };
+
+  const handleClickTwo = () => {
+    props.history.push("/list-anggota");
+  };
   const { classes } = props;
   const [data, setData] = useContext(ProfileContext);
   React.useEffect(() => {
@@ -32,36 +39,27 @@ function DetailAnggota(props) {
       <Container maxWidth="xs" className={classes.container}>
         <AppBar title="Profile" />
 
-        <Grid container spacing={0}>
-          <Grid item xs={12} className={classes.gridTop}>
-            <Grid container spacing={0} className={classes.gridContent}>
-              <Grid item xs={12} className={classes.gridItem}>
-                <Grid container spacing={0} className={classes.gridItemOne}>
-                  <Grid item xs={2} className={classes.gridName}>
-                    <img src={Profile} className={classes.image} alt="avatar" />
-                  </Grid>
-                  <Grid item xs={6} className={classes.gridName}>
-                    <Typography className={classes.name}>
-                      Kina Gatie Poetri
-                    </Typography>
+        <Grid container spacing={0} className={classes.gridTop}>
+          <Grid item xs={2} className={classes.gridName}>
+            <img src={Profile} className={classes.image} alt="avatar" />
+          </Grid>
+          <Grid item xs={6} className={classes.gridName}>
+            <Typography className={classes.name}>Kina Gatie Poetri</Typography>
 
-                    <Typography className={classes.nik}>
-                      NIK : 989123989
-                    </Typography>
-                  </Grid>
-
-                  <Grid item xs={4} className={classes.gridEdit}>
-                    <Link className={classes.link} to="/edit-profil">
-                      Edit Profile
-                    </Link>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
+            <Typography className={classes.nik}>NIK : 989123989</Typography>
+          </Grid>
+          <Grid item xs={3} className={classes.gridEdit}>
+            <Typography onClick={handleClickOne}>Edit Profile</Typography>
           </Grid>
         </Grid>
+
         <div>
-          <Grid item xs={12} className={classes.gridItemTwo}>
+          <Grid
+            container
+            spacing={0}
+            className={classes.gridItemTwo}
+            onClick={handleClickTwo}
+          >
             <Grid item xs={2} className={classes.icon}>
               <img src={User} alt="user" />
             </Grid>
@@ -71,9 +69,7 @@ function DetailAnggota(props) {
               </Typography>
             </Grid>
             <Grid item xs={5} className={classes.arrow}>
-              <Link className={classes.linkArrow} to="/list-anggota">
-                <img src={Arrow} alt="back" />
-              </Link>
+              <img src={Arrow} alt="back" />
             </Grid>
           </Grid>
 
@@ -89,7 +85,6 @@ function DetailAnggota(props) {
                 disableRipple={true}
                 id="submit-button"
                 className={classes.button}
-                // onClick={}
               >
                 <Typography style={{ textTransform: "none" }}>
                   Keluar
@@ -105,4 +100,4 @@ function DetailAnggota(props) {
   );
 }
 
-export default DetailAnggota;
+export default withRouter(DetailAnggota);

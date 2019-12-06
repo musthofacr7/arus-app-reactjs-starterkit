@@ -9,6 +9,10 @@ import GoogleLogo from "../../assets/googlelogo.png";
 
 
 function Login(props){
+  const handleClick = () => {
+    localStorage.setItem('login', true)
+    props.history.push('/')
+  }
     const { classes } = props;
     return (
       <Container maxWidth="xs" className={classes.container}>
@@ -36,7 +40,7 @@ function Login(props){
                       </Grid>
 
                       <Grid item xs={10} className={classes.gridButton}>
-                        <Typography className={classes.textButton}>
+                        <Typography className={classes.textButton} onClick={handleClick}>
                           Masuk Dengan Akun Google
                         </Typography>
                       </Grid>

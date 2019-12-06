@@ -9,9 +9,7 @@ const Style = {
     overflowX: "hidden",
     flex: 1,
     backgroundColor: "#F1F1F1",
-    padding: 0,
-
-
+    padding: 0
   },
   gridContainer: {
     display: "flex",
@@ -27,15 +25,16 @@ const Style = {
   },
   gridTwo: {
     display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     flexDirection: "column",
-    marginTop: "-4em",
-    width: "328px",
-    height: "256px"
+    marginTop: "-4em"
+    // width: "100%",
+    // height: "256px"
   },
 
   containerProfil: {
-    padding: 20,
-    marginRight: "80px"
+    padding: 20
   },
   image: {
     maxWidth: "100%",
@@ -46,8 +45,7 @@ const Style = {
     marginLeft: "1em",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
-    marginTop:"0.6em"
+    alignItems: "flex-start"
   },
   name: {
     fontSize: "16px",
@@ -61,11 +59,13 @@ const Style = {
   antrian: {
     background: "white",
     borderRadius: 8,
-    padding: 30,
+    paddingTop: "5%",
     display: "flex",
     flexDirection: "column",
-    margin: "auto",
-    alignItems: "center",
+    width: "87%",
+    paddingBottom: 20,
+    // margin: "auto",
+    // alignItems: "center",
     justifyContent: "center"
   },
   gridText: {
@@ -74,7 +74,6 @@ const Style = {
   nomorAntrian: {
     color: "#25282B",
     fontSize: 16,
-    // fontFamily: 'Google Sans',
     fontWeight: "bold",
     lineHeight: "20px"
   },
@@ -104,7 +103,8 @@ const Style = {
     border: "0.5px solid #26CAC0",
     borderRadius: "8px",
     borderSizing: "border-box",
-    width: 284,
+    minWidth: "60%",
+    maxWidth:'80%',
     marginTop: "1em"
   },
   estimasi: {

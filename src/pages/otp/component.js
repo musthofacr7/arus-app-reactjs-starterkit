@@ -15,6 +15,7 @@ function SplashScreen(props) {
         onChange={otp => console.log(otp)}
         numInputs={4}
         separator={<span>-</span>}
+        otpType="number"
         containerStyle={classes.otp}
       />
     </Container>

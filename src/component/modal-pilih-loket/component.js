@@ -11,9 +11,11 @@ function rand() {
 }
 
 function getModalStyle() {
-  const top = 30 + rand();
-  const left = 40 + rand();
+  const top = 30;
+  //  + rand()
+  const left = 40;
 
+  // + rand()
   return {
     top: `${top}%`,
     left: `${left}%`,
@@ -33,7 +35,12 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2, 4, 3),
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    // marginLeft: '-150px',
+    // marginTop: '-150px'
   },
   container: {
     display: 'flex',

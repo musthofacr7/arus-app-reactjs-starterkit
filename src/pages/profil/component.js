@@ -89,6 +89,7 @@ function DetailAnggota(props) {
                 disableRipple={true}
                 id="submit-button"
                 className={classes.button}
+                // onClick={}
               >
                 <Typography style={{ textTransform: "none" }}>
                   Keluar

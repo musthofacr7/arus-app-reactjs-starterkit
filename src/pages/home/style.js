@@ -21,7 +21,7 @@ const Style = {
     display: "flex",
     background: "#26CAC0",
     maxWidth: "100%",
-    padding: 10,
+    // padding: 10,
     paddingBottom: 50,
     height: "170px"
   },
@@ -139,7 +139,13 @@ const Style = {
   contentTwo: {
     display: "flex",
     paddingTop: "1em",
-    justifyContent: "center"
+   
+  },
+  contentThree:{
+    display: "flex",
+    paddingTop: "1em",
+    justifyContent:'center'
+    
   }
 };
 export default Style;

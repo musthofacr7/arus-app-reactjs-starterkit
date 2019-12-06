@@ -91,7 +91,7 @@ const useStyles = makeStyles(theme => ({
 
 function SimpleModal(props) {
   const classes = useStyles();
-  const { title } = props;
+
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const { open, handleClose } = props;
@@ -109,7 +109,9 @@ function SimpleModal(props) {
               <Typography className={classes.typographyLoket}>
                 Locket
               </Typography>
-              <Typography title="A" />
+              <Typography className={classes.TypographyLoketCategory}>
+                A
+              </Typography>
             </Box>
             {/* <LogoLocket title="Ass" /> */}
           </Grid>

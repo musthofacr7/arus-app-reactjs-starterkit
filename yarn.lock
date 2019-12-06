@@ -8294,6 +8294,11 @@ react-app-polyfill@^1.0.4:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
+react-content-loader@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/react-content-loader/-/react-content-loader-4.3.2.tgz#2f6546c883707d399a2abc2efd00edcb8f584618"
+  integrity sha512-Af2RW2G57+mFRXsiSXROtgvz3KmPz0lATRHNUpJ57DyVw6SRzDRNRXo04I2xhcwmwVnXsfx4s2hsHrU+Lq5jRw==
+
 react-dev-utils@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.1.0.tgz#3ad2bb8848a32319d760d0a84c56c14bdaae5e81"
@@ -8349,6 +8354,11 @@ react-is@^16.8.1, react-is@^16.8.4:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
+
+react-otp-input@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-otp-input/-/react-otp-input-1.0.1.tgz#b07ded9ecf83bf7e3bced8653084e61eeff6b6ff"
+  integrity sha512-N57qZ+kQVgU7W1x/urL5zu6N0+nVqJxWn74ueaKaXl5rF6Pqe05q3WybPFxDg9CRQRisfEUjXyT8Q+1Uzwb8ng==
 
 react-router-dom@^5.1.2:
   version "5.1.2"

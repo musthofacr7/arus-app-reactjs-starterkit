@@ -12,6 +12,7 @@ function Login(props) {
     localStorage.setItem('login', true);
     props.history.push('/');
   };
+  
   const { classes } = props;
   return (
     <Container maxWidth="xs" className={classes.container}>

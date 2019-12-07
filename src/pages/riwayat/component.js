@@ -53,12 +53,12 @@ function Riwayat(props) {
           <Grid item xs={12}>
             <Grid container spacing={0}>
               <Grid item xs={12} className={classes.itemTop}>
-                <Grid item xs={5} className={classes.gridRiwayat}>
+                <Grid item xs={7} className={classes.gridRiwayat}>
                   <Typography className={classes.textBottom}>
                     Riwayat Kunjungan
                   </Typography>
                 </Grid>
-                <Grid item xs={7} className={classes.gridRiwayat}>
+                <Grid item xs={5} className={classes.gridRiwayat}>
                   <Typography className={classes.textNumber}>(2)</Typography>
                 </Grid>
               </Grid>

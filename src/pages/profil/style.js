@@ -10,36 +10,29 @@ const Style = {
     height: "113px",
     width: "100%",
     backgroundSize: "cover",
-    marginTop: "4em"
-  },
-  gridItemOne: {
-    marginTop: "1.5em"
+    marginTop: "4em",
+    display: "flex",
+    alignItems: "center"
   },
   image: {
-    paddingLeft: "25%"
+    paddingLeft: "20%"
   },
   name: {
     fontSize: "16px",
     fontWeight: "bold",
-    paddingLeft: "14%",
-    marginTop: "3%"
+    paddingLeft: "16%"
   },
   nik: {
     color: "#9E9E9E",
     fontSize: "14px",
-    paddingLeft: "14%"
+    paddingLeft: "16%"
   },
   gridEdit: {
     display: "flex",
-    justifyContent: "center",
-    paddingTop: "2%"
-  },
-  link: {
-    textDecoration: "none",
+    justifyContent: "flex-end",
+    marginTop: "-5.5%",
     color: "#F7A647",
-    fontSize: "14px",
-    lineHeight: "19px",
-    fontFamily: "Nunito Sans"
+    fontSize: "14px"
   },
   gridItemTwo: {
     backgroundColor: "#ffffff",
@@ -59,10 +52,6 @@ const Style = {
     display: "flex",
     justifyContent: "flex-end",
     paddingRight: "3em"
-  },
-  linkArrow: {
-    textDecoration: "none",
-    color: "#000000"
   },
   button: {
     fontFamily: "Montserrat, sans-serif",

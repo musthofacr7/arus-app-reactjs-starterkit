@@ -41,8 +41,8 @@ function HomePage(props) {
               <Typography className={classes.locket}>Loket A</Typography>
             </Grid>
             <Grid item xs={6} className={classes.gridLocket}>
-              <Box align="center" className={classes.box}>
-                <Typography className={classes.estimasi}>
+              <Box className={classes.box}>
+                <Typography className={classes.estimasi} >
                   Estimasi di panggil pukul
                   <strong className={classes.waktu}> 14:00 </strong>WIB
                 </Typography>

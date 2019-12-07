@@ -12,7 +12,7 @@ const Style = {
   textTop: {
     color: "#26CAC0",
     fontSize: "14px",
-    paddingLeft: "2em"
+    paddingLeft: "1.7em"
   },
   itemTop: {
     paddingTop: "4%",
@@ -55,7 +55,7 @@ const Style = {
   textBottom: {
     color: "#25282B",
     fontSize: "14px",
-    marginLeft: "2em"
+    paddingLeft: '1.6em'
   },
   gridRiwayat: {
     display: "flex",

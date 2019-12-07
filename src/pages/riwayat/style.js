@@ -12,7 +12,7 @@ const Style = {
   textTop: {
     color: "#26CAC0",
     fontSize: "14px",
-    paddingLeft: "1.7em"
+    paddingLeft: "1.5em"
   },
   itemTop: {
     paddingTop: "4%",

@@ -65,7 +65,8 @@ const Style = {
   },
   textNumber: {
     color: "#26CAC0",
-    fontSize: "14px"
+    fontSize: "14px",
+    marginLeft: "-30%"
   },
   itemBottomHistory: {
     paddingTop: "5%",

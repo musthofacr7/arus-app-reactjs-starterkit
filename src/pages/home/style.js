@@ -5,7 +5,6 @@ const Style = {
     backgroundSize: "cover",
     flexDirection: "column",
     display: "flex",
-    overflowY: "hidden",
     overflowX: "hidden",
     flex: 1,
     backgroundColor: "#F1F1F1",
@@ -19,29 +18,36 @@ const Style = {
     display: "flex",
     background: "#26CAC0",
     maxWidth: "100%",
-    padding: 10,
     paddingBottom: 50
   },
   gridTwo: {
     display: "flex",
+    padding: 20,
+    alignItems: "center",
+    justifyContent: "center",
     flexDirection: "column",
-    marginTop: "-15%",
-    width: "328px"
+    marginTop: "-4em"
   },
 
   containerProfil: {
-    padding: 20,
-    marginRight: "80px"
+    padding: 20
   },
   image: {
-    maxWidth: "100%"
+    maxWidth: "100%",
+    marginLeft: "1em"
   },
   gridName: {
-    maxWidth: "100%"
+    maxWidth: "100%",
+    marginLeft: "1em",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    paddingTop: "0.6em"
   },
   name: {
     fontSize: "16px",
-    color: "#FFFFFF"
+    color: "#FFFFFF",
+    fontWeight: "bold"
   },
   nik: {
     color: "#FFFFFF",
@@ -50,11 +56,11 @@ const Style = {
   antrian: {
     background: "white",
     borderRadius: 8,
-    padding: 30,
+    paddingTop: "5%",
     display: "flex",
     flexDirection: "column",
-    margin: "auto",
-    alignItems: "center",
+    width: "100%",
+    paddingBottom: 20,
     justifyContent: "center"
   },
   gridText: {
@@ -63,16 +69,14 @@ const Style = {
   nomorAntrian: {
     color: "#25282B",
     fontSize: 16,
-    // fontFamily: 'Google Sans',
     fontWeight: "bold",
     lineHeight: "20px"
   },
   gridNumb: {
-    maxWidth: "100%",
-    padding: 20
+    maxWidth: "100%"
   },
   nomor: {
-    // paddingTop: 34,
+    marginTop: "0.7em",
     color: "#26CAC0",
     fontSize: 40,
     fontWeight: "bold",
@@ -81,7 +85,7 @@ const Style = {
   locket: {
     color: "#9E9E9E",
     fontFamily: "Nunito Sans",
-    fontWeight: 600,
+    fontWeight: 400,
     fontSize: "18px"
   },
   gridLocket: {
@@ -91,20 +95,27 @@ const Style = {
 
   box: {
     background: "#E9F9F8",
-    border: "0.5px solid #26CAC0",
+    border: "1px solid #26CAC0",
     borderRadius: "8px",
     borderSizing: "border-box",
-    width: 284
+    minWidth: "60%",
+    maxWidth: "80%",
+    marginTop: "1em",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   estimasi: {
-    fontFamily: "Nunito Sans",
-    fontStyle: "normal",
     fontSize: "12px",
-    lineHeight: "40px",
-    color: "#9E9E9E"
+    height: "38px",
+    color: "#9E9E9E",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   waktu: {
-    color: "black"
+    color: "black",
+    padding: "2%",
   },
   gridBellow: {
     backgroundColor: "red"
@@ -121,13 +132,16 @@ const Style = {
 
   ambilNomor: {
     color: "#000000",
-    fontfamily: "Nunito Sans",
     fontWeight: 500,
     fontSize: 14
   },
   contentTwo: {
     display: "flex",
-    paddingTop: "5%",
+    paddingTop: "1em"
+  },
+  contentThree: {
+    display: "flex",
+    paddingTop: "1em",
     justifyContent: "center"
   }
 };

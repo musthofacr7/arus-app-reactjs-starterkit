@@ -4,9 +4,8 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import { Link } from "react-router-dom";
 
-class Component extends React.Component {
-  render() {
-    const { classes } = this.props;
+function Fabs(props){
+    const { classes } = props;
     return (
       <Grid container spacing={0} className={classes.gridFab}>
         <Grid className={classes.stickToBottom}>
@@ -23,6 +22,6 @@ class Component extends React.Component {
       </Grid>
     );
   }
-}
 
-export default Component;
+
+export default Fabs;

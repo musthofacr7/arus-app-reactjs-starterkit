@@ -4,12 +4,13 @@ const Style = {
     height: "100vh"
   },
   gridTop: {
-    paddingTop: "25%"
+    paddingTop: "20%"
   },
   containerCard: {
-    height: "450px",
+    height: "554px",
     backgroundColor: "#ffffff",
-    borderRadius: "8px"
+    borderRadius: "8px",
+    paddingBottom: "6%"
   },
   content: {
     fontSize: "12px",
@@ -29,14 +30,13 @@ const Style = {
   },
   button: {
     fontFamily: "Montserrat, sans-serif",
-    width: "200%",
+    width: "380px",
     height: 48,
     boxShadow: "0px 0px 2px #c1b1b1",
     border: "1px solid #F7A647",
     backgroundColor: "#F7A647",
     borderRadius: "4px",
     color: "#ffffff",
-    
     fontSize: "14px"
   },
   buttonBox: {
@@ -56,11 +56,16 @@ const Style = {
     alignItems: "center"
   },
   textField: {
-    width: "90%"
+    width: "90%",
+    marginTop: "2em"
   },
   textGender: {
     color: "#9E9E9E",
     fontSize: "14px"
+  },
+  gender: {
+    color: "#9E9E9E",
+    fontSize: "12px"
   },
   radioGrid: {
     paddingLeft: "5%",

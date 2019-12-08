@@ -1,83 +1,82 @@
 const styles = theme => ({
   container: {
-    width: "100%",
-    height: "100vh",
-    display: "flex",
-    overflowY: "hidden",
-    overflowX: "hidden",
-    justifyContent: "",
-    flex: "1",
+    width: '100%',
+    height: '100vh',
+    display: 'flex',
+    // overflowY: 'hidden',
+    // overflowX: 'hidden',
+    justifyContent: '',
+    flex: '1',
     padding: 0,
-    flexDirection: "column",
-    backgroundSize: "cover"
+    flexDirection: 'column',
+    backgroundSize: 'cover',
+    marginBottom: '8%'
   },
-  gridItemTop: {
-    display: "flex",
-    justifyContent: "center",
-    flex: "3"
-  },
-  gridItemBottom: {
-    display: "flex",
-    justifyContent: "center",
-    flex: "2"
-  },
+  gridItemTop: {},
+  gridItemBottom: {},
   image: {
-    width: "100%"
+    width: '100%',
+    // height: '80%'
   },
   gridBottom: {
-    display: "flex",
-    flexDirection: "row"
+    display: 'flex',
+    flexDirection: 'row'
   },
   textTop: {
-    fontSize: "24px",
-    paddingLeft: "6%",
-    paddingTop: "5%"
+    fontSize: '24px',
+    paddingLeft: '6%',
+    paddingBottom: '5%',
+    fontWeight: 'bold'
   },
   button: {
-    fontFamily: "Montserrat, sans-serif",
-    fontSize: "15px",
-    width: "90%",
+    fontFamily: 'Montserrat, sans-serif',
+    fontSize: '15px',
+    width: '90%',
     height: 48,
-    boxShadow: "0px 0px 2px #c1b1b1",
-    border: "1px solid #F7A647",
-    backgroundColor: "#ffffff",
-    borderRadius: "4px"
+    boxShadow: '0px 0px 2px #c1b1b1',
+    border: '1px solid #F7A647',
+    borderRadius: '4px'
   },
   buttonBottom: {
-    fontFamily: "Montserrat, sans-serif",
-    fontSize: "15px",
-    width: "90%",
+    fontFamily: 'Montserrat, sans-serif',
+    fontSize: '15px',
+    width: '90%',
     height: 48,
-    boxShadow: "0px 0px 2px #c1b1b1",
-    border: "1px solid #F7A647",
-    backgroundColor: "#F7A647",
-    borderRadius: "4px"
+    boxShadow: '0px 0px 2px #c1b1b1',
+    border: '1px solid #F7A647',
+    borderRadius: '4px'
   },
   buttonBox: {
-    flexDirection: "column",
-    display: "flex",
-    alignItems: "center"
+    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center'
   },
   textButton: {
-    color: "#F7A647",
-    fontFamily: "Google Sans, sans-serif",
-    fontSize: "14px"
+    color: '#F7A647',
+    fontFamily: 'Google Sans, sans-serif',
+    fontSize: '14px'
   },
   textButtonBottom: {
-    color: "#FFFFFF",
-    fontFamily: "Google Sans, sans-serif",
-    fontSize: "14px"
+    color: '#FFFFFF',
+    fontFamily: 'Google Sans, sans-serif',
+    fontSize: '14px'
   },
   gridButton: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    display: 'flex',
+    alignItems: 'center'
   },
   buttonBoxBottom: {
-    paddingTop: "3%",
-    flexDirection: "column",
-    display: "flex",
-    alignItems: "center"
+    paddingTop: '3%',
+    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center'
+  },
+  googleLogo: {
+    paddingLeft: '30%'
+  },
+  gridIconBottom: {
+    padingTop: 20,
+    color: 'white'
   }
 });
 

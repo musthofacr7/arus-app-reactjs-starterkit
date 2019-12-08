@@ -23,8 +23,6 @@ const Style = {
   },
   gridItemTabs: {
     paddingTop: '3%'
-    // bottom: 90,
-    // position: 'fixed'
   },
   gridItemList: {
     paddingTop: '2.2em',
@@ -50,17 +48,14 @@ const Style = {
   gridButton: {
     display: 'flex',
     justifyContent: 'center'
-    // paddingTop: '80%'
   },
   Tabs: {
-    // textTransform: 'none',
     indicatorColor: '#26CAC0'
   },
   gridItemOne: {
     border: '0.9px solid #9E9E9E',
     width: '94%',
     borderRadius: '8px'
-    // backgroundColor: 'green',
   },
   gridField: {
     display: 'flex',
@@ -84,14 +79,21 @@ const Style = {
     paddingBottom: '1%',
     paddingLeft: '3%',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+   
   },
   gridList: {
     border: '1px solid #FFFFFF',
     width: '96%',
-    padding: 16,
+    // padding: 16,
     borderRadius: '8px',
-    backgroundColor: '#FFFFFF'
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems:'center',
+    paddingTop: 15,
+    paddingBottom: 15,
+    paddingLeft: 8,
+    paddingRight: 8 
   },
   arrow: {
     display: 'flex',

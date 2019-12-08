@@ -6,20 +6,18 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 function getModalStyle() {
-  const top = 30;
-  const left = 40;
-
   return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`
+    top: `50%`,
+    left: `50%`,
+    transform: `translate(-50%, -50%)`
   };
 }
 
 function SimpleModal(props) {
+  const { classes } = props;
   const [modalStyle] = React.useState(getModalStyle);
-  const { open, handleClose, classes } = props;
-  
+  const { open, handleClose } = props;
+  console.log('test', classes.paper);
   return (
     <Modal
       aria-labelledby="simple-modal-title"
@@ -62,8 +60,6 @@ function SimpleModal(props) {
               </Grid>
             </Grid>
           </Grid>
-
-          <SimpleModal />
         </Grid>
       </div>
     </Modal>

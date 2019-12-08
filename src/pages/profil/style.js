@@ -1,113 +1,75 @@
 const Style = {
   container: {
-    width: '100%',
+    width: "auto",
+    height: "auto",
+    backgroundSize: "cover",
     padding: 0
   },
   gridTop: {
-    height: '160px',
-    backgroundColor: '#ffffff'
-  },
-
-  gridContent: {
-    paddingTop: '15%',
-    paddingLeft: '5%'
-  },
-
-  gridItem: {
-    paddingTop: '3%'
-  },
-
-  gridItemOne: {
-    width: '94%',
-    borderRadius: '8px'
-  },
-  gridField: {
-    // backgroundColor: 'red',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    paddingTop: 14,
-    paddingBottom: 14,
-    fontSize: 14
+    backgroundColor: "#ffffff",
+    height: "113px",
+    width: "100%",
+    backgroundSize: "cover",
+    marginTop: "4em",
+    display: "flex",
+    alignItems: "center"
   },
   image: {
-    width: '64px'
-  },
-  gridName: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center'
+    paddingLeft: "20%"
   },
   name: {
-    color: '#25282B',
-    fontSize: '14px',
-    lineHeight: '20px',
-    fontWeight: 'bold',
-    fontFamily: 'Google Sans'
+    fontSize: "16px",
+    fontWeight: "bold",
+    paddingLeft: "16%"
   },
   nik: {
-    color: '#9E9E9E',
-    fontSize: '9px',
-    fontFamily: 'Nunito Sans'
+    color: "#9E9E9E",
+    fontSize: "14px",
+    paddingLeft: "16%"
   },
   gridEdit: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+    display: "flex",
+    justifyContent: "flex-end",
+    marginTop: "-5.5%",
+    color: "#F7A647",
+    fontSize: "14px"
   },
-  link: {
-    textDecoration: 'none',
-    color: '#F7A647',
-    fontSize: '14px',
-    lineHeight: '19px',
-    fontFamily: 'Nunito Sans'
+  gridItemTwo: {
+    backgroundColor: "#ffffff",
+    height: "69px",
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: "1.5em",
+    marginTop: "2em"
   },
-  gridTwo: {
-    backgroundColor: '  #FFFFFF',
-    height: '60px',
-    padding: '5%'
+  title: {
+    fontSize: "14px"
   },
   icon: {
-    width: 15,
-    color: '#E0E0E0'
-    // backgroundColor: 'red',
-  },
-  text: {
-    fontFamily: 'Nunito Sans',
-    fontSize: 13
+    paddingLeft: "1em"
   },
   arrow: {
-    display: 'flex',
-    justifyContent: 'flex-end'
-    // backgroundColor: 'blue',
-  },
-  linkArrow: {
-    textDecoration: 'none',
-    color: '#000000'
+    display: "flex",
+    justifyContent: "flex-end",
+    paddingRight: "3em"
   },
   button: {
-    fontFamily: 'Montserrat, sans-serif',
-    minWidth: '80%',
-    maxWidth: '50%',
+    fontFamily: "Montserrat, sans-serif",
     height: 48,
-    boxShadow: '0px 0px 2px #c1b1b1',
-    border: '1px solid #F7A647',
-    backgroundColor: '#ffffff',
-    borderRadius: '4px',
-    color: '#F7A647',
-    fontSize: '14px'
-    // marginLeft: '50%'
+    boxShadow: "0px 0px 2px #c1b1b1",
+    border: "1px solid #F7A647",
+    backgroundColor: "#ffffff",
+    borderRadius: "4px",
+    color: "#F7A647",
+    fontSize: "14px"
   },
-  buttonBox: {
-    flexDirection: 'column',
-    display: 'flex',
-    bottom: 60,
-    position: 'fixed',
-    // width:'35%',
-    // left:15,
-    justifyContent: 'center'
-
-    // backgroundColor: 'purple',
+  boxButton: {
+    position: "fixed",
+    bottom: "73px",
+    display: "flex",
+    justifyContent: "center",
+    width: "85%",
+    maxWidth: "448px"
   }
 };
 export default Style;

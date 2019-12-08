@@ -45,9 +45,9 @@ function App(props) {
         component={EditAnggotaKeluarga}
       />
       <Route
-        path="/edit-anggota-keluarga"
+        path="/detail-dokter"
         exact
-        component={EditAnggotaKeluarga}
+        component={DetailDokter}
       />
       <Route path="/login-number" exact component={Otp} />
       <Route path="/register" exact component={Register} />

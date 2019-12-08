@@ -1,20 +1,15 @@
-import { makeStyles } from '@material-ui/core/styles';
-
-const styles = {
+const Styles = {
   paper: {
     position: 'absolute',
-    width: '70%',
-    height: '70%',
-    // backgroundColor: palette.background.paper,
+    width: '300px',
+    height: '300px',
+    backgroundColor: '#FFFFFF',
     border: '0.1px solid #FFFFFF',
     borderRadius: '8px',
     // padding: spacing(2, 4, 3),
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    left: '50%',
-    top: '50%'
+    justifyContent: 'center'
   },
   container: {
     display: 'flex',
@@ -89,4 +84,4 @@ const styles = {
   }
 };
 
-export default styles;
+export default Styles;

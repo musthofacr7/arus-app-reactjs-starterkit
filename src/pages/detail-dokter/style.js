@@ -9,7 +9,7 @@ const style = {
   },
   gridTop: {
     backgroundColor: "#ffffff",
-    height: "170px",
+    height: "150px",
     width: "100%",
     backgroundSize: "cover"
   },
@@ -39,24 +39,14 @@ const style = {
   jadwal: {
     fontSize: "14px"
   },
-  gridJadwal: {
-    backgroundColor: "#FFFFFF",
-    height: "50px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  jadwalPraktik: {
-    color: "#F7A647",
-    fontSize: "14px",
-    fontWeight: 500
-  },
   gridKontak: {
     backgroundColor: "#FFFFFF",
-    height: "223px"
+    height: "150px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   gridText: {
-    marginTop: "2.6em",
     flexDirection: "row",
     display: "flex",
     alignItems: "center"
@@ -66,14 +56,14 @@ const style = {
   },
   number: {
     fontSize: "14px",
-    paddingLeft: "2.7em",
+    paddingLeft: "1.2em",
     color: "#25282B"
   },
   iconPhone: {
     paddingLeft: "2em"
   },
   gridPhone: {
-    marginTop: "3em",
+    marginTop: "2em",
     flexDirection: "row",
     display: "flex",
     alignItems: "center"

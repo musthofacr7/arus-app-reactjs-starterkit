@@ -17,6 +17,8 @@ import DetailDokter from "./pages/detail-dokter";
 import Otp from "./pages/otp";
 import Register from "./pages/register";
 function App(props) {
+  const [isLoading,setIsLoading] = React.useState(true)
+  
   useEffect(() => {
     if (localStorage.getItem("login")) {
       console.log("login");
@@ -24,14 +26,20 @@ function App(props) {
       console.log("belum login");
       props.history.push("/login");
     }
+    setTimeout(()=>{
+      setIsLoading(false)
+
+    },1000)
   }, []);
+  if(isLoading == true){
+    return (<SplashScreen/>)
+  }
   return (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/riwayat" exact component={Riwayat} />
       <Route path="/login" exact component={Login} />
       <Route path="/pilih-loket" exact component={PilihLocket} />
-      <Route path="/splashscreen" exact component={SplashScreen} />
       <Route path="/profil" exact component={Profile} />
       <Route path="/edit-profil" exact component={EditProfile} />
       <Route path="/list-anggota" exact component={ListAnggota} />

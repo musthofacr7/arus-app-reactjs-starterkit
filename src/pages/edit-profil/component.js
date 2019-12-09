@@ -9,6 +9,7 @@ import Profile from '../../assets/avatar.png';
 import AppBar from '../../component/appbar';
 import { Link } from 'react-router-dom';
 import { ProfileContext } from '../../context/profile';
+import { updateProfile } from '../../services/profile';
 
 function EditProfile(props) {
   const [data, setData] = useContext(ProfileContext);
@@ -30,9 +31,14 @@ function EditProfile(props) {
   };
   const handleClick = () => {
     const data = {
-      nama: nama,
+      name: nama,
       nik: nik
     };
+    const user = JSON.parse(localStorage.getItem('user'));
+    updateProfile(user.id, data).then(()=>{
+      props.history.push('/profil')
+    });
+    
     console.log(data);
   };
 

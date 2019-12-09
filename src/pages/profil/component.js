@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect,useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -24,11 +24,12 @@ function DetailAnggota(props) {
   const { classes } = props;
   const user = JSON.parse(localStorage.getItem('user'));
 
-  const [data, setData] = useContext(ProfileContext);
+  const [data, setData] = useState({});
   useEffect(() => {
     const getProfileData = async () => {
       const profile = await getProfile(user.id);
-      setData(profile);
+      setData(profile.row);
+      console.log(data);
       console.log(profile);
     };
 
@@ -49,9 +50,9 @@ function DetailAnggota(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={6} className={classes.gridName}>
-            <Typography className={classes.name}>{user.name}</Typography>
+            <Typography className={classes.name}>{data.name}</Typography>
 
-            <Typography className={classes.nik}>NIK : {user.nik}</Typography>
+            <Typography className={classes.nik}>NIK : {data.nik}</Typography>
           </Grid>
           <Grid item xs={3} className={classes.gridEdit}>
             <Typography onClick={handleClickOne}>Edit Profile</Typography>

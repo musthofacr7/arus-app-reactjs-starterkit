@@ -47,7 +47,6 @@ function ListAnggota(props) {
         </div>
       ) : (
         <div className={classes.gridUpper}>
-         {/* <Grid container spacing={4} className={classes.gridUpper}> */}
           {anggota.map(data => {
             return (
               <Grid item className={classes.itemList}>
@@ -59,7 +58,6 @@ function ListAnggota(props) {
               </Grid>
             );
           })}
-        {/* </Grid> */}
         </div>
       )}
 

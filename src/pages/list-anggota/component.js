@@ -46,10 +46,11 @@ function ListAnggota(props) {
           <MyLoader />
         </div>
       ) : (
-        <Grid container spacing={4} className={classes.gridUpper}>
+        <div className={classes.gridUpper}>
+         {/* <Grid container spacing={4} className={classes.gridUpper}> */}
           {anggota.map(data => {
             return (
-              <Grid item>
+              <Grid item className={classes.itemList}>
                 <ListData
                   nik={data.nik}
                   name={data.nama}
@@ -58,7 +59,8 @@ function ListAnggota(props) {
               </Grid>
             );
           })}
-        </Grid>
+        {/* </Grid> */}
+        </div>
       )}
 
       <FAB />

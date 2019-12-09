@@ -9,10 +9,16 @@ const Style = {
     flexDirection: "column",
     marginTop: "15%",
     paddingBottom: "10%",
-    backgroundColor: "#F1F1F1"
+    backgroundColor: "#F1F1F1",
+    paddingTop:"3%"
+
   },
   link: {
     textDecoration: "none"
+  },
+  itemList:{
+    paddingTop:"4%"
+
   }
 };
 export default Style;

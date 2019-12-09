@@ -1,20 +1,30 @@
-import React, { useContext, useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Profile from '../../assets/avatar.png';
-import AppBar from '../../component/appbar';
-import { Link } from 'react-router-dom';
-import { updateProfile } from '../../services/profile';
-import { ProfileContext } from '../../context/profile';
+import React, { useContext, useEffect } from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Profile from "../../assets/avatar.png";
+import AppBar from "../../component/appbar";
+import Modal from "../../component/modal-simpan-perubahan";
+import { Link } from "react-router-dom";
+import { updateProfile } from "../../services/profile";
+import { ProfileContext } from "../../context/profile";
 
 function EditProfile(props) {
+  const [open, setOpen] = React.useState(false);
   const [data, setData] = useContext(ProfileContext);
   const [nama, setNama] = React.useState(data.nama);
   const [nik, setNik] = React.useState(data.nik);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     console.log(data.name);
@@ -30,8 +40,6 @@ function EditProfile(props) {
     console.log(nik);
   };
   const handleClick = () => {
-
-    
     const data = {
       nama: nama,
       nik: nik
@@ -55,7 +63,7 @@ function EditProfile(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={12} className={classes.gridEdit}>
-            <Link className={classes.link} onClick={() => alert('ganti foto?')}>
+            <Link className={classes.link} onClick={() => alert("ganti foto?")}>
               <Typography className={classes.ganti}> Ganti Foto</Typography>
             </Link>
           </Grid>
@@ -81,9 +89,9 @@ function EditProfile(props) {
               <Button
                 variant="contained"
                 disableRipple={true}
-                style={{ backgroundColor: '#F7A647' }}
+                style={{ backgroundColor: "#F7A647" }}
                 className={classes.button}
-                onClick={handleClick}
+                onClick={handleOpen}
               >
                 <Typography className={classes.save}>
                   Simpan Perubahan
@@ -92,6 +100,7 @@ function EditProfile(props) {
             </Grid>
           </Grid>
         </Grid>
+        <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
       </Container>
     </React.Fragment>
   );

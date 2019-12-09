@@ -51,7 +51,7 @@ function DetailAnggota(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={6} className={classes.gridName}>
-            <Typography className={classes.name}>{user.nama}</Typography>
+            <Typography className={classes.name}>{user.name}</Typography>
 
             <Typography className={classes.nik}>NIK : {user.nik}</Typography>
           </Grid>

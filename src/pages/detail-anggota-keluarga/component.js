@@ -1,15 +1,25 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
-import AppBar from '../../component/appbar';
-import { getDetailAnggota } from '../../services/detail-anggota';
+import React from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Button from "@material-ui/core/Button";
+import AppBar from "../../component/appbar";
+import Modal from "../../component/modal-hapus-datakeluarga";
+import { getDetailAnggota } from "../../services/detail-anggota";
 function DetailAnggota(props) {
+  const [open, setOpen] = React.useState(false);
   const { classes } = props;
   const [detail, setDetail] = React.useState({});
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   React.useEffect(() => {
     const id = props.match.params.id;
     const getDetail = async () => {
@@ -69,17 +79,19 @@ function DetailAnggota(props) {
           </Grid>
 
           <Grid item xs={12} className={classes.gridButton}>
-            
-              <Button
-                disableRipple={true}
-                id="submit-button"
-                className={classes.button}
-              >
+            <Button
+              onClick={handleOpen}
+              disableRipple={true}
+              id="submit-button"
+              className={classes.button}
+            >
+              <Typography style={{ textTransform: "none", fontSize: "14px" }}>
                 Hapus Data Anggota Keluarga
-              </Button>
-           
+              </Typography>
+            </Button>
           </Grid>
         </Grid>
+        <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
       </Container>
     </React.Fragment>
   );

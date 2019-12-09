@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import Avatar from '../../assets/avatar.png';
 import { getListDockter } from '../../services/list-dockter';
 import BottomNavigation from '../../component/bottom-navigation';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
@@ -81,7 +81,9 @@ function DetailAnggota(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const handleClick = () => {
+    props.history.push('/detail-dokter');
+  };
   return (
     <React.Fragment>
       <CssBaseline />
@@ -93,8 +95,6 @@ function DetailAnggota(props) {
             <Grid container spacing={0} className={classes.gridContent}>
               <Grid item xs={12} className={classes.gridItem}>
                 <Grid container spacing={0} className={classes.gridItemOne}>
-                  {/* <Grid item xs={1} /> */}
-
                   <Grid item xs={8} className={classes.gridField}>
                     <TextField
                       placeholder="Tulis Nama Dokter"
@@ -105,7 +105,6 @@ function DetailAnggota(props) {
                     />
                   </Grid>
                   <Grid item xs={4} className={classes.gridIcon}>
-                    {/* <img src={SearchIcon} style={{width: 32}}/> */}
                     <Button>
                       <svg
                         width="32"
@@ -169,47 +168,54 @@ function DetailAnggota(props) {
                     className={classes.gridContentList}
                   >
                     <Grid item xs>
-                      <Grid container spacing={0} className={classes.gridList}>
+                      <Grid
+                        container
+                        spacing={0}
+                        className={classes.gridList}
+                        onClick={handleClick}
+                      >
                         <Grid item xs={3}>
                           <img src={Avatar} />
                         </Grid>
 
                         <Grid item xs={8}>
-                          <Typography className={classes.nama}>{data.nama}</Typography>
-                          <Typography className={classes.spesialis}>{data.spesialis}</Typography>
+                          <Typography className={classes.nama}>
+                            {data.nama}
+                          </Typography>
+                          <Typography className={classes.spesialis}>
+                            {data.spesialis}
+                          </Typography>
                         </Grid>
                         <Grid item xs={1} className={classes.arrow}>
-                          <Link to="/detail-dokter">
-                            <svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                                stroke="#F7A647"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                              <path
-                                d="M12 16L16 12L12 8"
-                                stroke="#F7A647"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                              <path
-                                d="M8 12H16"
-                                stroke="#F7A647"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                          </Link>
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                              stroke="#F7A647"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M12 16L16 12L12 8"
+                              stroke="#F7A647"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M8 12H16"
+                              stroke="#F7A647"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
                         </Grid>
                       </Grid>
                     </Grid>
@@ -225,4 +231,4 @@ function DetailAnggota(props) {
   );
 }
 
-export default DetailAnggota;
+export default withRouter(DetailAnggota);

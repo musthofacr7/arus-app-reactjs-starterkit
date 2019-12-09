@@ -77,7 +77,7 @@ function SplashScreen(props) {
           <Grid item>
             <Typography>Already a member ?</Typography>{' '}
             <Typography style={{ fontWeight: 'bold' }} onClick={handleSignUp}>
-              Sign up
+              Sign in
             </Typography>
           </Grid>
         </Grid>

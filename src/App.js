@@ -1,38 +1,41 @@
-import React, { useEffect } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
-import Home from "./pages/home";
-import Riwayat from "./pages/riwayat";
-import Login from "./pages/login";
-import PilihLocket from "./pages/pilih-loket";
-import SplashScreen from "./pages/splash-screen";
-import Profile from "./pages/profil";
-import EditProfile from "./pages/edit-profil";
-import ListAnggota from "./pages/list-anggota";
-import EditKeluarga from "./pages/edit-anggota-keluarga";
-import AddAnggotaKeluarga from "./pages/add-anggota-keluarga";
-import DetailKeluarga from "./pages/detail-anggota-keluarga";
-import CekJadwalDokter from "./pages/cek-jadwal-dokter";
-import EditAnggotaKeluarga from "./pages/edit-anggota-keluarga";
-import DetailDokter from "./pages/detail-dokter";
-import Otp from "./pages/otp";
-import Register from "./pages/register";
-function App(props) {
-  const [isLoading,setIsLoading] = React.useState(true)
-  
-  useEffect(() => {
-    if (localStorage.getItem("login")) {
-      console.log("login");
-    } else {
-      console.log("belum login");
-      props.history.push("/login");
-    }
-    setTimeout(()=>{
-      setIsLoading(false)
+import React, { useEffect } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import Home from './pages/home';
+import Riwayat from './pages/riwayat';
+import Login from './pages/login';
+import PilihLocket from './pages/pilih-loket';
+import SplashScreen from './pages/splash-screen';
+import Profile from './pages/profil';
+import EditProfile from './pages/edit-profil';
+import ListAnggota from './pages/list-anggota';
+import EditKeluarga from './pages/edit-anggota-keluarga';
+import AddAnggotaKeluarga from './pages/add-anggota-keluarga';
+import DetailKeluarga from './pages/detail-anggota-keluarga';
+import CekJadwalDokter from './pages/cek-jadwal-dokter';
+import EditAnggotaKeluarga from './pages/edit-anggota-keluarga';
+import DetailDokter from './pages/detail-dokter';
+import Otp from './pages/otp';
+import Register from './pages/register';
+import LoginEmail from './pages/login-email';
 
-    },1000)
+function App(props) {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
+  useEffect(() => {
+    if (localStorage.getItem('login')) {
+      console.log('login');
+    } else {
+      console.log('belum login');
+      props.history.push('/login');
+      // props.history.push('/login/email');
+
+    }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, []);
-  if(isLoading == true){
-    return (<SplashScreen/>)
+  if (isLoading == true) {
+    return <SplashScreen />;
   }
   return (
     <Switch>
@@ -55,6 +58,7 @@ function App(props) {
       <Route path="/detail-dokter" exact component={DetailDokter} />
       <Route path="/login-number" exact component={Otp} />
       <Route path="/register" exact component={Register} />
+      <Route path="/login/email" exact component={LoginEmail} />
     </Switch>
   );
 }

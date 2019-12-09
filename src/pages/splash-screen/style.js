@@ -9,7 +9,6 @@ const Style = {
     overflowX: 'hidden',
     flex: '1',
     backgroundColor: '#26CAC0',
-    // margin: 0
     padding: 0
   },
   imgEcclipse: {

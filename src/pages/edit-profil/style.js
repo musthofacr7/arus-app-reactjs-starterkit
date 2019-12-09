@@ -9,7 +9,6 @@ const Style = {
     overflowX: 'hidden',
     flex: '1',
     backgroundColor: '#F1F1F1',
-
     padding: 0
   },
   gridContainer: {
@@ -19,8 +18,6 @@ const Style = {
     alignItems: 'center',
     marginTop: '55px',
     padding: 10
-    // padding: 20
-    // height: '60%'
   },
   gridAvatar: {
     alignItems: 'center',
@@ -47,15 +44,9 @@ const Style = {
     backgroundColor: 'green'
   },
   form: {
-    // backgroundColor: 'red',
     display: 'flex',
     flexDirection: 'column',
     width: 300
-  },
-  gridForm: {
-    // display: 'flex',
-    // flexDirection: 'column',
-    // backgroundColor: 'white'
   },
   saveButton: {
     width: '100%',
@@ -71,7 +62,6 @@ const Style = {
   },
   save: {
     color: '#FFFFFF',
-
     fontStyle: 'normal',
     fontSize: '14px'
   }

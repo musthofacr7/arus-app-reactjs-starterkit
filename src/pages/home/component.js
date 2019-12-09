@@ -8,6 +8,7 @@ import Profile from '../../assets/avatar.png';
 import AmbilNomor from '../../component/ambil-nomor-antrian';
 import CekJadwalDokterHome from '../../component/cek-jadwal-dokter-home';
 import { getProfile } from '../../services/profile';
+
 function HomePage(props) {
   const { classes } = props;
   const user = JSON.parse(localStorage.getItem('user'));
@@ -51,7 +52,7 @@ function HomePage(props) {
               <Box className={classes.box}>
                 <Typography className={classes.estimasi}>
                   Estimasi di panggil pukul
-                  <strong className={classes.waktu}> 14:00 </strong>WIB
+                  <strong className={classes.waktu}> 14:00 </strong> WIB
                 </Typography>
               </Box>
             </Grid>

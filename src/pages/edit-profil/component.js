@@ -8,6 +8,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Profile from "../../assets/avatar.png";
 import AppBar from "../../component/appbar";
 import Modal from "../../component/modal-simpan-perubahan";
+import BottomNavigation from "../../component/bottom-navigation";
 import { Link } from "react-router-dom";
 import { updateProfile } from "../../services/profile";
 import { ProfileContext } from "../../context/profile";
@@ -72,7 +73,6 @@ function EditProfile(props) {
               <TextField
                 margin="normal"
                 label="NIK"
-                // defaultValue="09012329817328371"
                 type="number"
                 value={nik}
                 onChange={handleChangeNik}
@@ -80,7 +80,6 @@ function EditProfile(props) {
               <TextField
                 margin="normal"
                 label="Name"
-                // defaultValue="Kina Gatie Putri"
                 value={nama}
                 onChange={handleChangeName}
               />
@@ -101,6 +100,7 @@ function EditProfile(props) {
           </Grid>
         </Grid>
         <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
+        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

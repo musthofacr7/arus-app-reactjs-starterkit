@@ -44,9 +44,9 @@ function DetailAnggota(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={6} className={classes.gridName}>
-            <Typography className={classes.name}>Kina Gatie Poetri</Typography>
+            <Typography className={classes.name}>{data.nama}</Typography>
 
-            <Typography className={classes.nik}>NIK : 989123989</Typography>
+            <Typography className={classes.nik}>NIK : {data.nik}</Typography>
           </Grid>
           <Grid item xs={3} className={classes.gridEdit}>
             <Typography onClick={handleClickOne}>Edit Profile</Typography>

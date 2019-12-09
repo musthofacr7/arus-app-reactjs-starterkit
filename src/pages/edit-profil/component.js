@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -12,8 +12,8 @@ import { ProfileContext } from '../../context/profile';
 
 function EditProfile(props) {
   const [data, setData] = useContext(ProfileContext);
-  const [nama, setNama] = React.useState(data.nama);
-  const [nik, setNik] = React.useState(data.nik);
+  const [nama, setNama] = useState(data.nama);
+  const [nik, setNik] = useState(data.nik);
 
   useEffect(() => {
     console.log(data.name);
@@ -29,8 +29,6 @@ function EditProfile(props) {
     console.log(nik);
   };
   const handleClick = () => {
-
-    
     const data = {
       nama: nama,
       nik: nik
@@ -62,7 +60,6 @@ function EditProfile(props) {
               <TextField
                 margin="normal"
                 label="NIK"
-                // defaultValue="09012329817328371"
                 type="number"
                 value={nik}
                 onChange={handleChangeNik}
@@ -70,7 +67,6 @@ function EditProfile(props) {
               <TextField
                 margin="normal"
                 label="Name"
-                // defaultValue="Kina Gatie Putri"
                 value={nama}
                 onChange={handleChangeName}
               />

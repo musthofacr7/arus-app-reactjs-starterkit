@@ -47,8 +47,6 @@ function SplashScreen(props) {
         align="center"
         style={{
           display: 'flex',
-          // alignItems: 'center',
-          // justifyContent: 'center',
           padding: '3em',
 
           flexDirection: 'column',

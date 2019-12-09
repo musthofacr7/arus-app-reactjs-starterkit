@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -25,7 +25,7 @@ function DetailAnggota(props) {
   const user = JSON.parse(localStorage.getItem('user'));
 
   const [data, setData] = useContext(ProfileContext);
-  React.useEffect(() => {
+  useEffect(() => {
     const getProfileData = async () => {
       const profile = await getProfile(user.id);
       setData(profile);

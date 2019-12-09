@@ -18,7 +18,7 @@ import Otp from "./pages/otp";
 import Register from "./pages/register";
 function App(props) {
   const [isLoading,setIsLoading] = React.useState(true)
-  
+  const [isLogin, setIsLogin] = React.useState(false)
   useEffect(() => {
     if (localStorage.getItem("login")) {
       console.log("login");

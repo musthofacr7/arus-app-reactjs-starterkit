@@ -8,7 +8,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Profile from '../../assets/avatar.png';
 import AppBar from '../../component/appbar';
 import { Link } from 'react-router-dom';
-import { updateProfile } from '../../services/profile';
 import { ProfileContext } from '../../context/profile';
 
 function EditProfile(props) {
@@ -37,7 +36,6 @@ function EditProfile(props) {
       nik: nik
     };
     console.log(data);
-    updateProfile(data);
   };
 
   return (

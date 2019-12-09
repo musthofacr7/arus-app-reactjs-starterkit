@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BottomNavigation from '../../component/bottom-navigation';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -7,10 +7,16 @@ import Typography from '@material-ui/core/Typography';
 import Profile from '../../assets/avatar.png';
 import AmbilNomor from '../../component/ambil-nomor-antrian';
 import CekJadwalDokterHome from '../../component/cek-jadwal-dokter-home';
-
+import { getProfile } from '../../services/profile';
 function HomePage(props) {
   const { classes } = props;
   const user = JSON.parse(localStorage.getItem('user'));
+  const token = localStorage.getItem('userToken');
+
+  useEffect(async () => {
+    const response = await getProfile(user.id);
+    console.log(response);
+  }, []);
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Grid container spacing={0} className={classes.gridContainer}>

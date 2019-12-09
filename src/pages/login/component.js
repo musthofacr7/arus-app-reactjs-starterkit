@@ -45,9 +45,10 @@ function Login(props) {
       .then(res => {
         setData(res.user);
         localStorage.setItem('user', JSON.stringify(res.user));
-        localStorage.setItem('userToken', res.access_token);
+        localStorage.setItem('userToken', 'Bearer ' + res.access_token);
         localStorage.setItem('login', true);
         props.history.push('/');
+        console.log(res);
       })
       .catch(error => {
         if (error.response.statusText == 'Unauthorized') {
@@ -160,11 +161,11 @@ function Login(props) {
               </Grid>
             </Grid>
             <Grid item align="center">
-            <Typography>Not Yet a member ?</Typography>
-            <Typography style={{ fontWeight: 'bold' }} onClick={handleSignUp}>
-              Sign Up
-            </Typography>
-          </Grid>
+              <Typography>Not Yet a member ?</Typography>
+              <Typography style={{ fontWeight: 'bold' }} onClick={handleSignUp}>
+                Sign Up
+              </Typography>
+            </Grid>
           </Grid>
         ) : (
           <div align="center" style={{ marginTop: -100 }}>

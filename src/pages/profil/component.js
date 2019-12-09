@@ -27,13 +27,12 @@ function DetailAnggota(props) {
   const [data, setData] = useContext(ProfileContext);
   React.useEffect(() => {
     const getProfileData = async () => {
-      const profile = await getProfile();
+      const profile = await getProfile(user.id);
       setData(profile);
-      console.log(data);
+      console.log(profile);
     };
 
     getProfileData();
-    // console.log(data);
   }, []);
   const handleLogOut = () => {
     localStorage.removeItem('login');

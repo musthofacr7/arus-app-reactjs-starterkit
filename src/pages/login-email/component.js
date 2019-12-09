@@ -13,7 +13,9 @@ function Login(props) {
   const [password, setPassword] = useState('');
   const [emailClick, setEmailClick] = useState(false);
   const [data, setData] = useContext(AuthContext);
-
+  const handleBack = () => {
+    props.history.push('/login');
+  };
   useEffect(() => {
     localStorage.removeItem('user');
     localStorage.removeItem('userToken');
@@ -56,8 +58,15 @@ function Login(props) {
   const { classes } = props;
   return (
     <Container maxWidth="xs" className={classes.container}>
-      <Grid className={classes.container}>
-        <div align="center" style={{ marginTop: 200 }}>
+      <Grid
+        className={classes.container}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <div align="center">
           <TextField
             name="email"
             type="email"
@@ -91,6 +100,25 @@ function Login(props) {
                 <Grid item xs={12} className={classes.gridButton}>
                   <Typography className={classes.textButtonBottom}>
                     Lanjut
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Button>
+          </Box>
+          <Box className={classes.buttonBoxBottom}>
+            <Button
+              disableRipple={true}
+              id="submit-button"
+              className={classes.buttonBottom}
+              style={{
+                backgroundColor: '#F7A647'
+              }}
+              onClick={handleBack}
+            >
+              <Grid container spacing={0}>
+                <Grid item xs={12} className={classes.gridButton}>
+                  <Typography className={classes.textButtonBottom}>
+                    Kembali
                   </Typography>
                 </Grid>
               </Grid>

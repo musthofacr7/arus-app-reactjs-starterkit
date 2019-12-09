@@ -27,18 +27,11 @@ function SimpleModal(props) {
     >
       <div style={modalStyle} className={classes.paper}>
         <Grid container align="center" className={classes.container}>
-          <Grid item xs>
-            <Box className={classes.boxloket}>
-              <Typography className={classes.typographyLoket}>loket</Typography>
-              <Typography className={classes.TypographyLoketCategory}>
-                A
-              </Typography>
-            </Box>
-          </Grid>
           <Grid item xs className={classes.gridItemTwo}>
             <Typography className={classes.question}>
-              Apakah anda yakin memilih
-              <Typography className={classes.loket}>loket A</Typography>
+              Apakah anda yakin ingin menghapus{" "}
+              <strong className={classes.name}> Samantha William </strong> dari
+              data anggota Keluarga?
             </Typography>
           </Grid>
           <Grid item xs className={classes.gridItemTwo}>

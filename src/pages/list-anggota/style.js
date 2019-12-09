@@ -1,24 +1,27 @@
 const Style = {
   container: {
-    width: "100%",
-    backgroundSize: "cover",
-    backgroundColor: "#F1F1F1"
+    width: '100%',
+    backgroundSize: 'cover',
+    backgroundColor: '#F1F1F1'
   },
   gridUpper: {
-    display: "flex",
-    flexDirection: "column",
-    marginTop: "15%",
-    paddingBottom: "10%",
-    backgroundColor: "#F1F1F1",
-    paddingTop:"3%"
-
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: '15%',
+    paddingBottom: '10%',
+    backgroundColor: '#F1F1F1',
+    paddingTop: '3%'
   },
   link: {
-    textDecoration: "none"
+    textDecoration: 'none'
   },
-  itemList:{
-    paddingTop:"4%"
-
+  itemList: {
+    paddingTop: '4%'
+  },
+  loader: {
+    marginTop: 70,
+    width: '100%',
+    backgroundColor: 'white'
   }
 };
 export default Style;

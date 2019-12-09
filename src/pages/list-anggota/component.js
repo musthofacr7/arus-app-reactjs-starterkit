@@ -8,18 +8,18 @@ import { getListAnggota } from '../../services/anggota';
 import ContentLoader from 'react-content-loader';
 
 const MyLoader = () => (
-  <ContentLoader 
+  <ContentLoader
     height={146}
     width={400}
     speed={2}
     primaryColor="#F4F4F4"
     secondaryColor="#ecebeb"
   >
-    <rect x="123" y="23" rx="0" ry="0" width="0" height="0" /> 
-    <rect x="48" y="59" rx="0" ry="0" width="210" height="48" /> 
+    <rect x="123" y="23" rx="0" ry="0" width="0" height="0" />
+    <rect x="48" y="59" rx="0" ry="0" width="210" height="48" />
     <rect x="311" y="58" rx="0" ry="0" width="64" height="48" />
   </ContentLoader>
-)
+);
 
 function ListAnggota(props) {
   const { classes } = props;
@@ -35,21 +35,21 @@ function ListAnggota(props) {
       getAnggota().then(() => {
         setIsLoading(false);
       });
-    }, 3000);
+    }, 1500);
   }, []);
 
   return (
     <Container maxWidth="xs" className={classes.container}>
       <AppBar goBack title="Anggota Keluarga" />
       {isLoading == true ? (
-        <div style={{ marginTop: 70, width: '100%', backgroundColor:'white' }}>
+        <div className={classes.loader}>
           <MyLoader />
         </div>
       ) : (
-        <Grid container spacing={4} className={classes.gridUpper}>
+        <div className={classes.gridUpper}>
           {anggota.map(data => {
             return (
-              <Grid item>
+              <Grid item className={classes.itemList}>
                 <ListData
                   nik={data.nik}
                   name={data.nama}
@@ -58,7 +58,7 @@ function ListAnggota(props) {
               </Grid>
             );
           })}
-        </Grid>
+        </div>
       )}
 
       <FAB />

@@ -16,7 +16,11 @@ import EditAnggotaKeluarga from './pages/edit-anggota-keluarga';
 import DetailDokter from './pages/detail-dokter';
 import Otp from './pages/otp';
 import Register from './pages/register';
+import LoginEmail from './pages/login-email';
+
 function App(props) {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   useEffect(() => {
     if (localStorage.getItem('login')) {
       console.log('login');
@@ -24,14 +28,19 @@ function App(props) {
       console.log('belum login');
       props.history.push('/login');
     }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   }, []);
+  if (isLoading == true) {
+    return <SplashScreen />;
+  }
   return (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/riwayat" exact component={Riwayat} />
       <Route path="/login" exact component={Login} />
       <Route path="/pilih-loket" exact component={PilihLocket} />
-      <Route path="/splashscreen" exact component={SplashScreen} />
       <Route path="/profil" exact component={Profile} />
       <Route path="/edit-profil" exact component={EditProfile} />
       <Route path="/list-anggota" exact component={ListAnggota} />
@@ -44,13 +53,10 @@ function App(props) {
         exact
         component={EditAnggotaKeluarga}
       />
-      <Route
-        path="/detail-dokter"
-        exact
-        component={DetailDokter}
-      />
+      <Route path="/detail-dokter" exact component={DetailDokter} />
       <Route path="/login-number" exact component={Otp} />
       <Route path="/register" exact component={Register} />
+      <Route path="/login/email" exact component={LoginEmail} />
     </Switch>
   );
 }

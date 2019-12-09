@@ -5,11 +5,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { ProfileProvider } from './context/profile';
-
+import { AuthProvider } from './context/auth';
 ReactDOM.render(
   <BrowserRouter>
     <ProfileProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ProfileProvider>
   </BrowserRouter>,
   document.getElementById('root')

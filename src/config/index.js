@@ -1,6 +1,12 @@
 import Axios from 'axios';
 
-export const axiosInstance = Axios;
+const token = localStorage.getItem('userToken');
+export const axiosInstance = Axios.create({
+  baseURL: 'https://api-arus.herokuapp.com/api/',
+  headers: {
+    Authorization: token
+  }
+});
 
 axiosInstance.interceptors.response.use(
   function(response) {

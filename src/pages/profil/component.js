@@ -1,38 +1,44 @@
-import React, { useContext } from "react";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "../../component/appbar";
-import Profile from "../../assets/avatar.png";
-import { withRouter } from "react-router-dom";
-import Arrow from "../../assets/arrow.png";
-import User from "../../assets/users.png";
-import BottomNavigation from "../../component/bottom-navigation";
-import { getProfile } from "../../services/profile";
-import { ProfileContext } from "../../context/profile";
+import React, { useContext, useEffect,useState } from 'react';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '../../component/appbar';
+import Profile from '../../assets/avatar.png';
+import { withRouter } from 'react-router-dom';
+import Arrow from '../../assets/arrow.png';
+import User from '../../assets/users.png';
+import BottomNavigation from '../../component/bottom-navigation';
+import { getProfile } from '../../services/profile';
+import { ProfileContext } from '../../context/profile';
 
 function DetailAnggota(props) {
   const handleClickOne = () => {
-    props.history.push("/edit-profil");
+    props.history.push('/edit-profil');
   };
 
   const handleClickTwo = () => {
-    props.history.push("/list-anggota");
+    props.history.push('/list-anggota');
   };
   const { classes } = props;
-  const [data, setData] = useContext(ProfileContext);
-  React.useEffect(() => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  const [data, setData] = useState({});
+  useEffect(() => {
     const getProfileData = async () => {
-      const profile = await getProfile();
-      setData(profile);
+      const profile = await getProfile(user.id);
+      setData(profile.row);
       console.log(data);
+      console.log(profile);
     };
 
     getProfileData();
-    // console.log(data);
   }, []);
+  const handleLogOut = () => {
+    localStorage.removeItem('login');
+    window.location.reload();
+  };
   return (
     <React.Fragment>
       <CssBaseline />
@@ -44,9 +50,9 @@ function DetailAnggota(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={6} className={classes.gridName}>
-            <Typography className={classes.name}>Kina Gatie Poetri</Typography>
+            <Typography className={classes.name}>{data.name}</Typography>
 
-            <Typography className={classes.nik}>NIK : 989123989</Typography>
+            <Typography className={classes.nik}>NIK : {data.nik}</Typography>
           </Grid>
           <Grid item xs={3} className={classes.gridEdit}>
             <Typography onClick={handleClickOne}>Edit Profile</Typography>
@@ -75,18 +81,19 @@ function DetailAnggota(props) {
 
           <div
             style={{
-              display: "flex",
-              justifyContent: "center"
+              display: 'flex',
+              justifyContent: 'center'
             }}
           >
             <div className={classes.boxButton}>
               <Button
+                onClick={handleLogOut}
                 fullWidth
                 disableRipple={true}
                 id="submit-button"
                 className={classes.button}
               >
-                <Typography style={{ textTransform: "none" }}>
+                <Typography style={{ textTransform: 'none' }}>
                   Keluar
                 </Typography>
               </Button>

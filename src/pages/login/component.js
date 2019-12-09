@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -7,10 +7,13 @@ import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import GoogleLogo from '../../assets/image 2.png';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import { TextField } from '@material-ui/core';
+import { login } from '../../services/login';
+import { AuthContext } from '../../context/auth';
+
 function Login(props) {
-  const handleClick = () => {
-    localStorage.setItem('login', true);
-    props.history.push('/');
+  const handleClickEmail = () => {
+    props.history.push('/login/email');
   };
 
   const { classes } = props;
@@ -23,6 +26,7 @@ function Login(props) {
         <Grid item xs={12} className={classes.textTop}>
           Login
         </Grid>
+
         <Grid item xs={12} className={classes.gridItemBottom}>
           <Grid container spacing={0} className={classes.gridBottom}>
             <Grid item xs={12}>
@@ -35,8 +39,8 @@ function Login(props) {
                     backgroundColor: '#ffffff'
                   }}
                 >
-                  <Grid container spacing={0} onClick={handleClick}>
-                    <Grid item xs={2} className={classes.gridButton}>
+                  <Grid container spacing={0}>
+                    <Grid item xs={3} className={classes.gridButton}>
                       <img
                         src={GoogleLogo}
                         className={classes.googleLogo}
@@ -44,7 +48,7 @@ function Login(props) {
                       />
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={9} className={classes.gridButton}>
                       <Typography className={classes.textButton}>
                         Masuk Dengan Akun Google
                       </Typography>
@@ -62,8 +66,8 @@ function Login(props) {
                     backgroundColor: '#F7A647'
                   }}
                 >
-                  <Grid container spacing={0} onClick={handleClick}>
-                    <Grid item xs={2}>
+                  <Grid container spacing={0}>
+                    <Grid item xs={3}>
                       <svg
                         width="14"
                         height="20"
@@ -81,7 +85,7 @@ function Login(props) {
                       </svg>
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={9} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Nomor HP
                       </Typography>
@@ -98,12 +102,12 @@ function Login(props) {
                     backgroundColor: '#F7A647'
                   }}
                 >
-                  <Grid container spacing={0} onClick={handleClick}>
-                    <Grid item xs={2}>
+                  <Grid container spacing={0} onClick={handleClickEmail}>
+                    <Grid item xs={3}>
                       <MailOutlineIcon className={classes.gridIconBottom} />
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={9} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Email
                       </Typography>

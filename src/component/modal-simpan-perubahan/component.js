@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import IconPopUp from '../../assets/alert-circle.png';
 import { Grid, Typography, Box } from '@material-ui/core';
-// import LogoLocket from "../locket-logo/component";
+
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
@@ -27,7 +27,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: '0.1px solid #FFFFFF',
     borderRadius: '8px',
-    // boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     display: 'flex',
     alignItems: 'center',
@@ -113,7 +112,6 @@ function SimpleModal(props) {
                 A
               </Typography>
             </Box>
-            {/* <LogoLocket title="Ass" /> */}
           </Grid>
           <Grid item>
             <Typography className={classes.question}>

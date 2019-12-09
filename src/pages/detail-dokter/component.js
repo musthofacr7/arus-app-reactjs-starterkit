@@ -27,36 +27,19 @@ function DetailDokter(props) {
                   <Grid item xs={2} className={classes.gridField}>
                     <img src={Profile} className={classes.image} alt="avatar" />
                   </Grid>
-                  <Grid item xs={7} className={classes.gridName}>
+                  <Grid item xs={9} className={classes.gridName}>
                     <Typography className={classes.name}>
                       Dr. Jayadi Efendi, SH
                     </Typography>
 
                     <Typography className={classes.nik}>
-                      NIK : 989123989
+                      Spesialis Gigi
                     </Typography>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} className={classes.gridItemTwo}>
-            <Typography className={classes.jadwal}>Jadwal Praktik</Typography>
-          </Grid>
-
-          <CardDetailDokter hari="Senin" tanggal="18 November 2019" />
-          <CardDetailDokter hari="Selasa" tanggal="19 November 2019" />
-
-          <Grid item xs={12} className={classes.gridJadwal}>
-            <Typography className={classes.jadwalPraktik}>
-              Lihat Jadwal Praktik Selengkapnya
-            </Typography>
-          </Grid>
-
-          <Grid item xs={12} className={classes.gridItemTwo}>
-            <Typography className={classes.jadwal}>Kontak</Typography>
-          </Grid>
-
           <Grid container spacing={0} className={classes.gridContent}>
             <Grid item xs={12} className={classes.gridKontak}>
               <Grid container spacing={0} className={classes.gridItemOne}>
@@ -89,6 +72,12 @@ function DetailDokter(props) {
               </Grid>
             </Grid>
           </Grid>
+
+          <Grid item xs={12} className={classes.gridItemTwo}>
+            <Typography className={classes.jadwal}>Jadwal Praktik</Typography>
+          </Grid>
+
+          <CardDetailDokter />
         </Grid>
       </Container>
     </React.Fragment>

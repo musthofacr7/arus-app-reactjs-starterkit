@@ -9,6 +9,8 @@ import Profile from '../../assets/avatar.png';
 import AppBar from '../../component/appbar';
 import { Link } from 'react-router-dom';
 import { ProfileContext } from '../../context/profile';
+import Modal from '../../component/modal-simpan-perubahan'
+import BottomNavigation from '../../component/bottom-navigation'
 
 function EditProfile(props) {
   const [open, setOpen] = React.useState(false);

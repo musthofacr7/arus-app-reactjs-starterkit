@@ -1,15 +1,16 @@
-import React from "react";
-import BottomNavigation from "../../component/bottom-navigation";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Profile from "../../assets/avatar.png";
-import AmbilNomor from "../../component/ambil-nomor-antrian";
-import CekJadwalDokterHome from "../../component/cek-jadwal-dokter-home";
+import React from 'react';
+import BottomNavigation from '../../component/bottom-navigation';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Profile from '../../assets/avatar.png';
+import AmbilNomor from '../../component/ambil-nomor-antrian';
+import CekJadwalDokterHome from '../../component/cek-jadwal-dokter-home';
 
 function HomePage(props) {
   const { classes } = props;
+  const user = JSON.parse(localStorage.getItem('user'));
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Grid container spacing={0} className={classes.gridContainer}>
@@ -24,8 +25,8 @@ function HomePage(props) {
               <img src={Profile} alt="avatar" />
             </Grid>
             <Grid item xs={0} className={classes.gridName}>
-              <Typography className={classes.name}>Kina Gatie Putri</Typography>
-              <Typography className={classes.nik}>NIK: 098709870987</Typography>
+              <Typography className={classes.name}>{user.name}</Typography>
+              <Typography className={classes.nik}>NIK: {user.nik}</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -42,7 +43,7 @@ function HomePage(props) {
             </Grid>
             <Grid item xs={6} className={classes.gridLocket}>
               <Box className={classes.box}>
-                <Typography className={classes.estimasi} >
+                <Typography className={classes.estimasi}>
                   Estimasi di panggil pukul
                   <strong className={classes.waktu}> 14:00 </strong>WIB
                 </Typography>
@@ -51,10 +52,10 @@ function HomePage(props) {
           </Grid>
         </Grid>
       </Grid>
-      <div style={{ padding: "10px 20px" }}>
+      <div style={{ padding: '10px 20px' }}>
         <AmbilNomor />
       </div>
-      <div style={{ padding: "10px 20px", marginBottom: 50 }}>
+      <div style={{ padding: '10px 20px', marginBottom: 50 }}>
         <CekJadwalDokterHome />
       </div>
       <BottomNavigation />

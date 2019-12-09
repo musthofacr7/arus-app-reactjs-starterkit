@@ -1,23 +1,20 @@
-import React, { useContext, useEffect } from "react";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Profile from "../../assets/avatar.png";
-import AppBar from "../../component/appbar";
-import Modal from "../../component/modal-simpan-perubahan";
-import BottomNavigation from "../../component/bottom-navigation";
-import { Link } from "react-router-dom";
-import { updateProfile } from "../../services/profile";
-import { ProfileContext } from "../../context/profile";
+import React, { useContext, useEffect, useState } from 'react';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Profile from '../../assets/avatar.png';
+import AppBar from '../../component/appbar';
+import { Link } from 'react-router-dom';
+import { ProfileContext } from '../../context/profile';
 
 function EditProfile(props) {
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useContext(ProfileContext);
-  const [nama, setNama] = React.useState(data.nama);
-  const [nik, setNik] = React.useState(data.nik);
+  const [nama, setNama] = useState(data.nama);
+  const [nik, setNik] = useState(data.nik);
 
   const handleOpen = () => {
     setOpen(true);
@@ -46,7 +43,6 @@ function EditProfile(props) {
       nik: nik
     };
     console.log(data);
-    updateProfile(data);
   };
 
   return (

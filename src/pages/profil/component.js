@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -25,15 +25,14 @@ function DetailAnggota(props) {
   const user = JSON.parse(localStorage.getItem('user'));
 
   const [data, setData] = useContext(ProfileContext);
-  React.useEffect(() => {
+  useEffect(() => {
     const getProfileData = async () => {
-      const profile = await getProfile();
+      const profile = await getProfile(user.id);
       setData(profile);
-      console.log(data);
+      console.log(profile);
     };
 
     getProfileData();
-    // console.log(data);
   }, []);
   const handleLogOut = () => {
     localStorage.removeItem('login');
@@ -51,7 +50,7 @@ function DetailAnggota(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={6} className={classes.gridName}>
-            <Typography className={classes.name}>{user.nama}</Typography>
+            <Typography className={classes.name}>{user.name}</Typography>
 
             <Typography className={classes.nik}>NIK : {user.nik}</Typography>
           </Grid>

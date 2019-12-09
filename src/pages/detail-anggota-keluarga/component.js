@@ -1,16 +1,16 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Button from "@material-ui/core/Button";
-import AppBar from "../../component/appbar";
-import Modal from "../../component/modal-hapus-datakeluarga";
-import { getDetailAnggota } from "../../services/detail-anggota";
+import React, { useEffect, useState } from 'react';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Button from '@material-ui/core/Button';
+import AppBar from '../../component/appbar';
+import Modal from '../../component/modal-hapus-datakeluarga';
+import { getDetailAnggota } from '../../services/detail-anggota';
 function DetailAnggota(props) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const { classes } = props;
-  const [detail, setDetail] = React.useState({});
+  const [detail, setDetail] = useState({});
 
   const handleOpen = () => {
     setOpen(true);
@@ -20,7 +20,7 @@ function DetailAnggota(props) {
     setOpen(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const id = props.match.params.id;
     const getDetail = async () => {
       const detail = await getDetailAnggota(id);
@@ -85,7 +85,7 @@ function DetailAnggota(props) {
               id="submit-button"
               className={classes.button}
             >
-              <Typography style={{ textTransform: "none", fontSize: "14px" }}>
+              <Typography style={{ textTransform: 'none', fontSize: '14px' }}>
                 Hapus Data Anggota Keluarga
               </Typography>
             </Button>

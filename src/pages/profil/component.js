@@ -36,7 +36,6 @@ function DetailAnggota(props) {
   }, []);
   const handleLogOut = () => {
     localStorage.removeItem('login');
-
     window.location.reload();
   };
   return (

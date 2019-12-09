@@ -19,7 +19,7 @@ function Login(props) {
     localStorage.removeItem('userToken');
   }, []);
   const handleSignUp = () => {
-    props.history.push('./register');
+    props.history.push('/register');
   };
   const handleClick = () => {
     setEmailClick(true);
@@ -49,7 +49,6 @@ function Login(props) {
       .catch(error => {
         if (error.response.statusText == 'Unauthorized') {
           alert('email & password belum terdaftar');
-          props.history.push('/register');
         }
       });
   };
@@ -58,7 +57,7 @@ function Login(props) {
   return (
     <Container maxWidth="xs" className={classes.container}>
       <Grid className={classes.container}>
-        <div align="center" style={{ marginTop: -200 }}>
+        <div align="center" style={{ marginTop: 200 }}>
           <TextField
             name="email"
             type="email"

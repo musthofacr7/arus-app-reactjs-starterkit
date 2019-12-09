@@ -27,8 +27,6 @@ function App(props) {
     } else {
       console.log('belum login');
       props.history.push('/login');
-      // props.history.push('/login/email');
-
     }
     setTimeout(() => {
       setIsLoading(false);

@@ -36,7 +36,7 @@ function Login(props) {
                   }}
                 >
                   <Grid container spacing={0} onClick={handleClick}>
-                    <Grid item xs={2} className={classes.gridButton}>
+                    <Grid item xs={3} className={classes.gridButton}>
                       <img
                         src={GoogleLogo}
                         className={classes.googleLogo}
@@ -44,7 +44,7 @@ function Login(props) {
                       />
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={9} className={classes.gridButton}>
                       <Typography className={classes.textButton}>
                         Masuk Dengan Akun Google
                       </Typography>
@@ -63,7 +63,7 @@ function Login(props) {
                   }}
                 >
                   <Grid container spacing={0} onClick={handleClick}>
-                    <Grid item xs={2}>
+                    <Grid item xs={3}>
                       <svg
                         width="14"
                         height="20"
@@ -81,7 +81,7 @@ function Login(props) {
                       </svg>
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={9} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Nomor HP
                       </Typography>
@@ -99,11 +99,11 @@ function Login(props) {
                   }}
                 >
                   <Grid container spacing={0} onClick={handleClick}>
-                    <Grid item xs={2}>
+                    <Grid item xs={3}>
                       <MailOutlineIcon className={classes.gridIconBottom} />
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={9} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Email
                       </Typography>

@@ -1,22 +1,16 @@
-const styles = theme => ({
+const styles = {
   container: {
     width: '100%',
     height: '100vh',
     display: 'flex',
-    // overflowY: 'hidden',
-    // overflowX: 'hidden',
-    justifyContent: '',
     flex: '1',
     padding: 0,
     flexDirection: 'column',
     backgroundSize: 'cover',
     marginBottom: '8%'
   },
-  gridItemTop: {},
-  gridItemBottom: {},
   image: {
-    width: '100%',
-    // height: '80%'
+    width: '100%'
   },
   gridBottom: {
     display: 'flex',
@@ -72,12 +66,13 @@ const styles = theme => ({
     alignItems: 'center'
   },
   googleLogo: {
-    paddingLeft: '30%'
+    paddingLeft: '40%'
   },
   gridIconBottom: {
-    padingTop: 20,
-    color: 'white'
+    
+    color: 'white',
+   
   }
-});
+};
 
 export default styles;

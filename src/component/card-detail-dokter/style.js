@@ -1,8 +1,14 @@
 const style = {
   gridItemCard: {
     backgroundColor: "#FFFFFF",
-    height: "120px",
+    height: "100px",
     borderBottom: "2px solid #F1F1F1",
+    display: "flex",
+    flexDirection: "row"
+  },
+  gridItemCardBottom: {
+    backgroundColor: "#FFFFFF",
+    height: "100px",
     display: "flex",
     flexDirection: "row"
   },
@@ -12,22 +18,18 @@ const style = {
     color: "#26CAC0",
     marginTop: "0.5em"
   },
-  poli: {
-    fontSize: "12px",
-    paddingRight: "2em",
-    marginTop: "0.9em",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end"
-  },
-  tanggal: {
-    color: "#9E9E9E",
-    fontSize: "12px",
-    paddingLeft: "1.7em"
-  },
   boxOne: {
     borderRadius: "4px",
-    marginTop: "-0.5em",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  boxTwo: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  boxThree: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
@@ -35,18 +37,44 @@ const style = {
   gridBox: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "-3em"
+  },
+  gridBoxTwo: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginTop: "-3em"
   },
   waktu: {
     fontSize: "12px",
-    border: "0.5px solid #9E9E9E",
-    width: "105px",
+    border: "1px solid #9E9E9E",
+    width: "90px",
     height: "39px",
     borderRadius: "4px",
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
+  },
+  waktuFree: {
+    fontSize: "12px",
+    border: "1px solid #9E9E9E",
+    width: "110px",
+    height: "39px",
+    borderRadius: "4px",
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  boxFree: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: "0.6em"
   }
 };
 

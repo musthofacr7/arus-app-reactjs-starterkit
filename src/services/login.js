@@ -1,6 +1,7 @@
 import { axiosInstance } from '../config';
 
-export const login = async () => {
-  const response = axiosInstance.post('http://api-arus.herokuapp.com/api/login');
+export const login = async data => {
+  const response = axiosInstance.post('/login', data);
+
   return response;
 };

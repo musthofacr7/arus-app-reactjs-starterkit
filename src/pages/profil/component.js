@@ -9,7 +9,6 @@ import Profile from '../../assets/avatar.png';
 import { withRouter } from 'react-router-dom';
 import Arrow from '../../assets/arrow.png';
 import User from '../../assets/users.png';
-import BottomNavigation from '../../component/bottom-navigation';
 import { getProfile } from '../../services/profile';
 import { ProfileContext } from '../../context/profile';
 import ContentLoader from 'react-content-loader';

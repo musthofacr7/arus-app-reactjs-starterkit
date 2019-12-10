@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 import { ProfileContext } from '../../context/profile';
 import { updateProfile } from '../../services/profile';
 import Modal from '../../component/modal-simpan-perubahan';
-import BottomNavigation from '../../component/bottom-navigation';
 
 function EditProfile(props) {
   const [open, setOpen] = React.useState(false);
@@ -110,7 +109,6 @@ function EditProfile(props) {
           handleClose={handleClose}
           handleClick={handleClick}
         />
-        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

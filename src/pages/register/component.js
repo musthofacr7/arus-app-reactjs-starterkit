@@ -34,19 +34,20 @@ function SplashScreen(props) {
     setData(newData);
     if (data.password.length < 7) {
       setErr(true);
-      console.log('password salah');
     } else {
       setErr(false);
-      console.log('password benar');
+    }
+    if (data.phone.length < 9) {
+      setErr(true);
+    } else {
+      setErr(false);
     }
     if (
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})*(\.\w{2,3})/.test(data.email)
     ) {
       setErr(false);
-      console.log('email benar');
     } else {
       setErr(true);
-      console.log('email salah');
     }
   };
   useEffect(() => {}, []);
@@ -126,6 +127,8 @@ function SplashScreen(props) {
           </Grid>
           <Grid item>
             <TextField
+              helperText="at least have 10 characters"
+              error={err}
               placeholder="Phone"
               name="phone"
               onChange={handleChange}

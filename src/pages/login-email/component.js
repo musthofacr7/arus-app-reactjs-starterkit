@@ -13,7 +13,9 @@ function Login(props) {
   const [password, setPassword] = useState("");
   const [emailClick, setEmailClick] = useState(false);
   const [data, setData] = useContext(AuthContext);
-
+  const handleBack = () => {
+    props.history.push('/login');
+  };
   useEffect(() => {
     localStorage.removeItem("user");
     localStorage.removeItem("userToken");
@@ -50,8 +52,10 @@ function Login(props) {
         console.log(res);
       })
       .catch(error => {
+
         if (error.response.statusText == "Unauthorized") {
           alert("email & password belum terdaftar");
+
         }
       });
   };
@@ -59,6 +63,7 @@ function Login(props) {
   const { classes } = props;
   return (
     <Container maxWidth="xs" className={classes.container}>
+
       <Grid className={classes.container}>
         <Typography className={classes.welcome}>Welcome Back !</Typography>
         <div align="center">
@@ -84,6 +89,7 @@ function Login(props) {
               style={{ maxWidth: "90%" }}
             />
           </Grid>
+
           <Box className={classes.buttonBoxBottom}>
             <Button
               disableRipple={true}

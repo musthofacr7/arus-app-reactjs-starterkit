@@ -37,15 +37,9 @@ function HomePage(props) {
   const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
-    const getData = async () => {
-      const response = await getProfile(user.id);
-      setData(response.row);
-      if (data) {
-        setIsLoading(false);
-        console.log(data);
-      }
-    };
-    getData();
+    if (user) {
+      setIsLoading(false);
+    }
   }, []);
   return (
     <Container maxWidth="xs" className={classes.container}>
@@ -73,9 +67,9 @@ function HomePage(props) {
                   <img src={Profile} alt="avatar" />
                 </Grid>
                 <Grid item xs={0} className={classes.gridName}>
-                  <Typography className={classes.name}>{data.name}</Typography>
+                  <Typography className={classes.name}>{user.name}</Typography>
                   <Typography className={classes.nik}>
-                    NIK: {data.nik}
+                    NIK: {user.nik}
                   </Typography>
                 </Grid>
               </Grid>
@@ -110,7 +104,6 @@ function HomePage(props) {
           </div>
         </div>
       )}
-     
     </Container>
   );
 }

@@ -9,11 +9,22 @@ import Profile from '../../assets/avatar.png';
 import AppBar from '../../component/appbar';
 import { Link } from 'react-router-dom';
 import { ProfileContext } from '../../context/profile';
+import Modal from '../../component/modal-simpan-perubahan'
+import BottomNavigation from '../../component/bottom-navigation'
 
 function EditProfile(props) {
+  const [open, setOpen] = React.useState(false);
   const [data, setData] = useContext(ProfileContext);
   const [nama, setNama] = useState(data.nama);
   const [nik, setNik] = useState(data.nik);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     console.log(data.name);
@@ -51,7 +62,7 @@ function EditProfile(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={12} className={classes.gridEdit}>
-            <Link className={classes.link} onClick={() => alert('ganti foto?')}>
+            <Link className={classes.link} onClick={() => alert("ganti foto?")}>
               <Typography className={classes.ganti}> Ganti Foto</Typography>
             </Link>
           </Grid>
@@ -75,9 +86,9 @@ function EditProfile(props) {
               <Button
                 variant="contained"
                 disableRipple={true}
-                style={{ backgroundColor: '#F7A647' }}
+                style={{ backgroundColor: "#F7A647" }}
                 className={classes.button}
-                onClick={handleClick}
+                onClick={handleOpen}
               >
                 <Typography className={classes.save}>
                   Simpan Perubahan
@@ -86,6 +97,8 @@ function EditProfile(props) {
             </Grid>
           </Grid>
         </Grid>
+        <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
+        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

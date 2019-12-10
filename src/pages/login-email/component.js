@@ -51,6 +51,7 @@ function Login(props) {
       .catch(error => {
         if (error.response.statusText == 'Unauthorized') {
           alert('email & password belum terdaftar');
+          props.history.push('/register');
         }
       });
   };
@@ -100,25 +101,6 @@ function Login(props) {
                 <Grid item xs={12} className={classes.gridButton}>
                   <Typography className={classes.textButtonBottom}>
                     Lanjut
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Button>
-          </Box>
-          <Box className={classes.buttonBoxBottom}>
-            <Button
-              disableRipple={true}
-              id="submit-button"
-              className={classes.buttonBottom}
-              style={{
-                backgroundColor: '#F7A647'
-              }}
-              onClick={handleBack}
-            >
-              <Grid container spacing={0}>
-                <Grid item xs={12} className={classes.gridButton}>
-                  <Typography className={classes.textButtonBottom}>
-                    Kembali
                   </Typography>
                 </Grid>
               </Grid>

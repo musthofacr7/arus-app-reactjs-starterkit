@@ -3,8 +3,6 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import IconPopUp from '../../assets/alert-circle.png';
 import { Grid, Typography } from '@material-ui/core';
-import { ProfileContext } from '../../context/profile';
-import { updateProfile } from '../../services/profile';
 
 function getModalStyle() {
   return {
@@ -17,27 +15,9 @@ function getModalStyle() {
 function SimpleModal(props) {
   const { classes } = props;
   const [modalStyle] = React.useState(getModalStyle);
-  const [data, setData] = useContext(ProfileContext);
 
   const { open, handleClose } = props;
-  const [nama, setNama] = useState(data.nama);
-  const [nik, setNik] = useState(data.nik);
 
-  useEffect(() => {
-    // console.log(data.name);
-  }, []);
-  const handleClick = () => {
-    const data = {
-      name: nama,
-      nik: nik
-    };
-    const user = JSON.parse(localStorage.getItem('user'));
-    updateProfile(user.id, data).then(() => {
-      props.history.push('/profil');
-    });
-
-    console.log(data);
-  };
   console.log('test', classes.paper);
   return (
     <Modal
@@ -77,7 +57,7 @@ function SimpleModal(props) {
                   style={{
                     background: '#F7A647'
                   }}
-                  onClick={handleClick}
+                  onClick={props.handleClick}
                 >
                   <Typography
                     style={{

@@ -18,7 +18,7 @@ function EditProfile(props) {
   const [data, setData] = useContext(ProfileContext);
   const [nama, setNama] = useState(data.nama);
   const [nik, setNik] = useState(data.nik);
-  const { classes,  } = props;
+  const { classes } = props;
 
   const handleOpen = () => {
     setOpen(true);
@@ -103,12 +103,16 @@ function EditProfile(props) {
             </Grid>
           </Grid>
         </Grid>
-        <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
+        <Modal
+          open={open}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          handleClick={handleClick}
+        />
         <BottomNavigation />
       </Container>
     </React.Fragment>
   );
 }
-
 
 export default EditProfile;

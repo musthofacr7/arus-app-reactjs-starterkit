@@ -13,13 +13,15 @@ function Login(props) {
   const [password, setPassword] = useState('');
   const [emailClick, setEmailClick] = useState(false);
   const [data, setData] = useContext(AuthContext);
-
+  const handleBack = () => {
+    props.history.push('/login');
+  };
   useEffect(() => {
     localStorage.removeItem('user');
     localStorage.removeItem('userToken');
   }, []);
   const handleSignUp = () => {
-    props.history.push('./register');
+    props.history.push('/register');
   };
   const handleClick = () => {
     setEmailClick(true);
@@ -57,8 +59,15 @@ function Login(props) {
   const { classes } = props;
   return (
     <Container maxWidth="xs" className={classes.container}>
-      <Grid className={classes.container}>
-        <div align="center" style={{ marginTop: -200 }}>
+      <Grid
+        className={classes.container}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <div align="center">
           <TextField
             name="email"
             type="email"

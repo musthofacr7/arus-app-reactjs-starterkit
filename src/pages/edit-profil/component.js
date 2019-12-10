@@ -17,7 +17,7 @@ function EditProfile(props) {
   const [nik, setNik] = useState(data.nik);
 
   useEffect(() => {
-    console.log(data.name);
+    // console.log(data.name);
   }, []);
   const { classes } = props;
 

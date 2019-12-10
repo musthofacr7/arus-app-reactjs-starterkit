@@ -48,7 +48,7 @@ function DetailAnggota(props) {
       console.log(profile);
       setTimeout(() => {
         setIsLoading(false);
-      }, 900);
+      }, 500);
     };
 
     getProfileData();

@@ -84,6 +84,7 @@ function EditProfile(props) {
                 margin="normal"
                 label="Name"
                 value={nama}
+                defaultValue={nama}
                 onChange={handleChangeName}
               />
             </form>

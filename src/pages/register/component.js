@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import {
-  Container,
-  Typography,
-  Paper,
-  TextField,
-  Grid,
-  Button
-} from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 import { withRouter } from 'react-router-dom';
 import { register } from '../../services/register';
 
@@ -17,18 +15,45 @@ function SplashScreen(props) {
     password: '',
     password_confirmation: '',
     phone: '',
-    nik: ''
+    nik: '',
+    errorPassword: '',
+    errorEmail: ''
   });
+  const [err, setErr] = useState(false);
+  const Toggle = () => {
+    var temp = document.getElementById('txtPass');
+    if (temp.type === 'password') {
+      temp.type = 'text';
+    } else {
+      temp.type = 'password';
+    }
+  };
   const handleChange = e => {
     const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
-    console.log(data);
+    if (data.password.length < 7) {
+      setErr(true);
+    } else {
+      setErr(false);
+    }
+    if (
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})*(\.\w{2,3})/.test(data.email)
+    ) {
+      setErr(true);
+      console.log('email benar');
+    } else {
+      setErr(false);
+      console.log('email salah');
+    }
   };
+  useEffect(() => {}, []);
   const handleClick = async () => {
-    register(data).then(res => {
-      console.log(res);
-      props.history.push('/login');
-    });
+    register(data)
+      .then(res => {
+        console.log(res);
+        props.history.push('/');
+      })
+      .catch(err => console.log(err));
   };
   const handleSignIn = () => {
     props.history.push('./login');
@@ -43,21 +68,8 @@ function SplashScreen(props) {
         Antrian Rumah Sakit
       </Typography>
 
-      <Paper
-        align="center"
-        style={{
-          display: 'flex',
-          padding: '3em',
-
-          flexDirection: 'column',
-          marginTop: '2%'
-        }}
-      >
-        <Grid
-          container
-          spacing={2}
-          style={{ display: 'flex', flexDirection: 'column', padding: 12 }}
-        >
+      <Paper align="center" className={classes.paperUp}>
+        <Grid container spacing={2} className={classes.gridContainer}>
           <Grid item>
             <TextField
               name="name"
@@ -68,6 +80,8 @@ function SplashScreen(props) {
           </Grid>
           <Grid item>
             <TextField
+              required
+              error={err}
               placeholder="Email"
               type="email"
               name="email"
@@ -77,13 +91,15 @@ function SplashScreen(props) {
           </Grid>
           <Grid item>
             <TextField
+              helperText="at least have 8 characters"
+              error={err}
               placeholder="Password"
               type="password"
               name="password"
               onChange={handleChange}
               value={data.password}
             />
-          </Grid>{' '}
+          </Grid>
           <Grid item>
             <TextField
               placeholder="Password Confirmation"
@@ -92,7 +108,7 @@ function SplashScreen(props) {
               onChange={handleChange}
               value={data.password_confirmation}
             />
-          </Grid>{' '}
+          </Grid>
           <Grid item>
             <TextField
               placeholder="Phone"
@@ -100,7 +116,7 @@ function SplashScreen(props) {
               onChange={handleChange}
               value={data.phone}
             />
-          </Grid>{' '}
+          </Grid>
           <Grid item>
             <TextField
               placeholder="NIK"
@@ -109,21 +125,20 @@ function SplashScreen(props) {
               value={data.nik}
             />
           </Grid>
-          <Grid item style={{ marginTop: '1em' }}>
+          <Grid item className={classes.gridBottom}>
             <Button
               style={{
-                backgroundColor: '#F7A647',
-                border: '1px solid #E9F9F8',
-                width: '100%'
+                backgroundColor: '#F7A647'
               }}
+              className={classes.registerButton}
               onClick={handleClick}
             >
               Register
             </Button>
           </Grid>
           <Grid item>
-            <Typography>Already a member ?</Typography>{' '}
-            <Typography style={{ fontWeight: 'bold' }} onClick={handleSignIn}>
+            <Typography>Already a member ?</Typography>
+            <Typography className={classes.signIn} onClick={handleSignIn}>
               Sign in
             </Typography>
           </Grid>

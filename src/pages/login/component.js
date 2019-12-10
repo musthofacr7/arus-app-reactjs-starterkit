@@ -1,19 +1,16 @@
-import React, { useState, useContext, useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import LoginImage from '../../assets/Background.png';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-import GoogleLogo from '../../assets/image 2.png';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import { TextField } from '@material-ui/core';
-import { login } from '../../services/login';
-import { AuthContext } from '../../context/auth';
+import React from "react";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import LoginImage from "../../assets/Background.png";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import GoogleLogo from "../../assets/image 2.png";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
 
 function Login(props) {
   const handleClickEmail = () => {
-    props.history.push('/login/email');
+    props.history.push("/login/email");
   };
 
   const { classes } = props;
@@ -36,19 +33,20 @@ function Login(props) {
                   id="submit-button"
                   className={classes.button}
                   style={{
-                    backgroundColor: '#ffffff'
+                    backgroundColor: "#ffffff"
                   }}
                 >
                   <Grid container spacing={0}>
-                    <Grid item xs={3} className={classes.gridButton}>
+                    <Grid item xs={2} className={classes.gridButton}>
                       <img
                         src={GoogleLogo}
-                        className={classes.googleLogo}
+                        className={classes.logo}
                         alt="google"
+                        style={{ paddingLeft: "10%" }}
                       />
                     </Grid>
 
-                    <Grid item xs={9} className={classes.gridButton}>
+                    <Grid item xs={10} className={classes.gridButton}>
                       <Typography className={classes.textButton}>
                         Masuk Dengan Akun Google
                       </Typography>
@@ -63,11 +61,16 @@ function Login(props) {
                   id="submit-button"
                   className={classes.buttonBottom}
                   style={{
-                    backgroundColor: '#F7A647'
+                    backgroundColor: "#F7A647"
                   }}
                 >
                   <Grid container spacing={0}>
-                    <Grid item xs={3}>
+                    <Grid
+                      item
+                      xs={2}
+                      className={classes.logo}
+                      style={{ paddingLeft: "2%" }}
+                    >
                       <svg
                         width="14"
                         height="20"
@@ -85,7 +88,7 @@ function Login(props) {
                       </svg>
                     </Grid>
 
-                    <Grid item xs={9} className={classes.gridButton}>
+                    <Grid item xs={10} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Nomor HP
                       </Typography>
@@ -99,15 +102,18 @@ function Login(props) {
                   id="submit-button"
                   className={classes.buttonBottom}
                   style={{
-                    backgroundColor: '#F7A647'
+                    backgroundColor: "#F7A647"
                   }}
                 >
                   <Grid container spacing={0} onClick={handleClickEmail}>
-                    <Grid item xs={3}>
-                      <MailOutlineIcon className={classes.gridIconBottom} />
+                    <Grid item xs={2}>
+                      <MailOutlineIcon
+                        className={classes.logo}
+                        style={{ paddingLeft: "5%" }}
+                      />
                     </Grid>
 
-                    <Grid item xs={9} className={classes.gridButton}>
+                    <Grid item xs={10} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Email
                       </Typography>

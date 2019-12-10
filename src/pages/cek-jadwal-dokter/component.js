@@ -11,7 +11,6 @@ import AppBar from '../../component/appbar';
 import PropTypes from 'prop-types';
 import Avatar from '../../assets/avatar.png';
 import { getListDockter } from '../../services/list-dockter';
-import BottomNavigation from '../../component/bottom-navigation';
 import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 function TabPanel(props) {
@@ -225,7 +224,6 @@ function DetailAnggota(props) {
             </Grid>
           </Grid>
         </Grid>
-        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

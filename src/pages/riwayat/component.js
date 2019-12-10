@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '../../component/appbar';
-import BottomNavigation from '../../component/bottom-navigation';
 import ContentLoader from 'react-content-loader';
 
 const MyLoader = () => (

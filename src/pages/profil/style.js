@@ -29,7 +29,7 @@ const Style = {
   },
   gridEdit: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "flex-start",
     marginTop: "-5.5%",
     color: "#F7A647",
     fontSize: "14px"

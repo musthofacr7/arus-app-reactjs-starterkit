@@ -18,10 +18,10 @@ function BottomNavigationApp(props) {
       case "/":
         value = 0;
         break;
-      case "/riwayat":
+      case '/riwayat':
         value = 1;
         break;
-      case "/profil":
+      case '/profil':
         value = 2;
         break;
       default:

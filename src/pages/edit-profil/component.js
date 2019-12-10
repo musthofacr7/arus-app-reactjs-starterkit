@@ -9,6 +9,7 @@ import Profile from '../../assets/avatar.png';
 import AppBar from '../../component/appbar';
 import { Link } from 'react-router-dom';
 import { ProfileContext } from '../../context/profile';
+import { updateProfile } from '../../services/profile';
 import Modal from '../../component/modal-simpan-perubahan'
 import BottomNavigation from '../../component/bottom-navigation'
 
@@ -27,7 +28,7 @@ function EditProfile(props) {
   };
 
   useEffect(() => {
-    console.log(data.name);
+    // console.log(data.name);
   }, []);
   const { classes } = props;
 
@@ -41,9 +42,14 @@ function EditProfile(props) {
   };
   const handleClick = () => {
     const data = {
-      nama: nama,
+      name: nama,
       nik: nik
     };
+    const user = JSON.parse(localStorage.getItem('user'));
+    updateProfile(user.id, data).then(()=>{
+      props.history.push('/profil')
+    });
+    
     console.log(data);
   };
 

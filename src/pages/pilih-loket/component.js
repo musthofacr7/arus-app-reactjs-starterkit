@@ -9,22 +9,23 @@ import Modal from '../../component/modal-pilih-loket';
 import ContentLoader from 'react-content-loader';
 
 const MyLoader = () => (
-  <ContentLoader
-    height={146}
+  <ContentLoader 
+    height={746}
     width={400}
     speed={2}
-    primaryColor="#F4F4F4"
-    secondaryColor="#E6E6E6"
+    primaryColor="#e6e6e6"
+    secondaryColor="#f4f4f4"
   >
-    <rect x="123" y="23" rx="0" ry="0" width="0" height="0" />
-    <rect x="30" y="41" rx="0" ry="0" width="86" height="86" />
-    <rect x="149" y="42" rx="0" ry="0" width="189" height="29" />
-    <rect x="149" y="94" rx="0" ry="0" width="189" height="29" />
-    <rect x="29" y="173" rx="0" ry="0" width="86" height="86" />
-    <rect x="149" y="179" rx="0" ry="0" width="189" height="29" />
-    <rect x="149" y="231" rx="0" ry="0" width="189" height="29" />
-    <rect x="30" y="321" rx="0" ry="0" width="86" height="86" />
-    <rect x="148" y="325" rx="0" ry="0" width="189" height="29" />
+    <rect x="123" y="23" rx="0" ry="0" width="0" height="0" /> 
+    <rect x="30" y="41" rx="0" ry="0" width="86" height="86" /> 
+    <rect x="149" y="42" rx="0" ry="0" width="189" height="29" /> 
+    <rect x="149" y="94" rx="0" ry="0" width="189" height="29" /> 
+    <rect x="29" y="173" rx="0" ry="0" width="86" height="86" /> 
+    <rect x="149" y="179" rx="0" ry="0" width="189" height="29" /> 
+    <rect x="149" y="231" rx="0" ry="0" width="189" height="29" /> 
+    <rect x="30" y="321" rx="0" ry="0" width="86" height="86" /> 
+    <rect x="148" y="325" rx="0" ry="0" width="189" height="29" /> 
+    <rect x="149" y="377" rx="0" ry="0" width="189" height="29" />
   </ContentLoader>
 );
 function PilihLocket(props) {

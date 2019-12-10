@@ -12,7 +12,9 @@ function Login(props) {
   const handleClickEmail = () => {
     props.history.push("/login/email");
   };
-
+  const handleSignUp = () => {
+    props.history.push("/register");
+  };
   const { classes } = props;
   return (
     <Container maxWidth="xs" className={classes.container}>
@@ -123,7 +125,16 @@ function Login(props) {
               </Box>
             </Grid>
           </Grid>
+          <Grid item align="center">
+          <Typography style={{ marginTop: "1em" }}>
+            Not a member yet ?
+          </Typography>
+          <Typography style={{ fontWeight: "bold" }} onClick={handleSignUp}>
+            Sign Up
+          </Typography>
         </Grid>
+        </Grid>
+        
       </Grid>
     </Container>
   );

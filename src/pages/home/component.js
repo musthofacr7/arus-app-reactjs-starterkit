@@ -37,7 +37,9 @@ function HomePage(props) {
 
   useEffect(() => {
     if (user) {
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 600)
     }
   }, []);
   return (

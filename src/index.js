@@ -13,7 +13,7 @@ ReactDOM.render(
         <App />
       </AuthProvider>
     </ProfileProvider>
-  </BrowserRouter>,
+   </BrowserRouter>,
   document.getElementById('root')
 );
 

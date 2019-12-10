@@ -72,9 +72,8 @@ function DetailAnggota(props) {
             }}
           >
             {' '}
-         
-              <MyLoader />
-              <Grid
+            <MyLoader />
+            <Grid
               container
               spacing={0}
               className={classes.gridItemTwo}
@@ -144,8 +143,6 @@ function DetailAnggota(props) {
             </Button>
           </div>
         </div>
-
-        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

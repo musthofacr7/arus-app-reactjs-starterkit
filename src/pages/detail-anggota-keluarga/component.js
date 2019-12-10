@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
 import AppBar from '../../component/appbar';
 import Modal from '../../component/modal-hapus-datakeluarga';
-import { getDetailAnggota } from '../../services/detail-anggota';
+import { getDetailAnggota } from '../../services/anggota';
 function DetailAnggota(props) {
   const [open, setOpen] = useState(false);
   const { classes } = props;

@@ -46,7 +46,7 @@ function Riwayat(props) {
         {isLoading == true ? (
           <div
             style={{
-              marginTop: 80,
+              marginTop: 100,
               width: '100%',
               backgroundColor: 'white'
             }}
@@ -136,8 +136,6 @@ function Riwayat(props) {
             </Grid>
           </Grid>
         )}
-
-        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

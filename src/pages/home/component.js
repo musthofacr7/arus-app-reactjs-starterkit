@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BottomNavigation from '../../component/bottom-navigation';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -31,18 +31,21 @@ const MyLoader = () => (
 );
 
 function HomePage(props) {
-  const [isLoading, setIsLoading] = React.useState(true);
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState({});
   const { classes } = props;
   const user = JSON.parse(localStorage.getItem('user'));
-  const token = localStorage.getItem('userToken');
 
-  useEffect(async () => {
-    const response = await getProfile(user.id);
-    console.log(response);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 900);
+  useEffect(() => {
+    const getData = async () => {
+      const response = await getProfile(user.id);
+      setData(response.row);
+      if (data) {
+        setIsLoading(false);
+        console.log(data);
+      }
+    };
+    getData();
   }, []);
   return (
     <Container maxWidth="xs" className={classes.container}>
@@ -70,9 +73,9 @@ function HomePage(props) {
                   <img src={Profile} alt="avatar" />
                 </Grid>
                 <Grid item xs={0} className={classes.gridName}>
-                  <Typography className={classes.name}>{user.name}</Typography>
+                  <Typography className={classes.name}>{data.name}</Typography>
                   <Typography className={classes.nik}>
-                    NIK: {user.nik}
+                    NIK: {data.nik}
                   </Typography>
                 </Grid>
               </Grid>
@@ -107,8 +110,7 @@ function HomePage(props) {
           </div>
         </div>
       )}
-
-      <BottomNavigation />
+      <h1>tes</h1>
     </Container>
   );
 }

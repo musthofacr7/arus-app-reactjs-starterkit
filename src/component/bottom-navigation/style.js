@@ -11,11 +11,13 @@ const Style = {
     color: '#a3a3a3',
     fill: '#a3a3a3',
     '&$selected': {
-      color: '#26CAC0',
+      color: 'red',
       fill: '#26CAC0'
     },
     width: '100%'
   },
-  selected: {}
+  selected: {
+    color:'red'
+  }
 };
 export default Style;

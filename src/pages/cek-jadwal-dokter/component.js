@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -42,7 +42,7 @@ function a11yProps(index) {
 }
 
 function DetailAnggota(props) {
-  const [categoryTabs, setCategoryTabs] = React.useState([
+  const [categoryTabs, setCategoryTabs] = useState([
     {
       id: 1,
       name: 'Semua'
@@ -69,8 +69,8 @@ function DetailAnggota(props) {
     }
   ]);
   const { classes } = props;
-  const [value, setValue] = React.useState(0);
-  const [jadwal, setJadwal] = React.useState([]);
+  const [value, setValue] = useState(0);
+  const [jadwal, setJadwal] = useState([]);
   useEffect(() => {
     const getJadwal = async () => {
       const jadwal = await getListDockter();

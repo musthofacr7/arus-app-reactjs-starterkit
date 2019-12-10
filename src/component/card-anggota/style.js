@@ -30,15 +30,10 @@ const Style = {
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column'
-    // backgroundColor:'red'
   },
-  
   gridRight: {
     display: 'flex',
     justifyContent: 'flex-end'
-    // backgroundColor:'blue'
-
-    // paddingRight: "5%"
   }
 };
 export default Style;

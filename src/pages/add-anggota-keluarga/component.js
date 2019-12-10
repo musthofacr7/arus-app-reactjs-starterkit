@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -12,7 +12,7 @@ import Radio from "@material-ui/core/Radio";
 import Axios from "axios";
 
 function AddKeluarga(props) {
-  const [nama, setNama] = React.useState("");
+  const [nama, setNama] = useState("");
 
   const addNama = async () => {
     try {

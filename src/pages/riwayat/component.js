@@ -136,8 +136,6 @@ function Riwayat(props) {
             </Grid>
           </Grid>
         )}
-
-        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

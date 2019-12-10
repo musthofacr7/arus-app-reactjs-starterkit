@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { withRouter } from 'react-router-dom';
 import { register } from '../../services/register';
+import { login } from '../../services/login';
 
 function SplashScreen(props) {
   const [data, setData] = useState({
@@ -33,16 +34,18 @@ function SplashScreen(props) {
     setData(newData);
     if (data.password.length < 7) {
       setErr(true);
+      console.log('password salah');
     } else {
       setErr(false);
+      console.log('password benar');
     }
     if (
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})*(\.\w{2,3})/.test(data.email)
     ) {
-      setErr(true);
+      setErr(false);
       console.log('email benar');
     } else {
-      setErr(false);
+      setErr(true);
       console.log('email salah');
     }
   };
@@ -51,7 +54,19 @@ function SplashScreen(props) {
     register(data)
       .then(res => {
         console.log(res);
-        props.history.push('/');
+        const loginData = {
+          email: data.email,
+          password: data.password
+        };
+        console.log(loginData);
+        login(loginData).then(res => {
+          localStorage.setItem('user', JSON.stringify(res.user));
+          localStorage.setItem('userToken', 'Bearer ' + res.access_token);
+          localStorage.setItem('login', true);
+          props.history.push('/');
+          console.log(res);
+          props.history.push('/');
+        });
       })
       .catch(err => console.log(err));
   };

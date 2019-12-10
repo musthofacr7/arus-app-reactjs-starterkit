@@ -56,8 +56,9 @@ function HomePage(props) {
       ) : (
         <div>
           <Grid container spacing={0} className={classes.gridContainer}>
-            <Grid item xs className={classes.gridOne}>
-              <Grid
+            <Grid item xs className={classes.gridOne}
+            >
+              <Grid 
                 container
                 spacing={0}
                 align="center"

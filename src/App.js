@@ -22,7 +22,8 @@ import BottomNavigation from './component/bottom-navigation';
 function App(props) {
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLogin, setIsLogin] = React.useState(false);
-  const homeRoute = ['/', '/pilih-loket', '/profil', '/riwayat',"/list-anggota", ];
+  const homeRoute = ['/', '/pilih-loket', '/profil', '/riwayat',"/list-anggota", 
+];
   useEffect(() => {
     if (localStorage.getItem('login')) {
       console.log('login');

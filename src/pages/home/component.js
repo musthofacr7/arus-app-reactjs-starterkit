@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import BottomNavigation from '../../component/bottom-navigation';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -38,7 +37,9 @@ function HomePage(props) {
 
   useEffect(() => {
     if (user) {
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 600)
     }
   }, []);
   return (
@@ -56,8 +57,9 @@ function HomePage(props) {
       ) : (
         <div>
           <Grid container spacing={0} className={classes.gridContainer}>
-            <Grid item xs className={classes.gridOne}>
-              <Grid
+            <Grid item xs className={classes.gridOne}
+            >
+              <Grid 
                 container
                 spacing={0}
                 align="center"

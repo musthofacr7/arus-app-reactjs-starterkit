@@ -127,6 +127,7 @@ function SplashScreen(props) {
           </Grid>
           <Grid item>
             <TextField
+              type="number"
               helperText="at least have 10 characters"
               error={err}
               placeholder="Phone"
@@ -137,6 +138,7 @@ function SplashScreen(props) {
           </Grid>
           <Grid item>
             <TextField
+              type="number"
               placeholder="NIK"
               name="nik"
               onChange={handleChange}

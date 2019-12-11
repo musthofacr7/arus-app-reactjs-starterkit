@@ -70,7 +70,7 @@ function SimpleModal(props) {
                       fontSize: "14px"
                     }}
                   >
-                    Iya
+                    Ya
                   </Typography>
                 </Button>
               </Grid>

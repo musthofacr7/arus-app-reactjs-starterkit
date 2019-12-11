@@ -35,26 +35,14 @@ function HomePage(props) {
   const { classes } = props;
   const user = JSON.parse(localStorage.getItem('user'));
 
-  // useEffect(() => {
-  //   if (user) {
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //     }, 600)
-  //   }
-  // }, []);
   useEffect(() => {
-    const getProfileData = async () => {
-      const profile = await getProfile(user.id);
-      setData(profile.row);
-      console.log(data);
-      console.log(profile);
+    if (user) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
-    };
-
-    getProfileData();
+      }, 600)
+    }
   }, []);
+
   return (
     <Container maxWidth="xs" className={classes.container}>
       {isLoading == true ? (
@@ -82,9 +70,9 @@ function HomePage(props) {
                   <img src={Profile} alt="avatar" />
                 </Grid>
                 <Grid item xs={0} className={classes.gridName}>
-                  <Typography className={classes.name}>{data.name}</Typography>
+                  <Typography className={classes.name}>{user.name}</Typography>
                   <Typography className={classes.nik}>
-                    NIK: {data.nik}
+                    NIK: {user.nik}
                   </Typography>
                 </Grid>
               </Grid>

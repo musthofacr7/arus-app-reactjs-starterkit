@@ -66,7 +66,7 @@ function Login(props) {
       })
       .catch(error => {
         
-        if (error.response.statusText == 'Unauthorized') {
+        if (error == 'Unauthorized') {
           alert('belum terdaftar')
         }
       });

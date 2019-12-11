@@ -10,8 +10,8 @@ export const axiosInstance = Axios.create({
 
 axiosInstance.interceptors.response.use(
   function(response) {
-    console.log(response.data.data);
-    return response.data.data;
+    console.log(response.data);
+    return response.data;
   },
   function(err) {
     console.log(err);

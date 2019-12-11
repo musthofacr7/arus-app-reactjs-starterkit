@@ -42,6 +42,7 @@ function HomePage(props) {
       }, 600)
     }
   }, []);
+
   return (
     <Container maxWidth="xs" className={classes.container}>
       {isLoading == true ? (

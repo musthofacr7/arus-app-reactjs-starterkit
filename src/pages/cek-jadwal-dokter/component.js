@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '../../component/appbar';
-import PropTypes from 'prop-types';
-import Avatar from '../../assets/avatar.png';
-import { getListDockter } from '../../services/list-dockter';
-import { withRouter } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import React, { useEffect, useState } from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import AppBar from "../../component/appbar";
+import PropTypes from "prop-types";
+import CardListDokter from "../../component/card-list-dokter";
+import { getListDockter } from "../../services/list-dockter";
+import { withRouter } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import { getDoctorCategory } from "../../services/doctor-category";
+
 function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
   return (
@@ -36,7 +38,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `scrollable-auto-tab-${index}`,
-    'aria-controls': `scrollable-auto-tabpanel-${index}`
+    "aria-controls": `scrollable-auto-tabpanel-${index}`
   };
 }
 
@@ -44,44 +46,59 @@ function DetailAnggota(props) {
   const [categoryTabs, setCategoryTabs] = useState([
     {
       id: 1,
-      name: 'Semua'
+      name: "Semua"
     },
     {
       id: 2,
-      name: 'Kandungan'
+      name: "Kandungan"
     },
     {
       id: 3,
-      name: 'Anak'
+      name: "Anak"
     },
     {
       id: 4,
-      name: 'Gigi'
+      name: "Gigi"
     },
     {
       id: 5,
-      name: 'Kulit'
+      name: "Kulit"
     },
     {
       id: 6,
-      name: 'Penyakit Dalam'
+      name: "Penyakit Dalam"
     }
   ]);
   const { classes } = props;
   const [value, setValue] = useState(0);
+  const [category, setCategory] = useState([]);
   const [jadwal, setJadwal] = useState([]);
+
+  // useEffect(() => {
+  //   const getJadwal = async () => {
+  //     const jadwal = await getListDockter();
+  //     setJadwal(jadwal);
+  //   };
+  //   getJadwal();
+  // }, []);
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
+
   useEffect(() => {
-    const getJadwal = async () => {
-      const jadwal = await getListDockter();
-      setJadwal(jadwal);
+    const getCategory = async () => {
+      const category = await getDoctorCategory();
+      setCategory(category);
     };
-    getJadwal();
+    getCategory();
   }, []);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   const handleClick = () => {
-    props.history.push('/detail-dokter');
+    props.history.push("/detail-dokter");
   };
   return (
     <React.Fragment>
@@ -137,20 +154,20 @@ function DetailAnggota(props) {
                   onChange={handleChange}
                   TabIndicatorProps={{
                     style: {
-                      backgroundColor: '#26CAC0'
+                      backgroundColor: "#26CAC0"
                     }
                   }}
                   variant="scrollable"
                   scrollButtons="auto"
                   aria-label="scrollable auto tabs example"
                 >
-                  {categoryTabs.map(category => {
+                  {category.map(item => {
                     return (
                       <Tab
-                        label={category.name}
+                        label={item.name}
                         {...a11yProps(0)}
                         className={classes.Tabs}
-                        key={category.id}
+                        key={item.id}
                       />
                     );
                   })}
@@ -161,64 +178,11 @@ function DetailAnggota(props) {
             <Grid item xs={12} className={classes.gridItemList}>
               {jadwal.map(data => {
                 return (
-                  <Grid
-                    container
-                    spacing={0}
-                    className={classes.gridContentList}
-                  >
-                    <Grid item xs>
-                      <Grid
-                        container
-                        spacing={0}
-                        className={classes.gridList}
-                        onClick={handleClick}
-                      >
-                        <Grid item xs={3}>
-                          <img src={Avatar} />
-                        </Grid>
-
-                        <Grid item xs={8}>
-                          <Typography className={classes.nama}>
-                            {data.nama}
-                          </Typography>
-                          <Typography className={classes.spesialis}>
-                            {data.spesialis}
-                          </Typography>
-                        </Grid>
-                        <Grid item xs={1} className={classes.arrow}>
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                              stroke="#F7A647"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 16L16 12L12 8"
-                              stroke="#F7A647"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M8 12H16"
-                              stroke="#F7A647"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
+                  <CardListDokter
+                    spesialis={data.spesialis}
+                    nama={data.nama}
+                    handleClick={handleClick}
+                  />
                 );
               })}
             </Grid>

@@ -1,8 +1,8 @@
-import Axios from 'axios';
+import Axios from "axios";
 
-const token = localStorage.getItem('userToken');
+const token = localStorage.getItem("userToken");
 export const axiosInstance = Axios.create({
-  baseURL: 'https://api-arus.herokuapp.com/api/',
+  baseURL: "https://api-arus.herokuapp.com/api/",
   headers: {
     Authorization: token
   }

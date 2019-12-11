@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom';
 import { register } from '../../services/register';
 import { login } from '../../services/login';
 
-function SplashScreen(props) {
+function RegisterApp(props) {
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -168,4 +168,4 @@ function SplashScreen(props) {
   );
 }
 
-export default withRouter(SplashScreen);
+export default withRouter(RegisterApp);

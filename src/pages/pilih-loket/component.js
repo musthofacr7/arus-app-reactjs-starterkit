@@ -31,6 +31,8 @@ const MyLoader = () => (
 function PilihLocket(props) {
   const [open, setOpen] = useState(false);
   const [loket, setLoket] = useState({});
+  const [modal, setModal] = useState({});
+
   console.log(loket);
 
   const [isLoading, setIsLoading] = React.useState(true);
@@ -43,11 +45,17 @@ function PilihLocket(props) {
     setOpen(false);
   };
   useEffect(() => {
-    const getList = getListLoket()
-    console.log(getList)
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 900);
+    const getCategoryData = async () => {
+      const category = await getListLoket();
+      setLoket(category.row.data);
+      console.log(loket);
+      console.log(category);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+    };
+
+    getCategoryData();
   }, []);
 
   const { classes } = props;
@@ -70,17 +78,22 @@ function PilihLocket(props) {
           <Grid container spacing={4} className={classes.gridUpper}>
             <Link className={classes.link} onClick={handleOpen}>
               <Grid item>
-                {/* {loket.map(data => { */}
-                  {/* return */}
-                   <BoxCategoryLocket 
-                  //  title={data.loket}
-                    />;
-                {/* })} */}
+                {loket.map(data => {
+                  return (
+                    <BoxCategoryLocket
+                      title={data.name}
+                      click={() => {
+                        setModal(data);
+                      }}
+                    />
+                  );
+                })}
               </Grid>
             </Link>
           </Grid>
 
           <Modal
+            name={modal.name}
             open={open}
             handleOpen={handleOpen}
             handleClose={handleClose}

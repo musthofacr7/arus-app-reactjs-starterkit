@@ -1,6 +1,6 @@
 import { axiosInstance } from '../config';
 
-export const getListLoket = async (id,data) => {
-  const response = axiosInstance.get(`counters/${id}`, data);
+export const getListLoket = async => {
+  const response = axiosInstance.get('counters');
   return response;
 };

@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import { withRouter } from 'react-router-dom';
 import { register } from '../../services/register';
 import { login } from '../../services/login';
+import swal from 'sweetalert';
 
 function RegisterApp(props) {
   const [data, setData] = useState({
@@ -20,34 +21,30 @@ function RegisterApp(props) {
     errorPassword: '',
     errorEmail: ''
   });
-  const [err, setErr] = useState(false);
-  const Toggle = () => {
-    var temp = document.getElementById('txtPass');
-    if (temp.type === 'password') {
-      temp.type = 'text';
-    } else {
-      temp.type = 'password';
-    }
-  };
+  const [errMail, setErrMail] = useState(false);
+  const [errPassword, setErrorPassword] = useState(false);
+  const [errPhone, setErrPhone] = useState(false);
+  const [errNull, setErrNull] = useState(false);
+
   const handleChange = e => {
     const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
     if (data.password.length < 7) {
-      setErr(true);
+      setErrorPassword(true);
     } else {
-      setErr(false);
+      setErrorPassword(false);
     }
     if (data.phone.length < 9) {
-      setErr(true);
+      setErrPhone(true);
     } else {
-      setErr(false);
+      setErrPhone(false);
     }
     if (
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})*(\.\w{2,3})/.test(data.email)
     ) {
-      setErr(false);
+      setErrMail(false);
     } else {
-      setErr(true);
+      setErrMail(true);
     }
   };
   useEffect(() => {}, []);
@@ -65,11 +62,16 @@ function RegisterApp(props) {
           localStorage.setItem('userToken', 'Bearer ' + res.access_token);
           localStorage.setItem('login', true);
           props.history.push('/');
+          swal('Good job!', 'You registered!', 'success');
           console.log(res);
           props.history.push('/');
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        if (err) {
+          swal('Fill the blank please!');
+        }
+      });
   };
   const handleSignIn = () => {
     props.history.push('./login');
@@ -92,12 +94,13 @@ function RegisterApp(props) {
               onChange={handleChange}
               value={data.name}
               placeholder="name"
+              error={data.name === ''}
             />
           </Grid>
           <Grid item>
             <TextField
               required
-              error={err}
+              error={errMail}
               placeholder="Email"
               type="email"
               name="email"
@@ -108,7 +111,7 @@ function RegisterApp(props) {
           <Grid item>
             <TextField
               helperText="at least have 8 characters"
-              error={err}
+              error={errPassword}
               placeholder="Password"
               type="password"
               name="password"
@@ -129,7 +132,7 @@ function RegisterApp(props) {
             <TextField
               type="number"
               helperText="at least have 10 characters"
-              error={err}
+              error={errPhone}
               placeholder="Phone"
               name="phone"
               onChange={handleChange}
@@ -143,6 +146,7 @@ function RegisterApp(props) {
               name="nik"
               onChange={handleChange}
               value={data.nik}
+              error={data.nik === ''}
             />
           </Grid>
           <Grid item className={classes.gridBottom}>

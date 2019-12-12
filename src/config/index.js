@@ -1,4 +1,5 @@
 import Axios from "axios";
+import swal from 'sweetalert';
 
 const token = localStorage.getItem("userToken");
 export const axiosInstance = Axios.create({
@@ -15,6 +16,7 @@ axiosInstance.interceptors.response.use(
   },
   function(err) {
     console.log(err);
+    swal('Ups!', 'There is something wrong', 'error');
     return Promise.reject(err);
   }
 );

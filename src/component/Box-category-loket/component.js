@@ -1,11 +1,16 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 function BoxCategory(props) {
   const { classes, title } = props;
   return (
-    <Grid container spacing={0} className={classes.gridContainer}>
+    <Grid
+      container
+      spacing={0}
+      className={classes.gridContainer}
+      onClick={props.click}
+    >
       <Grid item xs={5} className={classes.gridLeft}>
         <Box className={classes.BoxLoket}>
           <Typography className={classes.TypographyLoket}>Locket</Typography>

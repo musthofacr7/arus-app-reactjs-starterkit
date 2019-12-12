@@ -4,27 +4,52 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 function CardListDokter(props) {
-  const { classes, spesialis, nama, handleClick } = props;
+  const { spesialis, nama, handleClick,classes } = props;
+
   return (
     <React.Fragment>
-      <Grid item xs={12} className={classes.gridItemList}>
-        <Grid container spacing={0} className={classes.gridContentList}>
+      <Grid item xs={12}>
+        <Grid
+          container
+          spacing={0}
+          style={{
+            backgroundColor: "red",
+            // paddingTop: "2em",
+            marginTop: "10%",
+            display: "flex",
+            // justifyContent: "center",
+            alignItems: "center"  
+          }}
+        >
           <Grid item xs>
             <Grid
               container
               spacing={0}
-              className={classes.gridList}
+              className={classes.gridlist}
               onClick={handleClick}
+              // style={{
+              //   border: "1px solid #FFFFFF",
+              //   // width: "96%",
+              //   borderRadius: "8px",
+              //   backgroundColor: "#FFFFFF",
+              //   display: "flex",
+              //   justifyContent: "center",
+              //   alignItems: "center",
+              //   // paddingTop: 15,
+              //   // paddingBottom: 15,
+              //   // paddingLeft: 8,
+              //   // paddingRight: 8
+              // }}
             >
               <Grid item xs={3}>
                 <img src={Avatar} />
               </Grid>
 
               <Grid item xs={8}>
-                <Typography className={classes.nama}>{nama}</Typography>
-                <Typography className={spesialis}>{spesialis}</Typography>
+                <Typography>{nama}</Typography>
+                <Typography>{spesialis}</Typography>
               </Grid>
-              <Grid item xs={1} className={classes.arrow}>
+              <Grid item xs={1}>
                 <svg
                   width="24"
                   height="24"

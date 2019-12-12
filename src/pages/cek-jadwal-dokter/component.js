@@ -9,11 +9,11 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import AppBar from "../../component/appbar";
 import PropTypes from "prop-types";
-import CardListDokter from "../../component/card-list-dokter";
-import { getListDockter } from "../../services/list-dockter";
+import { getDokter } from "../../services/dokter";
+import { categoryTab } from "../../services/dokter";
 import { withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { getDoctorCategory } from "../../services/doctor-category";
+import CardListDokter from "../../component/card-list-dokter/component";
 
 function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
@@ -43,60 +43,29 @@ function a11yProps(index) {
 }
 
 function DetailAnggota(props) {
-  const [categoryTabs, setCategoryTabs] = useState([
-    {
-      id: 1,
-      name: "Semua"
-    },
-    {
-      id: 2,
-      name: "Kandungan"
-    },
-    {
-      id: 3,
-      name: "Anak"
-    },
-    {
-      id: 4,
-      name: "Gigi"
-    },
-    {
-      id: 5,
-      name: "Kulit"
-    },
-    {
-      id: 6,
-      name: "Penyakit Dalam"
-    }
-  ]);
   const { classes } = props;
   const [value, setValue] = useState(0);
-  const [category, setCategory] = useState([]);
-  const [jadwal, setJadwal] = useState([]);
-
-  // useEffect(() => {
-  //   const getJadwal = async () => {
-  //     const jadwal = await getListDockter();
-  //     setJadwal(jadwal);
-  //   };
-  //   getJadwal();
-  // }, []);
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
+  const [listDokter, setListDokter] = useState([]);
+  const [tab, setTab] = useState([]);
 
   useEffect(() => {
-    const getCategory = async () => {
-      const category = await getDoctorCategory();
-      setCategory(category);
+    const categoryDoctor = async () => {
+      const tabPanel = await categoryTab();
+      setTab(tabPanel.row.data);
     };
-    getCategory();
+    categoryDoctor();
+
+    const cardDokter = async () => {
+      const cardList = await getDokter();
+      // console.log(cardList.row.data);
+      setListDokter(cardList.row.data);
+    };
+    cardDokter();
   }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   const handleClick = () => {
     props.history.push("/detail-dokter");
   };
@@ -161,7 +130,7 @@ function DetailAnggota(props) {
                   scrollButtons="auto"
                   aria-label="scrollable auto tabs example"
                 >
-                  {category.map(item => {
+                  {tab.map(item => {
                     return (
                       <Tab
                         label={item.name}
@@ -175,12 +144,12 @@ function DetailAnggota(props) {
               </Grid>
             </Grid>
 
-            <Grid item xs={12} className={classes.gridItemList}>
-              {jadwal.map(data => {
+            <Grid item xs>
+              {listDokter.map(item => {
                 return (
                   <CardListDokter
-                    spesialis={data.spesialis}
-                    nama={data.nama}
+                    spesialis={item.specialist}
+                    nama={item.name}
                     handleClick={handleClick}
                   />
                 );

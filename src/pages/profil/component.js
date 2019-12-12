@@ -37,11 +37,11 @@ function DetailAnggota(props) {
     props.history.push('/list-anggota');
   };
   const { classes } = props;
-  const user = JSON.parse(localStorage.getItem('user'));
 
   const [data, setData] = useState({});
   useEffect(() => {
     const getProfileData = async () => {
+      const user = JSON.parse(localStorage.getItem('user'));
       const profile = await getProfile(user.id);
       setData(profile.row);
       console.log(data);

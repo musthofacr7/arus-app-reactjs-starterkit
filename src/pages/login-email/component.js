@@ -67,7 +67,17 @@ function Login(props) {
         props.history.push('/');
         console.log(res);
       })
-      .catch(error => {});
+      .catch(error => {
+        if (error.response.statusText == 'Bad Request') {
+          swal('Ups!', 'Fill the blank, please!', 'warning');
+        }
+        if (error.response.statusText == 'Unauthorized') {
+          swal('Ups!', 'Your Password or Email is wrong', 'warning');
+        }
+       
+        
+        console.log(error.response);
+      });
   };
 
   const { classes } = props;

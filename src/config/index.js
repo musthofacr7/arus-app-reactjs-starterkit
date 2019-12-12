@@ -16,7 +16,6 @@ axiosInstance.interceptors.response.use(
   },
   function(err) {
     console.log(err);
-    swal('Ups!', 'There is something wrong', 'error');
     return Promise.reject(err);
   }
 );

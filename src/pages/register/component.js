@@ -10,7 +10,6 @@ import { register } from '../../services/register';
 import { login } from '../../services/login';
 import swal from 'sweetalert';
 
-
 function RegisterApp(props) {
   const [data, setData] = useState({
     name: '',
@@ -23,11 +22,11 @@ function RegisterApp(props) {
     errorEmail: ''
   });
   const [errMail, setErrMail] = useState(false);
-  const [errPassword, setErrorPassword] = useState(false)
-  const [errPhone, setErrPhone] = useState(false)
-  const [errNull, setErrNull] = useState(false)
+  const [errPassword, setErrorPassword] = useState(false);
+  const [errPhone, setErrPhone] = useState(false);
+  const [errNull, setErrNull] = useState(false);
 
- const handleChange = e => {
+  const handleChange = e => {
     const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
     if (data.password.length < 7) {
@@ -63,12 +62,16 @@ function RegisterApp(props) {
           localStorage.setItem('userToken', 'Bearer ' + res.access_token);
           localStorage.setItem('login', true);
           props.history.push('/');
-          swal("Good job!", "You registered!", "success");
+          swal('Good job!', 'You registered!', 'success');
           console.log(res);
           props.history.push('/');
         });
       })
-      .catch( swal("Fill the blank please!"));
+      .catch(err => {
+        if (err) {
+          swal('Fill the blank please!');
+        }
+      });
   };
   const handleSignIn = () => {
     props.history.push('./login');
@@ -144,7 +147,6 @@ function RegisterApp(props) {
               onChange={handleChange}
               value={data.nik}
               error={data.nik === ''}
-
             />
           </Grid>
           <Grid item className={classes.gridBottom}>

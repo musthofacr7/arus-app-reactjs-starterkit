@@ -13,7 +13,7 @@ import { getDokter } from "../../services/dokter";
 import { categoryTab } from "../../services/dokter";
 import { withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import CardListDokter from "../../component/card-list-dokter/component";
+import CardListDokter from "../../component/card-list-dokter";
 
 function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
@@ -57,7 +57,6 @@ function DetailAnggota(props) {
 
     const cardDokter = async () => {
       const cardList = await getDokter();
-      // console.log(cardList.row.data);
       setListDokter(cardList.row.data);
     };
     cardDokter();
@@ -130,6 +129,12 @@ function DetailAnggota(props) {
                   scrollButtons="auto"
                   aria-label="scrollable auto tabs example"
                 >
+                  <Tab
+                    label="Semua"
+                    {...a11yProps(0)}
+                    className={classes.Tabs}
+                    key={0}
+                  />
                   {tab.map(item => {
                     return (
                       <Tab

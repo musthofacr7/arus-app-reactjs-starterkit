@@ -1,30 +1,30 @@
 const style = {
   gridItemList: {
-    paddingTop: "2.2em",
-    marginBottom: "5em"
+    marginTop: "7%",
   },
   gridContentList: {
-    paddingTop: "1.4em",
-    paddingBottom: "1%",
-    paddingLeft: "3%",
     display: "flex",
-    flexDirection: "column"
+    justifyContent: "center",
+    alignItems: "center"
   },
   gridList: {
     border: "1px solid #FFFFFF",
-    width: "96%",
+    width: "95%",
     borderRadius: "8px",
+    height: "90px",
     backgroundColor: "#FFFFFF",
+    display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 8,
-    paddingRight: 8
+    alignItems: "center"
+  },
+  avatar: {
+    display: "flex",
+    justifyContent: "center"
   },
   arrow: {
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   nama: {
     fontWeight: "bold"

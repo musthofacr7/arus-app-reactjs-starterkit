@@ -82,10 +82,10 @@ function PilihLocket(props) {
                   return (
                     <BoxCategoryLocket
                       title={data.counter.name}
-                      current_queue={data.counter.current_queue}
-                      last_queue={data.counter.last_queue}
+                      current_queue={data.current_queue}
+                      last_queue={data.last_queue}
                       click={() => {
-                        setModal(data);
+                        setModal(data.counter);
                       }}
                     />
                   );

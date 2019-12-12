@@ -27,8 +27,7 @@ function BoxCategory(props) {
               Nomor Antrian Saat ini
             </Typography>
             <Typography className={classes.nomorSekarang}>
-              {' '}
-              {current_queue}{' '}
+              {current_queue}
             </Typography>
           </Grid>
           <Grid item xs className={classes.bottomGridRight}>
@@ -36,7 +35,6 @@ function BoxCategory(props) {
               Nomor Antrian Terakhir
             </Typography>
             <Typography className={classes.nomorTerakhir}>
-              {' '}
               {last_queue}
             </Typography>
           </Grid>

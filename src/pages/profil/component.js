@@ -12,6 +12,7 @@ import User from '../../assets/users.png';
 import { getProfile } from '../../services/profile';
 import { ProfileContext } from '../../context/profile';
 import ContentLoader from 'react-content-loader';
+import swal from 'sweetalert';
 
 const MyLoader = () => (
   <ContentLoader
@@ -54,8 +55,28 @@ function DetailAnggota(props) {
     getProfileData();
   }, []);
   const handleLogOut = () => {
-    localStorage.removeItem('login');
-    window.location.reload();
+    swal({
+      title: 'Are you sure?',
+      text:
+        'Once deleted, you will not be able to recover this imaginary file!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        localStorage.removeItem('login');
+        localStorage.removeItem('userToken');
+        localStorage.removeItem('user');
+        setTimeout(() => {
+          swal('You are logged out!', {
+            icon: 'success'
+          });
+        }, 3000);
+        window.location.reload();
+      } else {
+        swal('You safe!');
+      }
+    });
   };
   return (
     <React.Fragment>

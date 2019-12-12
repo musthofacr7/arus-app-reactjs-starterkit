@@ -1,25 +1,25 @@
-import React from "react";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import LoginImage from "../../assets/Background.png";
-import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
-import GoogleLogo from "../../assets/image 2.png";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import LoginImage from '../../assets/Background.png';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import GoogleLogo from '../../assets/image 2.png';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 function Login(props) {
   const handleClickEmail = () => {
-    props.history.push("/login/email");
+    props.history.push('/login/email');
   };
   const handleSignUp = () => {
-    props.history.push("/register");
+    props.history.push('/register');
   };
   const { classes } = props;
   return (
     <Container maxWidth="xs" className={classes.container}>
-      <Grid className={classes.container}>
-        <Grid item xs={12} className={classes.gridItemTop}>
+      <Grid container>
+        <Grid item xs={12}>
           <img src={LoginImage} className={classes.image} alt="login" />
         </Grid>
         <Grid item xs={12} className={classes.textTop}>
@@ -35,7 +35,7 @@ function Login(props) {
                   id="submit-button"
                   className={classes.button}
                   style={{
-                    backgroundColor: "#ffffff"
+                    backgroundColor: '#ffffff'
                   }}
                 >
                   <Grid container spacing={0}>
@@ -44,7 +44,7 @@ function Login(props) {
                         src={GoogleLogo}
                         className={classes.logo}
                         alt="google"
-                        style={{ paddingLeft: "10%" }}
+                        style={{ paddingLeft: '10%' }}
                       />
                     </Grid>
 
@@ -63,7 +63,7 @@ function Login(props) {
                   id="submit-button"
                   className={classes.buttonBottom}
                   style={{
-                    backgroundColor: "#F7A647"
+                    backgroundColor: '#F7A647'
                   }}
                 >
                   <Grid container spacing={0}>
@@ -71,7 +71,7 @@ function Login(props) {
                       item
                       xs={2}
                       className={classes.logo}
-                      style={{ paddingLeft: "2%" }}
+                      style={{ paddingLeft: '2%' }}
                     >
                       <svg
                         width="14"
@@ -104,14 +104,14 @@ function Login(props) {
                   id="submit-button"
                   className={classes.buttonBottom}
                   style={{
-                    backgroundColor: "#F7A647"
+                    backgroundColor: '#F7A647'
                   }}
                 >
                   <Grid container spacing={0} onClick={handleClickEmail}>
                     <Grid item xs={2}>
                       <MailOutlineIcon
                         className={classes.logo}
-                        style={{ paddingLeft: "5%" }}
+                        style={{ paddingLeft: '5%' }}
                       />
                     </Grid>
 
@@ -126,15 +126,11 @@ function Login(props) {
             </Grid>
           </Grid>
           <Grid item align="center">
-          <Typography style={{ marginTop: "1em" }}>
-            Not a member yet ?
-          </Typography>
-          <Typography style={{ fontWeight: "bold" }} onClick={handleSignUp}>
-            Sign Up
-          </Typography>
+            <Typography style={{ marginTop: '1em' }}>
+              Not a member yet ? <b onClick={handleSignUp}>Sign Up</b>
+            </Typography>
+          </Grid>
         </Grid>
-        </Grid>
-        
       </Grid>
     </Container>
   );

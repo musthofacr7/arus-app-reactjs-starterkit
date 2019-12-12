@@ -1,8 +1,15 @@
 import { axiosInstance } from '../config';
 
 export const register = async data => {
-  // console.log(data.nik);
-   const response = axiosInstance.post('/register', data).catch(err => {
+  data = {
+    email: data.email,
+    name: data.name,
+    nik: parseInt(data.nik),
+    password: data.password,
+    password_confirmation: data.password_confirmation,
+    phone: data.phone
+  };
+  const response = axiosInstance.post('/register', data).catch(err => {
     console.log(err);
   });
 

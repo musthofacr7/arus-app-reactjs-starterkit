@@ -6,7 +6,7 @@ import BoxCategoryLocket from '../../component/Box-category-loket';
 import { Link } from 'react-router-dom';
 import Modal from '../../component/modal-pilih-loket';
 import ContentLoader from 'react-content-loader';
-import { getListLoket } from '../../services/loket-category';
+import { getListLoket } from '../../services/loket';
 
 const MyLoader = () => (
   <ContentLoader
@@ -47,7 +47,7 @@ function PilihLocket(props) {
   useEffect(() => {
     const getCategoryData = async () => {
       const category = await getListLoket();
-      setLoket(category.row.data);
+      setLoket(category.row);
       console.log(loket);
       console.log(category);
       setTimeout(() => {
@@ -81,9 +81,11 @@ function PilihLocket(props) {
                 {loket.map(data => {
                   return (
                     <BoxCategoryLocket
-                      title={data.name}
+                      title={data.counter.name}
+                      current_queue={data.current_queue}
+                      last_queue={data.last_queue}
                       click={() => {
-                        setModal(data);
+                        setModal(data.counter);
                       }}
                     />
                   );

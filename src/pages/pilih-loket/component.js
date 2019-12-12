@@ -47,7 +47,7 @@ function PilihLocket(props) {
   useEffect(() => {
     const getCategoryData = async () => {
       const category = await getListLoket();
-      setLoket(category.row.data);
+      setLoket(category.row);
       console.log(loket);
       console.log(category);
       setTimeout(() => {
@@ -81,7 +81,9 @@ function PilihLocket(props) {
                 {loket.map(data => {
                   return (
                     <BoxCategoryLocket
-                      title={data.name}
+                      title={data.counter.name}
+                      current_queue={data.counter.current_queue}
+                      last_queue={data.counter.last_queue}
                       click={() => {
                         setModal(data);
                       }}

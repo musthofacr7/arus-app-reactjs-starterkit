@@ -176,9 +176,8 @@ function RegisterApp(props) {
             </Button>
           </Grid>
           <Grid item>
-            <Typography>Already a member ?</Typography>
-            <Typography className={classes.signIn} onClick={handleSignIn}>
-              Sign in
+            <Typography>
+              Already a member ? <b onClick={handleSignIn}>Sign in</b>
             </Typography>
           </Grid>
         </Grid>

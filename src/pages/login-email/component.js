@@ -14,7 +14,8 @@ function Login(props) {
   const [password, setPassword] = useState('');
   const [emailClick, setEmailClick] = useState(false);
   const [data, setData] = useContext(AuthContext);
-  const [err, setErr] = useState(false);
+  const [errMail, setErrMail] = useState(false);
+  const [errPassword, setErrorPassword] = useState(false);
 
   const Toggle = () => {
     var temp = document.getElementById('txtPass');
@@ -42,13 +43,10 @@ function Login(props) {
   };
   const handleChangeEmail = e => {
     setEmail(e.target.value);
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})*(\.\w{2,3})/.test(email)
-      ? setErr(false)
-      : setErr(true);
   };
   const handleChangePassword = e => {
     setPassword(e.target.value);
-    password.length < 7 ? setErr(true) : setErr(false);
+
     console.log(password);
   };
   const handleLogin = async () => {
@@ -56,6 +54,11 @@ function Login(props) {
       email: email,
       password: password
     };
+    // if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})*(\.\w{2,3})/.test(email)) {
+    //   setErrMail(false);
+    // } else if (password.length < 7) {
+    //   setErrorPassword(false);
+    // } else {
     login(data)
       .then(res => {
         console.log(res);
@@ -74,10 +77,9 @@ function Login(props) {
         if (error.response.statusText == 'Unauthorized') {
           swal('Ups!', 'Your Password or Email is wrong', 'warning');
         }
-       
-        
         console.log(error.response);
       });
+    // }
   };
 
   const { classes } = props;
@@ -88,7 +90,7 @@ function Login(props) {
         <div align="center">
           <Grid item xs className={classes.email}>
             <TextField
-              error={err}
+              error={errMail}
               name="email"
               type="email"
               label="Email"
@@ -100,7 +102,7 @@ function Login(props) {
           </Grid>
           <Grid item xs className={classes.password}>
             <TextField
-              error={err}
+              error={errPassword}
               name="password"
               label="Password"
               value={password}
@@ -160,10 +162,7 @@ function Login(props) {
         </div>
         <Grid item align="center">
           <Typography style={{ marginTop: '1em' }}>
-            Not Yet a member ?
-          </Typography>
-          <Typography style={{ fontWeight: 'bold' }} onClick={handleSignUp}>
-            Sign Up
+            Not a member yet ? <b onClick={handleSignUp}>Sign Up</b>
           </Typography>
         </Grid>
       </Grid>

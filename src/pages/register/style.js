@@ -1,4 +1,3 @@
-
 const Style = {
   Container: {
     width: '100%',
@@ -29,9 +28,6 @@ const Style = {
   registerButton: {
     border: '1px solid #E9F9F8',
     width: '100%'
-  },
-  signIn: {
-    fontWeight: 'bold'
   }
 };
 export default Style;

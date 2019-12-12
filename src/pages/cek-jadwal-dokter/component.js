@@ -82,7 +82,7 @@ function DetailAnggota(props) {
   //   getJadwal();
   // }, []);
   // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
+  //   setValue(newValue);`
   // };
 
   useEffect(() => {

@@ -64,12 +64,13 @@ function Login(props) {
         props.history.push('/');
         console.log(res);
       })
+
       .catch(error => {
-        
         if (error == 'Unauthorized') {
           alert('belum terdaftar')
         }
-      });
+      })
+      ;
   };
 
   const { classes } = props;

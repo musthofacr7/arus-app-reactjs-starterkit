@@ -33,14 +33,20 @@ function HomePage(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const { classes } = props;
-  const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
-    if (user) {
+    const getProfileData = async () => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      const profile = await getProfile(user.id);
+      setData(profile.row);
+      console.log(data);
+      console.log(profile);
       setTimeout(() => {
         setIsLoading(false);
-      }, 600)
-    }
+      }, 500);
+    };
+
+    getProfileData();
   }, []);
 
   return (
@@ -70,9 +76,9 @@ function HomePage(props) {
                   <img src={Profile} alt="avatar" />
                 </Grid>
                 <Grid item xs={0} className={classes.gridName}>
-                  <Typography className={classes.name}>{user.name}</Typography>
+                  <Typography className={classes.name}>{data.name}</Typography>
                   <Typography className={classes.nik}>
-                    NIK: {user.nik}
+                    NIK: {data.nik}
                   </Typography>
                 </Grid>
               </Grid>

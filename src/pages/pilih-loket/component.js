@@ -6,7 +6,7 @@ import BoxCategoryLocket from '../../component/Box-category-loket';
 import { Link } from 'react-router-dom';
 import Modal from '../../component/modal-pilih-loket';
 import ContentLoader from 'react-content-loader';
-import { getListLoket } from '../../services/loket-category';
+import { getListLoket } from '../../services/loket';
 
 const MyLoader = () => (
   <ContentLoader

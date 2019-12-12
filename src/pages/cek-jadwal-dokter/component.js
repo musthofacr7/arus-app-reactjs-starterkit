@@ -46,6 +46,7 @@ function DetailAnggota(props) {
   const { classes } = props;
   const [value, setValue] = useState(0);
   const [listDokter, setListDokter] = useState([]);
+  const [listFilter, setListFilter] = useState([]);
   const [tab, setTab] = useState([]);
 
   useEffect(() => {
@@ -62,8 +63,65 @@ function DetailAnggota(props) {
     cardDokter();
   }, []);
 
+  useEffect(() => {
+    const filterKandungan = async () => {
+      const kandungan = await listDokter.filter(list => {
+        return list.specialist == "Kandungan";
+      });
+      setListFilter(kandungan);
+    };
+    const filter = async () => {
+      const anak = await listDokter.filter(list => {
+        return list.specialist == "Anak";
+      });
+      setListFilter(anak);
+    };
+    const filterKulit = async () => {
+      const kulit = await listDokter.filter(list => {
+        return list.specialist == "Kulit";
+      });
+      setListFilter(kulit);
+    };
+    const filterPenyakitDalam = async () => {
+      const penyakitDalam = await listDokter.filter(list => {
+        return list.specialist == "Penyakit Dalam";
+      });
+      setListFilter(penyakitDalam);
+    };
+
+    const filterGigi = async () => {
+      const gigi = await listDokter.filter(list => {
+        return list.specialist == "Gigi";
+      });
+      setListFilter(gigi);
+    };
+    const filterSemua = async () => {
+      const semua = await listDokter;
+      setListFilter(semua);
+    };
+    if (value == 0) {
+      filterSemua();
+    }
+    if (value == 1) {
+      filterKandungan();
+    }
+    if (value == 2) {
+      filter();
+    }
+    if (value == 3) {
+      filterGigi();
+    }
+    if (value == 4) {
+      filterKulit();
+    }
+    if (value == 5) {
+      filterPenyakitDalam();
+    }
+  });
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    console.log(newValue);
   };
   const handleClick = () => {
     props.history.push("/detail-dokter");
@@ -148,18 +206,15 @@ function DetailAnggota(props) {
                 </Tabs>
               </Grid>
             </Grid>
-
-            <Grid item xs>
-              {listDokter.map(item => {
-                return (
-                  <CardListDokter
-                    spesialis={item.specialist}
-                    nama={item.name}
-                    handleClick={handleClick}
-                  />
-                );
-              })}
-            </Grid>
+            {listFilter.map(item => {
+              return (
+                <CardListDokter
+                  spesialis={item.specialist}
+                  nama={item.name}
+                  handleClick={handleClick}
+                />
+              );
+            })}
           </Grid>
         </Grid>
       </Container>

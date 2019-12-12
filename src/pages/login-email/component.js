@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import { TextField } from '@material-ui/core';
 import { login } from '../../services/login';
 import { AuthContext } from '../../context/auth';
+import swal from 'sweetalert';
 
 function Login(props) {
   const [email, setEmail] = useState('');
@@ -57,20 +58,16 @@ function Login(props) {
     };
     login(data)
       .then(res => {
+        console.log(res);
         setData(res.user);
         localStorage.setItem('user', JSON.stringify(res.user));
         localStorage.setItem('userToken', 'Bearer ' + res.access_token);
         localStorage.setItem('login', true);
+        swal('Great!', 'You logged!', 'success');
         props.history.push('/');
         console.log(res);
       })
-
-      .catch(error => {
-        if (error == 'Unauthorized') {
-          alert('belum terdaftar')
-        }
-      })
-      ;
+      .catch(error => {});
   };
 
   const { classes } = props;

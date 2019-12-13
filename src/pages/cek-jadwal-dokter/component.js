@@ -70,7 +70,7 @@ function DetailAnggota(props) {
       });
       setListFilter(kandungan);
     };
-    const filter = async () => {
+    const filterAnak = async () => {
       const anak = await listDokter.filter(list => {
         return list.specialist == "Anak";
       });
@@ -105,11 +105,11 @@ function DetailAnggota(props) {
     if (value == 1) {
       filterKandungan();
     }
-    if (value == 2) {
-      filter();
-    }
     if (value == 3) {
       filterGigi();
+    }
+    if (value == 2) {
+      filterAnak();
     }
     if (value == 4) {
       filterKulit();

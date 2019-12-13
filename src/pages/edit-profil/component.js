@@ -27,10 +27,6 @@ function EditProfile(props) {
     setOpen(false);
   };
 
-  useEffect(() => {
-    // console.log(data.name);
-  }, []);
-
   const handleChangeName = e => {
     setNama(e.target.value);
     console.log(nama);
@@ -39,16 +35,18 @@ function EditProfile(props) {
     setNik(e.target.value);
     console.log(nik);
   };
+  const user = JSON.parse(localStorage.getItem('user'));
+
   const handleClick = () => {
     const data = {
-      name: nama,
-      nik: nik
+      name: user.name,
+      nik: user.nik
     };
-    const user = JSON.parse(localStorage.getItem('user'));
-    updateProfile(user.id, data).then(() => {
-      props.history.push('/profil');
-    });
 
+    const updatingProfile = updateProfile(user.id, data).then(() => {
+      props.history.push('/profil');
+      updatingProfile();
+    });
     console.log(data);
   };
 

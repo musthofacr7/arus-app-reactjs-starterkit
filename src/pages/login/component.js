@@ -125,11 +125,6 @@ function Login(props) {
               </Box>
             </Grid>
           </Grid>
-          <Grid item align="center">
-            <Typography style={{ marginTop: '1em' }}>
-              Not a member yet ? <b onClick={handleSignUp}>Sign Up</b>
-            </Typography>
-          </Grid>
         </Grid>
       </Grid>
     </Container>

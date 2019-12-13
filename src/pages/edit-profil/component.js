@@ -45,8 +45,8 @@ function EditProfile(props) {
 
     const updatingProfile = updateProfile(user.id, data).then(() => {
       props.history.push('/profil');
+      updatingProfile();
     });
-    updatingProfile();
     console.log(data);
   };
 

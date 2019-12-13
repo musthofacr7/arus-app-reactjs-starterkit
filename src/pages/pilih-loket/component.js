@@ -93,7 +93,6 @@ function PilihLocket(props) {
               </Grid>
             </Link>
           </Grid>
-
           <Modal
             name={modal.name}
             open={open}

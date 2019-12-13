@@ -17,7 +17,7 @@ function RegisterApp(props) {
     password: '',
     password_confirmation: '',
     phone: '',
-    nik: '',
+    nik: parseInt(),
     errorPassword: '',
     errorEmail: ''
   });
@@ -34,18 +34,12 @@ function RegisterApp(props) {
   };
   useEffect(() => {}, []);
   const handleClick = async () => {
-    if (data.name == '') {
-      swal('Ups', 'Fill the blanked field,please', 'warning');
-    } else if (data.password.length < 7) {
+    if (data.password.length < 7) {
       setErrorPassword(true);
     } else if (data.nik.length < 7) {
       setErrNik(true);
     } else if (data.phone.length < 9) {
       setErrPhone(true);
-    } else if (
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})*(\.\w{2,3})/.test(data.email)
-    ) {
-      setErrMail(false);
     } else if (data.password != data.password_confirmation) {
       setErrConfirmation(true);
     } else {

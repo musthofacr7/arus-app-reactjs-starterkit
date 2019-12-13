@@ -40,24 +40,19 @@ function DetailAnggota(props) {
   const { classes } = props;
 
   const [data, setData] = useState({});
+  const user = JSON.parse(localStorage.getItem('user'));
+
   useEffect(() => {
-    const getProfileData = async () => {
-      const user = JSON.parse(localStorage.getItem('user'));
-      const profile = await getProfile(user.id);
-      setData(profile.row);
-      console.log(data);
-      console.log(profile);
+    if (user) {
       setTimeout(() => {
         setIsLoading(false);
       }, 500);
-    };
-
-    getProfileData();
+    }
   }, []);
   const handleLogOut = () => {
     swal({
       title: 'Are you sure?',
-      buttons: ["Back", "Sure"],
+      buttons: ['Back', 'Sure'],
       icon: 'warning',
       dangerMode: true
     }).then(willDelete => {
@@ -116,9 +111,9 @@ function DetailAnggota(props) {
               <img src={Profile} className={classes.image} alt="avatar" />
             </Grid>
             <Grid item xs={7} className={classes.gridName}>
-              <Typography className={classes.name}>{data.name}</Typography>
+              <Typography className={classes.name}>{user.name}</Typography>
 
-              <Typography className={classes.nik}>NIK : {data.nik}</Typography>
+              <Typography className={classes.nik}>NIK : {user.nik}</Typography>
             </Grid>
             <Grid item xs={3} className={classes.gridEdit}>
               <Typography onClick={handleClickOne}>Edit Profile</Typography>

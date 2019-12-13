@@ -101,7 +101,7 @@ function DetailAnggota(props) {
     };
     if (value == 0) {
       filterSemua();
-    }
+    } 
     if (value == 1) {
       filterKandungan();
     }

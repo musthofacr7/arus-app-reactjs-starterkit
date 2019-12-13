@@ -33,7 +33,7 @@ function PilihLocket(props) {
   const [loket, setLoket] = useState({});
   const [modal, setModal] = useState({});
 
-  console.log(loket);
+  // console.log(loket);
 
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -48,7 +48,7 @@ function PilihLocket(props) {
     const getCategoryData = async () => {
       const category = await getListLoket();
       setLoket(category.row);
-      console.log(loket);
+      // console.log(loket);
       console.log(category);
       setTimeout(() => {
         setIsLoading(false);

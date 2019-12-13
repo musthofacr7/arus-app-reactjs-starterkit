@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '../../component/appbar';
-import ContentLoader from 'react-content-loader';
+import React, { useEffect } from "react";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "../../component/appbar";
+import ContentLoader from "react-content-loader";
 
 const MyLoader = () => (
   <ContentLoader
@@ -46,14 +46,14 @@ function Riwayat(props) {
           <div
             style={{
               marginTop: 100,
-              width: '100%',
-              backgroundColor: 'white'
+              width: "100%",
+              backgroundColor: "white"
             }}
           >
             <MyLoader />
           </div>
         ) : (
-          <Grid container spacing={0} style={{ paddingTop: '4em' }}>
+          <Grid container spacing={0} style={{ paddingTop: "4em" }}>
             <Grid item xs={12} className={classes.gridTop}>
               <Grid container spacing={0}>
                 <Grid item xs={12} className={classes.itemTop}>
@@ -83,7 +83,7 @@ function Riwayat(props) {
                           Loket
                         </Typography>
                         <Typography className={classes.input}>
-                          Locket A
+                          Loket A
                         </Typography>
                       </Grid>
                     </Grid>
@@ -100,7 +100,9 @@ function Riwayat(props) {
                     </Typography>
                   </Grid>
                   <Grid item xs={5} className={classes.gridRiwayat}>
-                    <Typography className={classes.textNumber}>(2)</Typography>
+                    <Typography className={classes.textNumber}>
+                      ( 2 )
+                    </Typography>
                   </Grid>
                 </Grid>
                 <Grid item xs={12} className={classes.itemBottomHistory}>
@@ -125,7 +127,7 @@ function Riwayat(props) {
                           Loket
                         </Typography>
                         <Typography className={classes.input}>
-                          Locket A
+                          Loket A
                         </Typography>
                       </Grid>
                     </Grid>

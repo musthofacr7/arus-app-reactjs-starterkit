@@ -61,10 +61,11 @@ function Login(props) {
     // } else {
     login(data)
       .then(res => {
+        localStorage.setItem('userToken', 'Bearer ' + res.access_token);
         console.log(res);
         setData(res.user);
         localStorage.setItem('user', JSON.stringify(res.user));
-        localStorage.setItem('userToken', 'Bearer ' + res.access_token);
+
         localStorage.setItem('login', true);
         swal('Great!', 'You logged!', 'success');
         props.history.push('/');

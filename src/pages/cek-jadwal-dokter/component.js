@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import AppBar from "../../component/appbar";
-import PropTypes from "prop-types";
-import { getDokter } from "../../services/dokter";
-import { categoryTab } from "../../services/dokter";
-import { withRouter } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import CardListDokter from "../../component/card-list-dokter";
+import React, { useEffect, useState } from 'react';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '../../component/appbar';
+import PropTypes from 'prop-types';
+import { getDokter } from '../../services/dokter';
+import { categoryTab } from '../../services/dokter';
+import { withRouter } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import CardListDokter from '../../component/card-list-dokter';
 
 function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
@@ -38,7 +38,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `scrollable-auto-tab-${index}`,
-    "aria-controls": `scrollable-auto-tabpanel-${index}`
+    'aria-controls': `scrollable-auto-tabpanel-${index}`
   };
 }
 
@@ -63,68 +63,81 @@ function DetailAnggota(props) {
     cardDokter();
   }, []);
 
-  useEffect(() => {
-    const filterKandungan = async () => {
-      const kandungan = await listDokter.filter(list => {
-        return list.specialist == "Kandungan";
-      });
-      setListFilter(kandungan);
-    };
-    const filterAnak = async () => {
-      const anak = await listDokter.filter(list => {
-        return list.specialist == "Anak";
-      });
-      setListFilter(anak);
-    };
-    const filterKulit = async () => {
-      const kulit = await listDokter.filter(list => {
-        return list.specialist == "Kulit";
-      });
-      setListFilter(kulit);
-    };
-    const filterPenyakitDalam = async () => {
-      const penyakitDalam = await listDokter.filter(list => {
-        return list.specialist == "Penyakit Dalam";
-      });
-      setListFilter(penyakitDalam);
-    };
-
-    const filterGigi = async () => {
-      const gigi = await listDokter.filter(list => {
-        return list.specialist == "Gigi";
-      });
-      setListFilter(gigi);
-    };
-    const filterSemua = async () => {
-      const semua = await listDokter;
-      setListFilter(semua);
-    };
-    if (value == 0) {
-      filterSemua();
-    } 
-    if (value == 1) {
-      filterKandungan();
-    }
-    if (value == 3) {
-      filterGigi();
-    }
-    if (value == 2) {
-      filterAnak();
-    }
-    if (value == 4) {
-      filterKulit();
-    }
-    if (value == 5) {
-      filterPenyakitDalam();
-    }
-  });
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    console.log(event.label);
     console.log(newValue);
+    const tes = tab.map(ta => {
+      return ta.name;
+    });
+    console.log(tes);
+
+    const hasil = listDokter.filter(list => {
+      return tes == list.specialist;
+    });
+    console.log(hasil);
+
+    // const filterKandungan = async () => {
+    //   const kandungan = await listDokter.filter(list => {
+    //     return list.specialist == 'Kandungan';
+    //   });
+    //   setListFilter(kandungan);
+    // };
+    // const filterAnak = async () => {
+    //   const anak = await listDokter.filter(list => {
+    //     return list.specialist == 'Anak';
+    //   });
+    //   setListFilter(anak);
+    // };
+    // const filterKulit = async () => {
+    //   const kulit = await listDokter.filter(list => {
+    //     return list.specialist == 'Kulit';
+    //   });
+    //   setListFilter(kulit);
+    // };
+    // const filterDalam = async () => {
+    //   const penyakitDalam = await listDokter.filter(list => {
+    //     return list.specialist == 'Penyakit Dalam';
+    //   });
+    //   setListFilter(penyakitDalam);
+    // };
+
+    // const filterGigi = async () => {
+    //   const gigi = await listDokter.filter(list => {
+    //     return list.specialist == 'Gigi';
+    //   });
+    //   setListFilter(gigi);
+    // };
+    // const filterSemua = async () => {
+    //   const semua = await listDokter;
+    //   setListFilter(semua);
+    // };
+
+    // switch (value) {
+    //   case 0:
+    //     filterSemua();
+    //     break;
+    //   case 1:
+    //     filterKandungan();
+    //     break;
+    //   case 3:
+    //     filterAnak();
+    //     break;
+    //   case 4:
+    //     filterKulit();
+    //     break;
+    //   case 5:
+    //     filterGigi();
+    //     break;
+    //   case 6:
+    //     filterDalam();
+    //     break;
+    //   default:
+    //     filterSemua();
+    // }
   };
   const handleClick = () => {
-    props.history.push("/detail-dokter");
+    props.history.push('/detail-dokter');
   };
   return (
     <React.Fragment>
@@ -180,7 +193,7 @@ function DetailAnggota(props) {
                   onChange={handleChange}
                   TabIndicatorProps={{
                     style: {
-                      backgroundColor: "#26CAC0"
+                      backgroundColor: '#26CAC0'
                     }
                   }}
                   variant="scrollable"

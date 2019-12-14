@@ -39,7 +39,7 @@ function HomePage(props) {
     if (user) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 1000);
     }
   }, []);
 

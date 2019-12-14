@@ -64,77 +64,11 @@ function DetailAnggota(props) {
   }, []);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
-    console.log(event.label);
-    console.log(newValue);
-    const tes = tab.map(ta => {
-      return ta.name;
+    // setValue(newValue);
+    const tes = listDokter.map(ta => {
+      return ta.doctor_category_id;
     });
     console.log(tes);
-
-    const hasil = listDokter.filter(list => {
-      return tes == list.specialist;
-    });
-    console.log(hasil);
-
-    // const filterKandungan = async () => {
-    //   const kandungan = await listDokter.filter(list => {
-    //     return list.specialist == 'Kandungan';
-    //   });
-    //   setListFilter(kandungan);
-    // };
-    // const filterAnak = async () => {
-    //   const anak = await listDokter.filter(list => {
-    //     return list.specialist == 'Anak';
-    //   });
-    //   setListFilter(anak);
-    // };
-    // const filterKulit = async () => {
-    //   const kulit = await listDokter.filter(list => {
-    //     return list.specialist == 'Kulit';
-    //   });
-    //   setListFilter(kulit);
-    // };
-    // const filterDalam = async () => {
-    //   const penyakitDalam = await listDokter.filter(list => {
-    //     return list.specialist == 'Penyakit Dalam';
-    //   });
-    //   setListFilter(penyakitDalam);
-    // };
-
-    // const filterGigi = async () => {
-    //   const gigi = await listDokter.filter(list => {
-    //     return list.specialist == 'Gigi';
-    //   });
-    //   setListFilter(gigi);
-    // };
-    // const filterSemua = async () => {
-    //   const semua = await listDokter;
-    //   setListFilter(semua);
-    // };
-
-    // switch (value) {
-    //   case 0:
-    //     filterSemua();
-    //     break;
-    //   case 1:
-    //     filterKandungan();
-    //     break;
-    //   case 3:
-    //     filterAnak();
-    //     break;
-    //   case 4:
-    //     filterKulit();
-    //     break;
-    //   case 5:
-    //     filterGigi();
-    //     break;
-    //   case 6:
-    //     filterDalam();
-    //     break;
-    //   default:
-    //     filterSemua();
-    // }
   };
   const handleClick = () => {
     props.history.push('/detail-dokter');

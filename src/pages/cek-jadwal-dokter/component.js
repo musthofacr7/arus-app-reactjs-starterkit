@@ -19,8 +19,8 @@ function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
   return (
     <Typography
-      component="div"
-      role="tabpanel"
+      component='div'
+      role='tabpanel'
       hidden={value !== index}
       id={`scrollable-auto-tabpanel-${index}`}
       aria-labelledby={`scrollable-auto-tab-${index}`}
@@ -59,16 +59,23 @@ function DetailAnggota(props) {
     const cardDokter = async () => {
       const cardList = await getDokter();
       setListDokter(cardList.row.data);
+      setListFilter(cardList.row.data);
     };
     cardDokter();
   }, []);
 
   const handleChange = (event, newValue) => {
-    // setValue(newValue);
-    const tes = listDokter.map(ta => {
-      return ta.doctor_category_id;
-    });
-    console.log(tes);
+    if (newValue == 0) {
+      setValue(newValue);
+      setListFilter(listDokter);
+    } else {
+      setValue(newValue);
+      const filter = listDokter.filter(dokter => {
+        return dokter.doctor_category_id == newValue;
+      });
+      setListFilter(filter);
+      console.log(value);
+    }
   };
   const handleClick = () => {
     props.history.push('/detail-dokter');
@@ -76,8 +83,8 @@ function DetailAnggota(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="xs" className={classes.container}>
-        <AppBar goBack title="Cek Jadwal Dokter" />
+      <Container maxWidth='xs' className={classes.container}>
+        <AppBar goBack title='Cek Jadwal Dokter' />
 
         <Grid container spacing={0}>
           <Grid item xs={12} className={classes.gridTop}>
@@ -86,7 +93,7 @@ function DetailAnggota(props) {
                 <Grid container spacing={0} className={classes.gridItemOne}>
                   <Grid item xs={8} className={classes.gridField}>
                     <TextField
-                      placeholder="Tulis Nama Dokter"
+                      placeholder='Tulis Nama Dokter'
                       InputProps={{
                         disableUnderline: true
                       }}
@@ -96,25 +103,25 @@ function DetailAnggota(props) {
                   <Grid item xs={4} className={classes.gridIcon}>
                     <Button>
                       <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                        width='32'
+                        height='32'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        xmlns='http://www.w3.org/2000/svg'
                       >
                         <path
-                          d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                          stroke="black"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          d='M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z'
+                          stroke='black'
+                          stroke-width='2'
+                          stroke-linecap='round'
+                          stroke-linejoin='round'
                         />
                         <path
-                          d="M20.9999 20.9999L16.6499 16.6499"
-                          stroke="black"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          d='M20.9999 20.9999L16.6499 16.6499'
+                          stroke='black'
+                          stroke-width='2'
+                          stroke-linecap='round'
+                          stroke-linejoin='round'
                         />
                       </svg>
                     </Button>
@@ -130,12 +137,12 @@ function DetailAnggota(props) {
                       backgroundColor: '#26CAC0'
                     }
                   }}
-                  variant="scrollable"
-                  scrollButtons="auto"
-                  aria-label="scrollable auto tabs example"
+                  variant='scrollable'
+                  scrollButtons='auto'
+                  aria-label='scrollable auto tabs example'
                 >
                   <Tab
-                    label="Semua"
+                    label='Semua'
                     {...a11yProps(0)}
                     className={classes.Tabs}
                     key={0}

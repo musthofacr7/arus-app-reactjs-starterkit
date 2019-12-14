@@ -46,7 +46,7 @@ function DetailAnggota(props) {
     if (user) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 2000);
     }
   }, []);
   const handleLogOut = () => {

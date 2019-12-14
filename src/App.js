@@ -22,8 +22,7 @@ import BottomNavigation from './component/bottom-navigation';
 function App(props) {
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLogin, setIsLogin] = React.useState(false);
-  const homeRoute = ['/', '/pilih-loket', '/profil', '/riwayat', 
-];
+  const homeRoute = ['/', '/pilih-loket', '/profil', '/riwayat'];
   useEffect(() => {
     if (localStorage.getItem('login')) {
       console.log('login');
@@ -52,7 +51,11 @@ function App(props) {
         <Route path="/list-anggota" exact component={ListAnggota} />
         <Route path="/list-anggota/:id" component={DetailKeluarga} />
         <Route path="/add-keluarga" exact component={AddAnggotaKeluarga} />
-        <Route path="/edit-profil-keluarga/:id" exact component={EditKeluarga} />
+        <Route
+          path="/edit-profil-keluarga/:id"
+          exact
+          component={EditKeluarga}
+        />
         <Route path="/cek-jadwal-dokter" exact component={CekJadwalDokter} />
         <Route
           path="/edit-anggota-keluarga"
@@ -60,7 +63,7 @@ function App(props) {
           component={EditAnggotaKeluarga}
         />
         <Route path="/detail-dokter" exact component={DetailDokter} />
-        <Route path="/login-number" exact component={Otp} />
+        <Route path="/login/otp" exact component={Otp} />
         <Route path="/register" exact component={Register} />
       </Switch>
       {homeRoute.indexOf(props.location.pathname) != -1 && <BottomNavigation />}

@@ -33,7 +33,7 @@ function Riwayat(props) {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 1000);
   });
   const { classes } = props;
   return (

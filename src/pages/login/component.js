@@ -9,6 +9,9 @@ import GoogleLogo from '../../assets/image 2.png';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 function Login(props) {
+  const handleOtp = () => {
+    props.history.push('/login/otp');
+  };
   const handleClickEmail = () => {
     props.history.push('/login/email');
   };
@@ -65,6 +68,7 @@ function Login(props) {
                   style={{
                     backgroundColor: '#F7A647'
                   }}
+                  onClick={handleOtp}
                 >
                   <Grid container spacing={0}>
                     <Grid

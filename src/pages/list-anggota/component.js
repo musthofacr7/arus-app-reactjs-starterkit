@@ -35,7 +35,7 @@ function ListAnggota(props) {
       getAnggota().then(() => {
         setIsLoading(false);
       });
-    }, 1500);
+    }, 1000);
   }, []);
 
   return (

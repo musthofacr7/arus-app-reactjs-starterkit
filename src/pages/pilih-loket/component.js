@@ -52,7 +52,7 @@ function PilihLocket(props) {
       console.log(category);
       setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 2000);
     };
 
     getCategoryData();

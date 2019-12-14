@@ -39,7 +39,6 @@ function HomePage(props) {
   useEffect(() => {
     const getData = async () => {
       const antrian = await getAntrian(user.id);
-      console.log(antrian.row.data);
       setData(antrian.row.data);
       if (antrian.row.data[0].queue_number == 1) {
         setLoket('A');

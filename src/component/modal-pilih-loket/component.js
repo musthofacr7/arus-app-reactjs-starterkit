@@ -16,17 +16,17 @@ function getModalStyle() {
 function SimpleModal(props) {
   const { classes } = props;
   const [modalStyle] = React.useState(getModalStyle);
-  const { open, handleClose } = props;
+  const { open, handleClose, handleClick } = props;
   console.log('test', classes.paper);
   return (
     <Modal
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
+      aria-labelledby='simple-modal-title'
+      aria-describedby='simple-modal-description'
       open={open}
       onClose={handleClose}
     >
       <div style={modalStyle} className={classes.paper}>
-        <Grid container align="center" className={classes.container}>
+        <Grid container align='center' className={classes.container}>
           <Grid item xs>
             <Box className={classes.boxloket}>
               <Typography className={classes.typographyLoket}>loket</Typography>
@@ -44,7 +44,7 @@ function SimpleModal(props) {
             </Typography>
           </Grid>
           <Grid item xs className={classes.gridItemTwo}>
-            <Grid container spacing={0} align="center">
+            <Grid container spacing={0} align='center'>
               <Grid item xs>
                 <Button className={classes.buttonCancel} onClick={handleClose}>
                   <Typography
@@ -64,6 +64,7 @@ function SimpleModal(props) {
                   style={{
                     background: '#F7A647'
                   }}
+                  onClick={handleClick}
                 >
                   <Typography
                     style={{

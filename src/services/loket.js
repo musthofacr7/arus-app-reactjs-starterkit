@@ -12,3 +12,13 @@ export const createQueue = id => {
   const response = axiosInstance.post(`users/${id}/queue/`);
   return response;
 };
+
+export const createAntrian = id => {
+  const response = axiosInstance.post(`counters/${id}/call`);
+  return response;
+};
+
+export const getAntrian = id => {
+  const response = axiosInstance.get(`users/${id}/queue`);
+  return response;
+};

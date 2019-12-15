@@ -6,6 +6,7 @@ import ListData from "../../component/card-anggota";
 import FAB from "../../component/fab";
 import { getListAnggota } from "../../services/anggota";
 import ContentLoader from "react-content-loader";
+import { updateAnggota } from "../../services/anggota";
 
 const MyLoader = () => (
   <ContentLoader
@@ -26,6 +27,8 @@ function ListAnggota(props) {
   const [listFamily, setlistFamily] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleEdit = id => {};
 
   useEffect(() => {
     const getAnggota = async () => {
@@ -53,6 +56,9 @@ function ListAnggota(props) {
             return (
               <Grid item className={classes.itemList}>
                 <ListData
+                  handleEdit={() =>
+                    props.history.push(`edit-profil-keluarga/${items.id}`)
+                  }
                   nik={items.nik}
                   name={items.name}
                   click={() => props.history.push(`/list-anggota/${items.id}`)}

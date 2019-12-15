@@ -23,15 +23,15 @@ const MyLoader = () => (
 
 function ListAnggota(props) {
   const { classes } = props;
-  const [anggota, setAnggota] = useState([]);
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    console.log(anggota);
     const getAnggota = async () => {
-      const anggota = await getListAnggota(user.id);
-      setAnggota(anggota);
+      const family = await getListAnggota(user.id);
+      setData(family.row[0]);
+      console.log(family.row[0].name);
     };
     getAnggota();
   }, []);
@@ -45,12 +45,12 @@ function ListAnggota(props) {
         </div>
       ) : (
         <div className={classes.gridUpper}>
-          {anggota.map(data => {
+          {data.map(item => {
             return (
               <Grid item className={classes.itemList}>
                 <ListData
-                  nik={data.nik}
-                  name={data.nama}
+                  nik={item.nik}
+                  name={item.name}
                   click={() => props.history.push(`/list-anggota/${data.id}`)}
                 />
               </Grid>

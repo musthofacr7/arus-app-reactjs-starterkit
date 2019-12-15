@@ -6,8 +6,7 @@ const styles = {
     flex: '1',
     padding: 0,
     flexDirection: 'column',
-    backgroundSize: 'cover',
-    marginBottom: '8%'
+    backgroundSize: 'cover'
   },
   image: {
     width: '100%'
@@ -59,20 +58,18 @@ const styles = {
     display: 'flex',
     alignItems: 'center'
   },
+  logo: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    color: '#FFFFFF'
+  },
   buttonBoxBottom: {
     paddingTop: '3%',
     flexDirection: 'column',
     display: 'flex',
     alignItems: 'center'
-  },
-  googleLogo: {
-    paddingLeft: '40%'
-  },
-  gridIconBottom: {
-    
-    color: 'white',
-   
-  },
+  }
 };
 
 export default styles;

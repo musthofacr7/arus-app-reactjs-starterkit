@@ -55,7 +55,7 @@ const Style = {
   textBottom: {
     color: "#25282B",
     fontSize: "14px",
-    paddingLeft: '1.6em'
+    paddingLeft: "1.6em"
   },
   gridRiwayat: {
     display: "flex",
@@ -66,7 +66,10 @@ const Style = {
   textNumber: {
     color: "#26CAC0",
     fontSize: "14px",
-    marginLeft: "-30%"
+    marginLeft: "-30%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   itemBottomHistory: {
     paddingTop: "5%",

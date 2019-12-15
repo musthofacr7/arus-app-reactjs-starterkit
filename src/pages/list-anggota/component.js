@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import AppBar from '../../component/appbar';
-import ListData from '../../component/card-anggota';
-import FAB from '../../component/fab';
-import { getListAnggota } from '../../services/anggota';
-import ContentLoader from 'react-content-loader';
+import React, { useState, useEffect } from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import AppBar from "../../component/appbar";
+import ListData from "../../component/card-anggota";
+import FAB from "../../component/fab";
+import { getListAnggota } from "../../services/anggota";
+import ContentLoader from "react-content-loader";
 
 const MyLoader = () => (
   <ContentLoader
@@ -23,19 +23,16 @@ const MyLoader = () => (
 
 function ListAnggota(props) {
   const { classes } = props;
-  const [anggota, setAnggota] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [listFamily, setlistFamily] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
-    console.log(anggota);
     const getAnggota = async () => {
-      const anggota = await getListAnggota();
-      setAnggota(anggota);
+      const family = await getListAnggota(user.id);
+      setlistFamily(family.row);
     };
-    setTimeout(() => {
-      getAnggota().then(() => {
-        setIsLoading(false);
-      });
-    }, 1500);
+    getAnggota();
   }, []);
 
   return (
@@ -47,13 +44,13 @@ function ListAnggota(props) {
         </div>
       ) : (
         <div className={classes.gridUpper}>
-          {anggota.map(data => {
+          {listFamily.map(items => {
             return (
               <Grid item className={classes.itemList}>
                 <ListData
-                  nik={data.nik}
-                  name={data.nama}
-                  click={() => props.history.push(`/list-anggota/${data.id}`)}
+                  nik={items.nik}
+                  name={items.name}
+                  click={() => props.history.push(`/list-anggota/${items.id}`)}
                 />
               </Grid>
             );

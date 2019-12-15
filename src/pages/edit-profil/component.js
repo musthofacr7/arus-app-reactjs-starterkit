@@ -10,16 +10,22 @@ import AppBar from '../../component/appbar';
 import { Link } from 'react-router-dom';
 import { ProfileContext } from '../../context/profile';
 import { updateProfile } from '../../services/profile';
+import Modal from '../../component/modal-simpan-perubahan';
 
 function EditProfile(props) {
+  const [open, setOpen] = React.useState(false);
   const [data, setData] = useContext(ProfileContext);
   const [nama, setNama] = useState(data.nama);
   const [nik, setNik] = useState(data.nik);
-
-  useEffect(() => {
-    console.log(data.name);
-  }, []);
   const { classes } = props;
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleChangeName = e => {
     setNama(e.target.value);
@@ -29,16 +35,18 @@ function EditProfile(props) {
     setNik(e.target.value);
     console.log(nik);
   };
+  const user = JSON.parse(localStorage.getItem('user'));
+
   const handleClick = () => {
     const data = {
-      name: nama,
-      nik: nik
+      name: user.name,
+      nik: user.nik
     };
-    const user = JSON.parse(localStorage.getItem('user'));
-    updateProfile(user.id, data).then(()=>{
-      props.history.push('/profil')
+
+    const updatingProfile = updateProfile(user.id, data).then(() => {
+      props.history.push('/profil');
+      updatingProfile();
     });
-    
     console.log(data);
   };
 
@@ -74,6 +82,7 @@ function EditProfile(props) {
                 margin="normal"
                 label="Name"
                 value={nama}
+                defaultValue={nama}
                 onChange={handleChangeName}
               />
             </form>
@@ -83,7 +92,7 @@ function EditProfile(props) {
                 disableRipple={true}
                 style={{ backgroundColor: '#F7A647' }}
                 className={classes.button}
-                onClick={handleClick}
+                onClick={handleOpen}
               >
                 <Typography className={classes.save}>
                   Simpan Perubahan
@@ -92,6 +101,12 @@ function EditProfile(props) {
             </Grid>
           </Grid>
         </Grid>
+        <Modal
+          open={open}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          handleClick={handleClick}
+        />
       </Container>
     </React.Fragment>
   );

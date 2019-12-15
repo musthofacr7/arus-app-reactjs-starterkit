@@ -1,34 +1,86 @@
-import React, { useState } from 'react';
-import {
-  Container,
-  Typography,
-  Paper,
-  TextField,
-  Grid,
-  Button
-} from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
 import { withRouter } from 'react-router-dom';
 import { register } from '../../services/register';
+import { login } from '../../services/login';
+import swal from 'sweetalert';
 
-function SplashScreen(props) {
+function RegisterApp(props) {
   const [data, setData] = useState({
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
     phone: '',
-    nik: ''
+    nik: parseInt(),
+    errorPassword: '',
+    errorEmail: ''
   });
-  const handleChange = e => {
+  console.log(typeof data.nik);
+  const [errMail, setErrMail] = useState(false);
+  const [errPassword, setErrorPassword] = useState(false);
+  const [errPhone, setErrPhone] = useState(false);
+  const [errNik, setErrNik] = useState(false);
+  const [errConfirmation, setErrConfirmation] = useState(false);
+
+  const handleChange = async e => {
     const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
-    console.log(data);
   };
+  useEffect(() => {}, []);
   const handleClick = async () => {
-    register(data).then(res => {
-      console.log(res);
-      props.history.push('/login');
-    });
+    if (data.password.length < 7) {
+      setErrorPassword(true);
+    } else if (data.nik.length < 7) {
+      setErrNik(true);
+    } else if (data.phone.length < 9) {
+      setErrPhone(true);
+    } else if (data.password != data.password_confirmation) {
+      setErrConfirmation(true);
+    } else {
+      register(data)
+        .then(res => {
+          console.log(res);
+          const loginData = {
+            email: data.email,
+            password: data.password
+          };
+          console.log(loginData);
+          login(loginData).then(res => {
+            localStorage.setItem('user', JSON.stringify(res.user));
+            localStorage.setItem('userToken', 'Bearer ' + res.access_token);
+            localStorage.setItem('login', true);
+            props.history.push('/');
+            swal('Good job!', 'You registered!', 'success');
+            console.log(res);
+            props.history.push('/');
+          });
+        })
+        .catch(error => {
+          if (error) {
+            swal('Fill the blank please!');
+          }
+          if (error.response.statusText == 'Unauthenticated') {
+            swal(
+              'Ups!',
+              'The token is expired or refresh the page, please',
+              'warning'
+            );
+          }
+          if (error.response.statusText == 'Unauthenticated') {
+            swal(
+              'Ups!',
+              'The token is expired or refresh the page, please',
+              'warning'
+            );
+          }
+        });
+    }
   };
   const handleSignIn = () => {
     props.history.push('./login');
@@ -36,38 +88,27 @@ function SplashScreen(props) {
   const { classes } = props;
   return (
     <Container maxWidth="xs" className={classes.Container}>
-      <Typography align="center" className={classes.textOne}>
-        Register
-      </Typography>
-      <Typography align="center" className={classes.textTwo}>
-        Antrian Rumah Sakit
-      </Typography>
-
-      <Paper
-        align="center"
-        style={{
-          display: 'flex',
-          padding: '3em',
-
-          flexDirection: 'column',
-          marginTop: '2%'
-        }}
-      >
-        <Grid
-          container
-          spacing={2}
-          style={{ display: 'flex', flexDirection: 'column', padding: 12 }}
-        >
+      <Paper align="center" className={classes.paperUp}>
+        <Typography align="center" className={classes.textOne}>
+          Register
+        </Typography>
+        <Typography align="center" className={classes.textTwo}>
+          Antrian Rumah Sakit
+        </Typography>
+        <Grid container spacing={2} className={classes.gridContainer}>
           <Grid item>
             <TextField
               name="name"
               onChange={handleChange}
               value={data.name}
               placeholder="name"
+              // error={data.name === ''}
             />
           </Grid>
           <Grid item>
             <TextField
+              required
+              error={errMail}
               placeholder="Email"
               type="email"
               name="email"
@@ -77,54 +118,60 @@ function SplashScreen(props) {
           </Grid>
           <Grid item>
             <TextField
+              helperText="at least have 8 characters"
+              error={errPassword}
               placeholder="Password"
               type="password"
               name="password"
               onChange={handleChange}
               value={data.password}
             />
-          </Grid>{' '}
+          </Grid>
           <Grid item>
             <TextField
+              error={errConfirmation}
               placeholder="Password Confirmation"
               type="password"
               name="password_confirmation"
               onChange={handleChange}
               value={data.password_confirmation}
             />
-          </Grid>{' '}
+          </Grid>
           <Grid item>
             <TextField
+              type="number"
+              helperText="at least have 10 characters"
+              error={errPhone}
               placeholder="Phone"
               name="phone"
               onChange={handleChange}
               value={data.phone}
             />
-          </Grid>{' '}
+          </Grid>
           <Grid item>
             <TextField
+              type="number"
               placeholder="NIK"
               name="nik"
               onChange={handleChange}
               value={data.nik}
+              error={errNik}
             />
           </Grid>
-          <Grid item style={{ marginTop: '1em' }}>
+          <Grid item className={classes.gridBottom}>
             <Button
               style={{
-                backgroundColor: '#F7A647',
-                border: '1px solid #E9F9F8',
-                width: '100%'
+                backgroundColor: '#F7A647'
               }}
+              className={classes.registerButton}
               onClick={handleClick}
             >
               Register
             </Button>
           </Grid>
           <Grid item>
-            <Typography>Already a member ?</Typography>{' '}
-            <Typography style={{ fontWeight: 'bold' }} onClick={handleSignIn}>
-              Sign in
+            <Typography>
+              Already a member ? <b onClick={handleSignIn}>Sign in</b>
             </Typography>
           </Grid>
         </Grid>
@@ -133,4 +180,4 @@ function SplashScreen(props) {
   );
 }
 
-export default withRouter(SplashScreen);
+export default withRouter(RegisterApp);

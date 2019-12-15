@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '../../component/appbar';
-import PropTypes from 'prop-types';
-import Avatar from '../../assets/avatar.png';
-import { getListDockter } from '../../services/list-dockter';
-import BottomNavigation from '../../component/bottom-navigation';
-import { withRouter } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import React, { useEffect, useState } from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import AppBar from "../../component/appbar";
+import PropTypes from "prop-types";
+import { getDokter } from "../../services/dokter";
+import { categoryTab } from "../../services/dokter";
+import { withRouter } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import CardListDokter from "../../component/card-list-dokter";
+
 function TabPanel(props) {
   const { classes, children, value, index, ...other } = props;
   return (
@@ -37,52 +38,47 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `scrollable-auto-tab-${index}`,
-    'aria-controls': `scrollable-auto-tabpanel-${index}`
+    "aria-controls": `scrollable-auto-tabpanel-${index}`
   };
 }
 
 function DetailAnggota(props) {
-  const [categoryTabs, setCategoryTabs] = useState([
-    {
-      id: 1,
-      name: 'Semua'
-    },
-    {
-      id: 2,
-      name: 'Kandungan'
-    },
-    {
-      id: 3,
-      name: 'Anak'
-    },
-    {
-      id: 4,
-      name: 'Gigi'
-    },
-    {
-      id: 5,
-      name: 'Kulit'
-    },
-    {
-      id: 6,
-      name: 'Penyakit Dalam'
-    }
-  ]);
   const { classes } = props;
   const [value, setValue] = useState(0);
-  const [jadwal, setJadwal] = useState([]);
+  const [listDokter, setListDokter] = useState([]);
+  const [listFilter, setListFilter] = useState([]);
+  const [tab, setTab] = useState([]);
+
   useEffect(() => {
-    const getJadwal = async () => {
-      const jadwal = await getListDockter();
-      setJadwal(jadwal);
+    const categoryDoctor = async () => {
+      const tabPanel = await categoryTab();
+      setTab(tabPanel.row.data);
     };
-    getJadwal();
+    categoryDoctor();
+
+    const cardDokter = async () => {
+      const cardList = await getDokter();
+      setListDokter(cardList.row.data);
+      setListFilter(cardList.row.data);
+    };
+    cardDokter();
   }, []);
+
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    if (newValue == 0) {
+      setValue(newValue);
+      setListFilter(listDokter);
+    } else {
+      setValue(newValue);
+      const filter = listDokter.filter(dokter => {
+        return dokter.doctor_category_id == newValue;
+      });
+      setListFilter(filter);
+      console.log(value);
+    }
   };
   const handleClick = () => {
-    props.history.push('/detail-dokter');
+    props.history.push("/detail-dokter");
   };
   return (
     <React.Fragment>
@@ -138,94 +134,43 @@ function DetailAnggota(props) {
                   onChange={handleChange}
                   TabIndicatorProps={{
                     style: {
-                      backgroundColor: '#26CAC0'
+                      backgroundColor: "#26CAC0"
                     }
                   }}
                   variant="scrollable"
                   scrollButtons="auto"
                   aria-label="scrollable auto tabs example"
                 >
-                  {categoryTabs.map(category => {
+                  <Tab
+                    label="Semua"
+                    {...a11yProps(0)}
+                    className={classes.Tabs}
+                    key={0}
+                  />
+                  {tab.map(item => {
                     return (
                       <Tab
-                        label={category.name}
+                        label={item.name}
                         {...a11yProps(0)}
                         className={classes.Tabs}
-                        key={category.id}
+                        key={item.id}
                       />
                     );
                   })}
                 </Tabs>
               </Grid>
             </Grid>
-
-            <Grid item xs={12} className={classes.gridItemList}>
-              {jadwal.map(data => {
-                return (
-                  <Grid
-                    container
-                    spacing={0}
-                    className={classes.gridContentList}
-                  >
-                    <Grid item xs>
-                      <Grid
-                        container
-                        spacing={0}
-                        className={classes.gridList}
-                        onClick={handleClick}
-                      >
-                        <Grid item xs={3}>
-                          <img src={Avatar} />
-                        </Grid>
-
-                        <Grid item xs={8}>
-                          <Typography className={classes.nama}>
-                            {data.nama}
-                          </Typography>
-                          <Typography className={classes.spesialis}>
-                            {data.spesialis}
-                          </Typography>
-                        </Grid>
-                        <Grid item xs={1} className={classes.arrow}>
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                              stroke="#F7A647"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M12 16L16 12L12 8"
-                              stroke="#F7A647"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                            <path
-                              d="M8 12H16"
-                              stroke="#F7A647"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                );
-              })}
-            </Grid>
+            {listFilter.map(item => {
+              return (
+                <CardListDokter
+                  spesialis={item.specialist}
+                  nama={item.name}
+                  handleClick={handleClick}
+                />
+              );
+            })}
           </Grid>
         </Grid>
-        <BottomNavigation />
       </Container>
     </React.Fragment>
   );

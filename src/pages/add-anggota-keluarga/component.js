@@ -17,13 +17,13 @@ import {
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 function AddKeluarga(props) {
-  // const [data, setData] = useState({
-  //   name: "",
-  //   gender: "",
-  //   nik: parseInt(),
-  //   date_of_birth: "",
-  //   place_of_birth: ""
-  // });
+  const [data, setData] = useState({
+    name: "",
+    gender: "",
+    nik: parseInt(),
+    date_of_birth: "",
+    place_of_birth: ""
+  });
   // const handleChange = async e => {
   //   const newData = { ...data, [e.target.name]: e.target.value };
   //   setData(newData);
@@ -35,17 +35,22 @@ function AddKeluarga(props) {
   // useEffect(() => {}, []);
   // const [errNik, setErrNik] = useState(false);
 
-  // const handleAdd = () => {
-  //   createAnggota(data)
-  //     .then(res => {
-  //       console.log(res);
-  //     })
-  //     .catch(error => {
-  //       if (error) {
-  //         console.log(error);
-  //       }
-  //     });
-  // };
+  const handleAdd = () => {
+    if (data.nik.length < 15) {
+      alert("Nik must at least 16");
+    } else {
+      createAnggota(data)
+        .then(res => {
+          console.log(res);
+        })
+
+        .catch(error => {
+          if (error) {
+            console.log(error);
+          }
+        });
+    }
+  };
   const { classes } = props;
   return (
     <React.Fragment>
@@ -117,10 +122,8 @@ function AddKeluarga(props) {
                     format="MM/dd/yyyy"
                     onChange={handleDateChange}
                     id="standard-password-input"
-                    label="Tanggal Lahir"
+                    placeholder="Tanggal Lahir"
                     className={classes.textField}
-                    type="text"
-                    autoComplete="current-password"
                     value={selectedDate}
                     KeyboardButtonProps={{
                       "aria-label": "change date"
@@ -153,7 +156,7 @@ function AddKeluarga(props) {
                 id="submit-button"
                 className={classes.button}
                 style={{ backgroundColor: "#F7A647" }}
-                // onClick={handleAdd}
+                onClick={handleAdd}
               >
                 <Typography style={{ textTransform: "none" }}>
                   Tambah

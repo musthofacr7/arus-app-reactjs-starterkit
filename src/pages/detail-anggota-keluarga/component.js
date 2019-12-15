@@ -90,7 +90,12 @@ function DetailAnggota(props) {
             </Button>
           </Grid>
         </Grid>
-        <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
+        <Modal
+          open={open}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          name={detail.name}
+        />
       </Container>
     </React.Fragment>
   );

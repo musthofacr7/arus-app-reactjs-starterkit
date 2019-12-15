@@ -18,9 +18,9 @@ function CardAnggota(props) {
           </Typography>
         </Grid>
         <Grid item xs={4} className={classes.gridRight}>
-          <Link to="/edit-profil-keluarga" className={classes.links}>
+          <Typography to="/edit-profil-keluarga/:id" className={classes.links}>
             Edit
-          </Link>
+          </Typography>
         </Grid>
       </Grid>
     </Grid>

@@ -1,34 +1,34 @@
-import React, { useEffect } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom';
-import Home from './pages/home';
-import Riwayat from './pages/riwayat';
-import Login from './pages/login';
-import PilihLocket from './pages/pilih-loket';
-import SplashScreen from './pages/splash-screen';
-import Profile from './pages/profil';
-import EditProfile from './pages/edit-profil';
-import ListAnggota from './pages/list-anggota';
-import EditKeluarga from './pages/edit-anggota-keluarga';
-import AddAnggotaKeluarga from './pages/add-anggota-keluarga';
-import DetailKeluarga from './pages/detail-anggota-keluarga';
-import CekJadwalDokter from './pages/cek-jadwal-dokter';
-import EditAnggotaKeluarga from './pages/edit-anggota-keluarga';
-import DetailDokter from './pages/detail-dokter';
-import Otp from './pages/otp';
-import Register from './pages/register';
-import LoginEmail from './pages/login-email';
-import BottomNavigation from './component/bottom-navigation';
+import React, { useEffect } from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
+import Home from "./pages/home";
+import Riwayat from "./pages/riwayat";
+import Login from "./pages/login";
+import PilihLocket from "./pages/pilih-loket";
+import SplashScreen from "./pages/splash-screen";
+import Profile from "./pages/profil";
+import EditProfile from "./pages/edit-profil";
+import ListAnggota from "./pages/list-anggota";
+import EditKeluarga from "./pages/edit-anggota-keluarga";
+import AddAnggotaKeluarga from "./pages/add-anggota-keluarga";
+import DetailKeluarga from "./pages/detail-anggota-keluarga";
+import CekJadwalDokter from "./pages/cek-jadwal-dokter";
+import EditAnggotaKeluarga from "./pages/edit-anggota-keluarga";
+import DetailDokter from "./pages/detail-dokter";
+import Otp from "./pages/otp";
+import Register from "./pages/register";
+import LoginEmail from "./pages/login-email";
+import BottomNavigation from "./component/bottom-navigation";
 
 function App(props) {
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLogin, setIsLogin] = React.useState(false);
-  const homeRoute = ['/', '/pilih-loket', '/profil', '/riwayat'];
+  const homeRoute = ["/", "/pilih-loket", "/profil", "/riwayat"];
   useEffect(() => {
-    if (localStorage.getItem('login')) {
-      console.log('login');
+    if (localStorage.getItem("login")) {
+      console.log("login");
     } else {
-      console.log('belum login');
-      props.history.push('/login');
+      console.log("belum login");
+      props.history.push("/login");
       // props.history.push('/login/email');
     }
     setTimeout(() => {
@@ -50,12 +50,13 @@ function App(props) {
         <Route path="/edit-profil" exact component={EditProfile} />
         <Route path="/list-anggota" exact component={ListAnggota} />
         <Route path="/list-anggota/:id" component={DetailKeluarga} />
-        <Route path="/add-keluarga" exact component={AddAnggotaKeluarga} />
         <Route
           path="/edit-profil-keluarga/:id"
           exact
           component={EditKeluarga}
         />
+        <Route path="/add-keluarga" exact component={AddAnggotaKeluarga} />
+
         <Route path="/cek-jadwal-dokter" exact component={CekJadwalDokter} />
         <Route
           path="/edit-anggota-keluarga"

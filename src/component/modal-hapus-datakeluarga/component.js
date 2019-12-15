@@ -16,7 +16,7 @@ function getModalStyle() {
 function SimpleModal(props) {
   const { classes } = props;
   const [modalStyle] = React.useState(getModalStyle);
-  const { open, handleClose } = props;
+  const { open, handleClose, name } = props;
   console.log("test", classes.paper);
   return (
     <Modal
@@ -29,9 +29,9 @@ function SimpleModal(props) {
         <Grid container align="center" className={classes.container}>
           <Grid item xs className={classes.gridItemTwo}>
             <Typography className={classes.question}>
-              Apakah anda yakin ingin menghapus{" "}
-              <strong className={classes.name}> Samantha William </strong> dari
-              data anggota Keluarga?
+              Apakah anda yakin ingin menghapus
+              <strong className={classes.name}> {name}</strong> dari data
+              anggota Keluarga?
             </Typography>
           </Grid>
           <Grid item xs className={classes.gridItemTwo}>

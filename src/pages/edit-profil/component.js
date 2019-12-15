@@ -11,12 +11,12 @@ import { Link } from "react-router-dom";
 import { ProfileContext } from "../../context/profile";
 import { updateProfile } from "../../services/profile";
 import Modal from "../../component/modal-simpan-perubahan";
-
+import { getProfile } from "../../services/profile";
 function EditProfile(props) {
   const [open, setOpen] = React.useState(false);
-  const [data, setData] = useContext(ProfileContext);
-  const [nama, setNama] = useState(data.nama);
-  const [nik, setNik] = useState(data.nik);
+  const [data, setData] = useState([]);
+  const [name, setNama] = useState("");
+  const [nik, setNik] = useState("");
   const { classes } = props;
 
   const handleOpen = () => {
@@ -26,27 +26,35 @@ function EditProfile(props) {
   const handleClose = () => {
     setOpen(false);
   };
+  const user = JSON.parse(localStorage.getItem("user"));
 
+  useEffect(() => {
+    const akun = async id => {
+      const datas = await updateProfile(user.id);
+      setData(datas);
+      console.log(datas);
+    };
+    akun();
+  }, []);
   const handleChangeName = e => {
     setNama(e.target.value);
-    console.log(nama);
+    // console.log(name);
   };
   const handleChangeNik = e => {
     setNik(e.target.value);
-    console.log(nik);
+    // console.log(nik);
   };
-  const user = JSON.parse(localStorage.getItem("user"));
 
   const handleClick = () => {
     const data = {
-      name: user.name,
-      nik: user.nik
+      name: name,
+      nik: nik
     };
-
     const updatingProfile = updateProfile(user.id, data).then(() => {
       props.history.push("/profil");
-      updatingProfile();
+      setData(updatingProfile);
     });
+
     console.log(data);
   };
 
@@ -75,14 +83,13 @@ function EditProfile(props) {
                 margin="normal"
                 label="NIK"
                 type="number"
-                value={nik}
+                value={data}
                 onChange={handleChangeNik}
               />
               <TextField
                 margin="normal"
                 label="Name"
-                value={nama}
-                defaultValue={nama}
+                value={data}
                 onChange={handleChangeName}
               />
             </form>

@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '../../component/appbar';
-import Profile from '../../assets/avatar.png';
-import { withRouter } from 'react-router-dom';
-import Arrow from '../../assets/arrow.png';
-import User from '../../assets/users.png';
-import { getProfile } from '../../services/profile';
-import { ProfileContext } from '../../context/profile';
-import ContentLoader from 'react-content-loader';
-import swal from 'sweetalert';
+import React, { useContext, useEffect, useState } from "react";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "../../component/appbar";
+import Profile from "../../assets/avatar.png";
+import { withRouter } from "react-router-dom";
+import Arrow from "../../assets/arrow.png";
+import User from "../../assets/users.png";
+import { getProfile } from "../../services/profile";
+import { ProfileContext } from "../../context/profile";
+import ContentLoader from "react-content-loader";
+import swal from "sweetalert";
 
 const MyLoader = () => (
   <ContentLoader
@@ -31,43 +31,43 @@ function DetailAnggota(props) {
   const [isLoading, setIsLoading] = React.useState(true);
 
   const handleClickOne = () => {
-    props.history.push('/edit-profil');
+    props.history.push("/edit-profil");
   };
 
   const handleClickTwo = () => {
-    props.history.push('/list-anggota');
+    props.history.push("/list-anggota");
   };
   const { classes } = props;
 
   const [data, setData] = useState({});
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     if (user) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 2000);
+      }, 1000);
     }
   }, []);
   const handleLogOut = () => {
     swal({
-      title: 'Are you sure?',
-      buttons: ['Back', 'Sure'],
-      icon: 'warning',
+      title: "Are you sure?",
+      buttons: ["Back", "Sure"],
+      icon: "warning",
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
-        localStorage.removeItem('login');
-        localStorage.removeItem('userToken');
-        localStorage.removeItem('user');
+        localStorage.removeItem("login");
+        localStorage.removeItem("userToken");
+        localStorage.removeItem("user");
         setTimeout(() => {
-          swal('You are logged out!', {
-            icon: 'success'
+          swal("You are logged out!", {
+            icon: "success"
           });
         }, 3000);
         window.location.reload();
       } else {
-        swal('You safe!');
+        swal("You safe!");
       }
     });
   };
@@ -80,11 +80,11 @@ function DetailAnggota(props) {
           <div
             style={{
               marginTop: 50,
-              width: '100%',
-              backgroundColor: 'white'
+              width: "100%",
+              backgroundColor: "white"
             }}
           >
-            {' '}
+            {" "}
             <MyLoader />
             <Grid
               container
@@ -140,8 +140,8 @@ function DetailAnggota(props) {
 
         <div
           style={{
-            display: 'flex',
-            justifyContent: 'center'
+            display: "flex",
+            justifyContent: "center"
           }}
         >
           <div className={classes.boxButton}>
@@ -152,7 +152,7 @@ function DetailAnggota(props) {
               id="submit-button"
               className={classes.button}
             >
-              <Typography style={{ textTransform: 'none' }}>Keluar</Typography>
+              <Typography style={{ textTransform: "none" }}>Keluar</Typography>
             </Button>
           </div>
         </div>

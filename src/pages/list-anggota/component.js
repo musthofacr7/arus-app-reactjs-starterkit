@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import AppBar from '../../component/appbar';
-import ListData from '../../component/card-anggota';
-import FAB from '../../component/fab';
-import { getListAnggota } from '../../services/anggota';
-import ContentLoader from 'react-content-loader';
+import React, { useState, useEffect } from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import AppBar from "../../component/appbar";
+import ListData from "../../component/card-anggota";
+import FAB from "../../component/fab";
+import { getListAnggota } from "../../services/anggota";
+import ContentLoader from "react-content-loader";
 
 const MyLoader = () => (
   <ContentLoader
@@ -25,17 +25,15 @@ function ListAnggota(props) {
   const { classes } = props;
   const [anggota, setAnggota] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const user = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
     console.log(anggota);
     const getAnggota = async () => {
-      const anggota = await getListAnggota();
+      const anggota = await getListAnggota(user.id);
       setAnggota(anggota);
     };
-    setTimeout(() => {
-      getAnggota().then(() => {
-        setIsLoading(false);
-      });
-    }, 1000);
+    getAnggota();
   }, []);
 
   return (

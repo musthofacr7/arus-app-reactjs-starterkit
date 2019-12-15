@@ -1,7 +1,7 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
-import { Link } from 'react-router-dom';
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 function CardAnggota(props) {
   const { classes, nik, name } = props;
@@ -12,9 +12,10 @@ function CardAnggota(props) {
 
         <Grid item xs={5} className={classes.gridLeft}>
           <Typography className={classes.nik}>NIK: {nik}</Typography>
-         
-            <Typography onClick={props.click} className={classes.name}> {name}</Typography>
-         
+
+          <Typography onClick={props.click} className={classes.name}>
+            {name}
+          </Typography>
         </Grid>
         <Grid item xs={4} className={classes.gridRight}>
           <Link to="/edit-profil-keluarga" className={classes.links}>

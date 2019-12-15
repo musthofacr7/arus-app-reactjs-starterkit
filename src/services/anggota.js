@@ -5,8 +5,8 @@ export const getListAnggota = async id => {
 
   return response;
 };
-export const getDetailAnggota = async (id, data) => {
-  const response = axiosInstance.get(`users/${id}/family/${id}`);
+export const getDetailAnggota = async (id, user_id) => {
+  const response = axiosInstance.get(`users/${user_id}/family/${id}`);
   return response;
 };
 export const updateAnggota = async (id, data) => {

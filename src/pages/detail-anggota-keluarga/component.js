@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
-import AppBar from '../../component/appbar';
-import Modal from '../../component/modal-hapus-datakeluarga';
-import { getDetailAnggota } from '../../services/anggota';
+import React, { useEffect, useState } from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Button from "@material-ui/core/Button";
+import AppBar from "../../component/appbar";
+import Modal from "../../component/modal-hapus-datakeluarga";
+import { getDetailAnggota } from "../../services/anggota";
 function DetailAnggota(props) {
   const [open, setOpen] = useState(false);
   const { classes } = props;
@@ -19,12 +19,14 @@ function DetailAnggota(props) {
   const handleClose = () => {
     setOpen(false);
   };
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const id = props.match.params.id;
     const getDetail = async () => {
-      const detail = await getDetailAnggota(id);
-      setDetail(detail);
+      const detail = await getDetailAnggota(id, user.id);
+      setDetail(detail.row);
+      console.log(detail.row);
     };
     getDetail();
   }, []);
@@ -39,7 +41,7 @@ function DetailAnggota(props) {
             <Grid container spacing={0} className={classes.gridContent}>
               <Grid item xs={12} className={classes.gridItem}>
                 <Typography className={classes.content}>Nama</Typography>
-                <Typography className={classes.input}>{detail.nama}</Typography>
+                <Typography className={classes.input}>{detail.name}</Typography>
               </Grid>
               <Grid item xs={12} className={classes.gridItem}>
                 <Typography className={classes.content}>
@@ -47,16 +49,13 @@ function DetailAnggota(props) {
                 </Typography>
                 <Typography className={classes.input}>{detail.nik}</Typography>
               </Grid>
-              <Grid item xs={12} className={classes.gridItem}>
-                <Typography className={classes.content}>Umur</Typography>
-                <Typography className={classes.input}>{detail.umur}</Typography>
-              </Grid>
+
               <Grid item xs={12} className={classes.gridItem}>
                 <Typography className={classes.content}>
                   Jenis Kelamin
                 </Typography>
                 <Typography className={classes.input}>
-                  {detail.jenis_kelamin}
+                  {detail.gender}
                 </Typography>
               </Grid>
               <Grid item xs={12} className={classes.gridItem}>
@@ -64,7 +63,7 @@ function DetailAnggota(props) {
                   Tanggal Lahir
                 </Typography>
                 <Typography className={classes.input}>
-                  {detail.tanggal_lahir}
+                  {detail.date_of_birth}
                 </Typography>
               </Grid>
               <Grid item xs={12} className={classes.gridItem}>
@@ -72,7 +71,7 @@ function DetailAnggota(props) {
                   Tempat Lahir
                 </Typography>
                 <Typography className={classes.input}>
-                  {detail.tempat_lahir}
+                  {detail.place_of_birth}
                 </Typography>
               </Grid>
             </Grid>
@@ -85,7 +84,7 @@ function DetailAnggota(props) {
               id="submit-button"
               className={classes.button}
             >
-              <Typography style={{ textTransform: 'none', fontSize: '14px' }}>
+              <Typography style={{ textTransform: "none", fontSize: "14px" }}>
                 Hapus Data Anggota Keluarga
               </Typography>
             </Button>

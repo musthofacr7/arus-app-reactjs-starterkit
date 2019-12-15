@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Profile from '../../assets/avatar.png';
-import AppBar from '../../component/appbar';
-import { Link } from 'react-router-dom';
-import { ProfileContext } from '../../context/profile';
-import { updateProfile } from '../../services/profile';
-import Modal from '../../component/modal-simpan-perubahan';
+import React, { useContext, useEffect, useState } from "react";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Profile from "../../assets/avatar.png";
+import AppBar from "../../component/appbar";
+import { Link } from "react-router-dom";
+import { ProfileContext } from "../../context/profile";
+import { updateProfile } from "../../services/profile";
+import Modal from "../../component/modal-simpan-perubahan";
 
 function EditProfile(props) {
   const [open, setOpen] = React.useState(false);
@@ -35,7 +35,7 @@ function EditProfile(props) {
     setNik(e.target.value);
     console.log(nik);
   };
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const handleClick = () => {
     const data = {
@@ -44,7 +44,7 @@ function EditProfile(props) {
     };
 
     const updatingProfile = updateProfile(user.id, data).then(() => {
-      props.history.push('/profil');
+      props.history.push("/profil");
       updatingProfile();
     });
     console.log(data);
@@ -65,7 +65,7 @@ function EditProfile(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={12} className={classes.gridEdit}>
-            <Link className={classes.link} onClick={() => alert('ganti foto?')}>
+            <Link className={classes.link} onClick={() => alert("ganti foto?")}>
               <Typography className={classes.ganti}> Ganti Foto</Typography>
             </Link>
           </Grid>
@@ -90,7 +90,7 @@ function EditProfile(props) {
               <Button
                 variant="contained"
                 disableRipple={true}
-                style={{ backgroundColor: '#F7A647' }}
+                style={{ backgroundColor: "#F7A647" }}
                 className={classes.button}
                 onClick={handleOpen}
               >

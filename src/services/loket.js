@@ -1,11 +1,11 @@
-import { axiosInstance } from '../config';
+import { axiosInstance } from "../config";
 
 export const getListLoket = () => {
-  const response = axiosInstance.get('counters');
+  const response = axiosInstance.get("counters");
   return response;
 };
 export const currentQueue = (counter_id, users, user_id) => {
-  const response = axiosInstance.get('counters', +counter_id + users + user_id);
+  const response = axiosInstance.get("counters", +counter_id + users + user_id);
   return response;
 };
 export const createQueue = id => {
@@ -19,6 +19,11 @@ export const createAntrian = id => {
 };
 
 export const getAntrian = id => {
+  const response = axiosInstance.get(`users/${id}/queue`);
+  return response;
+};
+
+export const getHistory = id => {
   const response = axiosInstance.get(`users/${id}/queue`);
   return response;
 };

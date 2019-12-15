@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '../../component/appbar';
-import ContentLoader from 'react-content-loader';
+import React, { useEffect } from "react";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "../../component/appbar";
+import ContentLoader from "react-content-loader";
+import { getHistory } from "../../services/loket";
 
 const MyLoader = () => (
   <ContentLoader
@@ -30,11 +31,18 @@ const MyLoader = () => (
 
 function Riwayat(props) {
   const [isLoading, setIsLoading] = React.useState(true);
+  const [data, setData] = React.useState([]);
+  const user = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  });
+    const listHistory = async () => {
+      const history = await getHistory(user.id);
+      console.log(history.row);
+
+      setData(history);
+    };
+    listHistory();
+  }, []);
   const { classes } = props;
   return (
     <React.Fragment>
@@ -46,14 +54,14 @@ function Riwayat(props) {
           <div
             style={{
               marginTop: 100,
-              width: '100%',
-              backgroundColor: 'white'
+              width: "100%",
+              backgroundColor: "white"
             }}
           >
             <MyLoader />
           </div>
         ) : (
-          <Grid container spacing={0} style={{ paddingTop: '4em' }}>
+          <Grid container spacing={0} style={{ paddingTop: "4em" }}>
             <Grid item xs={12} className={classes.gridTop}>
               <Grid container spacing={0}>
                 <Grid item xs={12} className={classes.itemTop}>

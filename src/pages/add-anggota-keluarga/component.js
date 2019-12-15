@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -9,21 +9,46 @@ import TextField from "@material-ui/core/TextField";
 import AppBar from "../../component/appbar";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
+import { createAnggota } from "../../services/anggota";
 import Axios from "axios";
-
+import {
+  KeyboardDatePicker,
+  MuiPickersUtilsProvider
+} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 function AddKeluarga(props) {
-  const [nama, setNama] = useState("");
+  const [data, setData] = useState({
+    name: "",
+    gender: "",
+    nik: parseInt(),
+    date_of_birth: "",
+    place_of_birth: ""
+  });
+  // const handleChange = async e => {
+  //   const newData = { ...data, [e.target.name]: e.target.value };
+  //   setData(newData);
+  // };
+  const [selectedDate, setSelectedDate] = useState(new Date(""));
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
+  // useEffect(() => {}, []);
+  // const [errNik, setErrNik] = useState(false);
 
-  const addNama = async () => {
-    try {
-      const response = await Axios.post(
-        "https://api-arus.herokuapp.com/api/1/family",
-        { name: nama }
-      );
-      setNama();
-      console.log(response);
-    } catch (err) {
-      console.log(err);
+  const handleAdd = () => {
+    if (data.nik.length < 15) {
+      alert("Nik must at least 16");
+    } else {
+      createAnggota(data)
+        .then(res => {
+          console.log(res);
+        })
+
+        .catch(error => {
+          if (error) {
+            console.log(error);
+          }
+        });
     }
   };
   const { classes } = props;
@@ -32,21 +57,23 @@ function AddKeluarga(props) {
       <CssBaseline />
       <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Tambah Data Anggota Keluarga" />
-
         <Grid container spacing={0}>
           <Grid item xs={12} className={classes.gridTop}>
             <Grid container spacing={0} className={classes.containerCard}>
               <Grid item xs={12} className={classes.gridInputNIK}>
                 <TextField
+                  // onChange={handleChange}
+                  // error={errNik}
                   id="standard-password-input"
                   label="Nomor Induk Kewarganegaraan (NIK)"
                   className={classes.textField}
-                  type="text"
+                  type="number"
                   autoComplete="current-password"
                 />
               </Grid>
               <Grid item xs={12} className={classes.gridInputNIK}>
                 <TextField
+                  // onChange={handleChange}
                   id="standard-password-input"
                   label="Nama"
                   className={classes.textField}
@@ -56,10 +83,11 @@ function AddKeluarga(props) {
               </Grid>
               <Grid item xs={12} className={classes.gridInputNIK}>
                 <TextField
+                  // onChange={handleChange}
                   id="standard-password-input"
                   label="Umur"
                   className={classes.textField}
-                  type="text"
+                  type="number"
                   autoComplete="current-password"
                 />
               </Grid>
@@ -89,13 +117,19 @@ function AddKeluarga(props) {
                 </Grid>
               </Grid>
               <Grid item xs={12} className={classes.gridInputNIK}>
-                <TextField
-                  id="standard-password-input"
-                  label="Tanggal Lahir"
-                  className={classes.textField}
-                  type="text"
-                  autoComplete="current-password"
-                />
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <KeyboardDatePicker
+                    format="MM/dd/yyyy"
+                    onChange={handleDateChange}
+                    id="standard-password-input"
+                    placeholder="Tanggal Lahir"
+                    className={classes.textField}
+                    value={selectedDate}
+                    KeyboardButtonProps={{
+                      "aria-label": "change date"
+                    }}
+                  />
+                </MuiPickersUtilsProvider>
               </Grid>
               <Grid
                 item
@@ -104,6 +138,7 @@ function AddKeluarga(props) {
                 className={classes.gridInputNIK}
               >
                 <TextField
+                  // onChange={handleChange}
                   id="standard-password-input"
                   label="Tempat Lahir"
                   className={classes.textField}
@@ -121,6 +156,7 @@ function AddKeluarga(props) {
                 id="submit-button"
                 className={classes.button}
                 style={{ backgroundColor: "#F7A647" }}
+                onClick={handleAdd}
               >
                 <Typography style={{ textTransform: "none" }}>
                   Tambah

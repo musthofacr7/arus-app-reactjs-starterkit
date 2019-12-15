@@ -38,7 +38,6 @@ function Riwayat(props) {
     const listHistory = async () => {
       const history = await getHistory(user.id);
       console.log(history.row);
-
       setData(history);
     };
     listHistory();

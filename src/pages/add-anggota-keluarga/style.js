@@ -7,7 +7,7 @@ const Style = {
     paddingTop: "20%"
   },
   containerCard: {
-    height: "554px",
+    height: "100%",
     backgroundColor: "#ffffff",
     borderRadius: "8px",
     paddingBottom: "6%"

@@ -1,10 +1,13 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 function CardAnggota(props) {
   const { classes, nik, name } = props;
+  const handleClick = () => {
+    props.history.push("/edit-profil-keluarga/:id");
+  };
   return (
     <Grid className={classes.card}>
       <Grid container spacing={0} className={classes.cardContainer}>
@@ -18,13 +21,13 @@ function CardAnggota(props) {
           </Typography>
         </Grid>
         <Grid item xs={4} className={classes.gridRight}>
-          <Link to="/edit-profil-keluarga" className={classes.links}>
+          <Typography onClick={handleClick} className={classes.links}>
             Edit
-          </Link>
+          </Typography>
         </Grid>
       </Grid>
     </Grid>
   );
 }
 
-export default CardAnggota;
+export default withRouter(CardAnggota);

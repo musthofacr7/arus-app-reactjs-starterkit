@@ -9,15 +9,15 @@ import ContentLoader from "react-content-loader";
 
 const MyLoader = () => (
   <ContentLoader
-    height={146}
+    height={106}
     width={400}
     speed={2}
     primaryColor="#F4F4F4"
     secondaryColor="#ecebeb"
   >
-    <rect x="123" y="23" rx="0" ry="0" width="0" height="0" />
-    <rect x="48" y="59" rx="0" ry="0" width="210" height="48" />
-    <rect x="311" y="58" rx="0" ry="0" width="64" height="48" />
+    <rect x="20" y="23" rx="0" ry="0" width="0" height="0" />
+    <rect x="20" y="29" rx="0" ry="0" width="210" height="48" />
+    <rect x="310" y="32" rx="0" ry="0" width="64" height="48" />
   </ContentLoader>
 );
 
@@ -32,16 +32,21 @@ function ListAnggota(props) {
       const family = await getListAnggota(user.id);
       setlistFamily(family.row);
     };
+    setTimeout(() => setIsLoading(true), 2500);
     getAnggota();
   }, []);
 
   return (
     <Container maxWidth="xs" className={classes.container}>
       <AppBar goBack title="Anggota Keluarga" />
-      {isLoading == true ? (
-        <div className={classes.loader}>
-          <MyLoader />
-        </div>
+      {isLoading == false ? (
+        <Grid item className={classes.itemList}>
+          <div className={classes.loader}>
+            {listFamily.map(items => {
+              return <MyLoader />;
+            })}
+          </div>
+        </Grid>
       ) : (
         <div className={classes.gridUpper}>
           {listFamily.map(items => {

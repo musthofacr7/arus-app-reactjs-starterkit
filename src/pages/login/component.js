@@ -1,22 +1,22 @@
-import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import LoginImage from '../../assets/Background.png';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-import GoogleLogo from '../../assets/image 2.png';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import React from "react";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import LoginImage from "../../assets/loginbackground.png";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import GoogleLogo from "../../assets/image 2.png";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
 
 function Login(props) {
   const handleOtp = () => {
-    props.history.push('/login/otp');
+    props.history.push("/login/otp");
   };
   const handleClickEmail = () => {
-    props.history.push('/login/email');
+    props.history.push("/login/email");
   };
   const handleSignUp = () => {
-    props.history.push('/register');
+    props.history.push("/register");
   };
   const { classes } = props;
   return (
@@ -38,20 +38,20 @@ function Login(props) {
                   id="submit-button"
                   className={classes.button}
                   style={{
-                    backgroundColor: '#ffffff'
+                    backgroundColor: "#ffffff"
                   }}
                 >
                   <Grid container spacing={0}>
-                    <Grid item xs={2} className={classes.gridButton}>
+                    <Grid item xs={1} className={classes.gridButton}>
                       <img
                         src={GoogleLogo}
                         className={classes.logo}
                         alt="google"
-                        style={{ paddingLeft: '10%' }}
+                        style={{ paddingLeft: "5%" }}
                       />
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={11} className={classes.gridButton}>
                       <Typography className={classes.textButton}>
                         Masuk Dengan Akun Google
                       </Typography>
@@ -66,16 +66,16 @@ function Login(props) {
                   id="submit-button"
                   className={classes.buttonBottom}
                   style={{
-                    backgroundColor: '#F7A647'
+                    backgroundColor: "#F7A647"
                   }}
                   onClick={handleOtp}
                 >
                   <Grid container spacing={0}>
                     <Grid
                       item
-                      xs={2}
+                      xs={1}
                       className={classes.logo}
-                      style={{ paddingLeft: '2%' }}
+                      style={{ paddingLeft: "4%" }}
                     >
                       <svg
                         width="14"
@@ -85,7 +85,14 @@ function Login(props) {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M11.1667 1.66666H2.83332C1.91285 1.66666 1.16666 2.41285 1.16666 3.33332V16.6667C1.16666 17.5871 1.91285 18.3333 2.83332 18.3333H11.1667C12.0871 18.3333 12.8333 17.5871 12.8333 16.6667V3.33332C12.8333 2.41285 12.0871 1.66666 11.1667 1.66666Z"
+                          d="M11.1667 1.66663H2.83332C1.91285 1.66663 1.16666 2.41282 1.16666 3.33329V16.6666C1.16666 17.5871 1.91285 18.3333 2.83332 18.3333H11.1667C12.0871 18.3333 12.8333 17.5871 12.8333 16.6666V3.33329C12.8333 2.41282 12.0871 1.66663 11.1667 1.66663Z"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M7 15H7.00833"
                           stroke="white"
                           stroke-width="2"
                           stroke-linecap="round"
@@ -94,7 +101,7 @@ function Login(props) {
                       </svg>
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={11} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Nomor HP
                       </Typography>
@@ -108,18 +115,15 @@ function Login(props) {
                   id="submit-button"
                   className={classes.buttonBottom}
                   style={{
-                    backgroundColor: '#F7A647'
+                    backgroundColor: "#F7A647"
                   }}
                 >
                   <Grid container spacing={0} onClick={handleClickEmail}>
-                    <Grid item xs={2}>
-                      <MailOutlineIcon
-                        className={classes.logo}
-                        style={{ paddingLeft: '5%' }}
-                      />
+                    <Grid item xs={1}>
+                      <MailOutlineIcon className={classes.logoEmail} />
                     </Grid>
 
-                    <Grid item xs={10} className={classes.gridButton}>
+                    <Grid item xs={11} className={classes.gridButton}>
                       <Typography className={classes.textButtonBottom}>
                         Masuk Dengan Email
                       </Typography>

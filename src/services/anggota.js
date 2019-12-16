@@ -18,6 +18,6 @@ export const deleteAnggota = async (id, data) => {
   return response;
 };
 export const createAnggota = async (id, data) => {
-  const response = axiosInstance.post(`users/${id}/family/`, data);
+  const response = axiosInstance.post(`users/${id}/family`, data);
   return response;
 };

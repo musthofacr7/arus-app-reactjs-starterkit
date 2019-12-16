@@ -1,23 +1,20 @@
-import React, {useState} from 'react';
-import { Container, Typography } from '@material-ui/core';
-import OtpInput from 'react-otp-input';
+import React, { useState } from "react";
+import { Container, Typography, Box } from "@material-ui/core";
+import LogoOtp from "../../assets/Group 131.png";
+import Grid from "@material-ui/core/Grid";
 
 function SplashScreen(props) {
   const { classes } = props;
-  const [otp,setOtp] = useState('')
+  const [otp, setOtp] = useState("");
 
   const handleChange = otp => {
-    setOtp({otp})
-  }
+    setOtp({ otp });
+  };
   return (
     <Container maxWidth="xs" className={classes.Container}>
-      <OtpInput
-        onChange={otp => console.log(otp)}
-        numInputs={4}
-        separator={<span>-</span>}
-        otpType="number"
-        containerStyle={classes.otp}
-      />
+      <Grid className={classes.background}>
+        <img src={LogoOtp} alt="login otp" className={classes.otp} />
+      </Grid>
     </Container>
   );
 }

@@ -11,13 +11,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import { createAnggota } from "../../services/anggota";
 import Axios from "axios";
+import { withRouter } from "react-router-dom";
 import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import { RadioGroup } from "@material-ui/core";
+import { axiosInstance } from "../../config";
 function AddKeluarga(props) {
+  const [create, setCreate] = useState("");
   const [data, setData] = useState({
     name: "",
     gender: "",
@@ -31,25 +34,35 @@ function AddKeluarga(props) {
     console.log(newData);
   };
 
-  // useEffect(() => {}, []);
-  // const [errNik, setErrNik] = useState(false);
-
-  const handleAdd = () => {
-    if (data.nik.length < 15) {
-      alert("Nik must at least 16");
-    } else {
-      createAnggota(data)
-        .then(res => {
-          console.log(res);
-        })
-
-        .catch(error => {
-          if (error) {
-            console.log(error);
-          }
-        });
-    }
+  const handleDateChange = date => {
+    setData({ ...data, date_of_birth: date });
   };
+
+  useEffect(() => {
+    const createData = async () => {
+      const create = await createAnggota();
+      setCreate(create);
+    };
+    createData();
+  }, []);
+  const [errNik, setErrNik] = useState(false);
+
+  const simpanAnggota = () => {
+    if (data === null) {
+      return alert("Data Tidak Boleh Kosong");
+    }
+    const obj = JSON.parse(localStorage.getItem("user"));
+    let _id = obj.id;
+    createAnggota(_id, data)
+      .then(res => {
+        console.log(res);
+        props.history.push("/list-anggota");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   const { classes } = props;
   return (
     <React.Fragment>
@@ -81,7 +94,6 @@ function AddKeluarga(props) {
                   name="name"
                 />
               </Grid>
-
               <Grid item xs={12} className={classes.radioGrid}>
                 <Typography className={classes.textGender}>
                   Jenis Kelamin
@@ -122,11 +134,11 @@ function AddKeluarga(props) {
                 >
                   <KeyboardDatePicker
                     format="MM/dd/yyyy"
-                    onChange={handleChange}
+                    onChange={handleDateChange}
                     id="standard-password-input"
                     placeholder="Tanggal Lahir"
                     className={classes.textField}
-                    value="date_of_birth"
+                    value={data.date_of_birth}
                     KeyboardButtonProps={{
                       "aria-label": "change date"
                     }}
@@ -150,7 +162,6 @@ function AddKeluarga(props) {
               </Grid>
             </Grid>
           </Grid>
-
           <Grid item xs={12} className={classes.gridButton}>
             <Box className={classes.buttonBox}>
               <Button
@@ -158,7 +169,7 @@ function AddKeluarga(props) {
                 id="submit-button"
                 className={classes.button}
                 style={{ backgroundColor: "#F7A647" }}
-                onClick={handleAdd}
+                onClick={simpanAnggota}
               >
                 <Typography style={{ textTransform: "none" }}>
                   Tambah

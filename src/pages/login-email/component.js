@@ -1,42 +1,42 @@
-import React, { useState, useContext, useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
-import { TextField } from '@material-ui/core';
-import { login } from '../../services/login';
-import { AuthContext } from '../../context/auth';
-import swal from 'sweetalert';
+import React, { useState, useContext, useEffect } from "react";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import { TextField } from "@material-ui/core";
+import { login } from "../../services/login";
+import { AuthContext } from "../../context/auth";
+import swal from "sweetalert";
 
 function Login(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [emailClick, setEmailClick] = useState(false);
   const [data, setData] = useContext(AuthContext);
   const [errMail, setErrMail] = useState(false);
   const [errPassword, setErrorPassword] = useState(false);
 
   const Toggle = () => {
-    var temp = document.getElementById('txtPass');
-    if (temp.type === 'password') {
-      temp.type = 'text';
+    var temp = document.getElementById("txtPass");
+    if (temp.type === "password") {
+      temp.type = "text";
     } else {
-      temp.type = 'password';
+      temp.type = "password";
     }
   };
   const handleBack = () => {
-    props.history.push('/login');
+    props.history.push("/login");
   };
   useEffect(() => {
-    localStorage.removeItem('user');
-    localStorage.removeItem('userToken');
+    localStorage.removeItem("user");
+    localStorage.removeItem("userToken");
   }, []);
   const handleBackLogin = () => {
-    props.history.push('/login');
+    props.history.push("/login");
   };
   const handleSignUp = () => {
-    props.history.push('/register');
+    props.history.push("/register");
   };
   const handleClick = () => {
     setEmailClick(true);
@@ -61,24 +61,19 @@ function Login(props) {
     // } else {
     login(data)
       .then(res => {
-        localStorage.setItem('userToken', 'Bearer ' + res.access_token);
+        localStorage.setItem("userToken", "Bearer " + res.access_token);
         console.log(res);
         setData(res.user);
-        localStorage.setItem('user', JSON.stringify(res.user));
-
-        localStorage.setItem('login', true);
-        swal('Great!', 'You logged!', 'success');
-        props.history.push('/');
+        localStorage.setItem("user", JSON.stringify(res.user));
+        localStorage.setItem("login", true);
+        swal("Great!", "You logged!", "success");
+        props.history.push("/");
         console.log(res);
       })
       .catch(error => {
-        if (error.response.statusText == 'Bad Request') {
-          swal('Ups!', 'Fill the blank, please!', 'warning');
+        if (error) {
+          return console.log(error);
         }
-        if (error.response.statusText == 'Unauthorized') {
-          swal('Ups!', 'Your Password or Email is wrong', 'warning');
-        }
-        console.log(error.response);
       });
     // }
   };
@@ -98,7 +93,7 @@ function Login(props) {
               value={email}
               onChange={handleChangeEmail}
               fullWidth={true}
-              style={{ maxWidth: '90%' }}
+              style={{ maxWidth: "90%" }}
             />
           </Grid>
           <Grid item xs className={classes.password}>
@@ -109,8 +104,8 @@ function Login(props) {
               value={password}
               onChange={handleChangePassword}
               fullWidth={true}
-              style={{ maxWidth: '90%' }}
-              type={'password'}
+              style={{ maxWidth: "90%" }}
+              type={"password"}
               id="txtPass"
               margin="normal"
               placeholder="your password goes here..."
@@ -128,7 +123,7 @@ function Login(props) {
               id="submit-button"
               className={classes.buttonBottom}
               style={{
-                backgroundColor: '#F7A647'
+                backgroundColor: "#F7A647"
               }}
               onClick={handleLogin}
             >
@@ -147,7 +142,7 @@ function Login(props) {
               id="submit-button"
               className={classes.buttonBottom}
               style={{
-                backgroundColor: '#F7A647'
+                backgroundColor: "#F7A647"
               }}
               onClick={handleBackLogin}
             >
@@ -162,7 +157,7 @@ function Login(props) {
           </Box>
         </div>
         <Grid item align="center">
-          <Typography style={{ marginTop: '1em' }}>
+          <Typography style={{ marginTop: "1em" }}>
             Not a member yet ? <b onClick={handleSignUp}>Sign Up</b>
           </Typography>
         </Grid>

@@ -19,26 +19,32 @@ const styles = {
   textButtonBottom: {
     color: "#FFFFFF",
     fontFamily: "Google Sans, sans-serif",
-    fontSize: "14px"
+    fontSize: "16px",
+    textTransform: "none",
+    fontWeight: "bold"
   },
   buttonBoxBottom: {
-    paddingTop: "3%",
-    flexDirection: "column",
-    display: "flex",
-    alignItems: "center"
+    marginTop: "1em"
+  },
+  login: {
+    paddingLeft: "15px",
+    fontSize: "16px",
+    fontWeight: "bold"
   },
   password: {
-    paddingTop: "2em"
+    paddingTop: "1em"
   },
   email: {
-    paddingTop: "7em"
+    paddingTop: "1.5em"
   },
-  welcome: {
-    fontSize: "28px",
-    fontWeight: "bold",
-    color: "#F7A647",
-    paddingTop: "15%",
-    paddingLeft: "6%"
+  appbar: {
+    backgroundColor: "#26CAC0",
+    width: "100%",
+    top: 0,
+    maxWidth: 448,
+    justifyContent: "center",
+    height: "56px",
+    boxShadow: "none"
   }
 };
 

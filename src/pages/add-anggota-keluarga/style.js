@@ -7,7 +7,7 @@ const Style = {
     paddingTop: "20%"
   },
   containerCard: {
-    height: "554px",
+    height: "100%",
     backgroundColor: "#ffffff",
     borderRadius: "8px",
     paddingBottom: "6%"
@@ -30,7 +30,7 @@ const Style = {
   },
   button: {
     fontFamily: "Montserrat, sans-serif",
-    width: "380px",
+    width: "400%",
     height: 48,
     boxShadow: "0px 0px 2px #c1b1b1",
     border: "1px solid #F7A647",
@@ -70,6 +70,10 @@ const Style = {
   radioGrid: {
     paddingLeft: "5%",
     paddingTop: "10%"
+  },
+  radioGroup: {
+    display: "flex",
+    flexDirection: "row"
   }
 };
 export default Style;

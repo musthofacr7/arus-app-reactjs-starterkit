@@ -1,13 +1,12 @@
 const Style = {
   container: {
-    width: "100%",
-    height: "100vh"
+    width: "100%"
+    // height: "100vh"
   },
   gridTop: {
     paddingTop: "20%"
   },
   containerCard: {
-    height: "554px",
     backgroundColor: "#ffffff",
     borderRadius: "8px",
     paddingBottom: "6%"
@@ -70,6 +69,10 @@ const Style = {
   radioGrid: {
     paddingLeft: "5%",
     paddingTop: "10%"
+  },
+  radioGroup: {
+    display: "flex",
+    flexDirection: "row"
   }
 };
 export default Style;

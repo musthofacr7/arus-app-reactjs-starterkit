@@ -17,7 +17,7 @@ export const deleteAnggota = async (id, data) => {
   const response = axiosInstance.delete(`users/${id}/family/${id}`);
   return response;
 };
-export const createAnggota = async id => {
-  const response = axiosInstance.post(`users/${id}/family/`);
+export const createAnggota = async (id, data) => {
+  const response = axiosInstance.post(`users/${id}/family`, data);
   return response;
 };

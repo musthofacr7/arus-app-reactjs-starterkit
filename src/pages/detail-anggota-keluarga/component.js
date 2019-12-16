@@ -7,10 +7,28 @@ import Button from "@material-ui/core/Button";
 import AppBar from "../../component/appbar";
 import Modal from "../../component/modal-hapus-datakeluarga";
 import { getDetailAnggota } from "../../services/anggota";
+import ContentLoader from "react-content-loader";
+
+const MyLoader = () => (
+  <ContentLoader
+    height={375}
+    width={400}
+    speed={2}
+    primaryColor="#e6e6e6"
+    secondaryColor="#f4f4f4"
+  >
+    <rect x="14" y="60" rx="0" ry="0" width="204" height="27" />
+    <rect x="14" y="120" rx="0" ry="0" width="204" height="27" />
+    <rect x="14" y="180" rx="0" ry="0" width="204" height="27" />
+    <rect x="14" y="240" rx="0" ry="0" width="204" height="27" />
+    <rect x="14" y="300" rx="0" ry="0" width="204" height="27" />
+  </ContentLoader>
+);
 function DetailAnggota(props) {
   const [open, setOpen] = useState(false);
   const { classes } = props;
   const [detail, setDetail] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -28,6 +46,7 @@ function DetailAnggota(props) {
       setDetail(detail.row);
       console.log(detail.row);
     };
+    setTimeout(() => setIsLoading(true), 2500);
     getDetail();
   }, []);
   return (
@@ -37,46 +56,61 @@ function DetailAnggota(props) {
         <AppBar goBack title="Profil Keluarga" />
 
         <Grid container spacing={0}>
-          <Grid item xs={12} className={classes.gridTop}>
-            <Grid container spacing={0} className={classes.gridContent}>
-              <Grid item xs={12} className={classes.gridItem}>
-                <Typography className={classes.content}>Nama</Typography>
-                <Typography className={classes.input}>{detail.name}</Typography>
-              </Grid>
-              <Grid item xs={12} className={classes.gridItem}>
-                <Typography className={classes.content}>
-                  Nomor Induk Kependudukan (NIK)
-                </Typography>
-                <Typography className={classes.input}>{detail.nik}</Typography>
-              </Grid>
+          {isLoading == false ? (
+            <div
+              style={{
+                marginTop: 40,
+                width: "100%",
+                backgroundColor: "white"
+              }}
+            >
+              <MyLoader />;
+            </div>
+          ) : (
+            <Grid item xs={12} className={classes.gridTop}>
+              <Grid container spacing={0} className={classes.gridContent}>
+                <Grid item xs={12} className={classes.gridItem}>
+                  <Typography className={classes.content}>Nama</Typography>
+                  <Typography className={classes.input}>
+                    {detail.name}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} className={classes.gridItem}>
+                  <Typography className={classes.content}>
+                    Nomor Induk Kependudukan (NIK)
+                  </Typography>
+                  <Typography className={classes.input}>
+                    {detail.nik}
+                  </Typography>
+                </Grid>
 
-              <Grid item xs={12} className={classes.gridItem}>
-                <Typography className={classes.content}>
-                  Jenis Kelamin
-                </Typography>
-                <Typography className={classes.input}>
-                  {detail.gender}
-                </Typography>
-              </Grid>
-              <Grid item xs={12} className={classes.gridItem}>
-                <Typography className={classes.content}>
-                  Tanggal Lahir
-                </Typography>
-                <Typography className={classes.input}>
-                  {detail.date_of_birth}
-                </Typography>
-              </Grid>
-              <Grid item xs={12} className={classes.gridItem}>
-                <Typography className={classes.content}>
-                  Tempat Lahir
-                </Typography>
-                <Typography className={classes.input}>
-                  {detail.place_of_birth}
-                </Typography>
+                <Grid item xs={12} className={classes.gridItem}>
+                  <Typography className={classes.content}>
+                    Jenis Kelamin
+                  </Typography>
+                  <Typography className={classes.input}>
+                    {detail.gender}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} className={classes.gridItem}>
+                  <Typography className={classes.content}>
+                    Tanggal Lahir
+                  </Typography>
+                  <Typography className={classes.input}>
+                    {detail.date_of_birth}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} className={classes.gridItem}>
+                  <Typography className={classes.content}>
+                    Tempat Lahir
+                  </Typography>
+                  <Typography className={classes.input}>
+                    {detail.place_of_birth}
+                  </Typography>
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
-
+          )}
           <Grid item xs={12} className={classes.gridButton}>
             <Button
               onClick={handleOpen}
@@ -90,7 +124,12 @@ function DetailAnggota(props) {
             </Button>
           </Grid>
         </Grid>
-        <Modal open={open} handleOpen={handleOpen} handleClose={handleClose} />
+        <Modal
+          open={open}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          name={detail.name}
+        />
       </Container>
     </React.Fragment>
   );

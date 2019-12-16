@@ -71,15 +71,15 @@ function Login(props) {
       email: email,
       password: password
     };
-
     login(data)
       .then(res => {
         localStorage.setItem("userToken", "Bearer " + res.access_token);
         console.log(res);
         setData(res.user);
         localStorage.setItem("user", JSON.stringify(res.user));
-
         localStorage.setItem("login", true);
+        localStorage.setItem("name", JSON.stringify(res.user.name));
+        localStorage.setItem("nik", JSON.stringify(res.user.nik));
         swal("Great!", "You logged!", "success");
         props.history.push("/");
         console.log(res);

@@ -35,6 +35,8 @@ function HomePage(props) {
   const [loket, setLoket] = useState("");
   const { classes } = props;
   const user = JSON.parse(localStorage.getItem("user"));
+  const name = JSON.parse(localStorage.getItem("name"));
+  const nik = JSON.parse(localStorage.getItem("nik"));
 
   useEffect(() => {
     const getData = async () => {
@@ -80,10 +82,8 @@ function HomePage(props) {
                   <img src={Profile} alt="avatar" />
                 </Grid>
                 <Grid item xs={0} className={classes.gridName}>
-                  <Typography className={classes.name}>{user.name}</Typography>
-                  <Typography className={classes.nik}>
-                    NIK: {user.nik}
-                  </Typography>
+                  <Typography className={classes.name}>{name}</Typography>
+                  <Typography className={classes.nik}>NIK: {nik}</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -100,7 +100,7 @@ function HomePage(props) {
                   </Grid>
                   <Grid item xs={2} className={classes.gridNumb}>
                     <Typography className={classes.nomor}>
-                      {data[0].queue_number} {loket}
+                      {data[0].queue_number} {data[0].loket}
                     </Typography>
                     <Typography className={classes.locket}>
                       Loket {loket}

@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
-import IconPopUp from '../../assets/alert-circle.png';
-import { Grid, Typography } from '@material-ui/core';
+import React, { useContext, useEffect, useState } from "react";
+import Modal from "@material-ui/core/Modal";
+import Button from "@material-ui/core/Button";
+import IconPopUp from "../../assets/alert-circle.png";
+import { Grid, Typography } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function getModalStyle() {
   return {
@@ -18,7 +19,7 @@ function SimpleModal(props) {
 
   const { open, handleClose } = props;
 
-  console.log('test', classes.paper);
+  console.log("test", classes.paper);
   return (
     <Modal
       aria-labelledby="simple-modal-title"
@@ -26,54 +27,75 @@ function SimpleModal(props) {
       open={open}
       onClose={handleClose}
     >
-      <div style={modalStyle} className={classes.paper}>
-        <Grid container align="center" className={classes.container}>
-          <Grid item xs>
-            <img src={IconPopUp} alt="icon" className={classes.icon} />
+      {props.loadingUpdate ? (
+        <div style={modalStyle} className={classes.paper}>
+          <Grid container align="center" className={classes.container}>
+            <Grid item xs>
+              <img src={IconPopUp} alt="icon" className={classes.icon} />
+            </Grid>
+            <Grid item xs className={classes.gridItemText}>
+              <Typography className={classes.question}>
+                Harap tunggu...
+              </Typography>
+            </Grid>
+            <div align="center" style={{ marginTop: 10 }}>
+              <CircularProgress />
+            </div>
           </Grid>
-          <Grid item xs className={classes.gridItemText}>
-            <Typography className={classes.question}>
-              Apakah anda yakin ingin melakukan perubahan ini?
-            </Typography>
-          </Grid>
-          <Grid item xs className={classes.gridItemTwo}>
-            <Grid container spacing={0} align="center">
-              <Grid item xs>
-                <Button className={classes.buttonCancel} onClick={handleClose}>
-                  <Typography
-                    style={{
-                      textTransform: 'none',
-                      color: '#F7A647',
-                      fontSize: '14px'
-                    }}
+        </div>
+      ) : (
+        <div style={modalStyle} className={classes.paper}>
+          <Grid container align="center" className={classes.container}>
+            <Grid item xs>
+              <img src={IconPopUp} alt="icon" className={classes.icon} />
+            </Grid>
+            <Grid item xs className={classes.gridItemText}>
+              <Typography className={classes.question}>
+                Apakah anda yakin ingin melakukan perubahan ini?
+              </Typography>
+            </Grid>
+            <Grid item xs className={classes.gridItemTwo}>
+              <Grid container spacing={0} align="center">
+                <Grid item xs>
+                  <Button
+                    className={classes.buttonCancel}
+                    onClick={handleClose}
                   >
-                    Batal
-                  </Typography>
-                </Button>
-              </Grid>
-              <Grid item xs>
-                <Button
-                  className={classes.buttonAgree}
-                  style={{
-                    background: '#F7A647'
-                  }}
-                  onClick={props.handleClick}
-                >
-                  <Typography
+                    <Typography
+                      style={{
+                        textTransform: "none",
+                        color: "#F7A647",
+                        fontSize: "14px"
+                      }}
+                    >
+                      Batal
+                    </Typography>
+                  </Button>
+                </Grid>
+                <Grid item xs>
+                  <Button
+                    className={classes.buttonAgree}
                     style={{
-                      textTransform: 'none',
-                      color: '#FFFFFF',
-                      fontSize: '14px'
+                      background: "#F7A647"
                     }}
+                    onClick={props.handleClick}
                   >
-                    Iya
-                  </Typography>
-                </Button>
+                    <Typography
+                      style={{
+                        textTransform: "none",
+                        color: "#FFFFFF",
+                        fontSize: "14px"
+                      }}
+                    >
+                      Iya
+                    </Typography>
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </div>
+        </div>
+      )}
     </Modal>
   );
 }

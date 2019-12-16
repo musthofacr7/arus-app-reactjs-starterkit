@@ -13,8 +13,8 @@ export const updateAnggota = async (id, data) => {
   const response = axiosInstance.put(`users/${id}/family/${id}`);
   return response;
 };
-export const deleteAnggota = async (id, data) => {
-  const response = axiosInstance.delete(`users/${id}/family/${id}`);
+export const deleteAnggota = async (user_id, id) => {
+  const response = axiosInstance.delete(`users/${user_id}/family/${id}`);
   return response;
 };
 export const createAnggota = async (id, data) => {

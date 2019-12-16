@@ -15,6 +15,10 @@ import IconButton from "@material-ui/core/IconButton";
 import { register } from "../../services/register";
 import { login } from "../../services/login";
 import swal from "sweetalert";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import Dialog from "@material-ui/core/Dialog";
 
 function RegisterApp(props) {
   const [data, setData] = useState({
@@ -35,6 +39,7 @@ function RegisterApp(props) {
   const [errPhone, setErrPhone] = useState(false);
   const [errNik, setErrNik] = useState(false);
   const [errConfirmation, setErrConfirmation] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleBack = () => {
     props.history.push("/login");
@@ -60,6 +65,7 @@ function RegisterApp(props) {
 
   useEffect(() => {}, []);
   const handleClick = async () => {
+    setLoading(true);
     if (data.password.length < 7) {
       setErrorPassword(true);
     } else if (data.nik.length < 7) {
@@ -80,6 +86,9 @@ function RegisterApp(props) {
           login(loginData).then(res => {
             localStorage.setItem("user", JSON.stringify(res.user));
             localStorage.setItem("userToken", "Bearer " + res.access_token);
+
+            localStorage.setItem("name", JSON.stringify(res.user.name));
+            localStorage.setItem("nik", JSON.stringify(res.user.nik));
             localStorage.setItem("login", true);
             props.history.push("/");
             swal("Good job!", "You registered!", "success");
@@ -88,6 +97,7 @@ function RegisterApp(props) {
           });
         })
         .catch(error => {
+          setLoading(false);
           if (error) {
             swal("Fill the blank please!");
           }
@@ -255,6 +265,17 @@ function RegisterApp(props) {
           </Typography>
         </Grid>
       </div>
+      <Dialog open={loading} onClose={() => setLoading(false)}>
+        <DialogContent>
+          <div align="center" style={{ margin: 10 }}>
+            <CircularProgress />
+          </div>
+
+          <DialogContentText id="alert-dialog-description">
+            Harap tunggu...
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
     </Container>
   );
 }

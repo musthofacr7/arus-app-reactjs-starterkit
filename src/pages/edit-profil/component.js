@@ -30,10 +30,11 @@ function EditProfile(props) {
   const handleClose = () => {
     setOpen(false);
   };
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const akun = async id => {
-      getProfile()
+      getProfile(user.id)
         .then(datas => {
           setData(datas.row);
           console.log(datas);

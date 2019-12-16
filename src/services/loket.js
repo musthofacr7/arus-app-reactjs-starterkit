@@ -15,6 +15,7 @@ export const createQueue = id => {
 };
 
 export const createAntrian = counter_id => {
+  console.log(user);
   const response = axiosInstance.post(
     `counters/${counter_id}/users/${user.id}`
   );
@@ -23,6 +24,11 @@ export const createAntrian = counter_id => {
 
 export const getAntrian = id => {
   const response = axiosInstance.get(`users/${id}/queue`);
+  return response;
+};
+
+export const getAntrianHome = id => {
+  const response = axiosInstance.get(`users/${id}/queue/last`);
   return response;
 };
 

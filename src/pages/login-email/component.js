@@ -2,12 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import { TextField } from "@material-ui/core";
+import { login } from "../../services/login";
 import AppBar from "@material-ui/core/AppBar";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
-import { TextField, Toolbar } from "@material-ui/core";
-import { login } from "../../services/login";
+import { Toolbar } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import Ilustrasi from "../../assets/login-ilustrasi.png";
@@ -25,6 +26,14 @@ function Login(props) {
   const [errPassword, setErrorPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  const Toggle = () => {
+    var temp = document.getElementById("txtPass");
+    if (temp.type === "password") {
+      temp.type = "text";
+    } else {
+      temp.type = "password";
+    }
+  };
   const handleBack = () => {
     props.history.push("/login");
   };
@@ -76,13 +85,9 @@ function Login(props) {
         console.log(res);
       })
       .catch(error => {
-        if (error.response.statusText == "Bad Request") {
-          swal("Ups!", "Fill the blank, please!", "warning");
+        if (error) {
+          return console.log(error);
         }
-        if (error.response.statusText == "Unauthorized") {
-          swal("Ups!", "Your Password or Email is wrong", "warning");
-        }
-        console.log(error.response);
       });
   };
 
@@ -125,6 +130,10 @@ function Login(props) {
               autoComplete="current-password"
               onChange={handleChangePassword}
               fullWidth={true}
+              style={{ maxWidth: "90%" }}
+              type={"password"}
+              id="txtPass"
+              margin="normal"
               placeholder="your password goes here..."
               InputProps={{
                 endAdornment: (
@@ -159,7 +168,26 @@ function Login(props) {
               <Grid container spacing={0}>
                 <Grid item xs={12} className={classes.gridButton}>
                   <Typography className={classes.textButtonBottom}>
-                    Login
+                    Lanjut
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Button>
+          </Box>
+          <Box className={classes.buttonBoxBottom}>
+            <Button
+              disableRipple={true}
+              id="submit-button"
+              className={classes.buttonBottom}
+              style={{
+                backgroundColor: "#F7A647"
+              }}
+              onClick={handleBackLogin}
+            >
+              <Grid container spacing={0}>
+                <Grid item xs={12} className={classes.gridButton}>
+                  <Typography className={classes.textButtonBottom}>
+                    Kembali Login
                   </Typography>
                 </Grid>
               </Grid>

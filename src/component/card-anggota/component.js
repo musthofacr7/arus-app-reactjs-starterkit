@@ -4,10 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import { withRouter } from "react-router-dom";
 
 function CardAnggota(props) {
-  const { classes, nik, name } = props;
-  const handleClick = () => {
-    props.history.push("/edit-profil-keluarga/:id");
-  };
+  const { classes, nik, name, handleEdit } = props;
+
   return (
     <Grid className={classes.card}>
       <Grid container spacing={0} className={classes.cardContainer}>
@@ -21,7 +19,7 @@ function CardAnggota(props) {
           </Typography>
         </Grid>
         <Grid item xs={4} className={classes.gridRight}>
-          <Typography onClick={handleClick} className={classes.links}>
+          <Typography onClick={handleEdit} className={classes.links}>
             Edit
           </Typography>
         </Grid>

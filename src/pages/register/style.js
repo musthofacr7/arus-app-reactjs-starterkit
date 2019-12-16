@@ -1,33 +1,45 @@
 const Style = {
   Container: {
-    width: '100%',
-    height: '100vh',
-    flexDirection: 'column',
-    backgroundColor: '#26CAC0',
-    display: 'flex',
-    justifyContent: 'center'
+    width: "100%",
+    height: "100vh",
+    flexDirection: "column",
+    padding: 0
   },
-  paperUp: {
-    display: 'flex',
-    padding: '3em',
-
-    flexDirection: 'column',
-    marginTop: '2%'
-  },
-  gridContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: 12
+  registrasi: {
+    paddingLeft: "15px",
+    fontSize: "16px",
+    fontWeight: "bold"
   },
   password: {
-    maxWidth: '90%'
+    maxWidth: "90%"
   },
-  gridBottom: {
-    marginTop: '1em'
+  nama: {
+    paddingTop: "1.5em"
+  },
+  textField: {
+    paddingTop: "2em"
   },
   registerButton: {
-    border: '1px solid #E9F9F8',
-    width: '100%'
+    border: "1px solid #E9F9F8",
+    width: "90%",
+    height: "48px",
+    textTransform: "none",
+    marginTop: "2em",
+    fontSize: "16px",
+    fontWeight: "bold",
+    color: "#FFFFFF"
+  },
+  appbar: {
+    backgroundColor: "#26CAC0",
+    width: "100%",
+    top: 0,
+    maxWidth: 448,
+    justifyContent: "center",
+    height: "56px",
+    boxShadow: "none"
+  },
+  akun: {
+    marginTop: "1em"
   }
 };
 export default Style;

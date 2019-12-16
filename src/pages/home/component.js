@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Profile from "../../assets/avatar.png";
 import AmbilNomor from "../../component/ambil-nomor-antrian";
 import CekJadwalDokterHome from "../../component/cek-jadwal-dokter-home";
-import { getAntrian } from "../../services/loket";
+import { getAntrianHome } from "../../services/loket";
 import ContentLoader from "react-content-loader";
 
 const MyLoader = () => (
@@ -40,14 +40,15 @@ function HomePage(props) {
 
   useEffect(() => {
     const getData = async () => {
-      const antrian = await getAntrian(user.id);
-      setData(antrian.row.data);
-      if (antrian.row.data.length > 0) {
-        if (antrian.row.data[0].queue_number == 1) {
+      const antrian = await getAntrianHome(user.id);
+      console.log(antrian);
+      setData(antrian.row);
+      if (antrian.row) {
+        if (antrian.row.queue_number == 1) {
           setLoket("A");
-        } else if (antrian.row.data[0].queue_number == 2) {
+        } else if (antrian.row.queue_number == 2) {
           setLoket("B");
-        } else if (antrian.row.data[0].queue_number == 3) {
+        } else if (antrian.row.queue_number == 3) {
           setLoket("C");
         }
       }
@@ -87,7 +88,7 @@ function HomePage(props) {
                 </Grid>
               </Grid>
             </Grid>
-            {data.length > 0 && (
+            {data && (
               <Grid item xs={12} className={classes.gridTwo}>
                 <Grid className={classes.antrian} align="center">
                   <Grid item xs={2} className={classes.gridText}>
@@ -100,10 +101,14 @@ function HomePage(props) {
                   </Grid>
                   <Grid item xs={2} className={classes.gridNumb}>
                     <Typography className={classes.nomor}>
-                      {data[0].queue_number} {data[0].loket}
+                      {data.queue_number} {data.counter_id == 1 && "A"}
+                      {data.counter_id == 2 && "B"}
+                      {data.counter_id == 3 && "C"}
                     </Typography>
                     <Typography className={classes.locket}>
-                      Loket {loket}
+                      Loket {data.counter_id == 1 && "A"}
+                      {data.counter_id == 2 && "B"}
+                      {data.counter_id == 3 && "C"}
                     </Typography>
                   </Grid>
                   <Grid item xs={6} className={classes.gridLocket}>

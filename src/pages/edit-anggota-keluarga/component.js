@@ -14,24 +14,44 @@ import {
   MuiPickersUtilsProvider
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
-import { updateAnggota } from "../../services/anggota";
+import { updateAnggota, getDetailAnggota } from "../../services/anggota";
 import swal from "sweetalert";
 import { RadioGroup } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function EditAnggotaKeluarga(props) {
-  const { classes } = props;
-  const [data, setData] = useState({
-    name: "",
-    gender: "",
-    nik: parseInt(),
-    date_of_birth: "",
-    place_of_birth: ""
-  });
+  const { classes, match } = props;
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const handleChange = async e => {
     const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
     console.log(newData);
   };
+  const handleDateChange = date => {
+    setData({ ...data, date_of_birth: date });
+  };
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  useEffect(() => {
+    console.log(user);
+
+    // const change = async id => {
+    //   getDetailAnggota(match.params.user.id, match.params.id)
+    //     .then(datas => {
+    //       console.log(datas);
+
+    //       setData(datas.row);
+    //       setIsLoading(false);
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //       setIsLoading(false);
+    //       alert("ups, terjadi kesalahan");
+    //     });
+    // };
+    // change();
+  }, []);
   const handleClickEdit = () => {
     updateAnggota(data).catch(error => {
       if (error) {
@@ -59,109 +79,116 @@ function EditAnggotaKeluarga(props) {
       <CssBaseline />
       <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Edit Data Anggota Keluarga" />
-
-        <Grid container spacing={0}>
-          <Grid item xs={12} className={classes.gridTop}>
-            <Grid container spacing={0} className={classes.containerCard}>
-              <Grid item xs={12} className={classes.gridInputNIK}>
-                <TextField
-                  onChange={handleChange}
-                  id="standard-password-input"
-                  label="NIK"
-                  className={classes.textField}
-                  type="number"
-                  name="nik"
-                />
-              </Grid>
-              <Grid item xs={12} className={classes.gridInputNIK}>
-                <TextField
-                  onChange={handleChange}
-                  id="standard-password-input"
-                  label="Nama"
-                  className={classes.textField}
-                  type="text"
-                  name="name"
-                />
-              </Grid>
-
-              <Grid item xs={12} className={classes.radioGrid}>
-                <Typography className={classes.textGender}>
-                  Jenis Kelamin
-                </Typography>
-                <Grid container spacing={0}>
-                  <RadioGroup
-                    className={classes.radioGroup}
-                    aria-label="gender"
-                    onChange={handleChange}
-                  >
-                    <Grid item xs={6}>
-                      <FormControlLabel
-                        className={classes.gender}
-                        value="male"
-                        control={<Radio color="primary" />}
-                        label="Laki Laki"
-                        name="gender"
-                        labelPlacement="end"
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <FormControlLabel
-                        className={classes.gender}
-                        value="female"
-                        control={<Radio color="primary" />}
-                        label="Perempuan"
-                        labelPlacement="end"
-                        name="gender"
-                      />
-                    </Grid>
-                  </RadioGroup>
-                </Grid>
-              </Grid>
-
-              <Grid item xs={12} style={{}} className={classes.gridInputNIK}>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                  <KeyboardDatePicker
-                    format="MM/dd/yyyy"
+        {isLoading ? (
+          <div align="center" style={{ marginTop: 200 }}>
+            <CircularProgress />
+          </div>
+        ) : (
+          <Grid container spacing={0}>
+            <Grid item xs={12} className={classes.gridTop}>
+              <Grid container spacing={0} className={classes.containerCard}>
+                <Grid item xs={12} className={classes.gridInputNIK}>
+                  <TextField
                     onChange={handleChange}
                     id="standard-password-input"
-                    placeholder="Tanggal Lahir"
+                    label="NIK"
                     className={classes.textField}
-                    value="date_of_birth"
-                    KeyboardButtonProps={{
-                      "aria-label": "change date"
-                    }}
-                    name="date_of_birth"
+                    type="number"
+                    name="nik"
                   />
-                </MuiPickersUtilsProvider>
-              </Grid>
-              <Grid item xs={12} className={classes.gridInputNIK}>
-                <TextField
-                  onChange={handleChange}
-                  id="standard-password-input"
-                  label="Tanggal Lahir"
-                  className={classes.textField}
-                  type="text"
-                />
+                </Grid>
+                <Grid item xs={12} className={classes.gridInputNIK}>
+                  <TextField
+                    onChange={handleChange}
+                    id="standard-password-input"
+                    label="Nama"
+                    className={classes.textField}
+                    type="text"
+                    name="name"
+                  />
+                </Grid>
+
+                <Grid item xs={12} className={classes.radioGrid}>
+                  <Typography className={classes.textGender}>
+                    Jenis Kelamin
+                  </Typography>
+                  <Grid container spacing={0}>
+                    <RadioGroup
+                      className={classes.radioGroup}
+                      aria-label="gender"
+                      onChange={handleChange}
+                    >
+                      <Grid item xs={6}>
+                        <FormControlLabel
+                          className={classes.gender}
+                          value="male"
+                          control={<Radio color="primary" />}
+                          label="Laki Laki"
+                          name="gender"
+                          labelPlacement="end"
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <FormControlLabel
+                          className={classes.gender}
+                          value="female"
+                          control={<Radio color="primary" />}
+                          label="Perempuan"
+                          labelPlacement="end"
+                          name="gender"
+                        />
+                      </Grid>
+                    </RadioGroup>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridInputNIK}>
+                  <MuiPickersUtilsProvider
+                    utils={DateFnsUtils}
+                    name="date_of_birth"
+                  >
+                    <KeyboardDatePicker
+                      format="MM/dd/yyyy"
+                      onChange={handleDateChange}
+                      id="standard-password-input"
+                      placeholder="Tanggal Lahir"
+                      className={classes.textField}
+                      value={data.date_of_birth}
+                      KeyboardButtonProps={{
+                        "aria-label": "change date"
+                      }}
+                    />
+                  </MuiPickersUtilsProvider>
+                </Grid>
+                <Grid item xs={12} className={classes.gridInputNIK}>
+                  <TextField
+                    onChange={handleChange}
+                    id="standard-password-input"
+                    label="Tanggal Lahir"
+                    className={classes.textField}
+                    type="text"
+                  />
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
 
-          <Grid item xs={12} className={classes.gridButton}>
-            <Box className={classes.buttonBox}>
-              <Button
-                onClick={handleClickEdit}
-                disableRipple={true}
-                id="submit-button"
-                className={classes.button}
-                style={{ backgroundColor: "#F7A647" }}
-              >
-                <Typography style={{ textTransform: "none" }}>
-                  Simpan Perubahan
-                </Typography>
-              </Button>
-            </Box>
+            <Grid item xs={12} className={classes.gridButton}>
+              <Box className={classes.buttonBox}>
+                <Button
+                  onClick={handleClickEdit}
+                  disableRipple={true}
+                  id="submit-button"
+                  className={classes.button}
+                  style={{ backgroundColor: "#F7A647" }}
+                >
+                  <Typography style={{ textTransform: "none" }}>
+                    Simpan Perubahan
+                  </Typography>
+                </Button>
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
+        )}
       </Container>
     </React.Fragment>
   );

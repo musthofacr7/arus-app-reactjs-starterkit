@@ -33,41 +33,56 @@ function ListAnggota(props) {
   useEffect(() => {
     const getAnggota = async () => {
       const family = await getListAnggota(user.id);
+
       setlistFamily(family.row);
     };
+
     setTimeout(() => setIsLoading(true), 2500);
     getAnggota();
   }, []);
 
+  console.log(listFamily.length);
+
   return (
     <Container maxWidth="xs" className={classes.container}>
       <AppBar goBack title="Anggota Keluarga" />
-      {isLoading == false ? (
-        <Grid item className={classes.itemList}>
-          <div className={classes.loader}>
-            {listFamily.map(items => {
-              return <MyLoader />;
-            })}
+
+      <div>
+        {isLoading == false ? (
+          <Grid item className={classes.itemList}>
+            <div className={classes.loader}>
+              <div>
+                <MyLoader />
+              </div>
+            </div>
+          </Grid>
+        ) : (
+          <div className={classes.gridUpper}>
+            {listFamily.length === 0 ? (
+              <div style={{ marginTop: 200 }}>not found</div>
+            ) : (
+              listFamily.map(items => {
+                return (
+                  <Grid item className={classes.itemList}>
+                    <ListData
+                      handleEdit={() =>
+                        props.history.push(
+                          `/edit-profil-keluarga/${items.user_id}/${items.id}`
+                        )
+                      }
+                      nik={items.nik}
+                      name={items.name}
+                      click={() =>
+                        props.history.push(`/list-anggota/${items.id}`)
+                      }
+                    />
+                  </Grid>
+                );
+              })
+            )}
           </div>
-        </Grid>
-      ) : (
-        <div className={classes.gridUpper}>
-          {listFamily.map(items => {
-            return (
-              <Grid item className={classes.itemList}>
-                <ListData
-                  handleEdit={() =>
-                    props.history.push(`edit-profil-keluarga/${items.id}`)
-                  }
-                  nik={items.nik}
-                  name={items.name}
-                  click={() => props.history.push(`/list-anggota/${items.id}`)}
-                />
-              </Grid>
-            );
-          })}
-        </div>
-      )}
+        )}
+      </div>
 
       <FAB />
     </Container>

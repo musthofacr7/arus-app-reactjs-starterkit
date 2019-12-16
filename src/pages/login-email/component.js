@@ -15,7 +15,11 @@ import Ilustrasi from "../../assets/login-ilustrasi.png";
 import { AuthContext } from "../../context/auth";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Dialog from "@material-ui/core/Dialog";
 import swal from "sweetalert";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -25,6 +29,7 @@ function Login(props) {
   const [errMail, setErrMail] = useState(false);
   const [errPassword, setErrorPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const Toggle = () => {
     var temp = document.getElementById("txtPass");
@@ -67,6 +72,7 @@ function Login(props) {
   };
 
   const handleLogin = async () => {
+    setLoading(true);
     const data = {
       email: email,
       password: password
@@ -85,6 +91,7 @@ function Login(props) {
         console.log(res);
       })
       .catch(error => {
+        setLoading(false);
         if (error) {
           return console.log(error);
         }
@@ -203,6 +210,17 @@ function Login(props) {
           </Typography>
         </Grid>
       </Grid>
+      <Dialog open={loading} onClose={() => setLoading(false)}>
+        <DialogContent>
+          <div align="center" style={{ margin: 10 }}>
+            <CircularProgress />
+          </div>
+
+          <DialogContentText id="alert-dialog-description">
+            Harap tunggu...
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
     </Container>
   );
 }

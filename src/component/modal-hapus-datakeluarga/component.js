@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function getModalStyle() {
   return {
@@ -25,52 +26,70 @@ function SimpleModal(props) {
       open={open}
       onClose={handleClose}
     >
-      <div style={modalStyle} className={classes.paper}>
-        <Grid container align="center" className={classes.container}>
-          <Grid item xs className={classes.gridItemTwo}>
-            <Typography className={classes.question}>
-              Apakah anda yakin ingin menghapus
-              <strong className={classes.name}> {name}</strong> dari data
-              anggota Keluarga?
-            </Typography>
+      {props.loadingUpdate ? (
+        <div style={modalStyle} className={classes.paper}>
+          <Grid container align="center" className={classes.container}>
+            <Grid item xs className={classes.gridItemText}>
+              <Typography className={classes.question}>
+                Harap tunggu...
+              </Typography>
+            </Grid>
+            <div align="center" style={{ marginTop: 10 }}>
+              <CircularProgress />
+            </div>
           </Grid>
-          <Grid item xs className={classes.gridItemTwo}>
-            <Grid container spacing={0} align="center">
-              <Grid item xs>
-                <Button className={classes.buttonCancel} onClick={handleClose}>
-                  <Typography
+        </div>
+      ) : (
+        <div style={modalStyle} className={classes.paper}>
+          <Grid container align="center" className={classes.container}>
+            <Grid item xs className={classes.gridItemTwo}>
+              <Typography className={classes.question}>
+                Apakah anda yakin ingin menghapus
+                <strong className={classes.name}> {name}</strong> dari data
+                anggota Keluarga?
+              </Typography>
+            </Grid>
+            <Grid item xs className={classes.gridItemTwo}>
+              <Grid container spacing={0} align="center">
+                <Grid item xs>
+                  <Button
+                    className={classes.buttonCancel}
+                    onClick={handleClose}
+                  >
+                    <Typography
+                      style={{
+                        textTransform: "none",
+                        color: "#F7A647",
+                        fontSize: "14px"
+                      }}
+                    >
+                      Batal
+                    </Typography>
+                  </Button>
+                </Grid>
+                <Grid item xs>
+                  <Button
+                    className={classes.buttonAgree}
                     style={{
-                      textTransform: "none",
-                      color: "#F7A647",
-                      fontSize: "14px"
+                      background: "#F7A647"
                     }}
                   >
-                    Batal
-                  </Typography>
-                </Button>
-              </Grid>
-              <Grid item xs>
-                <Button
-                  className={classes.buttonAgree}
-                  style={{
-                    background: "#F7A647"
-                  }}
-                >
-                  <Typography
-                    style={{
-                      textTransform: "none",
-                      color: "#FFFFFF",
-                      fontSize: "14px"
-                    }}
-                  >
-                    Iya
-                  </Typography>
-                </Button>
+                    <Typography
+                      style={{
+                        textTransform: "none",
+                        color: "#FFFFFF",
+                        fontSize: "14px"
+                      }}
+                    >
+                      Iya
+                    </Typography>
+                  </Button>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </div>
+        </div>
+      )}
     </Modal>
   );
 }

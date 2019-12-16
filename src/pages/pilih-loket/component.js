@@ -41,8 +41,19 @@ function PilihLocket(props) {
 
   const handleClick = () => {
     console.log(modal);
-    createAntrian(modal.id);
-    props.history.push("/");
+    createAntrian(modal.id)
+      .then(res => {
+        console.log(res);
+        props.history.push("/");
+      })
+      .catch(error => {
+        console.log(error.response);
+        if (error.response.data.row == "users alerdy register !") {
+          alert("User sudah terdaftar");
+        } else {
+          alert("Uups, terjadi kesalahan");
+        }
+      });
   };
 
   const handleClose = () => {

@@ -1,13 +1,13 @@
-import Axios from 'axios';
-import swal from 'sweetalert';
+import Axios from "axios";
+import swal from "sweetalert";
 
-const token = localStorage.getItem('userToken');
+const token = localStorage.getItem("userToken");
 export const axiosInstance = Axios.create({
-  baseURL: 'https://api-arus.herokuapp.com/api/'
+  baseURL: "https://api-arus.herokuapp.com/api/"
 });
 
 axiosInstance.interceptors.request.use(config => {
-  let token = localStorage.getItem('userToken');
+  let token = localStorage.getItem("userToken");
   config.headers = Object.assign(
     {
       Authorization: token
@@ -23,8 +23,8 @@ axiosInstance.interceptors.response.use(
     return response.data;
   },
   function(err) {
-    console.log(localStorage.getItem('userToken'));
     console.log(err);
+    window.location.href = "/login";
     return Promise.reject(err);
   }
 );

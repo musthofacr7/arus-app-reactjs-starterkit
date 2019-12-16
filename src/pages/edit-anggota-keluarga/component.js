@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -9,6 +9,14 @@ import TextField from "@material-ui/core/TextField";
 import AppBar from "../../component/appbar";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
+import {
+  KeyboardDatePicker,
+  MuiPickersUtilsProvider
+} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
+import { updateAnggota } from "../../services/anggota";
+import swal from "sweetalert";
+import { RadioGroup } from "@material-ui/core";
 
 function EditAnggotaKeluarga(props) {
   const { classes } = props;
@@ -23,6 +31,27 @@ function EditAnggotaKeluarga(props) {
     const newData = { ...data, [e.target.name]: e.target.value };
     setData(newData);
     console.log(newData);
+  };
+  const handleClickEdit = () => {
+    updateAnggota(data).catch(error => {
+      if (error) {
+        swal("Fill the blank please!");
+      }
+      if (error.response.statusText == "Unauthenticated") {
+        swal(
+          "Ups!",
+          "The token is expired. Refresh the page, please",
+          "warning"
+        );
+      }
+      if (error.response.statusText == "Unauthenticated") {
+        swal(
+          "Ups!",
+          "The token is expired. Refresh the page, please",
+          "warning"
+        );
+      }
+    });
   };
 
   return (
@@ -60,29 +89,50 @@ function EditAnggotaKeluarga(props) {
                   Jenis Kelamin
                 </Typography>
                 <Grid container spacing={0}>
-                  <Grid item xs={6}>
-                    <FormControlLabel
-                      onChange={handleChange}
-                      className={classes.gender}
-                      value="male"
-                      control={<Radio color="primary" />}
-                      label="Laki Laki"
-                      name="gender"
-                      labelPlacement="end"
-                    />
-                  </Grid>
-                  <Grid item xs={6}>
-                    <FormControlLabel
-                      onChange={handleChange}
-                      className={classes.gender}
-                      value="female"
-                      control={<Radio color="primary" />}
-                      label="Perempuan"
-                      labelPlacement="end"
-                      name="gender"
-                    />
-                  </Grid>
+                  <RadioGroup
+                    className={classes.radioGroup}
+                    aria-label="gender"
+                    onChange={handleChange}
+                  >
+                    <Grid item xs={6}>
+                      <FormControlLabel
+                        className={classes.gender}
+                        value="male"
+                        control={<Radio color="primary" />}
+                        label="Laki Laki"
+                        name="gender"
+                        labelPlacement="end"
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <FormControlLabel
+                        className={classes.gender}
+                        value="female"
+                        control={<Radio color="primary" />}
+                        label="Perempuan"
+                        labelPlacement="end"
+                        name="gender"
+                      />
+                    </Grid>
+                  </RadioGroup>
                 </Grid>
+              </Grid>
+
+              <Grid item xs={12} style={{}} className={classes.gridInputNIK}>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <KeyboardDatePicker
+                    format="MM/dd/yyyy"
+                    onChange={handleChange}
+                    id="standard-password-input"
+                    placeholder="Tanggal Lahir"
+                    className={classes.textField}
+                    value="date_of_birth"
+                    KeyboardButtonProps={{
+                      "aria-label": "change date"
+                    }}
+                    name="date_of_birth"
+                  />
+                </MuiPickersUtilsProvider>
               </Grid>
               <Grid item xs={12} className={classes.gridInputNIK}>
                 <TextField
@@ -93,30 +143,13 @@ function EditAnggotaKeluarga(props) {
                   type="text"
                 />
               </Grid>
-              <Grid
-                item
-                xs={12}
-                style={{ paddingBottom: "5%" }}
-                className={classes.gridInputNIK}
-              >
-                <TextField
-                  onChange={handleChange}
-                  id="standard-password-input"
-                  label="Tempat Lahir"
-                  className={classes.textField}
-                  type="text"
-                  name="date_of_birth"
-                />
-              </Grid>
             </Grid>
           </Grid>
 
           <Grid item xs={12} className={classes.gridButton}>
             <Box className={classes.buttonBox}>
               <Button
-                onClick={() =>
-                  alert("Apakah anda yakin ingin melakukan perubahan?")
-                }
+                onClick={handleClickEdit}
                 disableRipple={true}
                 id="submit-button"
                 className={classes.button}

@@ -1,4 +1,3 @@
-
 const Style = {
   Container: {
     width: "100%",
@@ -16,6 +15,11 @@ const Style = {
   },
   link: {
     textDecoration: "none"
+  },
+  loader: {
+    marginTop: 70,
+    width: "100%",
+    backgroundColor: "white"
   }
 };
 export default Style;

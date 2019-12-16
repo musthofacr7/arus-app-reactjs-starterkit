@@ -69,6 +69,10 @@ const Style = {
   radioGrid: {
     paddingLeft: "5%",
     paddingTop: "10%"
+  },
+  radioGroup: {
+    display: "flex",
+    flexDirection: "row"
   }
 };
 export default Style;

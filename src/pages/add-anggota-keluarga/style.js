@@ -30,7 +30,7 @@ const Style = {
   },
   button: {
     fontFamily: "Montserrat, sans-serif",
-    width: "380px",
+    width: "400%",
     height: 48,
     boxShadow: "0px 0px 2px #c1b1b1",
     border: "1px solid #F7A647",

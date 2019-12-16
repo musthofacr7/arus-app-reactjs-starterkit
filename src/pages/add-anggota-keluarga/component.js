@@ -116,7 +116,10 @@ function AddKeluarga(props) {
                 </Grid>
               </Grid>
               <Grid item xs={12} className={classes.gridInputNIK}>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <MuiPickersUtilsProvider
+                  utils={DateFnsUtils}
+                  name="date_of_birth"
+                >
                   <KeyboardDatePicker
                     format="MM/dd/yyyy"
                     onChange={handleChange}
@@ -127,7 +130,6 @@ function AddKeluarga(props) {
                     KeyboardButtonProps={{
                       "aria-label": "change date"
                     }}
-                    name="date_of_birth"
                   />
                 </MuiPickersUtilsProvider>
               </Grid>

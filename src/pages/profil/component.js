@@ -28,6 +28,8 @@ function DetailAnggota(props) {
 
   const [data, setData] = useState({});
   const user = JSON.parse(localStorage.getItem("user"));
+  const nik = JSON.parse(localStorage.getItem("nik"));
+  const name = JSON.parse(localStorage.getItem("name"));
 
   useEffect(() => {
     if (user) {
@@ -68,9 +70,9 @@ function DetailAnggota(props) {
             <img src={Profile} className={classes.image} alt="avatar" />
           </Grid>
           <Grid item xs={7} className={classes.gridName}>
-            <Typography className={classes.name}>{user.name}</Typography>
+            <Typography className={classes.name}>{name}</Typography>
 
-            <Typography className={classes.nik}>NIK : {user.nik}</Typography>
+            <Typography className={classes.nik}>NIK : {nik}</Typography>
           </Grid>
           <Grid item xs={3} className={classes.gridEdit}>
             <Typography onClick={handleClickOne}>Edit Profile</Typography>

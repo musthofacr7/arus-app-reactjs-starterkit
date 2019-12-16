@@ -1,4 +1,5 @@
 import { axiosInstance } from "../config";
+const user = JSON.parse(localStorage.getItem("user"));
 
 export const getListLoket = () => {
   const response = axiosInstance.get("counters");
@@ -13,8 +14,10 @@ export const createQueue = id => {
   return response;
 };
 
-export const createAntrian = id => {
-  const response = axiosInstance.post(`counters/${id}/call`);
+export const createAntrian = counter_id => {
+  const response = axiosInstance.post(
+    `counters/${counter_id}/users/${user.id}`
+  );
   return response;
 };
 

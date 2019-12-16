@@ -12,12 +12,16 @@ import { ProfileContext } from "../../context/profile";
 import { updateProfile } from "../../services/profile";
 import Modal from "../../component/modal-simpan-perubahan";
 import { getProfile } from "../../services/profile";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
 function EditProfile(props) {
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState([]);
   const [name, setNama] = useState("");
   const [nik, setNik] = useState("");
   const { classes } = props;
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadingUpdate, setLoadingUpdate] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -26,35 +30,45 @@ function EditProfile(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const akun = async id => {
-      const datas = await updateProfile(user.id);
-      setData(datas);
-      console.log(datas);
+      getProfile()
+        .then(datas => {
+          setData(datas.row);
+          console.log(datas);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setIsLoading(false);
+          alert("ups, terjadi kesalahan");
+        });
     };
     akun();
   }, []);
-  const handleChangeName = e => {
-    setNama(e.target.value);
-    // console.log(name);
+  const handleChange = async e => {
+    const newData = { ...data, [e.target.name]: e.target.value };
+    setData(newData);
+    console.log(newData);
   };
-  const handleChangeNik = e => {
-    setNik(e.target.value);
-    // console.log(nik);
-  };
+
+  const [errNik, setErrNik] = useState(false);
+  const users = JSON.parse(localStorage.getItem("user"));
 
   const handleClick = () => {
-    const data = {
-      name: name,
-      nik: nik
-    };
-    const updatingProfile = updateProfile(user.id, data).then(() => {
-      props.history.push("/profil");
-      setData(updatingProfile);
-    });
-
+    setLoadingUpdate(true);
+    localStorage.setItem("name", JSON.stringify(data.name));
+    localStorage.setItem("nik", JSON.stringify(data.nik));
+    updateProfile(users.id, data)
+      .then(() => {
+        console.log(data);
+        props.history.push("/profil");
+      })
+      .catch(error => {
+        alert("terjadi kesalahan");
+        setLoadingUpdate(false);
+      });
     console.log(data);
   };
 
@@ -63,56 +77,69 @@ function EditProfile(props) {
       <CssBaseline />
       <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Edit Profile" />
-        <Grid
-          container
-          align="center"
-          spacing={0}
-          className={classes.gridContainer}
-        >
-          <Grid item xs={12} className={classes.gridAvatar}>
-            <img src={Profile} className={classes.image} alt="avatar" />
-          </Grid>
-          <Grid item xs={12} className={classes.gridEdit}>
-            <Link className={classes.link} onClick={() => alert("ganti foto?")}>
-              <Typography className={classes.ganti}> Ganti Foto</Typography>
-            </Link>
-          </Grid>
-          <Grid item xs={12} className={classes.gridForm}>
-            <form className={classes.form}>
-              <TextField
-                margin="normal"
-                label="NIK"
-                type="number"
-                value={data}
-                onChange={handleChangeNik}
-              />
-              <TextField
-                margin="normal"
-                label="Name"
-                value={data}
-                onChange={handleChangeName}
-              />
-            </form>
-            <Grid item xs={12} align="center" className={classes.saveButton}>
-              <Button
-                variant="contained"
-                disableRipple={true}
-                style={{ backgroundColor: "#F7A647" }}
-                className={classes.button}
-                onClick={handleOpen}
+        {isLoading ? (
+          <div align="center" style={{ marginTop: 200 }}>
+            <CircularProgress />
+          </div>
+        ) : (
+          <Grid
+            container
+            align="center"
+            spacing={0}
+            className={classes.gridContainer}
+          >
+            <Grid item xs={12} className={classes.gridAvatar}>
+              <img src={Profile} className={classes.image} alt="avatar" />
+            </Grid>
+            <Grid item xs={12} className={classes.gridEdit}>
+              <Link
+                className={classes.link}
+                onClick={() => alert("ganti foto?")}
               >
-                <Typography className={classes.save}>
-                  Simpan Perubahan
-                </Typography>
-              </Button>
+                <Typography className={classes.ganti}> Ganti Foto</Typography>
+              </Link>
+            </Grid>
+            <Grid item xs={12} className={classes.gridForm}>
+              <form className={classes.form}>
+                <TextField
+                  margin="normal"
+                  label="NIK"
+                  type="number"
+                  value={data.nik}
+                  onChange={handleChange}
+                  name="nik"
+                />
+                <TextField
+                  margin="normal"
+                  label="Name"
+                  value={data.name}
+                  onChange={handleChange}
+                  name="name"
+                />
+              </form>
+              <Grid item xs={12} align="center" className={classes.saveButton}>
+                <Button
+                  variant="contained"
+                  disableRipple={true}
+                  style={{ backgroundColor: "#F7A647" }}
+                  className={classes.button}
+                  onClick={handleOpen}
+                >
+                  <Typography className={classes.save}>
+                    Simpan Perubahan
+                  </Typography>
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        )}
+
         <Modal
           open={open}
           handleOpen={handleOpen}
           handleClose={handleClose}
           handleClick={handleClick}
+          loadingUpdate={loadingUpdate}
         />
       </Container>
     </React.Fragment>

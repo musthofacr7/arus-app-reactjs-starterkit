@@ -42,14 +42,16 @@ function PilihLocket(props) {
   const handleClick = () => {
     console.log(modal);
     createAntrian(modal.id);
+    props.history.push("/");
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+  const user = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     const getCategoryData = async () => {
-      const category = await getListLoket();
+      const category = await getListLoket(user.id);
       setLoket(category.row);
       console.log(category);
       setTimeout(() => {

@@ -8,7 +8,7 @@ import AppBar from "../../component/appbar";
 import Modal from "../../component/modal-hapus-datakeluarga";
 import { getDetailAnggota } from "../../services/anggota";
 import ContentLoader from "react-content-loader";
-
+import { deleteAnggota } from "../../services/anggota";
 const MyLoader = () => (
   <ContentLoader
     height={375}
@@ -49,6 +49,13 @@ function DetailAnggota(props) {
     setTimeout(() => setIsLoading(true), 2500);
     getDetail();
   }, []);
+
+  const handleDelete = () => {
+    const deleteMethod = async id => {
+      console.log("bodoamat");
+    };
+    deleteMethod();
+  };
   return (
     <React.Fragment>
       <CssBaseline />
@@ -125,6 +132,7 @@ function DetailAnggota(props) {
           </Grid>
         </Grid>
         <Modal
+          handleDelete={handleDelete}
           open={open}
           handleOpen={handleOpen}
           handleClose={handleClose}

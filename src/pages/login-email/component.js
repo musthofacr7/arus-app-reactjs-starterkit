@@ -26,14 +26,6 @@ function Login(props) {
   const [errPassword, setErrorPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const Toggle = () => {
-    var temp = document.getElementById("txtPass");
-    if (temp.type === "password") {
-      temp.type = "text";
-    } else {
-      temp.type = "password";
-    }
-  };
   const handleBack = () => {
     props.history.push("/login");
   };
@@ -131,10 +123,7 @@ function Login(props) {
               onChange={handleChangePassword}
               fullWidth={true}
               style={{ maxWidth: "90%" }}
-              type={"password"}
-              id="txtPass"
               margin="normal"
-              placeholder="your password goes here..."
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -168,26 +157,7 @@ function Login(props) {
               <Grid container spacing={0}>
                 <Grid item xs={12} className={classes.gridButton}>
                   <Typography className={classes.textButtonBottom}>
-                    Lanjut
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Button>
-          </Box>
-          <Box className={classes.buttonBoxBottom}>
-            <Button
-              disableRipple={true}
-              id="submit-button"
-              className={classes.buttonBottom}
-              style={{
-                backgroundColor: "#F7A647"
-              }}
-              onClick={handleBackLogin}
-            >
-              <Grid container spacing={0}>
-                <Grid item xs={12} className={classes.gridButton}>
-                  <Typography className={classes.textButtonBottom}>
-                    Kembali Login
+                    Login
                   </Typography>
                 </Grid>
               </Grid>

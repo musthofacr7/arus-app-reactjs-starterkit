@@ -187,20 +187,17 @@ function DetailAnggota(props) {
                 />
                 {tab.map(item => {
                   return (
-<<<<<<< HEAD
                     <CardListDokter
                       spesialis={item.specialist}
                       nama={item.name}
                       handleClick={() => {
                         props.history.push(`/cek-jadwal-dokter/${item.id}`);
                       }}
-=======
                     <Tab
                       label={item.name}
                       {...a11yProps(0)}
                       className={classes.Tabs}
                       key={item.id}
->>>>>>> 42cffca8bc8d629aec0ff611e99a8078035e3462
                     />
                   );
                 })}

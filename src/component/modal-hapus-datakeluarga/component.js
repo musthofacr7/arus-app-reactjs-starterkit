@@ -5,6 +5,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { deleteAnggota } from "../../services/anggota";
 
 function getModalStyle() {
   return {
@@ -15,7 +16,7 @@ function getModalStyle() {
 }
 
 function SimpleModal(props) {
-  const { classes } = props;
+  const { classes, handleDelete } = props;
   const [modalStyle] = React.useState(getModalStyle);
   const { open, handleClose, name } = props;
   console.log("test", classes.paper);
@@ -73,6 +74,7 @@ function SimpleModal(props) {
                     style={{
                       background: "#F7A647"
                     }}
+                    onClick={handleDelete}
                   >
                     <Typography
                       style={{

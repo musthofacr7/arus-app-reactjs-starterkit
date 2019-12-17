@@ -23,11 +23,15 @@ axiosInstance.interceptors.response.use(
     return response.data;
   },
   function(err) {
-    console.log(err);
-    console.log(err.response.data);
     if (err.response.data.error == "Unauthorized") {
-      // window.location.href = "/login";
-      console.log("test,");
+      return swal(
+        {
+          text: "The token is expired, Please try login again"
+        },
+        function() {
+          window.locatio.href = "/login";
+        }
+      );
     }
     return Promise.reject(err);
   }

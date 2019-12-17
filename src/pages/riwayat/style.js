@@ -37,8 +37,7 @@ const Style = {
   },
   input: {
     color: "#25282B",
-    fontSize: "14px",
-    paddingLeft: "1em"
+    fontSize: "14px"
   },
   itemContent: {
     display: "flex",
@@ -85,6 +84,13 @@ const Style = {
     width: "90%",
     borderRadius: "8px",
     backgroundColor: "#ffffff"
+  },
+  loader: {
+    marginTop: 200,
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   }
 };
 export default Style;

@@ -6,8 +6,9 @@ const Style = {
   gridTop: {
     display: "flex",
     backgroundColor: "#ffffff",
-    height: "139px",
-    backgroundSize: "cover"
+    height: "225px",
+    backgroundSize: "cover",
+    flexDirection: "column"
   },
   textTop: {
     color: "#26CAC0",
@@ -61,7 +62,8 @@ const Style = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    paddingTop: "1em"
   },
   textNumber: {
     color: "#26CAC0",

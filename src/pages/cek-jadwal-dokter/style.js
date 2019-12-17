@@ -4,29 +4,29 @@ const Style = {
     padding: 0,
     backgroundSize: "cover"
   },
+  gridOne: {
+    paddingTop: "20%"
+  },
+  search: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  box: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    border: "1px solid #9E9E9E",
+    width: "90%",
+    height: 48,
+    borderRadius: "8px",
+    boxShadow: "0px 0px 2px #c1b1b1"
+  },
   gridTop: {
-    height: "100%",
-    backgroundColor: "#ffffff"
+    backgroundColor: "#FFFFFF"
   },
-  content: {
-    fontSize: "12px",
-    color: "#9E9E9E"
-  },
-  gridContent: {
-    paddingTop: "19%",
-    paddingLeft: "5%"
-  },
-  input: {
-    color: "#25282B",
-    fontSize: "16px",
-    fontWeight: "bold"
-  },
-  gridItemTabs: {
-    paddingTop: "3%"
-  },
-  gridItemList: {
-    paddingTop: "2.2em",
-    marginBottom: "5em"
+  gridTabs: {
+    marginTop: "3%"
   },
   button: {
     fontFamily: "Montserrat, sans-serif",
@@ -37,7 +37,6 @@ const Style = {
     backgroundColor: "#ffffff",
     borderRadius: "4px",
     color: "#F7A647",
-
     fontSize: "14px"
   },
   buttonBox: {
@@ -50,7 +49,7 @@ const Style = {
     justifyContent: "center"
   },
   Tabs: {
-    indicatorColor: "#26CAC0"
+    textTransform: "none"
   },
   gridItemOne: {
     border: "0.9px solid #9E9E9E",
@@ -74,35 +73,6 @@ const Style = {
     paddingTop: 2,
     paddingBottom: 3
   },
-  gridContentList: {
-    paddingTop: "1.4em",
-    paddingBottom: "1%",
-    paddingLeft: "3%",
-    display: "flex",
-    flexDirection: "column"
-  },
-  gridList: {
-    border: "1px solid #FFFFFF",
-    width: "96%",
-    borderRadius: "8px",
-    backgroundColor: "#FFFFFF",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 8,
-    paddingRight: 8
-  },
-  arrow: {
-    display: "flex",
-    alignItems: "center"
-  },
-  nama: {
-    fontWeight: "bold"
-  },
-  spesialis: {
-    color: "#9E9E9E"
-  },
   image: {
     display: "flex",
     justifyContent: "center",
@@ -112,8 +82,6 @@ const Style = {
   text: {
     color: "#9E9E9E",
     fontSize: "14px",
-    display: "flex",
-    justifyContent: "center",
     marginTop: "2em"
   },
   button: {
@@ -126,24 +94,22 @@ const Style = {
   },
   boxButton: {
     position: "fixed",
-    bottom: "5%",
+    bottom: "13%",
     display: "flex",
     justifyContent: "center",
-    width: "100%"
+    width: "100%",
+    maxWidth: "448px"
   },
-  hasil: {
-    marginTop: "1.5em",
-    color: "#9E9E9E",
-    fontSize: "12px",
+  gridRiwayat: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    padding: "3%"
   },
-  number: {
+  textNumber: {
     color: "#26CAC0",
-    display: "flex",
-    justifyContent: "center",
-    fontSize: "12px",
-    fontWeight: "bold"
+    display: "flex"
   }
 };
 export default Style;

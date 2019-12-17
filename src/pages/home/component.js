@@ -43,6 +43,7 @@ function HomePage(props) {
       const antrian = await getAntrianHome(user.id);
       console.log(antrian);
       setData(antrian.row);
+      console.log(antrian.row);
       if (antrian.row) {
         if (antrian.row.queue_number == 1) {
           setLoket("A");
@@ -115,7 +116,10 @@ function HomePage(props) {
                     <Box className={classes.box}>
                       <Typography className={classes.estimasi}>
                         Estimasi di panggil pukul
-                        <strong className={classes.waktu}> 14:00 </strong> WIB
+                        <strong className={classes.waktu}>
+                          {data.estimate}
+                        </strong>
+                        WIB
                       </Typography>
                     </Box>
                   </Grid>

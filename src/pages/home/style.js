@@ -115,7 +115,9 @@ const Style = {
   },
   waktu: {
     color: "black",
-    padding: "2%"
+
+    paddingLeft: "4%",
+    paddingRight: "4%"
   },
   gridBellow: {
     backgroundColor: "red"

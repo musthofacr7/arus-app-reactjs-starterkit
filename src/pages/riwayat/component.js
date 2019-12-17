@@ -6,28 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "../../component/appbar";
 import ContentLoader from "react-content-loader";
 import { getHistory } from "../../services/loket";
-
-const MyLoader = () => (
-  <ContentLoader
-    height={746}
-    width={400}
-    speed={2}
-    primaryColor="#e6e6e6"
-    secondaryColor="#f4f4f4"
-  >
-    <rect x="172" y="63" rx="4" ry="10" width="57" height="47" />
-    <rect x="282" y="60" rx="4" ry="4" width="57" height="47" />
-    <rect x="61" y="161" rx="4" ry="4" width="57" height="47" />
-    <rect x="171" y="161" rx="4" ry="4" width="57" height="47" />
-    <rect x="283" y="160" rx="4" ry="4" width="57" height="47" />
-    <rect x="60" y="260" rx="4" ry="4" width="57" height="47" />
-    <rect x="173" y="257" rx="4" ry="4" width="57" height="47" />
-    <rect x="287" y="258" rx="4" ry="4" width="57" height="47" />
-    <rect x="62" y="358" rx="4" ry="4" width="57" height="47" />
-    <rect x="172" y="357" rx="4" ry="4" width="57" height="47" />
-    <rect x="288" y="353" rx="4" ry="4" width="57" height="47" />
-  </ContentLoader>
-);
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Riwayat(props) {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +21,9 @@ function Riwayat(props) {
       setHistory(history.row.data);
       setQurrentQueue(history.row.data);
     };
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 900);
     listHistory();
   }, []);
   const { classes } = props;
@@ -51,15 +33,9 @@ function Riwayat(props) {
       <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Riwayat Kunjungan" />
 
-        {isLoading == false ? (
-          <div
-            style={{
-              marginTop: 100,
-              width: "100%",
-              backgroundColor: "white"
-            }}
-          >
-            <MyLoader />
+        {isLoading == true ? (
+          <div className={classes.loader}>
+            <CircularProgress />
           </div>
         ) : (
           <Grid container spacing={0} style={{ paddingTop: "4em" }}>

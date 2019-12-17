@@ -56,6 +56,7 @@ function DetailAnggota(props) {
     };
     deleteMethod();
   };
+
   return (
     <React.Fragment>
       <CssBaseline />

@@ -10,17 +10,22 @@ import AppBar from "../../component/appbar";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import { createAnggota } from "../../services/anggota";
-import Axios from "axios";
-import { withRouter } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import Dialog from "@material-ui/core/Dialog";
+
 import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import { RadioGroup } from "@material-ui/core";
-import { axiosInstance } from "../../config";
+
 function AddKeluarga(props) {
   const [create, setCreate] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const [data, setData] = useState({
     name: "",
     gender: "",
@@ -51,6 +56,8 @@ function AddKeluarga(props) {
     if (data === null) {
       return alert("Data Tidak Boleh Kosong");
     }
+    setLoading(true);
+
     const obj = JSON.parse(localStorage.getItem("user"));
     let _id = obj.id;
     createAnggota(_id, data)
@@ -59,6 +66,7 @@ function AddKeluarga(props) {
         props.history.push("/list-anggota");
       })
       .catch(error => {
+        setLoading(false);
         console.log(error);
       });
   };
@@ -178,6 +186,17 @@ function AddKeluarga(props) {
             </Box>
           </Grid>
         </Grid>
+        <Dialog open={loading} onClose={() => setLoading(false)}>
+          <DialogContent>
+            <div align="center" style={{ margin: 10 }}>
+              <CircularProgress />
+            </div>
+
+            <DialogContentText id="alert-dialog-description">
+              Harap tunggu...
+            </DialogContentText>
+          </DialogContent>
+        </Dialog>
       </Container>
     </React.Fragment>
   );

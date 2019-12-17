@@ -79,9 +79,7 @@ function DetailAnggota(props) {
       console.log(value);
     }
   };
-  const handleClick = () => {
-    props.history.push("/detail-dokter");
-  };
+  const handleClick = () => {};
 
   const allTabs = () => {
     setValue(0);
@@ -218,7 +216,9 @@ function DetailAnggota(props) {
                   <CardListDokter
                     spesialis={item.specialist}
                     nama={item.name}
-                    handleClick={handleClick}
+                    handleClick={() => {
+                      props.history.push(`/cek-jadwal-dokter/${item.id}`);
+                    }}
                   />
                 );
               })}

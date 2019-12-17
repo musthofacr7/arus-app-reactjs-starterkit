@@ -32,7 +32,7 @@ function PilihLocket(props) {
   const [open, setOpen] = useState(false);
   const [loket, setLoket] = useState({});
   const [modal, setModal] = useState({});
-
+  const [loadingAdd, setLoadingAdd] = useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const handleOpen = () => {
@@ -48,6 +48,7 @@ function PilihLocket(props) {
       })
       .catch(error => {
         console.log(error.response);
+        setLoadingAdd(false);
         if (error.response.data.row == "users alerdy register !") {
           alert("User sudah terdaftar");
         } else {
@@ -67,7 +68,7 @@ function PilihLocket(props) {
       console.log(category);
       setTimeout(() => {
         setIsLoading(false);
-      }, 1000);
+      }, 500);
     };
 
     getCategoryData();
@@ -108,6 +109,7 @@ function PilihLocket(props) {
             handleOpen={handleOpen}
             handleClick={handleClick}
             handleClose={handleClose}
+            loadingAdd={loadingAdd}
           />
         </div>
       )}

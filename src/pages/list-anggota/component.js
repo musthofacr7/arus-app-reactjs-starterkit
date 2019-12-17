@@ -67,7 +67,7 @@ function ListAnggota(props) {
                     <ListData
                       handleEdit={() =>
                         props.history.push(
-                          `/edit-profil-keluarga/${items.user_id}/${items.id}`
+                          `/edit-profil-keluarga/${items.user_id}/family/${items.id}`
                         )
                       }
                       nik={items.nik}

@@ -10,7 +10,7 @@ export const getDetailAnggota = async (id, user_id) => {
   return response;
 };
 export const updateAnggota = async (id, data) => {
-  const response = axiosInstance.put(`users/${id}/family/${id}`);
+  const response = axiosInstance.put(`users/${id}/family/${id}`, data);
   return response;
 };
 export const deleteAnggota = async (user_id, id) => {

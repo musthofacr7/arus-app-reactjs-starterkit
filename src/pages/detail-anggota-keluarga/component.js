@@ -29,7 +29,6 @@ function DetailAnggota(props) {
   const { classes } = props;
   const [detail, setDetail] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
   const handleOpen = () => {
     setOpen(true);
   };
@@ -51,10 +50,15 @@ function DetailAnggota(props) {
   }, []);
 
   const handleDelete = () => {
-    const deleteMethod = async id => {
-      console.log("bodoamat");
-    };
-    deleteMethod();
+    const id = props.match.params.id;
+    deleteAnggota(user.id, id)
+      .then(() => {
+        props.history.push("/list-anggota");
+      })
+      .catch(error => {
+        setIsLoading(false);
+        console.log("test", error);
+      });
   };
 
   return (

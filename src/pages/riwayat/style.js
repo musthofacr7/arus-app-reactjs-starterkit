@@ -28,7 +28,8 @@ const Style = {
   },
   itemBottom: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingTop: "0.4em"
   },
   content: {
     color: "#9E9E9E",

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import Box from '@material-ui/core/Box';
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import Box from "@material-ui/core/Box";
 
 function BottomNavigationApp(props) {
   const { classes } = props;
@@ -16,13 +16,13 @@ function BottomNavigationApp(props) {
     console.log();
     let value = 0;
     switch (props.location.pathname) {
-      case '/':
+      case "/":
         value = 0;
         break;
-      case '/riwayat':
+      case "/riwayat":
         value = 1;
         break;
-      case '/profil':
+      case "/profil":
         value = 2;
         break;
       default:
@@ -35,13 +35,13 @@ function BottomNavigationApp(props) {
     setValue({ value });
     switch (value) {
       case 0:
-        props.history.push('/');
+        props.history.push("/");
         return;
       case 1:
-        props.history.push('/riwayat');
+        props.history.push("/riwayat");
         return;
       case 2:
-        props.history.push('/profil');
+        props.history.push("/profil");
         return;
       default:
         return;
@@ -63,7 +63,7 @@ function BottomNavigationApp(props) {
       >
         <BottomNavigationAction
           classes={actionClasses}
-          label={<b style={{ fontSize: '8px' }}>Beranda</b>}
+          label={<b style={{ fontSize: "8px" }}>Beranda</b>}
           icon={
             <svg
               width="30"
@@ -86,7 +86,7 @@ function BottomNavigationApp(props) {
         />
         <BottomNavigationAction
           classes={actionClasses}
-          label={<b style={{ fontSize: '8px' }}>Riwayat</b>}
+          label={<b style={{ fontSize: "8px" }}>Riwayat</b>}
           icon={
             <svg
               width="24"
@@ -105,7 +105,7 @@ function BottomNavigationApp(props) {
         />
         <BottomNavigationAction
           classes={actionClasses}
-          label={<b style={{ fontSize: '8px' }}>Profile</b>}
+          label={<b style={{ fontSize: "8px" }}>Profile</b>}
           icon={
             <svg
               width="24"

@@ -48,7 +48,6 @@ function Riwayat(props) {
               {qurrentQueue.map(items => {
                 return (
                   <Grid container spacing={0} style={{ display: "flex" }}>
-                    <Grid item xs={12} className={classes.itemTop}></Grid>
                     <Grid item xs={12} className={classes.itemBottom}>
                       <Grid className={classes.gridBox}>
                         <Grid container spacing={0}>

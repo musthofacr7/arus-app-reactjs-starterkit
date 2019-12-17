@@ -20,6 +20,7 @@ function SimpleModal(props) {
   const [modalStyle] = React.useState(getModalStyle);
   const { open, handleClose, name } = props;
   console.log("test", classes.paper);
+
   return (
     <Modal
       aria-labelledby="simple-modal-title"

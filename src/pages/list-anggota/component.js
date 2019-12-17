@@ -5,6 +5,8 @@ import AppBar from "../../component/appbar";
 import ListData from "../../component/card-anggota";
 import FAB from "../../component/fab";
 import { getListAnggota } from "../../services/anggota";
+import Typography from "@material-ui/core/Typography";
+import NotFound from "../../assets/NotFound.png";
 import ContentLoader from "react-content-loader";
 import { updateAnggota } from "../../services/anggota";
 
@@ -59,8 +61,16 @@ function ListAnggota(props) {
         ) : (
           <div className={classes.gridUpper}>
             {listFamily.length === 0 ? (
-              <div style={{ marginTop: 200 }}>not found</div>
+              <Grid container className={classes.image}>
+                <img src={NotFound} alt="" />
+                <Grid item xs={12} className={classes.text}>
+                  <Typography style={{ textAlign: "center" }}>
+                    Maaf kami tidak menemukan dokter yang anda cari.
+                  </Typography>
+                </Grid>
+              </Grid>
             ) : (
+              // <div style={{ marginTop: 200 }}>not found</div>
               listFamily.map(items => {
                 return (
                   <Grid item className={classes.itemList}>

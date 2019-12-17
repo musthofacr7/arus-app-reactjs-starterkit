@@ -97,37 +97,28 @@ function DetailAnggota(props) {
 
         <Grid container spacing={0}>
           <Grid item xs={12} className={classes.gridTop}>
-            <Grid container spacing={0} className={classes.gridContent}>
-              <Grid item xs={12} className={classes.gridItem}>
-                <Grid container spacing={0} className={classes.gridItemOne}>
-                  <Grid item xs={8} className={classes.gridField}>
-                    <TextField
-                      placeholder="Tulis Nama Dokter"
-                      InputProps={{
-                        disableUnderline: true
-                      }}
-                      className={classes.TextField}
-                    />
-                  </Grid>
-                  <Grid item xs={4} className={classes.gridIcon}>
+            <Grid container spacing={0} className={classes.gridOne}>
+              <Grid item xs className={classes.search}>
+                <Box className={classes.box}>
+                  <Grid item xs>
                     <Button>
                       <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                          stroke="black"
+                          d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+                          stroke="#25282B"
                           stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
                         />
                         <path
-                          d="M20.9999 20.9999L16.6499 16.6499"
-                          stroke="black"
+                          d="M17.5 17.5L13.875 13.875"
+                          stroke="#25282B"
                           stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -135,91 +126,130 @@ function DetailAnggota(props) {
                       </svg>
                     </Button>
                   </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={12} className={classes.gridItemTabs}>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  TabIndicatorProps={{
-                    style: {
-                      backgroundColor: "#26CAC0"
-                    }
-                  }}
-                  variant="scrollable"
-                  scrollButtons="auto"
-                  aria-label="scrollable auto tabs example"
-                >
-                  <Tab
-                    label="Semua"
-                    {...a11yProps(0)}
-                    className={classes.Tabs}
-                    key={0}
+                  <TextField
+                    placeholder="Tulis Nama Dokter"
+                    InputProps={{
+                      disableUnderline: true
+                    }}
+                    className={classes.TextField}
                   />
-                  {tab.map(item => {
-                    return (
-                      <Tab
-                        label={item.name}
-                        {...a11yProps(0)}
-                        className={classes.Tabs}
-                        key={item.id}
+                  <Button>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10 18.3333C14.6024 18.3333 18.3333 14.6024 18.3333 9.99999C18.3333 5.39762 14.6024 1.66666 10 1.66666C5.39763 1.66666 1.66667 5.39762 1.66667 9.99999C1.66667 14.6024 5.39763 18.3333 10 18.3333Z"
+                        stroke="#25282B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                       />
-                    );
-                  })}
-                </Tabs>
-                <Grid item xs={10} className={classes.hasil}>
-                  <Typography>
-                    Hasil Pencarian di{" "}
-                    <b style={{ color: "#25282B" }}>Poli Kandungan</b>
-                  </Typography>
-                  <Grid item xs={2} className={classes.number}>
-                    <Typography>
-                      <b> ( 1 ) </b>{" "}
-                    </Typography>
-                  </Grid>
-                </Grid>
+                      <path
+                        d="M12.5 7.5L7.5 12.5"
+                        stroke="#25282B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M7.5 7.5L12.5 12.5"
+                        stroke="#25282B"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </Button>
+                </Box>
               </Grid>
             </Grid>
 
-            {data == true ? (
-              <Grid>
-                {listFilter.map(item => {
+            <Grid item xs className={classes.gridTabs}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                TabIndicatorProps={{
+                  style: {
+                    backgroundColor: "#26CAC0"
+                  }
+                }}
+                variant="scrollable"
+                scrollButtons="auto"
+                aria-label="scrollable auto tabs example"
+              >
+                <Tab
+                  label="Semua"
+                  {...a11yProps(0)}
+                  className={classes.Tabs}
+                  key={0}
+                />
+                {tab.map(item => {
                   return (
-                    <CardListDokter
-                      spesialis={item.specialist}
-                      nama={item.name}
-                      handleClick={handleClick}
+                    <Tab
+                      label={item.name}
+                      {...a11yProps(0)}
+                      className={classes.Tabs}
+                      key={item.id}
                     />
                   );
                 })}
-              </Grid>
-            ) : (
-              <Grid container className={classes.image}>
-                <img src={NotFound} alt="" />
-                <Grid item xs={12} className={classes.text}>
-                  <Typography style={{ textAlign: "center" }}>
-                    Maaf kami tidak menemukan dokter yang anda cari.
-                  </Typography>
-                </Grid>
-
-                <Grid item xs={12} className={classes.gridButton}>
-                  <Box className={classes.boxButton}>
-                    <Button
-                      disableRipple={false}
-                      className={classes.button}
-                      style={{ backgroundColor: "#F7A647" }}
-                      onClick={allTabs}
-                    >
-                      <Typography style={{ textTransform: "none" }}>
-                        Cari Dokter di Semua Poli
-                      </Typography>
-                    </Button>
-                  </Box>
-                </Grid>
-              </Grid>
-            )}
+              </Tabs>
+            </Grid>
           </Grid>
+
+          <Grid item xs={10} className={classes.gridRiwayat}>
+            <Typography className={classes.textBottom}>
+              Hasil Pencarian di{" "}
+              <b style={{ color: "#25282B" }}> Poli Kandungan </b>
+            </Typography>
+          </Grid>
+          <Grid item xs={2} className={classes.gridRiwayat}>
+            <Typography className={classes.textNumber}>( 2 )</Typography>
+          </Grid>
+
+          {data == true ? (
+            <Grid>
+              {listFilter.map(item => {
+                return (
+                  <CardListDokter
+                    spesialis={item.specialist}
+                    nama={item.name}
+                    handleClick={handleClick}
+                  />
+                );
+              })}
+            </Grid>
+          ) : (
+            <Grid container className={classes.image}>
+              <img src={NotFound} alt="" />
+              <Grid item xs={12} className={classes.text}>
+                <Typography style={{ textAlign: "center" }}>
+                  Maaf kami tidak menemukan dokter yang anda cari.
+                </Typography>
+              </Grid>
+
+              <Grid item xs={12} className={classes.gridButton}>
+                <Box className={classes.boxButton}>
+                  <Button
+                    disableRipple={false}
+                    className={classes.button}
+                    style={{ backgroundColor: "#F7A647" }}
+                    onClick={allTabs}
+                  >
+                    <Typography style={{ textTransform: "none" }}>
+                      Cari Dokter di Semua Poli
+                    </Typography>
+                  </Button>
+                </Box>
+              </Grid>
+            </Grid>
+          )}
         </Grid>
+        {/* </Grid> */}
       </Container>
     </React.Fragment>
   );

@@ -12,18 +12,20 @@ import CardDetailDokter from "../../component/card-detail-dokter";
 import { getDetailDokter } from "../../services/dokter";
 function DetailDokter(props) {
   const { classes } = props;
-  const [detail, setDetail] = useState({});
+  const [details, setDetail] = useState({});
+  const [spesialis, setSpesialis] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const id = props.match.params.id;
     const getDetail = async () => {
-      const _detail = await getDetailDokter(id);
-      setDetail(_detail.row);
-      console.log(_detail);
+      const detail = await getDetailDokter(id);
+      setDetail(detail.row.doctor);
+      setSpesialis(detail.row.doctor_category);
     };
-    setTimeout(() => setIsLoading(true), 2500);
+    setTimeout(() => setIsLoading(true), 900);
     getDetail();
   }, []);
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -40,11 +42,10 @@ function DetailDokter(props) {
                   </Grid>
                   <Grid item xs={9} className={classes.gridName}>
                     <Typography className={classes.name}>
-                      {console.log()}
+                      {details.name}
                     </Typography>
                     <Typography className={classes.nik}>
-                      Spesialis
-                      {/* {detail.doctor.nik} */}
+                      {spesialis.name}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -59,7 +60,7 @@ function DetailDokter(props) {
                 </Grid>
                 <Grid item xs={10} className={classes.gridText}>
                   <Typography className={classes.number}>
-                    0856-0981-0911
+                    {details.phone}
                   </Typography>
                 </Grid>
 
@@ -68,7 +69,7 @@ function DetailDokter(props) {
                 </Grid>
                 <Grid item xs={10} className={classes.gridPhone}>
                   <Typography className={classes.number}>
-                    (021) 9812-1298
+                    {details.phone}
                   </Typography>
                 </Grid>
 
@@ -77,7 +78,7 @@ function DetailDokter(props) {
                 </Grid>
                 <Grid item xs={10} className={classes.gridPhone}>
                   <Typography className={classes.number}>
-                    jayadiefendi@gmail.com
+                    {details.email}
                   </Typography>
                 </Grid>
               </Grid>

@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
   function(err) {
     console.log(err);
     console.log(err.response);
-    if (err.response.data.message == "Unauthenticated") {
+    if (err) {
       window.location.href = "/login";
     }
     return Promise.reject(err);

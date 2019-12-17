@@ -208,8 +208,7 @@ function DetailAnggota(props) {
           <Grid item xs={2} className={classes.gridRiwayat}>
             <Typography className={classes.textNumber}>( 2 )</Typography>
           </Grid>
-
-          {data == true ? (
+          {listDokter.length > 0 ? (
             <Grid>
               {listFilter.map(item => {
                 return (
@@ -249,7 +248,6 @@ function DetailAnggota(props) {
             </Grid>
           )}
         </Grid>
-        {/* </Grid> */}
       </Container>
     </React.Fragment>
   );

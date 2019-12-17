@@ -187,12 +187,6 @@ function DetailAnggota(props) {
                 />
                 {tab.map(item => {
                   return (
-                    <CardListDokter
-                      spesialis={item.specialist}
-                      nama={item.name}
-                      handleClick={() => {
-                        props.history.push(`/cek-jadwal-dokter/${item.id}`);
-                      }}
                     <Tab
                       label={item.name}
                       {...a11yProps(0)}
@@ -222,7 +216,9 @@ function DetailAnggota(props) {
                   <CardListDokter
                     spesialis={item.specialist}
                     nama={item.name}
-                    handleClick={handleClick}
+                    handleClick={() => {
+                      props.history.push(`/cek-jadwal-dokter/${item.id}`);
+                    }}
                   />
                 );
               })}

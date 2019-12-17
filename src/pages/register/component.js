@@ -34,6 +34,7 @@ function RegisterApp(props) {
   console.log(typeof data.nik);
   const [errMail, setErrMail] = useState(false);
   const [errPassword, setErrorPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [errPhone, setErrPhone] = useState(false);
@@ -55,8 +56,10 @@ function RegisterApp(props) {
   };
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
-
     console.log(showPassword);
+  };
+  const handleClickConfirmPassword = () => {
+    setConfirmPassword(!confirmPassword);
   };
 
   const handleMouseDownPassword = event => {
@@ -86,7 +89,6 @@ function RegisterApp(props) {
           login(loginData).then(res => {
             localStorage.setItem("user", JSON.stringify(res.user));
             localStorage.setItem("userToken", "Bearer " + res.access_token);
-
             localStorage.setItem("name", JSON.stringify(res.user.name));
             localStorage.setItem("nik", JSON.stringify(res.user.nik));
             localStorage.setItem("login", true);
@@ -192,7 +194,7 @@ function RegisterApp(props) {
           <TextField
             error={errConfirmation}
             label="Konfirmasi Password"
-            type={showPassword ? "text" : "password"}
+            type={confirmPassword ? "text" : "password"}
             name="password_confirmation"
             onChange={handleChange}
             value={data.password_confirmation}
@@ -207,10 +209,10 @@ function RegisterApp(props) {
                       padding: 0,
                       margin: 0
                     }}
-                    onClick={handleClickShowPassword}
+                    onClick={handleClickConfirmPassword}
                     onMouseDown={handleMouseDownPassword}
                   >
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                    {confirmPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
               )

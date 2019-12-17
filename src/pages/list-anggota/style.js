@@ -22,6 +22,17 @@ const Style = {
     marginTop: 70,
     width: "100%",
     backgroundColor: "white"
+  },
+  image: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "10%"
+  },
+  text: {
+    color: "#9E9E9E",
+    fontSize: "14px",
+    marginTop: "2em"
   }
 };
 export default Style;

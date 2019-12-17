@@ -8,6 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import AppBar from "../../component/appbar";
+import NotFound from "../../assets/NotFound.png";
 import PropTypes from "prop-types";
 import { getDokter } from "../../services/dokter";
 import { categoryTab } from "../../services/dokter";
@@ -48,6 +49,7 @@ function DetailAnggota(props) {
   const [listDokter, setListDokter] = useState([]);
   const [listFilter, setListFilter] = useState([]);
   const [tab, setTab] = useState([]);
+  const [data, setData] = useState(false);
 
   useEffect(() => {
     const categoryDoctor = async () => {
@@ -80,6 +82,13 @@ function DetailAnggota(props) {
   const handleClick = () => {
     props.history.push("/detail-dokter");
   };
+
+  const allTabs = () => {
+    setValue(0);
+  };
+
+  console.log(value);
+
   return (
     <React.Fragment>
       <CssBaseline />
@@ -158,17 +167,57 @@ function DetailAnggota(props) {
                     );
                   })}
                 </Tabs>
+                <Grid item xs={10} className={classes.hasil}>
+                  <Typography>
+                    Hasil Pencarian di{" "}
+                    <b style={{ color: "#25282B" }}>Poli Kandungan</b>
+                  </Typography>
+                  <Grid item xs={2} className={classes.number}>
+                    <Typography>
+                      <b> ( 1 ) </b>{" "}
+                    </Typography>
+                  </Grid>
+                </Grid>
               </Grid>
             </Grid>
-            {listFilter.map(item => {
-              return (
-                <CardListDokter
-                  spesialis={item.specialist}
-                  nama={item.name}
-                  handleClick={handleClick}
-                />
-              );
-            })}
+
+            {data == true ? (
+              <Grid>
+                {listFilter.map(item => {
+                  return (
+                    <CardListDokter
+                      spesialis={item.specialist}
+                      nama={item.name}
+                      handleClick={handleClick}
+                    />
+                  );
+                })}
+              </Grid>
+            ) : (
+              <Grid container className={classes.image}>
+                <img src={NotFound} alt="" />
+                <Grid item xs={12} className={classes.text}>
+                  <Typography style={{ textAlign: "center" }}>
+                    Maaf kami tidak menemukan dokter yang anda cari.
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} className={classes.gridButton}>
+                  <Box className={classes.boxButton}>
+                    <Button
+                      disableRipple={false}
+                      className={classes.button}
+                      style={{ backgroundColor: "#F7A647" }}
+                      onClick={allTabs}
+                    >
+                      <Typography style={{ textTransform: "none" }}>
+                        Cari Dokter di Semua Poli
+                      </Typography>
+                    </Button>
+                  </Box>
+                </Grid>
+              </Grid>
+            )}
           </Grid>
         </Grid>
       </Container>

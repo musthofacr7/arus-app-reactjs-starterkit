@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -30,15 +30,17 @@ const MyLoader = () => (
 );
 
 function Riwayat(props) {
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [data, setData] = React.useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [listHistory, setHistory] = useState([]);
+  const [qurrentQueue, setQurrentQueue] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const listHistory = async () => {
       const history = await getHistory(user.id);
-      console.log(history.row);
-      setData(history);
+      console.log(history.row.data);
+      setHistory(history.row.data);
+      setQurrentQueue(history.row.data);
     };
     listHistory();
   }, []);
@@ -49,7 +51,7 @@ function Riwayat(props) {
       <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Riwayat Kunjungan" />
 
-        {isLoading == true ? (
+        {isLoading == false ? (
           <div
             style={{
               marginTop: 100,
@@ -62,85 +64,101 @@ function Riwayat(props) {
         ) : (
           <Grid container spacing={0} style={{ paddingTop: "4em" }}>
             <Grid item xs={12} className={classes.gridTop}>
-              <Grid container spacing={0}>
-                <Grid item xs={12} className={classes.itemTop}>
-                  <Typography className={classes.textTop}>
-                    Sedang Berjalan
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} className={classes.itemBottom}>
-                  <Grid className={classes.gridBox}>
-                    <Grid container spacing={0}>
-                      <Grid item xs={4} className={classes.itemContent}>
-                        <Typography className={classes.content}>
-                          Tanggal
-                        </Typography>
-                        <Typography className={classes.input}>
-                          12/11/19
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={4} className={classes.itemContent}>
-                        <Typography className={classes.content}>
-                          No Antrian
-                        </Typography>
-                        <Typography className={classes.input}> 12A</Typography>
-                      </Grid>
-                      <Grid item xs={4} className={classes.itemLoket}>
-                        <Typography className={classes.content}>
-                          Loket
-                        </Typography>
-                        <Typography className={classes.input}>
-                          Loket A
-                        </Typography>
+              <div style={{ paddingTop: "1em" }}>
+                <Typography className={classes.textTop}>
+                  Sedang Berjalan
+                </Typography>
+              </div>
+              {qurrentQueue.map(items => {
+                return (
+                  <Grid container spacing={0} style={{ display: "flex" }}>
+                    <Grid item xs={12} className={classes.itemTop}></Grid>
+                    <Grid item xs={12} className={classes.itemBottom}>
+                      <Grid className={classes.gridBox}>
+                        <Grid container spacing={0}>
+                          <Grid item xs={4} className={classes.itemContent}>
+                            <Typography className={classes.content}>
+                              Tanggal
+                            </Typography>
+                            <Typography className={classes.input}>
+                              {items.queue_date}
+                            </Typography>
+                          </Grid>
+                          <Grid item xs={4} className={classes.itemContent}>
+                            <Typography className={classes.content}>
+                              No Antrian
+                            </Typography>
+                            <Typography className={classes.input}>
+                              {" "}
+                              12A
+                            </Typography>
+                          </Grid>
+                          <Grid item xs={4} className={classes.itemLoket}>
+                            <Typography className={classes.content}>
+                              Loket
+                            </Typography>
+                            <Typography className={classes.input}>
+                              Loket A
+                            </Typography>
+                          </Grid>
+                        </Grid>
                       </Grid>
                     </Grid>
                   </Grid>
-                </Grid>
-              </Grid>
+                );
+              })}
             </Grid>
             <Grid item xs={12}>
               <Grid container spacing={0}>
-                <Grid item xs={12} className={classes.itemTop}>
-                  <Grid item xs={7} className={classes.gridRiwayat}>
-                    <Typography className={classes.textBottom}>
-                      Riwayat Kunjungan
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={5} className={classes.gridRiwayat}>
-                    <Typography className={classes.textNumber}>
-                      ( 2 )
-                    </Typography>
-                  </Grid>
+                <Grid item xs={7} className={classes.gridRiwayat}>
+                  <Typography className={classes.textBottom}>
+                    Riwayat Kunjungan
+                  </Typography>
                 </Grid>
-                <Grid item xs={12} className={classes.itemBottomHistory}>
-                  <Grid className={classes.gridBoxBottom}>
-                    <Grid container spacing={0}>
-                      <Grid item xs={4} className={classes.itemContent}>
-                        <Typography className={classes.content}>
-                          Tanggal
-                        </Typography>
-                        <Typography className={classes.input}>
-                          10/11/19
-                        </Typography>
-                      </Grid>
-                      <Grid item xs={4} className={classes.itemContent}>
-                        <Typography className={classes.content}>
-                          No Antrian
-                        </Typography>
-                        <Typography className={classes.input}> 12A</Typography>
-                      </Grid>
-                      <Grid item xs={4} className={classes.itemLoket}>
-                        <Typography className={classes.content}>
-                          Loket
-                        </Typography>
-                        <Typography className={classes.input}>
-                          Loket A
-                        </Typography>
+                <Grid item xs={5} className={classes.gridRiwayat}>
+                  <Typography className={classes.textNumber}>
+                    ( {listHistory.length} )
+                  </Typography>
+                </Grid>
+              </Grid>
+
+              {listHistory.map(items => {
+                return (
+                  <Grid container spacing={0}>
+                    <Grid item xs={12} className={classes.itemBottomHistory}>
+                      <Grid className={classes.gridBoxBottom}>
+                        <Grid container spacing={0}>
+                          <Grid item xs={4} className={classes.itemContent}>
+                            <Typography className={classes.content}>
+                              Tanggal
+                            </Typography>
+                            <Typography className={classes.input}>
+                              10/11/19
+                            </Typography>
+                          </Grid>
+                          <Grid item xs={4} className={classes.itemContent}>
+                            <Typography className={classes.content}>
+                              No Antrian
+                            </Typography>
+                            <Typography className={classes.input}>
+                              {" "}
+                              12A
+                            </Typography>
+                          </Grid>
+                          <Grid item xs={4} className={classes.itemLoket}>
+                            <Typography className={classes.content}>
+                              Loket
+                            </Typography>
+                            <Typography className={classes.input}>
+                              Loket A
+                            </Typography>
+                          </Grid>
+                        </Grid>
                       </Grid>
                     </Grid>
                   </Grid>
-                </Grid>
-              </Grid>
+                );
+              })}
             </Grid>
           </Grid>
         )}

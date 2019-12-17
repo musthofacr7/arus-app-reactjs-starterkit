@@ -24,7 +24,10 @@ axiosInstance.interceptors.response.use(
   },
   function(err) {
     console.log(err);
-    window.location.href = "/login";
+    console.log(err.response);
+    if (err.response.data.message == "Unauthenticated") {
+      window.location.href = "/login";
+    }
     return Promise.reject(err);
   }
 );

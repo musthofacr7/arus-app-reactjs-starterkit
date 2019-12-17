@@ -35,43 +35,49 @@ function EditAnggotaKeluarga(props) {
 
   useEffect(() => {
     console.log(user);
-
-    // const change = async id => {
-    //   getDetailAnggota(match.params.user.id, match.params.id)
-    //     .then(datas => {
-    //       console.log(datas);
-
-    //       setData(datas.row);
-    //       setIsLoading(false);
-    //     })
-    //     .catch(error => {
-    //       console.log(error);
-    //       setIsLoading(false);
-    //       alert("ups, terjadi kesalahan");
-    //     });
-    // };
-    // change();
+    const family_id = match.params.id;
+    console.log(family_id);
+    const change = async () => {
+      getDetailAnggota(family_id, user.id)
+        .then(datas => {
+          setData(datas.row);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setIsLoading(false);
+          alert("ups, terjadi kesalahan");
+        });
+    };
+    change();
   }, []);
   const handleClickEdit = () => {
-    updateAnggota(data).catch(error => {
-      if (error) {
-        swal("Fill the blank please!");
-      }
-      if (error.response.statusText == "Unauthenticated") {
-        swal(
-          "Ups!",
-          "The token is expired. Refresh the page, please",
-          "warning"
-        );
-      }
-      if (error.response.statusText == "Unauthenticated") {
-        swal(
-          "Ups!",
-          "The token is expired. Refresh the page, please",
-          "warning"
-        );
-      }
-    });
+    const family_id = match.params.id;
+
+    updateAnggota(family_id, user.id, data)
+      .then(() => {
+        props.history.push("/list-anggota");
+      })
+
+      .catch(error => {
+        if (error) {
+          swal("Fill the blank please!");
+        }
+        if (error.response.statusText == "Unauthenticated") {
+          swal(
+            "Ups!",
+            "The token is expired. Refresh the page, please",
+            "warning"
+          );
+        }
+        if (error.response.statusText == "Unauthenticated") {
+          swal(
+            "Ups!",
+            "The token is expired. Refresh the page, please",
+            "warning"
+          );
+        }
+      });
   };
 
   return (
@@ -95,6 +101,7 @@ function EditAnggotaKeluarga(props) {
                     className={classes.textField}
                     type="number"
                     name="nik"
+                    value={data.nik}
                   />
                 </Grid>
                 <Grid item xs={12} className={classes.gridInputNIK}>
@@ -105,6 +112,7 @@ function EditAnggotaKeluarga(props) {
                     className={classes.textField}
                     type="text"
                     name="name"
+                    value={data.name}
                   />
                 </Grid>
 
@@ -117,6 +125,7 @@ function EditAnggotaKeluarga(props) {
                       className={classes.radioGroup}
                       aria-label="gender"
                       onChange={handleChange}
+                      value={data.gender}
                     >
                       <Grid item xs={6}>
                         <FormControlLabel
@@ -150,6 +159,7 @@ function EditAnggotaKeluarga(props) {
                     <KeyboardDatePicker
                       format="MM/dd/yyyy"
                       onChange={handleDateChange}
+                      value={data.date_of_birth}
                       id="standard-password-input"
                       placeholder="Tanggal Lahir"
                       className={classes.textField}
@@ -164,9 +174,10 @@ function EditAnggotaKeluarga(props) {
                   <TextField
                     onChange={handleChange}
                     id="standard-password-input"
-                    label="Tanggal Lahir"
+                    label="Tempat Lahir"
                     className={classes.textField}
                     type="text"
+                    value={data.place_of_birth}
                   />
                 </Grid>
               </Grid>

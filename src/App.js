@@ -51,7 +51,7 @@ function App(props) {
         <Route path="/list-anggota" exact component={ListAnggota} />
         <Route path="/list-anggota/:id" component={DetailKeluarga} />
         <Route
-          path="/edit-profil-keluarga/:id"
+          path="/edit-profil-keluarga/:id/family/:id"
           exact
           component={EditKeluarga}
         />

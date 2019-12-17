@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import AppBar from "../../component/appbar";
@@ -9,17 +9,28 @@ import Call from "../../assets/vector.png";
 import Phone from "../../assets/phone.png";
 import { Typography } from "@material-ui/core";
 import CardDetailDokter from "../../component/card-detail-dokter";
-
+import { getDetailDokter } from "../../services/dokter";
 function DetailDokter(props) {
   const { classes } = props;
-
+  const [detail, setDetail] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    const id = props.match.params.id;
+    const getDetail = async () => {
+      const _detail = await getDetailDokter(id);
+      setDetail(_detail.row);
+      console.log(_detail);
+    };
+    setTimeout(() => setIsLoading(true), 2500);
+    getDetail();
+  }, []);
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="xs" className={classes.container}>
         <AppBar goBack title="Profile Dokter" />
 
-        <Grid container spacing={0}>
+        <Grid container spacing={0} s>
           <Grid item xs={12} className={classes.gridTop}>
             <Grid container spacing={0} className={classes.gridContent}>
               <Grid item xs={12} className={classes.gridItem}>
@@ -29,11 +40,11 @@ function DetailDokter(props) {
                   </Grid>
                   <Grid item xs={9} className={classes.gridName}>
                     <Typography className={classes.name}>
-                      Dr. Jayadi Efendi, SH
+                      {console.log()}
                     </Typography>
-
                     <Typography className={classes.nik}>
-                      Spesialis Gigi
+                      Spesialis
+                      {/* {detail.doctor.nik} */}
                     </Typography>
                   </Grid>
                 </Grid>

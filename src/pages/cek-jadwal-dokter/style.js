@@ -5,7 +5,7 @@ const Style = {
     backgroundSize: "cover"
   },
   gridTop: {
-    height: "200px",
+    height: "100%",
     backgroundColor: "#ffffff"
   },
   content: {
@@ -84,7 +84,6 @@ const Style = {
   gridList: {
     border: "1px solid #FFFFFF",
     width: "96%",
-    // padding: 16,
     borderRadius: "8px",
     backgroundColor: "#FFFFFF",
     justifyContent: "center",
@@ -103,6 +102,48 @@ const Style = {
   },
   spesialis: {
     color: "#9E9E9E"
+  },
+  image: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: "10%"
+  },
+  text: {
+    color: "#9E9E9E",
+    fontSize: "14px",
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "2em"
+  },
+  button: {
+    height: 48,
+    boxShadow: "0px 0px 2px #c1b1b1",
+    borderRadius: "4px",
+    color: "#ffffff",
+    fontSize: "14px",
+    width: "85%"
+  },
+  boxButton: {
+    position: "fixed",
+    bottom: "5%",
+    display: "flex",
+    justifyContent: "center",
+    width: "100%"
+  },
+  hasil: {
+    marginTop: "1.5em",
+    color: "#9E9E9E",
+    fontSize: "12px",
+    display: "flex",
+    flexDirection: "row"
+  },
+  number: {
+    color: "#26CAC0",
+    display: "flex",
+    justifyContent: "center",
+    fontSize: "12px",
+    fontWeight: "bold"
   }
 };
 export default Style;

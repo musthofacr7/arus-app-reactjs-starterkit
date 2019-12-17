@@ -89,8 +89,10 @@ function Riwayat(props) {
                               No Antrian
                             </Typography>
                             <Typography className={classes.input}>
-                              {" "}
-                              12A
+                              {items.queue_number}
+                              {items.counter_id == 1 && "A"}
+                              {items.counter_id == 2 && "B"}
+                              {items.counter_id == 3 && "C"}
                             </Typography>
                           </Grid>
                           <Grid item xs={4} className={classes.itemLoket}>
@@ -98,7 +100,9 @@ function Riwayat(props) {
                               Loket
                             </Typography>
                             <Typography className={classes.input}>
-                              Loket A
+                              Loket {items.counter_id == 1 && "A"}
+                              {items.counter_id == 2 && "B"}
+                              {items.counter_id == 3 && "C"}
                             </Typography>
                           </Grid>
                         </Grid>
@@ -133,7 +137,7 @@ function Riwayat(props) {
                               Tanggal
                             </Typography>
                             <Typography className={classes.input}>
-                              10/11/19
+                              {items.queue_date}
                             </Typography>
                           </Grid>
                           <Grid item xs={4} className={classes.itemContent}>
@@ -141,8 +145,10 @@ function Riwayat(props) {
                               No Antrian
                             </Typography>
                             <Typography className={classes.input}>
-                              {" "}
-                              12A
+                              {items.queue_number}
+                              {items.counter_id == 1 && "A"}
+                              {items.counter_id == 2 && "B"}
+                              {items.counter_id == 3 && "C"}
                             </Typography>
                           </Grid>
                           <Grid item xs={4} className={classes.itemLoket}>
@@ -150,7 +156,9 @@ function Riwayat(props) {
                               Loket
                             </Typography>
                             <Typography className={classes.input}>
-                              Loket A
+                              Loket {items.counter_id == 1 && "A"}
+                              {items.counter_id == 2 && "B"}
+                              {items.counter_id == 3 && "C"}
                             </Typography>
                           </Grid>
                         </Grid>

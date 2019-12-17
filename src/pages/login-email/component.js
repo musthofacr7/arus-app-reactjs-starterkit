@@ -84,8 +84,8 @@ function Login(props) {
       })
       .catch(error => {
         setLoading(false);
-        if (error) {
-          return console.log(error);
+        if (error.response.statusText == "Unauthorized") {
+          return swal("The Email or Password is invalid, Please try again");
         }
       });
   };

@@ -37,7 +37,8 @@ const Style = {
   },
   input: {
     color: "#25282B",
-    fontSize: "14px"
+    fontSize: "14px",
+    paddingLeft: "1em"
   },
   itemContent: {
     display: "flex",

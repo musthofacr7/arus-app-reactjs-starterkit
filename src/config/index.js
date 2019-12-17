@@ -19,14 +19,15 @@ axiosInstance.interceptors.request.use(config => {
 
 axiosInstance.interceptors.response.use(
   function(response) {
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   },
   function(err) {
     console.log(err);
-    console.log(err.response);
-    if (err) {
-      window.location.href = "/login";
+    console.log(err.response.data);
+    if (err.response.data.error == "Unauthorized") {
+      // window.location.href = "/login";
+      console.log("test,");
     }
     return Promise.reject(err);
   }

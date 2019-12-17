@@ -124,7 +124,6 @@ function Login(props) {
               error={errPassword}
               name="password"
               label="Password"
-              style={{ maxWidth: "90%" }}
               type={showPassword ? "text" : "password"}
               autoComplete="current-password"
               onChange={handleChangePassword}

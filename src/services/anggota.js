@@ -9,8 +9,8 @@ export const getDetailAnggota = async (id, user_id) => {
   const response = axiosInstance.get(`users/${user_id}/family/${id}`);
   return response;
 };
-export const updateAnggota = async (id, data) => {
-  const response = axiosInstance.put(`users/${id}/family/${id}`, data);
+export const updateAnggota = async (user_id, id, data) => {
+  const response = axiosInstance.put(`users/${user_id}/family/${id}`, data);
   return response;
 };
 export const deleteAnggota = async (user_id, id) => {

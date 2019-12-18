@@ -24,7 +24,8 @@ axiosInstance.interceptors.response.use(
   },
   function(err) {
     if (err) {
-      // return (window.location.href = "/login");
+      // return alert("token expired, please login again")();
+      // (window.location.href = "/login")
     }
 
     return Promise.reject(err);

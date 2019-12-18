@@ -21,7 +21,13 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 function EditAnggotaKeluarga(props) {
   const { classes, match } = props;
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    name: "",
+    gender: "",
+    nik: parseInt(),
+    date_of_birth: new Date(""),
+    place_of_birth: ""
+  });
   const [isLoading, setIsLoading] = useState(true);
   const handleChange = async e => {
     const newData = { ...data, [e.target.name]: e.target.value };
@@ -51,33 +57,51 @@ function EditAnggotaKeluarga(props) {
     };
     change();
   }, []);
-  const handleClickEdit = () => {
-    const family_id = match.params.id;
+  const handleClickEdit = id => {
+    if (data === null) {
+      return alert("Data Tidak Boleh Kosong");
+    }
+    setIsLoading(true);
 
-    updateAnggota(family_id, user.id, data)
-      .then(() => {
+    const obj = JSON.parse(localStorage.getItem("user"));
+    let user_id = obj.id;
+    const id = match.params.id;
+
+    updateAnggota(user_id, id)
+      .then(res => {
+        console.log(res);
         props.history.push("/list-anggota");
       })
-
       .catch(error => {
-        if (error) {
-          swal("Fill the blank please!");
-        }
-        if (error.response.statusText == "Unauthenticated") {
-          swal(
-            "Ups!",
-            "The token is expired. Refresh the page, please",
-            "warning"
-          );
-        }
-        if (error.response.statusText == "Unauthenticated") {
-          swal(
-            "Ups!",
-            "The token is expired. Refresh the page, please",
-            "warning"
-          );
-        }
+        setIsLoading(false);
+        console.log(error);
       });
+
+    // const user = JSON.parse(localStorage.getItem("user"));
+    // const family_id = match.params.id;
+    // updateAnggota(user.id, family_id)
+    //   .then(() => {
+    //     props.history.push("/list-anggota");
+    //   })
+    //   .catch(error => {
+    //     if (error) {
+    //       swal("Fill the blank please!");
+    //     }
+    //     if (error.response.statusText == "Unauthenticated") {
+    //       swal(
+    //         "Ups!",
+    //         "The token is expired. Refresh the page, please",
+    //         "warning"
+    //       );
+    //     }
+    //     if (error.response.statusText == "Unauthenticated") {
+    //       swal(
+    //         "Ups!",
+    //         "The token is expired. Refresh the page, please",
+    //         "warning"
+    //       );
+    //     }
+    //   });
   };
 
   return (
@@ -129,8 +153,8 @@ function EditAnggotaKeluarga(props) {
                     >
                       <Grid item xs={6}>
                         <FormControlLabel
-                          className={classes.gender}
                           value="male"
+                          className={classes.gender}
                           control={<Radio color="primary" />}
                           label="Laki Laki"
                           name="gender"
@@ -139,8 +163,8 @@ function EditAnggotaKeluarga(props) {
                       </Grid>
                       <Grid item xs={6}>
                         <FormControlLabel
-                          className={classes.gender}
                           value="female"
+                          className={classes.gender}
                           control={<Radio color="primary" />}
                           label="Perempuan"
                           labelPlacement="end"
@@ -152,18 +176,15 @@ function EditAnggotaKeluarga(props) {
                 </Grid>
 
                 <Grid item xs={12} className={classes.gridInputNIK}>
-                  <MuiPickersUtilsProvider
-                    utils={DateFnsUtils}
-                    name="date_of_birth"
-                  >
+                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
                     <KeyboardDatePicker
+                      name="date_of_birth"
                       format="MM/dd/yyyy"
                       onChange={handleDateChange}
                       value={data.date_of_birth}
                       id="standard-password-input"
                       placeholder="Tanggal Lahir"
                       className={classes.textField}
-                      value={data.date_of_birth}
                       KeyboardButtonProps={{
                         "aria-label": "change date"
                       }}
@@ -178,6 +199,7 @@ function EditAnggotaKeluarga(props) {
                     className={classes.textField}
                     type="text"
                     value={data.place_of_birth}
+                    name="place_of_birth"
                   />
                 </Grid>
               </Grid>

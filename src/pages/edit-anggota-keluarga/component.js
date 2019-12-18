@@ -61,21 +61,22 @@ function EditAnggotaKeluarga(props) {
 
       .catch(error => {
         if (error) {
-          swal("Fill the blank please!");
-        }
-        if (error.response.statusText == "Unauthenticated") {
-          swal(
-            "Ups!",
-            "The token is expired. Refresh the page, please",
-            "warning"
-          );
-        }
-        if (error.response.statusText == "Unauthenticated") {
-          swal(
-            "Ups!",
-            "The token is expired. Refresh the page, please",
-            "warning"
-          );
+          console.log(error);
+          //   swal("Fill the blank please!");
+          // }
+          // if (error.response.statusText == "Unauthenticated") {
+          //   swal(
+          //     "Ups!",
+          //     "The token is expired. Refresh the page, please",
+          //     "warning"
+          //   );
+          // }
+          // if (error.response.statusText == "Unauthenticated") {
+          //   swal(
+          //     "Ups!",
+          //     "The token is expired. Refresh the page, please",
+          //     "warning"
+          //   );
         }
       });
   };
